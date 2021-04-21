@@ -1,0 +1,25 @@
+name: string_sims
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - jupyterlab
+  - mdanalysis
+  - mdtraj
+  - nodejs
+  - numpy
+  - pandas
+  - pip
+  - python=3.8.5
+  - scipy
+  - seaborn
+  - tqdm
+  - ipykernel
+  - ipympl
+  - mamba
+  - pip:
+    - datreant
+    - gmxapi==0.2.0a1
+    - nb_black
+    - panedr
+    - nglview

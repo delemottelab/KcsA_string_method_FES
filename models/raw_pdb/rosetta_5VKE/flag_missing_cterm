@@ -1,0 +1,10 @@
+-in:file:s input_files/input.pdb
+-remodel:blueprint input_files/new_sequence.remodel
+
+-run:chain A
+-remodel:num_trajectory 150
+
+-out:path:all output_files
+-out:file:scorefile scorefile.sc
+-ignore_unrecognized_res
+-ignore_zero_occupancy

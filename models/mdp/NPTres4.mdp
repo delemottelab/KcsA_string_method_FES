@@ -1,0 +1,125 @@
+; VARIOUS PREPROCESSING OPTIONS
+; Preprocessor information: use cpp syntax.
+include                  =
+; e.g.: -DPOSRES -DFLEXIBLE (note these variable names are case sensitive)
+;define                   = -DREST_ON -DSTEP6_5
+define                  =   -DPOSRES -DPOSRES_FC_BB=500.0 -DPOSRES_FC_SC=200.0 -DPOSRES_FC_LIPID=200.0 
+
+; RUN CONTROL PARAMETERS
+integrator               = md ; md
+; Start time and timestep in ps
+tinit                    = 0
+dt                       = 0.002
+nsteps                   = 5000000
+; For exact run continuation or redoing part of a run
+init_step                = 0
+; mode for center of mass motion removal
+comm-mode                = Linear
+; number of steps for center of mass motion removal
+nstcomm                  = 100
+; group(s) for center of mass motion removal
+comm-grps                = all
+
+
+
+; OUTPUT CONTROL OPTIONS
+; Output frequency for coords (x), velocities (v) and forces (f)
+nstxout                  = 0
+nstvout                  = 0
+nstfout                  = 0
+; Output frequency for energies to log file and energy file
+nstlog                   = 10000
+nstcalcenergy            = -1
+nstenergy                = 1000
+; Output frequency and precision for .xtc file
+nstxout-compressed                = 10000
+ compressed-x-precision       = 1000
+; This selects the subset of atoms for the .xtc file. You can
+; select multiple groups. By default all atoms will be written.
+;xtc-grps                 = all
+; Selection of energy groups
+energygrps               =
+
+; NEIGHBORSEARCHING PARAMETERS
+cutoff-scheme=Verlet
+; nblist update frequency
+nstlist                  = 10
+; ns algorithm (simple or grid)
+ns_type                  = grid
+; Periodic boundary conditions: xyz, no, xy
+pbc                      = xyz
+periodic_molecules       = no
+
+; OPTIONS FOR ELECTROSTATICS AND VDW
+; Method for doing electrostatics
+coulombtype              = PME
+;rcoulomb-switch          = 1.0
+rcoulomb                 = 1.2
+; Method for doing Van der Waals
+vdw-type                 = Cut-off
+; cut-off lengths
+rvdw-switch              = 1.0
+rvdw                     = 1.2
+vdw-modifier            = Force-switch
+; Apply long range dispersion corrections for Energy and Pressure
+DispCorr                 = no
+; Spacing for the PME/PPPM FFT grid
+fourierspacing           = 0.15
+; EWALD/PME/PPPM parameters
+pme_order                = 4
+ewald_rtol               = 1e-05
+ewald_geometry           = 3d
+epsilon_surface          = 0
+
+
+; OPTIONS FOR WEAK COUPLING ALGORITHMS
+; Temperature coupling
+tcoupl                   = Berendsen
+; Groups to couple separately
+tc-grps                  = protein waters_or_ions lipids
+; Time constant (ps) and reference temperature (K)
+tau-t                    = 0.5 0.5 0.5
+ref-t                    = 290 290 290
+; Pressure coupling
+pcoupl                   = Berendsen
+pcoupltype               = semiisotropic
+nstpcouple               = -1
+; Time constant (ps), compressibility (1/bar) and reference P (bar)
+tau-p                    = 5.0
+compressibility          = 4.5e-5 4.5e-5
+ref-p                    = 1.0 1.0
+; Scaling of reference coordinates, No, All or COM
+refcoord_scaling         = No
+
+
+; GENERATE VELOCITIES FOR STARTUP RUN
+gen_vel                  = yes
+gen-temp                 = 290
+gen-seed                 = -1
+
+; OPTIONS FOR BONDS
+constraints              = h-bonds
+; Type of constraint algorithm
+constraint-algorithm     = Lincs
+; Do not constrain the start configuration
+continuation             = no
+; Highest order in the expansion of the constraint coupling matrix
+lincs-order              = 4
+; Number of iterations in the final step of LINCS. 1 is fine for
+; normal simulations, but use 2 to conserve energy in NVE runs.
+; For energy minimization with constraints it should be 4 to 8.
+lincs-iter               = 1
+; Lincs will write a warning to the stderr if in one step a bond
+; rotates over more degrees than
+lincs-warnangle          = 30
+
+
+; Electric fields
+; Format is number of terms (int) and for all terms an amplitude (real)
+; and a phase angle (real)
+E-x                      =
+E-xt                     =
+E-y                      =
+E-yt                     =
+E-z                      =
+E-zt                     =
