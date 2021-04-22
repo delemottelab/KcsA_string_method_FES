@@ -1,0 +1,11 @@
++ *traj_comp.xtc
++ *step*.*
++ *.mdp
++ *topo.psf
++ *topol.tpr
++ *topol.top
++ *toppar
++ *index.ndx
++ *ener.edr
++ *gromacs.sh
+- */*

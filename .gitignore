@@ -41,4 +41,4 @@ nohup.out
 charmm-gui_*.tgz
 job-*.err
 job-*.out
-data/
+data/interim/*/md/
