@@ -17,18 +17,19 @@ remove_conda:
 	conda remove --name=$(PROJECT_NAME) --all
 
 update_data:
-	 while read a b;do rsync -rauLih --progress --delete --include-from=data/raw/include_list.txt   $$a data/raw/$$b;done < data/raw/dir_list.txt
+	 while read a b;do rsync -rauLih --progress --delete --exclude-from=data/raw/exclude_list.txt   $$a $$b;done < data/raw/dir_list.txt
 	 python  src/data/get_external_data.py
 
 update_data_dry:
-	 while read a b;do rsync -raunLih --delete --include-from=data/raw/include_list.txt   $$a data/raw/$$b;done < data/raw/dir_list.txt
+	 while read a b;do rsync -raunLih --delete --exclude-from=data/raw/exclude_list.txt   $$a $$b;done < data/raw/dir_list.txt
 
 update_data_dry_verbose:
-	 while read a b;do rsync -raunLivvvh --delete --include-from=data/raw/include_list.txt   $$a data/raw/$$b;done < data/raw/dir_list.txt
+	 while read a b;do rsync -raunLivvvh --delete --exclude-from=data/raw/exclude_list.txt   $$a $$b;done < data/raw/dir_list.txt
 
 clean:
 	find . -iname \#* -exec rm {} \;
-	find . -iname "slurm*" -exec rm {} \;
+	find . -iname "slurm*err" -exec rm {} \;
+	find . -iname "slurm*out" -exec rm {} \;
 
 format:
 	black -l 79 .
