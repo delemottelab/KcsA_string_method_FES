@@ -1,0 +1,7 @@
+*/md/0/*/restrained/*cpt
+*/md/0/*/restrained/*log
+*/md/0/*/restrained/*tpr
+*/md/0/*/restrained/*xtc
+*/md/0/*/restrained/*mdp
+*/md/0/*/restrained/*edr
+*/md/0/*/restrained/#*
