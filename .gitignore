@@ -41,7 +41,13 @@ nohup.out
 charmm-gui_*.tgz
 job-*.err
 job-*.out
-data/interim/*/md/
+# data/raw/*/md/*/*/*/*edr
+# data/raw/*/md/*/*/*/*tpr
+# data/raw/*/md/*/*/*/*log
+# data/raw/*/md/*/*/*/*mdp
+# data/raw/*/md/*/*/*/*xvg
+data/raw/*/md/*/*/*/*
+!data/raw/*/md/0/*/*/*gro
 
 steered.err
 
