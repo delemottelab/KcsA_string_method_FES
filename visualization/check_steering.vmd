@@ -7,7 +7,7 @@ proc vmdrestoremymaterials {} {
   set mlist { Opaque Transparent BrushedMetal Diffuse Ghost Glass1 Glass2 Glass3 Glossy HardPlastic MetallicPastel Steel Translucent Edgy EdgyShiny EdgyGlass Goodsell AOShiny AOChalky AOEdgy BlownGlass GlassBubble RTChrome AOTransparent AOBright WaterBox }
   set mymlist [material list]
   foreach mat $mlist {
-    if { [lsearch $mymlist $mat] == -1 } {
+    if { [lsearch $mymlist $mat] == -1 } { 
       material add $mat
     }
   }
@@ -293,15 +293,23 @@ atomselect macro conformationD {altloc "" or altloc "D"}
 atomselect macro conformationE {altloc "" or altloc "E"}
 atomselect macro conformationF {altloc "" or altloc "F"}
 atomselect macro drude {type DRUD or type LP}
-atomselect macro clay {name Mg Al O O_s H Hs Si O_H O_Hs}
-atomselect macro clay_T {name Mg Al O O_s H Hs Si O_H O_Hs and chain T}
-atomselect macro clay_B {name Mg Al O O_s H Hs Si O_H O_Hs and chain B}
-atomselect macro HI {name U Np Pu Am Oyl q_Np O_u H_u OW1 HW1 O_Np H_Np O_Pu H_Pu O_Am H_Am}
-atomselect macro SF {resid 75 to 79 and protein}
-atomselect macro TER {resid 26 121 and protein}
 atomselect macro TM1 {protein and resid 26 to 52}
-atomselect macro PH {protein and resid 62 to 74}
+atomselect macro ICL1 {sequence "KALQ"}
 atomselect macro TM2 {protein and resid 85 to 121}
+atomselect macro ECL1 {sequence "EWKFSR"}
+atomselect macro TM3 {sequence "IHCDIFVTLDVMMCTASILNLCAISIDRYTAVAM"}
+atomselect macro ICL2 {sequence "PMLYNT"}
+atomselect macro TM4 {sequence "RYSSKRRVTVMISIVWVLSFTISCPLLFG"}
+atomselect macro ECL2 {sequence "LNNADQNECIIA"}
+atomselect macro TM5 {sequence "NPAFVVYSSIVSFYVPFIVTLLVYIKIYIVLRRRR(KRVNTK)?"}
+atomselect macro ICL3 {sequence "RSSRAFRAHLRAPLKGNCTHPEDMKLCTVIMKSNGSFPVNRRRVEAARRAQELEMEMLSSTSPPERTRYSPIPPSHHQLTLPDPSHHGLHSTPDSPAKPEKNGHAKDHPKIAKIFEIQTMPNGKTRTSLKTMSRR"}
+atomselect macro TM6 {sequence "KLSQQKEKKATQMLAIVLGVFIICWLPFFITHILNIHC"}
+atomselect macro ECL3 {sequence "DCNIP"}
+atomselect macro TM7 {sequence "PVLYSAFTWLGYVNSAVNPIIYTTFN"}
+atomselect macro TM8 {sequence "IEFRKAFLKILHC"}
+atomselect macro SF {resid 75 to 79 and protein}
+atomselect macro PH {protein and resid 62 to 74}
+atomselect macro M2 {protein and resid 85 to 121}
 atomselect macro lb {resname DOPG and resid 128 129 130 131 132}
 atomselect macro backboneh {backbone or (protein and name HN)}
 atomselect macro nohp {(noh or (name ".*H.*" and within 1.25 of element O N S")) and not waters}
@@ -313,6 +321,11 @@ atomselect macro qwikmd_nucleic {(not name QWIKMDDELETE and nucleic)}
 atomselect macro qwikmd_glycan {(not name QWIKMDDELETE and glycan)}
 atomselect macro qwikmd_lipid {(not name QWIKMDDELETE and lipid)}
 atomselect macro qwikmd_hetero {(not name QWIKMDDELETE and hetero and not qwikmd_protein and not qwikmd_lipid and not qwikmd_nucleic and not qwikmd_glycan and not water)}
+atomselect macro clay {name Mg Al O O_s H Hs Si O_H O_Hs}
+atomselect macro clay_T {name Mg Al O O_s H Hs Si O_H O_Hs and chain T}
+atomselect macro clay_B {name Mg Al O O_s H Hs Si O_H O_Hs and chain B}
+atomselect macro HI {name U Np Pu Am Oyl q_Np O_u H_u OW1 HW1 O_Np H_Np O_Pu H_Pu O_Am H_Am}
+atomselect macro TER {resid 26 121 and protein}
 # Display settings
 display eyesep       0.065000
 display focallength  2.000000
@@ -349,47 +362,6 @@ mol smoothrep top 0 0
 mol drawframes top 0 {now}
 mol clipplane center 0 0 top {0.0 0.0 0.0}
 mol clipplane color  0 0 top {0.5 0.5 0.5 }
-mol clipplane normal 0 0 top {0.0 0.0 1.0000001192092896}
-mol clipplane status 0 0 top {0}
-mol clipplane center 1 0 top {0.0 0.0 0.0}
-mol clipplane color  1 0 top {0.5 0.5 0.5 }
-mol clipplane normal 1 0 top {0.0 0.0 1.0000001192092896}
-mol clipplane status 1 0 top {0}
-mol clipplane center 2 0 top {0.0 0.0 0.0}
-mol clipplane color  2 0 top {0.5 0.5 0.5 }
-mol clipplane normal 2 0 top {0.0 0.0 1.0000001192092896}
-mol clipplane status 2 0 top {0}
-mol clipplane center 3 0 top {0.0 0.0 0.0}
-mol clipplane color  3 0 top {0.5 0.5 0.5 }
-mol clipplane normal 3 0 top {0.0 0.0 1.0000001192092896}
-mol clipplane status 3 0 top {0}
-mol clipplane center 4 0 top {0.0 0.0 0.0}
-mol clipplane color  4 0 top {0.5 0.5 0.5 }
-mol clipplane normal 4 0 top {0.0 0.0 1.0000001192092896}
-mol clipplane status 4 0 top {0}
-mol clipplane center 5 0 top {0.0 0.0 0.0}
-mol clipplane color  5 0 top {0.5 0.5 0.5 }
-mol clipplane normal 5 0 top {0.0 0.0 1.0000001192092896}
-mol clipplane status 5 0 top {0}
-mol rename top 5VKH.pdb
-molinfo top set drawn 0
-set viewpoints([molinfo top]) {{{1 0 0 -39.6812} {0 1 0 -39.6202} {0 0 1 -44.4286} {0 0 0 1}} {{0.528634 0.848673 0.0164812 0} {-0.0118559 -0.0120306 0.999864 0} {0.848749 -0.528755 0.00370377 0} {0 0 0 1}} {{0.0458831 0 0 0} {0 0.0458831 0 0} {0 0 0.0458831 0} {0 0 0 1}} {{1 0 0 0} {0 1 0 0} {0 0 1 0} {0 0 0 1}}}
-lappend viewplist [molinfo top]
-# done with molecule 0
-mol new ../models/raw_pdb/3FB5.pdb type pdb first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol delrep 0 top
-mol representation NewRibbons 0.300000 12.000000 3.000000 0
-mol color Molecule
-mol selection {all}
-mol material Opaque
-mol addrep top
-mol selupdate 0 top 0
-mol colupdate 0 top 0
-mol scaleminmax top 0 0.000000 0.000000
-mol smoothrep top 0 0
-mol drawframes top 0 {now}
-mol clipplane center 0 0 top {0.0 0.0 0.0}
-mol clipplane color  0 0 top {0.5 0.5 0.5 }
 mol clipplane normal 0 0 top {0.0 0.0 1.0}
 mol clipplane status 0 0 top {0}
 mol clipplane center 1 0 top {0.0 0.0 0.0}
@@ -412,91 +384,10 @@ mol clipplane center 5 0 top {0.0 0.0 0.0}
 mol clipplane color  5 0 top {0.5 0.5 0.5 }
 mol clipplane normal 5 0 top {0.0 0.0 1.0}
 mol clipplane status 5 0 top {0}
-mol rename top 3FB5.pdb
-molinfo top set drawn 0
-set viewpoints([molinfo top]) {{{1 0 0 -39.6812} {0 1 0 -39.6202} {0 0 1 -44.4286} {0 0 0 1}} {{0.528634 0.848673 0.0164812 0} {-0.0118559 -0.0120306 0.999864 0} {0.848749 -0.528755 0.00370377 0} {0 0 0 1}} {{0.0458831 0 0 0} {0 0.0458831 0 0} {0 0 0.0458831 0} {0 0 0 1}} {{1 0 0 0} {0 1 0 0} {0 0 1 0} {0 0 0 1}}}
-lappend viewplist [molinfo top]
-# done with molecule 1
-mol new ../models/raw_pdb/5VK6.pdb type pdb first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol delrep 0 top
-mol representation NewRibbons 0.300000 12.000000 3.000000 0
-mol color Molecule
-mol selection {all}
-mol material Opaque
-mol addrep top
-mol selupdate 0 top 0
-mol colupdate 0 top 0
-mol scaleminmax top 0 0.000000 0.000000
-mol smoothrep top 0 0
-mol drawframes top 0 {now}
-mol clipplane center 0 0 top {0.0 0.0 0.0}
-mol clipplane color  0 0 top {0.5 0.5 0.5 }
-mol clipplane normal 0 0 top {0.0 0.0 1.0}
-mol clipplane status 0 0 top {0}
-mol clipplane center 1 0 top {0.0 0.0 0.0}
-mol clipplane color  1 0 top {0.5 0.5 0.5 }
-mol clipplane normal 1 0 top {0.0 0.0 1.0}
-mol clipplane status 1 0 top {0}
-mol clipplane center 2 0 top {0.0 0.0 0.0}
-mol clipplane color  2 0 top {0.5 0.5 0.5 }
-mol clipplane normal 2 0 top {0.0 0.0 1.0}
-mol clipplane status 2 0 top {0}
-mol clipplane center 3 0 top {0.0 0.0 0.0}
-mol clipplane color  3 0 top {0.5 0.5 0.5 }
-mol clipplane normal 3 0 top {0.0 0.0 1.0}
-mol clipplane status 3 0 top {0}
-mol clipplane center 4 0 top {0.0 0.0 0.0}
-mol clipplane color  4 0 top {0.5 0.5 0.5 }
-mol clipplane normal 4 0 top {0.0 0.0 1.0}
-mol clipplane status 4 0 top {0}
-mol clipplane center 5 0 top {0.0 0.0 0.0}
-mol clipplane color  5 0 top {0.5 0.5 0.5 }
-mol clipplane normal 5 0 top {0.0 0.0 1.0}
-mol clipplane status 5 0 top {0}
-mol rename top 5VK6.pdb
-molinfo top set drawn 0
-set viewpoints([molinfo top]) {{{1 0 0 -39.6812} {0 1 0 -39.6202} {0 0 1 -44.4286} {0 0 0 1}} {{0.528634 0.848673 0.0164812 0} {-0.0118559 -0.0120306 0.999864 0} {0.848749 -0.528755 0.00370377 0} {0 0 0 1}} {{0.0458831 0 0 0} {0 0.0458831 0 0} {0 0 0.0458831 0} {0 0 0 1}} {{1 0 0 0} {0 1 0 0} {0 0 1 0} {0 0 0 1}}}
-lappend viewplist [molinfo top]
-# done with molecule 2
-mol new ../models/raw_pdb/5VKE.pdb type pdb first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol delrep 0 top
-mol representation NewRibbons 0.300000 12.000000 3.000000 0
-mol color Molecule
-mol selection {all}
-mol material Opaque
-mol addrep top
-mol selupdate 0 top 0
-mol colupdate 0 top 0
-mol scaleminmax top 0 0.000000 0.000000
-mol smoothrep top 0 0
-mol drawframes top 0 {now}
-mol clipplane center 0 0 top {0.0 0.0 0.0}
-mol clipplane color  0 0 top {0.5 0.5 0.5 }
-mol clipplane normal 0 0 top {0.0 0.0 1.0}
-mol clipplane status 0 0 top {0}
-mol clipplane center 1 0 top {0.0 0.0 0.0}
-mol clipplane color  1 0 top {0.5 0.5 0.5 }
-mol clipplane normal 1 0 top {0.0 0.0 1.0}
-mol clipplane status 1 0 top {0}
-mol clipplane center 2 0 top {0.0 0.0 0.0}
-mol clipplane color  2 0 top {0.5 0.5 0.5 }
-mol clipplane normal 2 0 top {0.0 0.0 1.0}
-mol clipplane status 2 0 top {0}
-mol clipplane center 3 0 top {0.0 0.0 0.0}
-mol clipplane color  3 0 top {0.5 0.5 0.5 }
-mol clipplane normal 3 0 top {0.0 0.0 1.0}
-mol clipplane status 3 0 top {0}
-mol clipplane center 4 0 top {0.0 0.0 0.0}
-mol clipplane color  4 0 top {0.5 0.5 0.5 }
-mol clipplane normal 4 0 top {0.0 0.0 1.0}
-mol clipplane status 4 0 top {0}
-mol clipplane center 5 0 top {0.0 0.0 0.0}
-mol clipplane color  5 0 top {0.5 0.5 0.5 }
-mol clipplane normal 5 0 top {0.0 0.0 1.0}
-mol clipplane status 5 0 top {0}
+mol showrep top 0 0
 mol representation Licorice 0.300000 12.000000 12.000000
 mol color Molecule
-mol selection {backboneh and SF}
+mol selection {resid 71 80 81 82 67 68 103 78 76 79 74 75 100 101 107 and nohp}
 mol material Opaque
 mol addrep top
 mol selupdate 1 top 0
@@ -528,54 +419,20 @@ mol clipplane center 5 1 top {0.0 0.0 0.0}
 mol clipplane color  5 1 top {0.5 0.5 0.5 }
 mol clipplane normal 5 1 top {0.0 0.0 1.0}
 mol clipplane status 5 1 top {0}
-mol rename top 5VKE.pdb
-molinfo top set drawn 0
-set viewpoints([molinfo top]) {{{1 0 0 -39.6812} {0 1 0 -39.6202} {0 0 1 -44.4286} {0 0 0 1}} {{0.528634 0.848673 0.0164812 0} {-0.0118559 -0.0120306 0.999864 0} {0.848749 -0.528755 0.00370377 0} {0 0 0 1}} {{0.0458831 0 0 0} {0 0.0458831 0 0} {0 0 0.0458831 0} {0 0 0 1}} {{1 0 0 0} {0 1 0 0} {0 0 1 0} {0 0 0 1}}}
+mol rename top 5VKH.pdb
+set viewpoints([molinfo top]) {{{1 0 0 -36.965} {0 1 0 -35.8786} {0 0 1 -56.6398} {0 0 0 1}} {{0.00131528 0.991531 -0.130192 0} {0.0648326 0.129846 0.989496 0} {0.997932 -0.0097435 -0.0640987 0} {0 0 0 1}} {{0.084308 0 0 0} {0 0.084308 0 0} {0 0 0.084308 0} {0 0 0 1}} {{1 0 0 0} {0 1 0 0} {0 0 1 0} {0 0 0 1}}}
 lappend viewplist [molinfo top]
-# done with molecule 3
-mol new ../data/interim/I2C_lb_v1/md/0/0/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/interim/I2C_lb_v1/md/0/1/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/interim/I2C_lb_v1/md/0/2/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/interim/I2C_lb_v1/md/0/3/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/interim/I2C_lb_v1/md/0/4/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/interim/I2C_lb_v1/md/0/5/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/interim/I2C_lb_v1/md/0/6/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/interim/I2C_lb_v1/md/0/7/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/interim/I2C_lb_v1/md/0/8/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/interim/I2C_lb_v1/md/0/9/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/interim/I2C_lb_v1/md/0/10/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/interim/I2C_lb_v1/md/0/11/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/interim/I2C_lb_v1/md/0/12/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/interim/I2C_lb_v1/md/0/13/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/interim/I2C_lb_v1/md/0/14/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/interim/I2C_lb_v1/md/0/15/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/interim/I2C_lb_v1/md/0/16/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/interim/I2C_lb_v1/md/0/17/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/interim/I2C_lb_v1/md/0/18/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/interim/I2C_lb_v1/md/0/19/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/interim/I2C_lb_v1/md/0/20/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/interim/I2C_lb_v1/md/0/21/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/interim/I2C_lb_v1/md/0/22/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/interim/I2C_lb_v1/md/0/23/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/interim/I2C_lb_v1/md/0/24/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/interim/I2C_lb_v1/md/0/25/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/interim/I2C_lb_v1/md/0/26/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/interim/I2C_lb_v1/md/0/27/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/interim/I2C_lb_v1/md/0/28/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/interim/I2C_lb_v1/md/0/29/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/interim/I2C_lb_v1/md/0/30/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/interim/I2C_lb_v1/md/0/31/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/interim/I2C_lb_v1/md/0/32/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/interim/I2C_lb_v1/md/0/33/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+# done with molecule 0
+mol new ../models/raw_pdb/3FB5.pdb type pdb first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
 mol delrep 0 top
 mol representation NewRibbons 0.300000 12.000000 3.000000 0
-mol color Fragment
+mol color Molecule
 mol selection {all}
-mol material Transparent
+mol material Opaque
 mol addrep top
-mol selupdate 0 top 1
+mol selupdate 0 top 0
 mol colupdate 0 top 0
-mol scaleminmax top 0 0.000000 4.000000
+mol scaleminmax top 0 0.000000 0.000000
 mol smoothrep top 0 0
 mol drawframes top 0 {now}
 mol clipplane center 0 0 top {0.0 0.0 0.0}
@@ -603,11 +460,11 @@ mol clipplane color  5 0 top {0.5 0.5 0.5 }
 mol clipplane normal 5 0 top {0.0 0.0 1.0000001192092896}
 mol clipplane status 5 0 top {0}
 mol representation Licorice 0.300000 12.000000 12.000000
-mol color Name
-mol selection {waters and within 3 of protein}
-mol material Transparent
+mol color Molecule
+mol selection {resid 71 80 81 82 67 68 103 78 76 79 74 75 100 101 107 and nohp}
+mol material Opaque
 mol addrep top
-mol selupdate 1 top 1
+mol selupdate 1 top 0
 mol colupdate 1 top 0
 mol scaleminmax top 1 0.000000 0.000000
 mol smoothrep top 1 0
@@ -636,8 +493,400 @@ mol clipplane center 5 1 top {0.0 0.0 0.0}
 mol clipplane color  5 1 top {0.5 0.5 0.5 }
 mol clipplane normal 5 1 top {0.0 0.0 1.0}
 mol clipplane status 5 1 top {0}
+mol rename top 3FB5.pdb
+set viewpoints([molinfo top]) {{{1 0 0 -36.965} {0 1 0 -35.8786} {0 0 1 -56.6398} {0 0 0 1}} {{0.00131528 0.991531 -0.130192 0} {0.0648326 0.129846 0.989496 0} {0.997932 -0.0097435 -0.0640987 0} {0 0 0 1}} {{0.084308 0 0 0} {0 0.084308 0 0} {0 0 0.084308 0} {0 0 0 1}} {{1 0 0 0} {0 1 0 0} {0 0 1 0} {0 0 0 1}}}
+lappend viewplist [molinfo top]
+# done with molecule 1
+mol new ../models/raw_pdb/5VK6.pdb type pdb first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol delrep 0 top
+mol representation NewRibbons 0.300000 12.000000 3.000000 0
+mol color Molecule
+mol selection {all}
+mol material Opaque
+mol addrep top
+mol selupdate 0 top 0
+mol colupdate 0 top 0
+mol scaleminmax top 0 0.000000 0.000000
+mol smoothrep top 0 0
+mol drawframes top 0 {now}
+mol clipplane center 0 0 top {0.0 0.0 0.0}
+mol clipplane color  0 0 top {0.5 0.5 0.5 }
+mol clipplane normal 0 0 top {0.0 0.0 1.0000001192092896}
+mol clipplane status 0 0 top {0}
+mol clipplane center 1 0 top {0.0 0.0 0.0}
+mol clipplane color  1 0 top {0.5 0.5 0.5 }
+mol clipplane normal 1 0 top {0.0 0.0 1.0000001192092896}
+mol clipplane status 1 0 top {0}
+mol clipplane center 2 0 top {0.0 0.0 0.0}
+mol clipplane color  2 0 top {0.5 0.5 0.5 }
+mol clipplane normal 2 0 top {0.0 0.0 1.0000001192092896}
+mol clipplane status 2 0 top {0}
+mol clipplane center 3 0 top {0.0 0.0 0.0}
+mol clipplane color  3 0 top {0.5 0.5 0.5 }
+mol clipplane normal 3 0 top {0.0 0.0 1.0000001192092896}
+mol clipplane status 3 0 top {0}
+mol clipplane center 4 0 top {0.0 0.0 0.0}
+mol clipplane color  4 0 top {0.5 0.5 0.5 }
+mol clipplane normal 4 0 top {0.0 0.0 1.0000001192092896}
+mol clipplane status 4 0 top {0}
+mol clipplane center 5 0 top {0.0 0.0 0.0}
+mol clipplane color  5 0 top {0.5 0.5 0.5 }
+mol clipplane normal 5 0 top {0.0 0.0 1.0000001192092896}
+mol clipplane status 5 0 top {0}
+mol showrep top 0 0
+mol representation Licorice 0.300000 12.000000 12.000000
+mol color Molecule
+mol selection {resid 71 80 81 82 67 68 103 78 76 79 74 75 100 101 107 and nohp}
+mol material Opaque
+mol addrep top
+mol selupdate 1 top 0
+mol colupdate 1 top 0
+mol scaleminmax top 1 0.000000 0.000000
+mol smoothrep top 1 0
+mol drawframes top 1 {now}
+mol clipplane center 0 1 top {0.0 0.0 0.0}
+mol clipplane color  0 1 top {0.5 0.5 0.5 }
+mol clipplane normal 0 1 top {0.0 0.0 1.0}
+mol clipplane status 0 1 top {0}
+mol clipplane center 1 1 top {0.0 0.0 0.0}
+mol clipplane color  1 1 top {0.5 0.5 0.5 }
+mol clipplane normal 1 1 top {0.0 0.0 1.0}
+mol clipplane status 1 1 top {0}
+mol clipplane center 2 1 top {0.0 0.0 0.0}
+mol clipplane color  2 1 top {0.5 0.5 0.5 }
+mol clipplane normal 2 1 top {0.0 0.0 1.0}
+mol clipplane status 2 1 top {0}
+mol clipplane center 3 1 top {0.0 0.0 0.0}
+mol clipplane color  3 1 top {0.5 0.5 0.5 }
+mol clipplane normal 3 1 top {0.0 0.0 1.0}
+mol clipplane status 3 1 top {0}
+mol clipplane center 4 1 top {0.0 0.0 0.0}
+mol clipplane color  4 1 top {0.5 0.5 0.5 }
+mol clipplane normal 4 1 top {0.0 0.0 1.0}
+mol clipplane status 4 1 top {0}
+mol clipplane center 5 1 top {0.0 0.0 0.0}
+mol clipplane color  5 1 top {0.5 0.5 0.5 }
+mol clipplane normal 5 1 top {0.0 0.0 1.0}
+mol clipplane status 5 1 top {0}
+mol rename top 5VK6.pdb
+set viewpoints([molinfo top]) {{{1 0 0 -36.965} {0 1 0 -35.8786} {0 0 1 -56.6398} {0 0 0 1}} {{0.00131528 0.991531 -0.130192 0} {0.0648326 0.129846 0.989496 0} {0.997932 -0.0097435 -0.0640987 0} {0 0 0 1}} {{0.084308 0 0 0} {0 0.084308 0 0} {0 0 0.084308 0} {0 0 0 1}} {{1 0 0 0} {0 1 0 0} {0 0 1 0} {0 0 0 1}}}
+lappend viewplist [molinfo top]
+# done with molecule 2
+mol new ../models/raw_pdb/5VKE.pdb type pdb first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol delrep 0 top
+mol representation NewRibbons 0.300000 12.000000 3.000000 0
+mol color Molecule
+mol selection {all}
+mol material Opaque
+mol addrep top
+mol selupdate 0 top 0
+mol colupdate 0 top 0
+mol scaleminmax top 0 0.000000 0.000000
+mol smoothrep top 0 0
+mol drawframes top 0 {now}
+mol clipplane center 0 0 top {0.0 0.0 0.0}
+mol clipplane color  0 0 top {0.5 0.5 0.5 }
+mol clipplane normal 0 0 top {0.0 0.0 1.0000001192092896}
+mol clipplane status 0 0 top {0}
+mol clipplane center 1 0 top {0.0 0.0 0.0}
+mol clipplane color  1 0 top {0.5 0.5 0.5 }
+mol clipplane normal 1 0 top {0.0 0.0 1.0000001192092896}
+mol clipplane status 1 0 top {0}
+mol clipplane center 2 0 top {0.0 0.0 0.0}
+mol clipplane color  2 0 top {0.5 0.5 0.5 }
+mol clipplane normal 2 0 top {0.0 0.0 1.0000001192092896}
+mol clipplane status 2 0 top {0}
+mol clipplane center 3 0 top {0.0 0.0 0.0}
+mol clipplane color  3 0 top {0.5 0.5 0.5 }
+mol clipplane normal 3 0 top {0.0 0.0 1.0000001192092896}
+mol clipplane status 3 0 top {0}
+mol clipplane center 4 0 top {0.0 0.0 0.0}
+mol clipplane color  4 0 top {0.5 0.5 0.5 }
+mol clipplane normal 4 0 top {0.0 0.0 1.0000001192092896}
+mol clipplane status 4 0 top {0}
+mol clipplane center 5 0 top {0.0 0.0 0.0}
+mol clipplane color  5 0 top {0.5 0.5 0.5 }
+mol clipplane normal 5 0 top {0.0 0.0 1.0000001192092896}
+mol clipplane status 5 0 top {0}
+mol representation Licorice 0.300000 12.000000 12.000000
+mol color Molecule
+mol selection {backboneh and SF}
+mol material Opaque
+mol addrep top
+mol selupdate 1 top 0
+mol colupdate 1 top 0
+mol scaleminmax top 1 0.000000 0.000000
+mol smoothrep top 1 0
+mol drawframes top 1 {now}
+mol clipplane center 0 1 top {0.0 0.0 0.0}
+mol clipplane color  0 1 top {0.5 0.5 0.5 }
+mol clipplane normal 0 1 top {0.0 0.0 1.0000001192092896}
+mol clipplane status 0 1 top {0}
+mol clipplane center 1 1 top {0.0 0.0 0.0}
+mol clipplane color  1 1 top {0.5 0.5 0.5 }
+mol clipplane normal 1 1 top {0.0 0.0 1.0000001192092896}
+mol clipplane status 1 1 top {0}
+mol clipplane center 2 1 top {0.0 0.0 0.0}
+mol clipplane color  2 1 top {0.5 0.5 0.5 }
+mol clipplane normal 2 1 top {0.0 0.0 1.0000001192092896}
+mol clipplane status 2 1 top {0}
+mol clipplane center 3 1 top {0.0 0.0 0.0}
+mol clipplane color  3 1 top {0.5 0.5 0.5 }
+mol clipplane normal 3 1 top {0.0 0.0 1.0000001192092896}
+mol clipplane status 3 1 top {0}
+mol clipplane center 4 1 top {0.0 0.0 0.0}
+mol clipplane color  4 1 top {0.5 0.5 0.5 }
+mol clipplane normal 4 1 top {0.0 0.0 1.0000001192092896}
+mol clipplane status 4 1 top {0}
+mol clipplane center 5 1 top {0.0 0.0 0.0}
+mol clipplane color  5 1 top {0.5 0.5 0.5 }
+mol clipplane normal 5 1 top {0.0 0.0 1.0000001192092896}
+mol clipplane status 5 1 top {0}
+mol representation Licorice 0.300000 12.000000 12.000000
+mol color Molecule
+mol selection {resid 71 80 81 82 67 68 103 78 76 79 74 75 100 101 107 and nohp}
+mol material Opaque
+mol addrep top
+mol selupdate 2 top 0
+mol colupdate 2 top 0
+mol scaleminmax top 2 0.000000 0.000000
+mol smoothrep top 2 0
+mol drawframes top 2 {now}
+mol clipplane center 0 2 top {0.0 0.0 0.0}
+mol clipplane color  0 2 top {0.5 0.5 0.5 }
+mol clipplane normal 0 2 top {0.0 0.0 1.0}
+mol clipplane status 0 2 top {0}
+mol clipplane center 1 2 top {0.0 0.0 0.0}
+mol clipplane color  1 2 top {0.5 0.5 0.5 }
+mol clipplane normal 1 2 top {0.0 0.0 1.0}
+mol clipplane status 1 2 top {0}
+mol clipplane center 2 2 top {0.0 0.0 0.0}
+mol clipplane color  2 2 top {0.5 0.5 0.5 }
+mol clipplane normal 2 2 top {0.0 0.0 1.0}
+mol clipplane status 2 2 top {0}
+mol clipplane center 3 2 top {0.0 0.0 0.0}
+mol clipplane color  3 2 top {0.5 0.5 0.5 }
+mol clipplane normal 3 2 top {0.0 0.0 1.0}
+mol clipplane status 3 2 top {0}
+mol clipplane center 4 2 top {0.0 0.0 0.0}
+mol clipplane color  4 2 top {0.5 0.5 0.5 }
+mol clipplane normal 4 2 top {0.0 0.0 1.0}
+mol clipplane status 4 2 top {0}
+mol clipplane center 5 2 top {0.0 0.0 0.0}
+mol clipplane color  5 2 top {0.5 0.5 0.5 }
+mol clipplane normal 5 2 top {0.0 0.0 1.0}
+mol clipplane status 5 2 top {0}
+mol rename top 5VKE.pdb
+set viewpoints([molinfo top]) {{{1 0 0 -36.965} {0 1 0 -35.8786} {0 0 1 -56.6398} {0 0 0 1}} {{0.00131528 0.991531 -0.130192 0} {0.0648326 0.129846 0.989496 0} {0.997932 -0.0097435 -0.0640987 0} {0 0 0 1}} {{0.084308 0 0 0} {0 0.084308 0 0} {0 0 0.084308 0} {0 0 0 1}} {{1 0 0 0} {0 1 0 0} {0 0 1 0} {0 0 0 1}}}
+lappend viewplist [molinfo top]
+# done with molecule 3
+mol new ../data/raw/C2I_lb_v0/md/0/0/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/C2I_lb_v0/md/0/1/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/C2I_lb_v0/md/0/2/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/C2I_lb_v0/md/0/3/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/C2I_lb_v0/md/0/4/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/C2I_lb_v0/md/0/5/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/C2I_lb_v0/md/0/6/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/C2I_lb_v0/md/0/7/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/C2I_lb_v0/md/0/8/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/C2I_lb_v0/md/0/9/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/C2I_lb_v0/md/0/10/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/C2I_lb_v0/md/0/11/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/C2I_lb_v0/md/0/12/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/C2I_lb_v0/md/0/13/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/C2I_lb_v0/md/0/14/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/C2I_lb_v0/md/0/15/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/C2I_lb_v0/md/0/16/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/C2I_lb_v0/md/0/17/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/C2I_lb_v0/md/0/18/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/C2I_lb_v0/md/0/19/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/C2I_lb_v0/md/0/20/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/C2I_lb_v0/md/0/21/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/C2I_lb_v0/md/0/22/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/C2I_lb_v0/md/0/23/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/C2I_lb_v0/md/0/24/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/C2I_lb_v0/md/0/25/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/C2I_lb_v0/md/0/26/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/C2I_lb_v0/md/0/27/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/C2I_lb_v0/md/0/28/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/C2I_lb_v0/md/0/29/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/C2I_lb_v0/md/0/30/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/C2I_lb_v0/md/0/31/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/C2I_lb_v0/md/0/32/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/C2I_lb_v0/md/0/33/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol delrep 0 top
+mol representation NewRibbons 0.300000 12.000000 3.000000 0
+mol color Fragment
+mol selection {all}
+mol material Transparent
+mol addrep top
+mol selupdate 0 top 1
+mol colupdate 0 top 0
+mol scaleminmax top 0 0.000000 4.000000
+mol smoothrep top 0 0
+mol drawframes top 0 {now}
+mol clipplane center 0 0 top {0.0 0.0 0.0}
+mol clipplane color  0 0 top {0.5 0.5 0.5 }
+mol clipplane normal 0 0 top {0.0 0.0 1.0}
+mol clipplane status 0 0 top {0}
+mol clipplane center 1 0 top {0.0 0.0 0.0}
+mol clipplane color  1 0 top {0.5 0.5 0.5 }
+mol clipplane normal 1 0 top {0.0 0.0 1.0}
+mol clipplane status 1 0 top {0}
+mol clipplane center 2 0 top {0.0 0.0 0.0}
+mol clipplane color  2 0 top {0.5 0.5 0.5 }
+mol clipplane normal 2 0 top {0.0 0.0 1.0}
+mol clipplane status 2 0 top {0}
+mol clipplane center 3 0 top {0.0 0.0 0.0}
+mol clipplane color  3 0 top {0.5 0.5 0.5 }
+mol clipplane normal 3 0 top {0.0 0.0 1.0}
+mol clipplane status 3 0 top {0}
+mol clipplane center 4 0 top {0.0 0.0 0.0}
+mol clipplane color  4 0 top {0.5 0.5 0.5 }
+mol clipplane normal 4 0 top {0.0 0.0 1.0}
+mol clipplane status 4 0 top {0}
+mol clipplane center 5 0 top {0.0 0.0 0.0}
+mol clipplane color  5 0 top {0.5 0.5 0.5 }
+mol clipplane normal 5 0 top {0.0 0.0 1.0}
+mol clipplane status 5 0 top {0}
+mol representation Licorice 0.300000 12.000000 12.000000
+mol color Name
+mol selection {waters and within 5 of SF}
+mol material Opaque
+mol addrep top
+mol selupdate 1 top 1
+mol colupdate 1 top 0
+mol scaleminmax top 1 0.000000 0.000000
+mol smoothrep top 1 0
+mol drawframes top 1 {now}
+mol clipplane center 0 1 top {0.0 0.0 0.0}
+mol clipplane color  0 1 top {0.5 0.5 0.5 }
+mol clipplane normal 0 1 top {0.0 0.0 1.0000001192092896}
+mol clipplane status 0 1 top {0}
+mol clipplane center 1 1 top {0.0 0.0 0.0}
+mol clipplane color  1 1 top {0.5 0.5 0.5 }
+mol clipplane normal 1 1 top {0.0 0.0 1.0000001192092896}
+mol clipplane status 1 1 top {0}
+mol clipplane center 2 1 top {0.0 0.0 0.0}
+mol clipplane color  2 1 top {0.5 0.5 0.5 }
+mol clipplane normal 2 1 top {0.0 0.0 1.0000001192092896}
+mol clipplane status 2 1 top {0}
+mol clipplane center 3 1 top {0.0 0.0 0.0}
+mol clipplane color  3 1 top {0.5 0.5 0.5 }
+mol clipplane normal 3 1 top {0.0 0.0 1.0000001192092896}
+mol clipplane status 3 1 top {0}
+mol clipplane center 4 1 top {0.0 0.0 0.0}
+mol clipplane color  4 1 top {0.5 0.5 0.5 }
+mol clipplane normal 4 1 top {0.0 0.0 1.0000001192092896}
+mol clipplane status 4 1 top {0}
+mol clipplane center 5 1 top {0.0 0.0 0.0}
+mol clipplane color  5 1 top {0.5 0.5 0.5 }
+mol clipplane normal 5 1 top {0.0 0.0 1.0000001192092896}
+mol clipplane status 5 1 top {0}
+mol representation VDW 1.000000 12.000000
+mol color Name
+mol selection {ions}
+mol material Opaque
+mol addrep top
+mol selupdate 2 top 0
+mol colupdate 2 top 0
+mol scaleminmax top 2 0.000000 0.000000
+mol smoothrep top 2 0
+mol drawframes top 2 {now}
+mol clipplane center 0 2 top {0.0 0.0 0.0}
+mol clipplane color  0 2 top {0.5 0.5 0.5 }
+mol clipplane normal 0 2 top {0.0 0.0 1.0}
+mol clipplane status 0 2 top {0}
+mol clipplane center 1 2 top {0.0 0.0 0.0}
+mol clipplane color  1 2 top {0.5 0.5 0.5 }
+mol clipplane normal 1 2 top {0.0 0.0 1.0}
+mol clipplane status 1 2 top {0}
+mol clipplane center 2 2 top {0.0 0.0 0.0}
+mol clipplane color  2 2 top {0.5 0.5 0.5 }
+mol clipplane normal 2 2 top {0.0 0.0 1.0}
+mol clipplane status 2 2 top {0}
+mol clipplane center 3 2 top {0.0 0.0 0.0}
+mol clipplane color  3 2 top {0.5 0.5 0.5 }
+mol clipplane normal 3 2 top {0.0 0.0 1.0}
+mol clipplane status 3 2 top {0}
+mol clipplane center 4 2 top {0.0 0.0 0.0}
+mol clipplane color  4 2 top {0.5 0.5 0.5 }
+mol clipplane normal 4 2 top {0.0 0.0 1.0}
+mol clipplane status 4 2 top {0}
+mol clipplane center 5 2 top {0.0 0.0 0.0}
+mol clipplane color  5 2 top {0.5 0.5 0.5 }
+mol clipplane normal 5 2 top {0.0 0.0 1.0}
+mol clipplane status 5 2 top {0}
+mol representation Licorice 0.300000 12.000000 12.000000
+mol color Name
+mol selection {resid 71 80 81 82 67 68 103 78 76 79 74 75 100 101 107 and nohp }
+mol material Opaque
+mol addrep top
+mol selupdate 3 top 0
+mol colupdate 3 top 0
+mol scaleminmax top 3 0.000000 0.000000
+mol smoothrep top 3 0
+mol drawframes top 3 {now}
+mol clipplane center 0 3 top {0.0 0.0 0.0}
+mol clipplane color  0 3 top {0.5 0.5 0.5 }
+mol clipplane normal 0 3 top {0.0 0.0 1.0}
+mol clipplane status 0 3 top {0}
+mol clipplane center 1 3 top {0.0 0.0 0.0}
+mol clipplane color  1 3 top {0.5 0.5 0.5 }
+mol clipplane normal 1 3 top {0.0 0.0 1.0}
+mol clipplane status 1 3 top {0}
+mol clipplane center 2 3 top {0.0 0.0 0.0}
+mol clipplane color  2 3 top {0.5 0.5 0.5 }
+mol clipplane normal 2 3 top {0.0 0.0 1.0}
+mol clipplane status 2 3 top {0}
+mol clipplane center 3 3 top {0.0 0.0 0.0}
+mol clipplane color  3 3 top {0.5 0.5 0.5 }
+mol clipplane normal 3 3 top {0.0 0.0 1.0}
+mol clipplane status 3 3 top {0}
+mol clipplane center 4 3 top {0.0 0.0 0.0}
+mol clipplane color  4 3 top {0.5 0.5 0.5 }
+mol clipplane normal 4 3 top {0.0 0.0 1.0}
+mol clipplane status 4 3 top {0}
+mol clipplane center 5 3 top {0.0 0.0 0.0}
+mol clipplane color  5 3 top {0.5 0.5 0.5 }
+mol clipplane normal 5 3 top {0.0 0.0 1.0}
+mol clipplane status 5 3 top {0}
+mol representation Licorice 0.300000 12.000000 12.000000
+mol color Name
+mol selection {SF and nohp}
+mol material Opaque
+mol addrep top
+mol selupdate 4 top 0
+mol colupdate 4 top 0
+mol scaleminmax top 4 0.000000 0.000000
+mol smoothrep top 4 0
+mol drawframes top 4 {now}
+mol clipplane center 0 4 top {0.0 0.0 0.0}
+mol clipplane color  0 4 top {0.5 0.5 0.5 }
+mol clipplane normal 0 4 top {0.0 0.0 1.0}
+mol clipplane status 0 4 top {0}
+mol clipplane center 1 4 top {0.0 0.0 0.0}
+mol clipplane color  1 4 top {0.5 0.5 0.5 }
+mol clipplane normal 1 4 top {0.0 0.0 1.0}
+mol clipplane status 1 4 top {0}
+mol clipplane center 2 4 top {0.0 0.0 0.0}
+mol clipplane color  2 4 top {0.5 0.5 0.5 }
+mol clipplane normal 2 4 top {0.0 0.0 1.0}
+mol clipplane status 2 4 top {0}
+mol clipplane center 3 4 top {0.0 0.0 0.0}
+mol clipplane color  3 4 top {0.5 0.5 0.5 }
+mol clipplane normal 3 4 top {0.0 0.0 1.0}
+mol clipplane status 3 4 top {0}
+mol clipplane center 4 4 top {0.0 0.0 0.0}
+mol clipplane color  4 4 top {0.5 0.5 0.5 }
+mol clipplane normal 4 4 top {0.0 0.0 1.0}
+mol clipplane status 4 4 top {0}
+mol clipplane center 5 4 top {0.0 0.0 0.0}
+mol clipplane color  5 4 top {0.5 0.5 0.5 }
+mol clipplane normal 5 4 top {0.0 0.0 1.0}
+mol clipplane status 5 4 top {0}
 mol rename top steering
-set viewpoints([molinfo top]) {{{1 0 0 -39.6812} {0 1 0 -39.6202} {0 0 1 -44.4286} {0 0 0 1}} {{0.528634 0.848673 0.0164812 0} {-0.0118559 -0.0120306 0.999864 0} {0.848749 -0.528755 0.00370377 0} {0 0 0 1}} {{0.0458831 0 0 0} {0 0.0458831 0 0} {0 0 0.0458831 0} {0 0 0 1}} {{1 0 0 0} {0 1 0 0} {0 0 1 0} {0 0 0 1}}}
+set viewpoints([molinfo top]) {{{1 0 0 -36.965} {0 1 0 -35.8786} {0 0 1 -56.6398} {0 0 0 1}} {{0.00131528 0.991531 -0.130192 0} {0.0648326 0.129846 0.989496 0} {0.997932 -0.0097435 -0.0640987 0} {0 0 0 1}} {{0.084308 0 0 0} {0 0.084308 0 0} {0 0 0.084308 0} {0 0 0 1}} {{1 0 0 0} {0 1 0 0} {0 0 1 0} {0 0 0 1}}}
 lappend viewplist [molinfo top]
 set topmol [molinfo top]
 # done with molecule 4
