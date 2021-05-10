@@ -19,7 +19,7 @@
 #SBATCH --constraint=gpu
 # gres requests particular generic consumable resources
 # in this case 1 gpu per node
-#SBATCH --gres=gpu:4
+#SBATCH --gres=gpu:2
 
 # Output file names for stdout and stderr
 #SBATCH --error=steered.err
