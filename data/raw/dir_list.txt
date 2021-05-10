@@ -1,1 +1,0 @@
-beskow:~/Projects/string_sims/data/raw/C2I_lb_v0/ data/raw/C2I_lb_v0/
