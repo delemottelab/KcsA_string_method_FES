@@ -52,3 +52,7 @@ data/raw/*/md/*/*/*/*
 steered.err
 
 steered.out
+
+data/raw/exclude_list.txt
+
+data/raw/dir_list.txt
