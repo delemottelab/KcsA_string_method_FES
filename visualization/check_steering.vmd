@@ -3,7 +3,7 @@
 # VMD version: 1.9.4a51
 set viewplist {}
 set fixedlist {}
-set data "C2I_lb_v0"
+set directory "C2I_lb_v0_amber"
 proc vmdrestoremymaterials {} {
   set mlist { Opaque Transparent BrushedMetal Diffuse Ghost Glass1 Glass2 Glass3 Glossy HardPlastic MetallicPastel Steel Translucent Edgy EdgyShiny EdgyGlass Goodsell AOShiny AOChalky AOEdgy BlownGlass GlassBubble RTChrome AOTransparent AOBright WaterBox }
   set mymlist [material list]
@@ -385,7 +385,6 @@ mol clipplane center 5 0 top {0.0 0.0 0.0}
 mol clipplane color  5 0 top {0.5 0.5 0.5 }
 mol clipplane normal 5 0 top {0.0 0.0 1.0}
 mol clipplane status 5 0 top {0}
-mol showrep top 0 0
 mol representation Licorice 0.300000 12.000000 12.000000
 mol color Molecule
 mol selection {resid 71 80 81 82 67 68 103 78 76 79 74 75 100 101 107 and nohp}
@@ -421,7 +420,8 @@ mol clipplane color  5 1 top {0.5 0.5 0.5 }
 mol clipplane normal 5 1 top {0.0 0.0 1.0}
 mol clipplane status 5 1 top {0}
 mol rename top 5VKH.pdb
-set viewpoints([molinfo top]) {{{1 0 0 -36.965} {0 1 0 -35.8786} {0 0 1 -56.6398} {0 0 0 1}} {{0.00131528 0.991531 -0.130192 0} {0.0648326 0.129846 0.989496 0} {0.997932 -0.0097435 -0.0640987 0} {0 0 0 1}} {{0.084308 0 0 0} {0 0.084308 0 0} {0 0 0.084308 0} {0 0 0 1}} {{1 0 0 0} {0 1 0 0} {0 0 1 0} {0 0 0 1}}}
+molinfo top set drawn 0
+set viewpoints([molinfo top]) {{{1 0 0 -34.83} {0 1 0 -33.7364} {0 0 1 -64.9092} {0 0 0 1}} {{0.599332 -0.799797 0.0319241 0} {0.0129566 0.0495763 0.998706 0} {-0.800324 -0.598132 0.0400732 0} {0 0 0 1}} {{0.0250362 0 0 0} {0 0.0250362 0 0} {0 0 0.0250362 0} {0 0 0 1}} {{1 0 0 0} {0 1 0 0} {0 0 1 0} {0 0 0 1}}}
 lappend viewplist [molinfo top]
 # done with molecule 0
 mol new ../models/raw_pdb/3FB5.pdb type pdb first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
@@ -495,7 +495,8 @@ mol clipplane color  5 1 top {0.5 0.5 0.5 }
 mol clipplane normal 5 1 top {0.0 0.0 1.0}
 mol clipplane status 5 1 top {0}
 mol rename top 3FB5.pdb
-set viewpoints([molinfo top]) {{{1 0 0 -36.965} {0 1 0 -35.8786} {0 0 1 -56.6398} {0 0 0 1}} {{0.00131528 0.991531 -0.130192 0} {0.0648326 0.129846 0.989496 0} {0.997932 -0.0097435 -0.0640987 0} {0 0 0 1}} {{0.084308 0 0 0} {0 0.084308 0 0} {0 0 0.084308 0} {0 0 0 1}} {{1 0 0 0} {0 1 0 0} {0 0 1 0} {0 0 0 1}}}
+molinfo top set drawn 0
+set viewpoints([molinfo top]) {{{1 0 0 -34.83} {0 1 0 -33.7364} {0 0 1 -64.9092} {0 0 0 1}} {{0.599332 -0.799797 0.0319241 0} {0.0129566 0.0495763 0.998706 0} {-0.800324 -0.598132 0.0400732 0} {0 0 0 1}} {{0.0250362 0 0 0} {0 0.0250362 0 0} {0 0 0.0250362 0} {0 0 0 1}} {{1 0 0 0} {0 1 0 0} {0 0 1 0} {0 0 0 1}}}
 lappend viewplist [molinfo top]
 # done with molecule 1
 mol new ../models/raw_pdb/5VK6.pdb type pdb first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
@@ -534,7 +535,6 @@ mol clipplane center 5 0 top {0.0 0.0 0.0}
 mol clipplane color  5 0 top {0.5 0.5 0.5 }
 mol clipplane normal 5 0 top {0.0 0.0 1.0000001192092896}
 mol clipplane status 5 0 top {0}
-mol showrep top 0 0
 mol representation Licorice 0.300000 12.000000 12.000000
 mol color Molecule
 mol selection {resid 71 80 81 82 67 68 103 78 76 79 74 75 100 101 107 and nohp}
@@ -570,7 +570,8 @@ mol clipplane color  5 1 top {0.5 0.5 0.5 }
 mol clipplane normal 5 1 top {0.0 0.0 1.0}
 mol clipplane status 5 1 top {0}
 mol rename top 5VK6.pdb
-set viewpoints([molinfo top]) {{{1 0 0 -36.965} {0 1 0 -35.8786} {0 0 1 -56.6398} {0 0 0 1}} {{0.00131528 0.991531 -0.130192 0} {0.0648326 0.129846 0.989496 0} {0.997932 -0.0097435 -0.0640987 0} {0 0 0 1}} {{0.084308 0 0 0} {0 0.084308 0 0} {0 0 0.084308 0} {0 0 0 1}} {{1 0 0 0} {0 1 0 0} {0 0 1 0} {0 0 0 1}}}
+molinfo top set drawn 0
+set viewpoints([molinfo top]) {{{1 0 0 -34.83} {0 1 0 -33.7364} {0 0 1 -64.9092} {0 0 0 1}} {{0.599332 -0.799797 0.0319241 0} {0.0129566 0.0495763 0.998706 0} {-0.800324 -0.598132 0.0400732 0} {0 0 0 1}} {{0.0250362 0 0 0} {0 0.0250362 0 0} {0 0 0.0250362 0} {0 0 0 1}} {{1 0 0 0} {0 1 0 0} {0 0 1 0} {0 0 0 1}}}
 lappend viewplist [molinfo top]
 # done with molecule 2
 mol new ../models/raw_pdb/5VKE.pdb type pdb first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
@@ -678,48 +679,49 @@ mol clipplane color  5 2 top {0.5 0.5 0.5 }
 mol clipplane normal 5 2 top {0.0 0.0 1.0}
 mol clipplane status 5 2 top {0}
 mol rename top 5VKE.pdb
-set viewpoints([molinfo top]) {{{1 0 0 -36.965} {0 1 0 -35.8786} {0 0 1 -56.6398} {0 0 0 1}} {{0.00131528 0.991531 -0.130192 0} {0.0648326 0.129846 0.989496 0} {0.997932 -0.0097435 -0.0640987 0} {0 0 0 1}} {{0.084308 0 0 0} {0 0.084308 0 0} {0 0 0.084308 0} {0 0 0 1}} {{1 0 0 0} {0 1 0 0} {0 0 1 0} {0 0 0 1}}}
+molinfo top set drawn 0
+set viewpoints([molinfo top]) {{{1 0 0 -34.83} {0 1 0 -33.7364} {0 0 1 -64.9092} {0 0 0 1}} {{0.599332 -0.799797 0.0319241 0} {0.0129566 0.0495763 0.998706 0} {-0.800324 -0.598132 0.0400732 0} {0 0 0 1}} {{0.0250362 0 0 0} {0 0.0250362 0 0} {0 0 0.0250362 0} {0 0 0 1}} {{1 0 0 0} {0 1 0 0} {0 0 1 0} {0 0 0 1}}}
 lappend viewplist [molinfo top]
 # done with molecule 3
-mol new ../data/raw/$data/md/0/0/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/raw/$data/md/0/1/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/raw/$data/md/0/2/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/raw/$data/md/0/3/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/raw/$data/md/0/4/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/raw/$data/md/0/5/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/raw/$data/md/0/6/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/raw/$data/md/0/7/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/raw/$data/md/0/8/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/raw/$data/md/0/9/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/raw/$data/md/0/10/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/raw/$data/md/0/11/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/raw/$data/md/0/12/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/raw/$data/md/0/13/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/raw/$data/md/0/14/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/raw/$data/md/0/15/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/raw/$data/md/0/16/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/raw/$data/md/0/17/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/raw/$data/md/0/18/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/raw/$data/md/0/19/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/raw/$data/md/0/20/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/raw/$data/md/0/21/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/raw/$data/md/0/22/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/raw/$data/md/0/23/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/raw/$data/md/0/24/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/raw/$data/md/0/25/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/raw/$data/md/0/26/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/raw/$data/md/0/27/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/raw/$data/md/0/28/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/raw/$data/md/0/29/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/raw/$data/md/0/30/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/raw/$data/md/0/31/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/raw/$data/md/0/32/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../data/raw/$data/md/0/33/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol new ../data/raw/$directory/md/0/0/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/$directory/md/0/1/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/$directory/md/0/2/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/$directory/md/0/3/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/$directory/md/0/4/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/$directory/md/0/5/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/$directory/md/0/6/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/$directory/md/0/7/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/$directory/md/0/8/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/$directory/md/0/9/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/$directory/md/0/10/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/$directory/md/0/11/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/$directory/md/0/12/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/$directory/md/0/13/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/$directory/md/0/14/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/$directory/md/0/15/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/$directory/md/0/16/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/$directory/md/0/17/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/$directory/md/0/18/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/$directory/md/0/19/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/$directory/md/0/20/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/$directory/md/0/21/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/$directory/md/0/22/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/$directory/md/0/23/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/$directory/md/0/24/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/$directory/md/0/25/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/$directory/md/0/26/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/$directory/md/0/27/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/$directory/md/0/28/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/$directory/md/0/29/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/$directory/md/0/30/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/$directory/md/0/31/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/$directory/md/0/32/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../data/raw/$directory/md/0/33/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
 mol delrep 0 top
 mol representation NewRibbons 0.300000 12.000000 3.000000 0
 mol color Fragment
 mol selection {all}
-mol material Transparent
+mol material Opaque
 mol addrep top
 mol selupdate 0 top 1
 mol colupdate 0 top 0
@@ -820,7 +822,7 @@ mol clipplane normal 5 2 top {0.0 0.0 1.0}
 mol clipplane status 5 2 top {0}
 mol representation Licorice 0.300000 12.000000 12.000000
 mol color Name
-mol selection {resid 71 80 81 82 67 68 103 78 76 79 74 75 100 101 107 and nohp }
+mol selection {resid 71 80 81 82 67 68 103 78 76 79 74 75 100 101 107 and nohp and sidechaina}
 mol material Opaque
 mol addrep top
 mol selupdate 3 top 0
@@ -854,7 +856,7 @@ mol clipplane normal 5 3 top {0.0 0.0 1.0}
 mol clipplane status 5 3 top {0}
 mol representation Licorice 0.300000 12.000000 12.000000
 mol color Name
-mol selection {SF and nohp}
+mol selection {SF and nohp and backboneh}
 mol material Opaque
 mol addrep top
 mol selupdate 4 top 0
@@ -886,8 +888,42 @@ mol clipplane center 5 4 top {0.0 0.0 0.0}
 mol clipplane color  5 4 top {0.5 0.5 0.5 }
 mol clipplane normal 5 4 top {0.0 0.0 1.0}
 mol clipplane status 5 4 top {0}
+mol representation Licorice 0.300000 12.000000 12.000000
+mol color Name
+mol selection {resid 71 80 81 82 67 and nohp and sidechaina}
+mol material Opaque
+mol addrep top
+mol selupdate 5 top 0
+mol colupdate 5 top 0
+mol scaleminmax top 5 0.000000 0.000000
+mol smoothrep top 5 0
+mol drawframes top 5 {now}
+mol clipplane center 0 5 top {0.0 0.0 0.0}
+mol clipplane color  0 5 top {0.5 0.5 0.5 }
+mol clipplane normal 0 5 top {0.0 0.0 1.0000001192092896}
+mol clipplane status 0 5 top {0}
+mol clipplane center 1 5 top {0.0 0.0 0.0}
+mol clipplane color  1 5 top {0.5 0.5 0.5 }
+mol clipplane normal 1 5 top {0.0 0.0 1.0000001192092896}
+mol clipplane status 1 5 top {0}
+mol clipplane center 2 5 top {0.0 0.0 0.0}
+mol clipplane color  2 5 top {0.5 0.5 0.5 }
+mol clipplane normal 2 5 top {0.0 0.0 1.0000001192092896}
+mol clipplane status 2 5 top {0}
+mol clipplane center 3 5 top {0.0 0.0 0.0}
+mol clipplane color  3 5 top {0.5 0.5 0.5 }
+mol clipplane normal 3 5 top {0.0 0.0 1.0000001192092896}
+mol clipplane status 3 5 top {0}
+mol clipplane center 4 5 top {0.0 0.0 0.0}
+mol clipplane color  4 5 top {0.5 0.5 0.5 }
+mol clipplane normal 4 5 top {0.0 0.0 1.0000001192092896}
+mol clipplane status 4 5 top {0}
+mol clipplane center 5 5 top {0.0 0.0 0.0}
+mol clipplane color  5 5 top {0.5 0.5 0.5 }
+mol clipplane normal 5 5 top {0.0 0.0 1.0000001192092896}
+mol clipplane status 5 5 top {0}
 mol rename top steering
-set viewpoints([molinfo top]) {{{1 0 0 -36.965} {0 1 0 -35.8786} {0 0 1 -56.6398} {0 0 0 1}} {{0.00131528 0.991531 -0.130192 0} {0.0648326 0.129846 0.989496 0} {0.997932 -0.0097435 -0.0640987 0} {0 0 0 1}} {{0.084308 0 0 0} {0 0.084308 0 0} {0 0 0.084308 0} {0 0 0 1}} {{1 0 0 0} {0 1 0 0} {0 0 1 0} {0 0 0 1}}}
+set viewpoints([molinfo top]) {{{1 0 0 -34.83} {0 1 0 -33.7364} {0 0 1 -64.9092} {0 0 0 1}} {{0.599332 -0.799797 0.0319241 0} {0.0129566 0.0495763 0.998706 0} {-0.800324 -0.598132 0.0400732 0} {0 0 0 1}} {{0.0250362 0 0 0} {0 0.0250362 0 0} {0 0 0.0250362 0} {0 0 0 1}} {{1 0 0 0} {0 1 0 0} {0 0 1 0} {0 0 0 1}}}
 lappend viewplist [molinfo top]
 set topmol [molinfo top]
 # done with molecule 4
@@ -942,8 +978,18 @@ color scale colors CET_R2 {0.0 0.0 0.0} {0.0 0.0 0.0} {0.0 0.0 0.0}
     {color Display {BackgroundTop} black}
     {color Display {BackgroundBot} blue2}
     {color Display {FPS} white}
+    {color Name {O} red2}
+    {color Name {N} blue3}
+    {color Name {C} white}
+    {color Name {S} yellow2}
+    {color Name {P} orange3}
     {color Name {LPA} green}
     {color Name {LPB} green}
+    {color Type {O} red2}
+    {color Type {N} blue3}
+    {color Type {C} white}
+    {color Type {S} yellow2}
+    {color Type {P} orange3}
     {color Type {LP} green}
     {color Type {DRUD} pink}
     {color Element {X} cyan}
@@ -962,6 +1008,7 @@ color scale colors CET_R2 {0.0 0.0 0.0} {0.0 0.0 0.0} {0.0 0.0 0.0}
     {color Element {Bi} ochre}
     {color Element {Bk} ochre}
     {color Element {Br} ochre}
+    {color Element {C} white}
     {color Element {Ca} ochre}
     {color Element {Cd} ochre}
     {color Element {Ce} ochre}
@@ -1004,6 +1051,7 @@ color scale colors CET_R2 {0.0 0.0 0.0} {0.0 0.0 0.0} {0.0 0.0 0.0}
     {color Element {Mn} ochre}
     {color Element {Mo} ochre}
     {color Element {Mt} ochre}
+    {color Element {N} blue3}
     {color Element {Na} ochre}
     {color Element {Nb} ochre}
     {color Element {Nd} ochre}
@@ -1011,7 +1059,9 @@ color scale colors CET_R2 {0.0 0.0 0.0} {0.0 0.0 0.0} {0.0 0.0 0.0}
     {color Element {Ni} ochre}
     {color Element {No} ochre}
     {color Element {Np} ochre}
+    {color Element {O} red2}
     {color Element {Os} ochre}
+    {color Element {P} orange3}
     {color Element {Pa} ochre}
     {color Element {Pb} ochre}
     {color Element {Pd} ochre}
@@ -1028,6 +1078,7 @@ color scale colors CET_R2 {0.0 0.0 0.0} {0.0 0.0 0.0} {0.0 0.0 0.0}
     {color Element {Rh} ochre}
     {color Element {Rn} ochre}
     {color Element {Ru} ochre}
+    {color Element {S} yellow2}
     {color Element {Sb} ochre}
     {color Element {Sc} ochre}
     {color Element {Se} ochre}
@@ -1098,6 +1149,9 @@ color scale colors CET_R2 {0.0 0.0 0.0} {0.0 0.0 0.0} {0.0 0.0 0.0}
     {color Labels {Springs} orange}
     {color Stage {Even} gray}
     {color Stage {Odd} silver}
+    {color ResName {SOD} lime}
+    {color ResName {POT} violet2}
+    {color ResName {CLA} cyan2}
   }
   foreach colcmd $colorcmds {
     set val [catch {eval $colcmd}]
