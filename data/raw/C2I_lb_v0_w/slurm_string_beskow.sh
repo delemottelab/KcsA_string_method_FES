@@ -3,7 +3,7 @@
 # Include your account in your cluster.
 #SBATCH --account=2020-3-28
 # The name of the job in the queue
-#SBATCH --job-name=my_string_simulation
+#SBATCH --job-name=C2I_lb_v0_w
 
 # Output file names for stdout and stderr
 #SBATCH --error=string-%j-%A_%a.err
@@ -19,7 +19,7 @@
 # If you can allocate big chunks of time in your cluster you can put the time
 # of N-iterations and add this number of interations in the variable
 # `max_iteration=$((($iteration+1)))` bellow.
-#SBATCH --time=4:00:00
+#SBATCH --time=1:45:00
 
 # Total number of nodes and MPI tasks
 # This number of nodes and tasks has been found to work well for 60-80k atoms in beskow (@DelemotteLab).
@@ -35,7 +35,7 @@ module unload gromacs
 module load gromacs/2020.5
 
 # Path to string-method-gmxapi
-path_string_method_gmxapi=../../../string-method-gmxapi
+path_string_method_gmxapi=../../../../string-method-gmxapi/
 
 # Path to anaconda3 instalation with string_method environment
 my_conda_env=/cfs/klemming/nobackup/s/sergiopc/anaconda3
