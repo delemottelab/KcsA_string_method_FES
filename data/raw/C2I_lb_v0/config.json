@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "swarm_size": 32,
   "log_level": "DEBUG",
-  "max_iterations": 300,
+  "max_iterations": 211,
   "fixed_endpoints": true,
   "mdrun_options_restrained": ["-nt","4"],
-  "mdrun_options_swarms": ["-nt","1"]
+  "mdrun_options_swarms": ["-nt","2"]
 }
