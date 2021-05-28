@@ -17,14 +17,14 @@ remove_conda:
 	conda remove --name=$(PROJECT_NAME) --all
 
 update_data:
-	 while read a b;do rsync -rauLih --progress  --exclude-from=data/raw/exclude_list.txt   $$a $$b;done < data/raw/dir_list.txt
+	 grep -v "^#" data/raw/dir_list.txt | while read a b;do rsync -rauLih --progress  --exclude-from=data/raw/exclude_list.txt   $$a $$b;done
 	 python  src/data/get_external_data.py
 
 update_data_dry:
-	 while read a b; do echo $$a $$b; rsync -raunLih  --exclude-from=data/raw/exclude_list.txt   $$a $$b;done < data/raw/dir_list.txt
+	 grep -v "^#" data/raw/dir_list.txt | while read a b; do echo $$a $$b; rsync -raunLih  --exclude-from=data/raw/exclude_list.txt   $$a $$b;done
 
 update_data_dry_verbose:
-	 while read a b;do rsync -raunLivvvh  --exclude-from=data/raw/exclude_list.txt   $$a $$b;done < data/raw/dir_list.txt
+	 grep -v "^#" data/raw/dir_list.txt | while read a b;do rsync -raunLivvvh  --exclude-from=data/raw/exclude_list.txt   $$a $$b;done
 
 clean:
 	find . -iname \#* -exec rm {} \;

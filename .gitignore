@@ -37,6 +37,7 @@ nohup.out
 *cpt
 *log
 .*npz
+*xvg
 \#*
 charmm-gui_*.tgz
 job-*.err
@@ -46,9 +47,9 @@ job-*.out
 # data/raw/*/md/*/*/*/*log
 # data/raw/*/md/*/*/*/*mdp
 # data/raw/*/md/*/*/*/*xvg
-data/raw/*/md/*/*/*/*
-!data/raw/*/md/0/*/*/*gro
+md/
 steered.err
 steered.out
 data/raw/exclude_list.txt
 data/raw/dir_list.txt
+string[1-9]*.txt
