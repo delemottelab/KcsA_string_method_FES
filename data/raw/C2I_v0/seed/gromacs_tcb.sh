@@ -12,7 +12,7 @@
 #SBATCH -N 1
 # Request a GPU node and two GPUs (per node)
 # Remove if you don't need a GPU
-#SBATCH -C gpu --gres=gpu:2 -x gpu02
+#SBATCH -C gpu --gres=gpu:1
 
 # Output file names for stdout and stderr
 #SBATCH -e job-%j.err -o job-%j.out

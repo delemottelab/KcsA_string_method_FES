@@ -8,7 +8,7 @@
 # The name of the job in the queue
 #SBATCH --job-name=C2I_v0
 # wall-clock time given to this job
-#SBATCH --time=23:30:00
+#SBATCH --time=03:00:00
 
 # Number of nodes and number of MPI tasks per node
 #SBATCH --nodes=1
@@ -19,7 +19,7 @@
 #SBATCH --constraint=gpu
 # gres requests particular generic consumable resources
 # in this case 1 gpu per node
-#SBATCH --gres=gpu:4
+#SBATCH --gres=gpu:2
 
 # Output file names for stdout and stderr
 #SBATCH --error=steered.err
