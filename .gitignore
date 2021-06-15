@@ -46,7 +46,7 @@ job-*.out
 # data/raw/*/md/*/*/*/*tpr
 # data/raw/*/md/*/*/*/*log
 # data/raw/*/md/*/*/*/*mdp
-# data/raw/*/md/*/*/*/*xvg
+data/raw/*_try*/
 md/
 steered.err
 steered.out
