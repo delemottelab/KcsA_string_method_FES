@@ -59,6 +59,6 @@ fi
 unset __conda_setup
 conda activate string_method
 
-cmd=" `which python` ${path_string_method_gmxapi}/main.py --config_file=config_steered.json --start_mode=steered"
+cmd=" `which python` ${path_string_method_gmxapi}/stringmethod/main.py --config_file=config_steered.json --start_mode=steered"
 echo $cmd
 $cmd

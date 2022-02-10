@@ -31,8 +31,8 @@
 
 ; Include water topology
 #include "amber14sb_slipids18.ff/tip3p.itp"
-#include "amber14sb_slipids18.ff/DOPE.itp"
-#include "amber14sb_slipids18.ff/DOPG.itp"
+#include "slipids16.ff/DOPE.itp"
+#include "slipids16.ff/DOPG.itp"
 
 #ifdef POSRES_WATER
 ; Position restraint for each water oxygen

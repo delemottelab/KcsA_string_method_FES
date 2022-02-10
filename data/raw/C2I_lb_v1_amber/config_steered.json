@@ -1,0 +1,6 @@
+{
+  "simu_id": "GPCR Steering",
+  "version": "0.0.0",
+  "log_level": "DEBUG",
+  "fixed_endpoints": true
+}

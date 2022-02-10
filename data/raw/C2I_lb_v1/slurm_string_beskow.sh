@@ -1,33 +1,33 @@
 #!/bin/bash -l
 
 # Include your account in your cluster.
-#SBATCH --account=2020-3-28
+#SBATCH --account=2021-3-15
 # The name of the job in the queue
 #SBATCH --job-name=C2I_lb_v1
 #SBATCH -C Haswell
 
 # Output file names for stdout and stderr
-#SBATCH --error=slurm_out/string-%j_%a.err
-#SBATCH --output=slurm_out/string-%j_%a.out
+#SBATCH --error=slurm_out/string-%J_%a.err
+#SBATCH --output=slurm_out/string-%J_%a.out
 
 # Add your email below.
 # Receive e-mails when your job fails
-#SBATCH --mail-user=anynomous@scilifelab.se
-#SBATCH --mail-type=FAIL
+#SBATCH --mail-user=sergiopc@kth.se
+#SBATCH --mail-type=ALL
 
 # Time should slightly greater than the time for one full iteration
 # if you want to do one iteration per slurm job (recomended).
 # If you can allocate big chunks of time in your cluster you can put the time
 # of N-iterations and add this number of interations in the variable
 # `max_iteration=$((($iteration+1)))` bellow.
-#SBATCH --time=1:00:00
+#SBATCH --time=2:00:00
 
 # Total number of nodes and MPI tasks
 # This number of nodes and tasks has been found to work well for 60-80k atoms in beskow (@DelemotteLab).
 # You can of course adapt it to your HPC environment following the guidelines of the main README.md
 
 # Number of nodes and number of MPI tasks per node
-#SBATCH --nodes=8
+#SBATCH --nodes=4
 # In slurm jargon tasks is like MPI-ranks
 #SBATCH --ntasks-per-node=32
 
@@ -36,7 +36,7 @@ module unload gromacs
 module load gromacs/2020.5
 
 # Path to string-method-gmxapi
-path_string_method_gmxapi=../../../../string-method-gmxapi_milos_multidir/
+path_string_method_gmxapi=../../../../string-method-gmxapi/
 
 # Path to anaconda3 instalation with string_method environment
 my_conda_env=/cfs/klemming/nobackup/s/sergiopc/anaconda3
@@ -62,7 +62,7 @@ conda activate string_method
 # This code finds the last iteration done a feeds it to the string-method so
 # it doesn't have to check every directory in md/
 
-iteration=$(ls -vd md/*|tail -n 1|sed  "s:md/\([0-9]*\):\1:")
+iteration=$(ls -vd strings/string[0-9]*.txt|tail -n 1| sed  "s:strings/string\([0-9]*\).txt:\1:")
 
 ######################  MODIFY ###############################
 
@@ -83,7 +83,7 @@ sed -i "s/\"max_iterations\": [0-9]*/\"max_iterations\": $max_iteration/" config
 # work well for 60-80k atoms in beskow (@DelemotteLab).
 # You can of course adapt it to your HPC environment following the guidelines
 # of the main README.md
-cmd="`which python`  ${path_string_method_gmxapi}/main.py --config_file=config.json"
+cmd="`which python`  ${path_string_method_gmxapi}/stringmethod/main.py --config_file=config.json"
 echo "Command Run:"
 echo $cmd
 

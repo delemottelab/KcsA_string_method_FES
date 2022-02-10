@@ -4,7 +4,7 @@
 ; Of course do so if you know what you are doing.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 integrator              = md
-nsteps                  = 15000
+nsteps                  = 50000
 nstxtcout               = 5000
 nstlog                  = 0
 nstxout                 = 0

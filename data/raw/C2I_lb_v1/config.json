@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "swarm_size": 32,
   "log_level": "DEBUG",
-  "max_iterations": 118,
-  "use_api":false,
+  "max_iterations": 401,
   "fixed_endpoints": true
 }

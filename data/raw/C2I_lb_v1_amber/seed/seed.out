@@ -1,0 +1,1 @@
+srun gmx_mpi mdrun -v -maxh 0.45 -s topol.tpr -pin on -cpi state.cpt
