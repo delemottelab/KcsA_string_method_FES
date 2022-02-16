@@ -1,0 +1,7 @@
+{
+  "simu_id": "GPCR Steering",
+  "version": "0.0.0",
+  "log_level": "DEBUG",
+  "grompp_options":["-maxwarn","1"],
+  "fixed_endpoints": true
+}

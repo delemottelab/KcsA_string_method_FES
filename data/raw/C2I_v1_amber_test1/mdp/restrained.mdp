@@ -1,0 +1,261 @@
+;;;;;;;;;;;;;;;;;;;; MDP Parameters for restrained simulations of string-method ::::::::::::::::::::::::::::
+
+; These parameters are not recomended to be modified.
+; Of course do so if you know what you are doing.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+integrator              = md
+;nsteps                  = 50000
+; For firsst restrained simulation.
+nsteps                  = 2500000
+; For firsst restrained simulation.
+;nstxtcout               = 5000
+nstxtcout               = 500000
+nstlog                  = 0
+nstxout                 = 0
+nstvout                 = 0
+nstfout                 = 0
+nstcalcenergy           = 100
+nstenergy               = 0
+nstdisreout             = 0
+cutoff-scheme           = Verlet
+gen-vel                 = no
+gen-seed                 = -1
+ld-seed = -1
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; These parameters should be adapted to your MD simulation
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+; If df!=0.002 might need to change number of steps
+dt                      = 0.002
+nstlist                 = 20
+rlist                   = 1.2
+coulombtype             = pme
+rcoulomb-switch          = 0
+rcoulomb                = 1.5
+vdwtype                 = Cut-off
+;vdw-modifier            = Force-switch
+rvdw_switch             = 0
+rvdw                    = 1.5
+;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; We recommend the use of a stochastic thermostat like V-rescale
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;
+tcoupl                  = V-rescale
+;
+tc_grps                 = protein waters_or_ions lipids
+tau_t                   = 1.0    1.0    1.0
+ref_t                   = 290. 290. 290.
+gen-temp                 = 290.
+;
+pcoupl                  = Parrinello-Rahman
+pcoupltype              = semiisotropic
+tau_p                   = 5.0
+compressibility         = 4.5e-5  4.5e-5
+ref_p                   = 1.0     1.0
+DispCorr                = no  ; account for cut-off vdW scheme
+;
+constraints             = h-bonds
+constraint_algorithm    = LINCS
+continuation            = yes
+;
+nstcomm                 = 100
+comm_mode               = linear
+comm_grps                 = protein waters_or_ions lipids
+;
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; At this point the pull simulation parameters will be added by input_maker.ipynb
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;start pull
+
+pull = yes
+pull-ngroups = 72
+
+pull-group1-name = CA_77_A
+pull-group2-name = CA_77_B
+pull-group3-name = CA_77_C
+pull-group4-name = CA_77_D
+pull-group5-name = CA_77_A_2
+pull-group6-name = CA_77_C_2
+pull-group7-name = CA_77_D_2
+pull-group8-name = CA_77_B_2
+pull-group9-name = CA_77_A_3
+pull-group10-name = CA_77_D_3
+pull-group11-name = CA_77_C_3
+pull-group12-name = CA_77_B_3
+pull-group13-name = CA_104_A
+pull-group14-name = CA_104_B
+pull-group15-name = CA_104_C
+pull-group16-name = CA_104_D
+pull-group17-name = CA_108_A
+pull-group18-name = CA_108_B
+pull-group19-name = CA_108_C
+pull-group20-name = CA_108_D
+pull-group21-name = CA_112_A
+pull-group22-name = CA_112_B
+pull-group23-name = CA_112_C
+pull-group24-name = CA_112_D
+pull-group25-name = CZ_103_A_2
+pull-group26-name = CD_100_D_2
+pull-group27-name = CD_100_B_2
+pull-group28-name = CZ_103_D_2
+pull-group29-name = CZ_103_B_2
+pull-group30-name = CD_100_C_2
+pull-group31-name = CD_100_A_2
+pull-group32-name = CZ_103_C_2
+pull-group33-name = CA_114_A
+pull-group34-name = CA_32_D
+pull-group35-name = CA_32_B
+pull-group36-name = CA_114_D
+pull-group37-name = CA_114_B
+pull-group38-name = CA_32_C
+pull-group39-name = CA_32_A
+pull-group40-name = CA_114_C
+pull-group41-name = CA_32_A_2
+pull-group42-name = CA_114_A_2
+pull-group43-name = CA_32_B_2
+pull-group44-name = CA_114_B_2
+pull-group45-name = CA_32_C_2
+pull-group46-name = CA_114_C_2
+pull-group47-name = CA_32_D_2
+pull-group48-name = CA_114_D_2
+pull-group49-name = CA_118_A
+pull-group50-name = CA_28_D
+pull-group51-name = CA_28_B
+pull-group52-name = CA_118_D
+pull-group53-name = CA_118_B
+pull-group54-name = CA_28_C
+pull-group55-name = CA_28_A
+pull-group56-name = CA_118_C
+pull-group57-name = OG1_107_A
+pull-group58-name = OG1_101_D
+pull-group59-name = OG1_101_B
+pull-group60-name = OG1_107_D
+pull-group61-name = OG1_107_B
+pull-group62-name = OG1_101_C
+pull-group63-name = OG1_101_A
+pull-group64-name = OG1_107_C
+pull-group65-name = CD1_67_A
+pull-group66-name = CG_81_A
+pull-group67-name = CD1_67_B
+pull-group68-name = CG_81_B
+pull-group69-name = CD1_67_C
+pull-group70-name = CG_81_C
+pull-group71-name = CD1_67_D
+pull-group72-name = CG_81_D
+
+pull-ncoords = 36
+pull-coord1-geometry = distance
+pull-coord1-k = 10000.0
+pull-coord1-groups = 1 2
+pull-coord2-geometry = distance
+pull-coord2-k = 10000.0
+pull-coord2-groups = 3 4
+pull-coord3-geometry = distance
+pull-coord3-k = 10000.0
+pull-coord3-groups = 5 6
+pull-coord4-geometry = distance
+pull-coord4-k = 10000.0
+pull-coord4-groups = 7 8
+pull-coord5-geometry = distance
+pull-coord5-k = 10000.0
+pull-coord5-groups = 9 10
+pull-coord6-geometry = distance
+pull-coord6-k = 10000.0
+pull-coord6-groups = 11 12
+pull-coord7-geometry = distance
+pull-coord7-k = 10000.0
+pull-coord7-groups = 13 14
+pull-coord8-geometry = distance
+pull-coord8-k = 10000.0
+pull-coord8-groups = 15 16
+pull-coord9-geometry = distance
+pull-coord9-k = 10000.0
+pull-coord9-groups = 17 18
+pull-coord10-geometry = distance
+pull-coord10-k = 10000.0
+pull-coord10-groups = 19 20
+pull-coord11-geometry = distance
+pull-coord11-k = 10000.0
+pull-coord11-groups = 21 22
+pull-coord12-geometry = distance
+pull-coord12-k = 10000.0
+pull-coord12-groups = 23 24
+pull-coord13-geometry = distance
+pull-coord13-k = 10000.0
+pull-coord13-groups = 25 26
+pull-coord14-geometry = distance
+pull-coord14-k = 10000.0
+pull-coord14-groups = 27 28
+pull-coord15-geometry = distance
+pull-coord15-k = 10000.0
+pull-coord15-groups = 29 30
+pull-coord16-geometry = distance
+pull-coord16-k = 10000.0
+pull-coord16-groups = 31 32
+pull-coord17-geometry = distance
+pull-coord17-k = 10000.0
+pull-coord17-groups = 33 34
+pull-coord18-geometry = distance
+pull-coord18-k = 10000.0
+pull-coord18-groups = 35 36
+pull-coord19-geometry = distance
+pull-coord19-k = 10000.0
+pull-coord19-groups = 37 38
+pull-coord20-geometry = distance
+pull-coord20-k = 10000.0
+pull-coord20-groups = 39 40
+pull-coord21-geometry = distance
+pull-coord21-k = 10000.0
+pull-coord21-groups = 41 42
+pull-coord22-geometry = distance
+pull-coord22-k = 10000.0
+pull-coord22-groups = 43 44
+pull-coord23-geometry = distance
+pull-coord23-k = 10000.0
+pull-coord23-groups = 45 46
+pull-coord24-geometry = distance
+pull-coord24-k = 10000.0
+pull-coord24-groups = 47 48
+pull-coord25-geometry = distance
+pull-coord25-k = 10000.0
+pull-coord25-groups = 49 50
+pull-coord26-geometry = distance
+pull-coord26-k = 10000.0
+pull-coord26-groups = 51 52
+pull-coord27-geometry = distance
+pull-coord27-k = 10000.0
+pull-coord27-groups = 53 54
+pull-coord28-geometry = distance
+pull-coord28-k = 10000.0
+pull-coord28-groups = 55 56
+pull-coord29-geometry = distance
+pull-coord29-k = 10000.0
+pull-coord29-groups = 57 58
+pull-coord30-geometry = distance
+pull-coord30-k = 10000.0
+pull-coord30-groups = 59 60
+pull-coord31-geometry = distance
+pull-coord31-k = 10000.0
+pull-coord31-groups = 61 62
+pull-coord32-geometry = distance
+pull-coord32-k = 10000.0
+pull-coord32-groups = 63 64
+pull-coord33-geometry = distance
+pull-coord33-k = 10000.0
+pull-coord33-groups = 65 66
+pull-coord34-geometry = distance
+pull-coord34-k = 10000.0
+pull-coord34-groups = 67 68
+pull-coord35-geometry = distance
+pull-coord35-k = 10000.0
+pull-coord35-groups = 69 70
+pull-coord36-geometry = distance
+pull-coord36-k = 10000.0
+pull-coord36-groups = 71 72
+
+pull-print-components = no
+pull-nstxout = 5000
+pull-nstfout = 0
