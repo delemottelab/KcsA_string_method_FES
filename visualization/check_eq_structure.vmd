@@ -532,8 +532,8 @@ mol rename top 5VKE.pdb
 set viewpoints([molinfo top]) {{{1 0 0 -39.4549} {0 1 0 -39.7086} {0 0 1 -45.3014} {0 0 0 1}} {{0.996641 0.0790136 0.0215592 0} {-0.00786223 -0.169717 0.985462 0} {0.0815237 -0.982321 -0.168525 0} {0 0 0 1}} {{0.0343046 0 0 0} {0 0.0343046 0 0} {0 0 0.0343046 0} {0 0 0 1}} {{1 0 0 0} {0 1 0 0} {0 0 1 0} {0 0 0 1}}}
 lappend viewplist [molinfo top]
 # done with molecule 3
-mol new /Users/sperez/Projects/string_sims/data/raw/5VKH_lb_25-122_amber/opt/opt.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile /Users/sperez/Projects/string_sims/data/raw/5VKH_lb_25-122_amber/eq/eq.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol new /Users/sperez/Projects/string_sims/data/raw/5VKH_25-122_switch_FF/CHARMM.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile /Users/sperez/Projects/string_sims/data/raw/5VKH_25-122_switch_FF/eq.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
 mol delrep 0 top
 mol representation NewRibbons 0.300000 12.000000 3.000000 0
 mol color Molecule
