@@ -53,3 +53,11 @@ steered.out
 data/raw/exclude_list.txt
 data/raw/dir_list.txt
 string[1-9]*.txt
+cv_iter*npy
+postprocessing
+core
+data/raw/C2I_v1_amber/0_34beads/
+data/raw/C2I_v1_amber/0_save/
+slurm_out/
+
+data/raw/C2I_v1_amber_old/
