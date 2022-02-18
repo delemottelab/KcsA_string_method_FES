@@ -4,12 +4,12 @@
 ; Of course do so if you know what you are doing.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 integrator              = md
-;nsteps                  = 50000
+nsteps                  = 50000
 ; For firsst restrained simulation.
-nsteps                  = 2500000
+;nsteps                  = 2500000
 ; For firsst restrained simulation.
-;nstxtcout               = 5000
-nstxtcout               = 500000
+nstxtcout               = 5000
+;nstxtcout               = 500000
 nstlog                  = 0
 nstxout                 = 0
 nstvout                 = 0

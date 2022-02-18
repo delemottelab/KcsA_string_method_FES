@@ -1,9 +1,9 @@
 {
-  "simu_id": "KcsA lb",
+  "simu_id": "KcsA amber",
   "version": "0.0.0",
   "swarm_size": 32,
   "log_level": "DEBUG",
-  "max_iterations": 1,
+  "max_iterations": 4,
   "mdrun_options_restrained":["-cpi","state.cpi"],
   "fixed_endpoints": true
 }

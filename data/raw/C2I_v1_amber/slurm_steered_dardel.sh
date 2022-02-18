@@ -20,14 +20,14 @@
 # If you can allocate big chunks of time in your cluster you can put the time
 # of N-iterations and add this number of interations in the variable
 # `max_iteration=$((($iteration+1)))` bellow.
-#SBATCH --time=0:30:00
+#SBATCH --time=1:30:00
 
 # Total number of nodes and MPI tasks
 # This number of nodes and tasks has been found to work well for 60-80k atoms in beskow (@DelemotteLab).
 # You can of course adapt it to your HPC environment following the guidelines of the main README.md
 
 # Number of nodes and number of MPI tasks per node
-#SBATCH --nodes=2
+#SBATCH --nodes=1
 # In slurm jargon tasks is like MPI-ranks
 #SBATCH --ntasks-per-node=128
 
