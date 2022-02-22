@@ -61,4 +61,10 @@ data/raw/C2I_v1_amber/0_save/
 slurm_out/
 
 data/raw/C2I_v1_amber_old/
+
+build/
+
+dist/
+
+src.egg-info/
 md.tar.gz

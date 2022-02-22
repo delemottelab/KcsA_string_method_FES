@@ -9,6 +9,7 @@ make_conda:
 	conda env create -f environment.yml
 	conda activate $(PROJECT_NAME)
 	ipython kernel install --user --name=$(PROJECT_NAME)
+	pip install -e .
 
 update_conda:
 	conda env update --file environment.yml
