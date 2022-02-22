@@ -40,6 +40,9 @@ format:
 back_up_repo:
 	rsync --del -rauLih --exclude md/ /home/sperez/Projects/string_sims/ tcblab:~/my_volumes/KcsA_string_method_swarms/string_sims/
 
+back_up_repo_dry:
+	rsync --del -rnauLih --exclude md/ /home/sperez/Projects/string_sims/ tcblab:~/my_volumes/KcsA_string_method_swarms/string_sims/
+
 help:
 	@echo "Possible options:"
 	@echo "make_conda"
@@ -48,3 +51,4 @@ help:
 	@echo "update_data"
 	@echo "update_data_dry"
 	@echo "back_up_repo"
+	@echo "back_up_repo_dry"
