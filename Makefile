@@ -3,6 +3,7 @@
 .ONESHELL:
 
 PROJECT_NAME = string_sims
+BACK_UP_REPO = tcblab:~/my_volumes/KcsA_string_method_swarms/
 
 make_conda:
 	conda env create -f environment.yml
@@ -17,14 +18,14 @@ remove_conda:
 	conda remove --name=$(PROJECT_NAME) --all
 
 update_data:
-	 grep -v "^#" data/raw/dir_list.txt | while read a b;do rsync -rauLih --del  --progress  --exclude-from=data/raw/exclude_list.txt   $$a $$b;done
+	 grep -v "^#" data/raw/dir_list.txt | while read a b;do rsync -rauLih   --progress  --exclude-from=data/raw/exclude_list.txt   $$a $$b;done
 	 python  src/data/get_external_data.py
 
 update_data_dry:
-	 grep -v "^#" data/raw/dir_list.txt | while read a b; do echo $$a $$b; rsync -raunLih  --del --exclude-from=data/raw/exclude_list.txt   $$a $$b;done
+	 grep -v "^#" data/raw/dir_list.txt | while read a b; do echo $$a $$b; rsync -raunLih  --exclude-from=data/raw/exclude_list.txt   $$a $$b;done
 
 update_data_dry_verbose:
-	 grep -v "^#" data/raw/dir_list.txt | while read a b;do rsync -raunLivvvh --del  --exclude-from=data/raw/exclude_list.txt   $$a $$b;done
+	 grep -v "^#" data/raw/dir_list.txt | while read a b;do rsync -raunLivvvh   --exclude-from=data/raw/exclude_list.txt   $$a $$b;done
 
 clean:
 	find . -iname \#* -exec rm {} \;
@@ -35,6 +36,9 @@ format:
 	black -l 79 .
 	isort .
 
+back_up_repo:
+	rsync --del -rauLih --exclude md/ /home/sperez/Projects/string_sims/ tcblab:~/my_volumes/KcsA_string_method_swarms/string_sims/
+
 help:
 	@echo "Possible options:"
 	@echo "make_conda"
@@ -42,3 +46,4 @@ help:
 	@echo "remove_conda"
 	@echo "update_data"
 	@echo "update_data_dry"
+	@echo "back_up_repo"
