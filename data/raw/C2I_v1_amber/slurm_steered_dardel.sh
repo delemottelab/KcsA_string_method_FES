@@ -34,31 +34,11 @@
 # Choose version of gromacs
 ml PDC/21.09
 ml GROMACS/2020.5-cpeCray-21.09
+ml Anaconda3/2021.05
 
 # Path to string-method-gmxapi
 path_string_method_gmxapi=../../../../string-method-gmxapi/
 
-# Path to anaconda3 instalation with string_method environment
-my_conda_env=/cfs/klemming/scratch/s/sergiopc/anaconda3
-# env >environment
-
-
-######################  DON'T MODIFY ###############################
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-var=$("${my_conda_env}/bin/conda" 'shell.bash' 'hook' 2> /dev/null)
-__conda_setup=$var
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "$my_conda_env/etc/profile.d/conda.sh" ]; then
-        . "$my_conda_env/etc/profile.d/conda.sh"
-    else
-        export PATH="$my_conda_env/bin/$PATH"
-    fi
-fi
-unset __conda_setup
-conda activate string_method
 
 cmd=" `which python` ${path_string_method_gmxapi}/stringmethod/main.py --config_file=config_steered.json --start_mode=steered"
 echo $cmd
