@@ -32,6 +32,7 @@ nohup.out
 
 # MD files
 *xtc
+*edr
 *trr
 .*npz
 *cpt
@@ -56,7 +57,9 @@ string[1-9]*.txt
 cv_iter*npy
 postprocessing
 core
-data/raw/C2I_v1_amber/0_34beads/
+data/raw/C2I_v1_amber/0_34beads/*/restrained/*tpr
+data/raw/C2I_v1_amber/0_34beads/*/restrained/*log
+data/raw/C2I_v1_amber/0_34beads/*/restrained/mdout.mdp
 data/raw/C2I_v1_amber/0_save/
 slurm_out/
 
@@ -68,3 +71,5 @@ dist/
 
 src.egg-info/
 md.tar.gz
+
+data/raw/C2I_v1_amber/0_34beads/9/restrained/grompp.mdp
