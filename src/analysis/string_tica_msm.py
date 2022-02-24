@@ -1,3 +1,4 @@
+import multiprocessing as mp
 import sys
 
 import numpy as np
@@ -36,7 +37,7 @@ def cvs_to_tica(cv_coordinates, drop):
     return data
 
 
-def k_means_cluster(data, k, stride=1, max_iter=500, n_proc=1, seed=None):
+def k_means_cluster(data, k, stride=1, max_iter=500, n_jobs=1, seed=None):
     from deeptime.clustering import KMeans
 
     estimator = KMeans(
@@ -44,7 +45,7 @@ def k_means_cluster(data, k, stride=1, max_iter=500, n_proc=1, seed=None):
         init_strategy="uniform",  # uniform initialization strategy
         max_iter=max_iter,  # don't actually perform the optimization, just place centers
         fixed_seed=seed,
-        n_jobs=n_proc,
+        n_jobs=n_jobs,
     )
     clusters = (
         estimator.fit(data[::stride, :, :].reshape(-1, data.shape[2]))
@@ -55,7 +56,7 @@ def k_means_cluster(data, k, stride=1, max_iter=500, n_proc=1, seed=None):
     return clusters
 
 
-def get_vamp_vs_k(n_clustercenters, data):
+def get_vamp_vs_k(n_clustercenters, data, n_jobs):
     import logging
 
     import deeptime.markov as markov
@@ -81,7 +82,7 @@ def get_vamp_vs_k(n_clustercenters, data):
         enumerate(n_clustercenters), total=len(n_clustercenters), desc="Loop over k:"
     ):
         for m in tqdm(range(n_iter), desc="Loop over iterations:", leave=False):
-            _cl = k_means_cluster(data, k, stride=10, max_iter=50, n_proc=8)
+            _cl = k_means_cluster(data, k, stride=10, max_iter=50, n_jobs=n_jobs)
 
             estimator = markov.msm.MaximumLikelihoodMSM(
                 reversible=True,
@@ -91,15 +92,20 @@ def get_vamp_vs_k(n_clustercenters, data):
 
             counts = (
                 markov.TransitionCountEstimator(lagtime=1, count_mode="sample")
-                .fit(_cl)
+                .fit(_cl, n_jobs=n_jobs)
                 .fetch_model()
             )
-            _msm = estimator.fit(counts)
+            _msm = estimator.fit(counts, n_jobs=n_jobs)
             # return _msm, _cl
             # exit
 
             scores[n, m] = vamp_score_cv(
-                _msm, trajs=[c for c in _cl], n=1, lagtime=1, dim=min(10, k)
+                _msm,
+                trajs=[c for c in _cl],
+                n=1,
+                lagtime=1,
+                dim=min(10, k),
+                n_jobs=n_jobs,
             )[0]
 
         # Plotting
@@ -112,7 +118,7 @@ def get_vamp_vs_k(n_clustercenters, data):
     ax.set_ylabel("VAMP-2 score")
     fig.tight_layout()
 
-    return fig, ax
+    return fig, ax, scores
 
 
 def get_bayesian_msm(clusters, n_samples=100):
@@ -138,7 +144,7 @@ def get_bayesian_msm(clusters, n_samples=100):
     return msm, weights
 
 
-def get_msm(clusters):
+def get_msm(clusters, n_jobs=1):
     import logging
 
     import deeptime.markov as markov
@@ -152,13 +158,11 @@ def get_msm(clusters):
         stationary_distribution_constraint=None,
         lagtime=1,
     )
-    counts = (
-        markov.TransitionCountEstimator(lagtime=1, count_mode="effective")
-        .fit(clusters)
-        .fetch_model()
+    counts = markov.TransitionCountEstimator.count(
+        lagtime=1, count_mode="effective", dtrajs=clusters, n_jobs=n_jobs
     )
 
-    msm = estimator.fit(counts).fetch_model()
+    msm = estimator.fit(counts, n_jobs=n_jobs).fetch_model()
     weights = np.array(
         msm.compute_trajectory_weights(np.concatenate(clusters.reshape(-1, 1)))
     ).squeeze()
@@ -196,6 +200,24 @@ def get_kde(samples, weights=None, bandwidth=None, nbins=55, extent=None):
     return Z, extent
 
 
+def _get_bootstrap(n_boot, block_length, clusters, cv_proj, bandwidth, extent, nbin):
+
+    random = np.random.choice(n_boot, n_boot)
+    mask = []
+    for r in random:
+        mask += list(range(r * block_length, (r + 1) * block_length))
+    _, w = get_msm(clusters[mask])
+    h, extent = get_kde(
+        cv_proj[mask, :, :],
+        w,
+        bandwidth,
+        extent=extent,
+        nbins=nbin,
+    )
+
+    return h
+
+
 def get_error(
     cv_proj,
     clusters,
@@ -204,8 +226,11 @@ def get_error(
     bandwidth=0.05,
     nbin=55,
     blocks=[2, 4, 8, 16, 32, 64],
+    n_jobs=1,
     seed=None,
 ):
+    from functools import partial
+
     from tqdm.autonotebook import tqdm
 
     if seed is not None:
@@ -217,22 +242,28 @@ def get_error(
     ndat = cv_proj.shape[0]
     errors = []
     for b in tqdm(blocks, desc="Loop over blocks"):
-        histograms = []
         block_length = ndat // b
-        for _ in tqdm(range(n_boot), leave=False, desc="Loop over bootstraps"):
-            random = np.random.choice(b, b)
-            mask = []
-            for r in random:
-                mask += list(range(r * block_length, (r + 1) * block_length))
-            _, w = get_msm(clusters[mask])
-            h, extent = get_kde(
-                cv_proj[mask, :, :],
-                w,
-                bandwidth,
-                extent=extent,
-                nbins=nbin,
-            )
-            histograms.append(h)
+        get_bootstrap = partial(
+            _get_bootstrap, b, block_length, clusters, cv_proj, bandwidth, extent, nbin
+        )
+
+        with mp.Pool(n_jobs) as tp:
+            histograms = tp.starmap(get_bootstrap, [() for _ in np.arange(n_boot)])
+
+        # for _ in tqdm(range(n_boot), leave=False, desc="Loop over bootstraps"):
+        #     random = np.random.choice(b, b)
+        #     mask = []
+        #     for r in random:
+        #         mask += list(range(r * block_length, (r + 1) * block_length))
+        #     _, w = get_msm(clusters[mask])
+        #     h, extent = get_kde(
+        #         cv_proj[mask, :, :],
+        #         w,
+        #         bandwidth,
+        #         extent=extent,
+        #         nbins=nbin,
+        #     )
+        #     histograms.append(h)
         histograms = np.array(histograms)
         x_mean, hdi = get_hdi(histograms, 0, 0.05)
         # Dividing by x_mean propagates the uncertainty from histogram uncertainty to
@@ -241,7 +272,7 @@ def get_error(
     errors = np.array(errors)
     errors[errors == np.inf] = np.nan
 
-    return errors
+    return errors, histograms
 
 
 def get_hdi(x, axis, alpha=0.06):
