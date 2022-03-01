@@ -197,7 +197,7 @@ def get_kde(samples, weights=None, bandwidth=None, nbins=55, extent=None):
     Z = Z.T
     extent = [xmin, xmax, ymin, ymax]
 
-    return Z, extent
+    return Z, extent, kernel
 
 
 def _get_bootstrap(n_boot, block_length, clusters, cv_proj, bandwidth, extent, nbin):
@@ -280,3 +280,31 @@ def get_hdi(x, axis, alpha=0.06):
     percentiles = 100 * np.array([alpha / 2.0, 1.0 - alpha / 2.0])
     hdi = np.nanpercentile(x, percentiles, axis=axis)
     return x_mean, hdi
+
+
+def project_property_on_cv_kde(
+    cv_proj, weights, proper, bandwidth=None, density_cut_off=0.00001
+):
+
+    n_data = cv_proj.shape[0] * cv_proj.shape[1]
+    if len(proper.shape) == 3:
+        proper = proper.reshape(n_data)
+    elif len(proper.shape) != 1:
+        raise Exception(
+            "The shape of property should be (ndata,) or (n_iter, n_frames_per_iter, 1)"
+        )
+    weights /= np.sum(weights)
+    prop_min = proper.min()
+    proper -= prop_min
+    weights_proper = proper * weights
+    norm = np.sum(weights_proper)
+    weights_proper /= norm
+
+    prop_of_cv, extent, _ = get_kde(cv_proj, weights_proper, bandwidth)
+    count_of_cv, extent, _ = get_kde(cv_proj, weights, bandwidth)
+    prop_of_cv[count_of_cv < density_cut_off] = np.nan
+    prop_of_cv *= norm
+    prop_of_cv += prop_min
+    prop_of_cv = prop_of_cv / count_of_cv
+
+    return prop_of_cv, extent
