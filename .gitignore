@@ -75,3 +75,7 @@ md.tar.gz
 data/raw/C2I_v1_amber/0_34beads/9/restrained/grompp.mdp
 
 notebooks/*-dev.ipynb
+
+# Later remove
+*png
+*npy
