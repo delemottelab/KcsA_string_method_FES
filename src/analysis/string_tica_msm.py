@@ -171,6 +171,18 @@ def get_msm(clusters, n_jobs=1):
 
 
 def get_kde(samples, weights=None, bandwidth=None, nbins=55, extent=None):
+    assert samples.shape[-1] < 3, "Can only do 1D or 2D KDE"
+    if samples.shape[-1] == 1:
+        return get_kde_1d(
+            samples, weights=weights, bandwidth=bandwidth, nbins=nbins, extent=extent
+        )
+    elif samples.shape[-1] == 2:
+        return get_kde_2d(
+            samples, weights=weights, bandwidth=bandwidth, nbins=nbins, extent=extent
+        )
+
+
+def get_kde_2d(samples, weights=None, bandwidth=None, nbins=55, extent=None):
     """
     aklsjfa;sldjfas
     """
@@ -196,6 +208,32 @@ def get_kde(samples, weights=None, bandwidth=None, nbins=55, extent=None):
     Z = np.reshape(kernel(positions), X.shape)
     Z = Z.T
     extent = [xmin, xmax, ymin, ymax]
+
+    return Z, extent, kernel
+
+
+def get_kde_1d(samples, weights=None, bandwidth=None, nbins=55, extent=None):
+    """
+    aklsjfa;sldjfas
+    """
+
+    from scipy.stats import gaussian_kde
+
+    samples = samples.flatten()
+    if extent is None:
+        xmin = samples.min()
+        xmax = samples.max()
+    else:
+        xmin, xmax = extent
+    positions = np.linspace(xmin, xmax, nbins)
+    print(weights.shape, samples.shape)
+    kernel = gaussian_kde(
+        samples,
+        weights=weights,
+        bw_method=bandwidth,
+    )
+    extent = [xmin, xmax]
+    Z = kernel(positions)
 
     return Z, extent, kernel
 
