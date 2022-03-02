@@ -37,6 +37,7 @@ def plot_2D_heatmap(
     ax=None,
     fig=None,
     xlabel="",
+    n_colors=50,
     ylabel="",
 ):
 
@@ -44,15 +45,13 @@ def plot_2D_heatmap(
         fig, ax = plt.subplots(1, 1, figsize=(10, 7), sharex=True, sharey=True)
     if cmap is None:
         cmap = plt.cm.RdYlBu_r
-    n_colors = 50
     if f_max is None:
         f_max = np.nanmax(G)
     if f_min is None:
         f_min = np.nanmin(G)
-    levels = np.linspace(f_min, f_max, n_colors)
-    colors = cmap(levels)  # yellow to blue
+    contour = ax.contourf(G, n_colors, cmap=cmap, extent=extent, vmin=f_min, vmax=f_max)
+    colors = cmap(contour.levels)  # yellow to blue
     norm = mpl.colors.Normalize(vmin=f_min, vmax=f_max)
-    ax.contourf(G, cmap=cmap, extent=extent, levels=levels)
     _ = _colorbar(ax, cmap, norm, cbar_label, 15)
     ax.set_xlabel(xlabel)
     ax.set_ylabel(ylabel)
