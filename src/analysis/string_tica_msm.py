@@ -226,7 +226,6 @@ def get_kde_1d(samples, weights=None, bandwidth=None, nbins=55, extent=None):
     else:
         xmin, xmax = extent
     positions = np.linspace(xmin, xmax, nbins)
-    print(weights.shape, samples.shape)
     kernel = gaussian_kde(
         samples,
         weights=weights,
@@ -245,7 +244,7 @@ def _get_bootstrap(n_boot, block_length, clusters, cv_proj, bandwidth, extent, n
     for r in random:
         mask += list(range(r * block_length, (r + 1) * block_length))
     _, w = get_msm(clusters[mask])
-    h, extent = get_kde(
+    h, _, _ = get_kde(
         cv_proj[mask, :, :],
         w,
         bandwidth,
@@ -279,6 +278,7 @@ def get_error(
     ), "You have to choose a bandwidth, otherwise the bandwith will change between bootstrap iterations"
     ndat = cv_proj.shape[0]
     errors = []
+    hdis = []
     for b in tqdm(blocks, desc="Loop over blocks"):
         block_length = ndat // b
         get_bootstrap = partial(
@@ -301,16 +301,23 @@ def get_error(
         #         extent=extent,
         #         nbins=nbin,
         #     )
-        #     histograms.append(h)
         histograms = np.array(histograms)
         x_mean, hdi = get_hdi(histograms, 0, 0.05)
+        x_mean = -np.log(x_mean)
+        hdi = -np.log(hdi)
+        hdi = hdi[[1, 0]]
+        minimum = x_mean.min()
+        hdi -= minimum
+        x_mean -= minimum
         # Dividing by x_mean propagates the uncertainty from histogram uncertainty to
         # free energy uncertainty.
-        errors.append((hdi[1, :, :] - hdi[0, :, :]) / 2 / x_mean)
+        errors.append((hdi[1] - hdi[0]) / 2)
+        hdis.append(hdi)
     errors = np.array(errors)
+    hdis = np.array(hdis)
     errors[errors == np.inf] = np.nan
 
-    return errors, histograms
+    return errors, histograms, hdis
 
 
 def get_hdi(x, axis, alpha=0.06):
