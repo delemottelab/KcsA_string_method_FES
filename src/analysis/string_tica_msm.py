@@ -314,7 +314,7 @@ def get_error(
 
 
 def get_hdi(x, axis, alpha=0.06):
-    x_mean = np.nanmean(x, axis=axis)
+    x_mean = np.nanmedian(x, axis=axis)
     percentiles = 100 * np.array([alpha / 2.0, 1.0 - alpha / 2.0])
     hdi = np.nanpercentile(x, percentiles, axis=axis)
     return x_mean, hdi
