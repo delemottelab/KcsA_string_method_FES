@@ -39,6 +39,11 @@ def plot_2D_heatmap(
     xlabel="",
     n_colors=50,
     ylabel="",
+    c_density=None,
+    levels=20,
+    c_min=None,
+    c_max=None,
+    c_color="k",
 ):
 
     if ax is None:
@@ -49,10 +54,22 @@ def plot_2D_heatmap(
         f_max = np.nanmax(G)
     if f_min is None:
         f_min = np.nanmin(G)
-    contour = ax.contourf(G, n_colors, cmap=cmap, extent=extent, vmin=f_min, vmax=f_max)
-    colors = cmap(contour.levels)  # yellow to blue
+    if c_max is None:
+        c_max = np.nanmax(c_density)
+    if c_min is None:
+        c_min = np.nanmin(c_density)
+    ax.contourf(G, n_colors, cmap=cmap, extent=extent, vmin=f_min, vmax=f_max)
     norm = mpl.colors.Normalize(vmin=f_min, vmax=f_max)
     _ = _colorbar(ax, cmap, norm, cbar_label, 15)
+    if c_density is not None:
+        ax.contour(
+            c_density,
+            levels=levels,
+            extent=extent,
+            vmin=c_min,
+            vmax=c_max,
+            colors=c_color,
+        )
     ax.set_xlabel(xlabel)
     ax.set_ylabel(ylabel)
     fig.tight_layout()
