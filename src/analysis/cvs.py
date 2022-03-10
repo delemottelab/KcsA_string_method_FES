@@ -39,26 +39,31 @@ def cvs_to_SF_IG(cv_coordinates, SF_cv_numbers, IG_cv_numbers):
     return cvs_to_SF_IG
 
 
-def get_path_lambda(path):
+def MSD_metric(v1, v2):
+
+    return np.sum((v1 - v2) ** 2)
+
+
+def get_path_lambda(path, metric=MSD_metric):
     from numpy.linalg import norm
 
     n_beads = path.shape[1]
     lam = (
         2.3
         * (n_beads - 1)
-        / np.sum([norm(path[:, i] - path[:, i + 1]) for i in range(0, n_beads - 1)])
+        / np.sum([metric(path[:, i], path[:, i + 1]) for i in range(0, n_beads - 1)])
     )
     return lam
 
 
-def cvs_to_path(vec, path, lam):
+def cvs_to_path(vec, path, lam, metric=MSD_metric):
     from numpy.linalg import norm
 
     n_beads = path.shape[1]
 
     # The formula of the Branduardi paper indeces from i=1 to P, if j=i-1, then j=0 to P-1
-    array = np.array([np.exp(-lam * norm(vec - bead) ** 2) for bead in path[:, :].T])
+    array = np.array([np.exp(-lam * metric(vec, bead)) for bead in path[:, :].T])
 
-    s = np.sum(np.arange(0, n_beads) * array) / np.sum(array) / (n_beads - 1)
+    s = np.sum(np.arange(1, n_beads + 1) * array) / np.sum(array) / (n_beads - 1)
     z = -np.log(np.sum(array)) / lam
     return np.array([s, z])
