@@ -207,7 +207,7 @@ def two_cv_strings_time_series(
     return fig, ax
 
 
-def two_cv_rmsd_strings_time_series(strings):
+def all_rmsd_strings_time_series(strings, ylabel):
     n_strings = strings.shape[0]
     fig, ax = plt.subplots(1, 1, figsize=(10, 8))
     x = np.arange(n_strings)
@@ -215,10 +215,9 @@ def two_cv_rmsd_strings_time_series(strings):
     y = np.sqrt(np.sum(y * y, axis=(1, 2)) / strings.shape[2])
     ax.plot(x, y)
     ax.set_ylabel(
-        f"RMSD[Reduced string (nm)]",
+        ylabel,
         size=18,
         labelpad=16,
     )
     ax.set_xlabel("iteration number", size=15, labelpad=13)
-    ax.set_title(f"RMSD[Reduced string]")
     return fig, ax
