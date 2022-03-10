@@ -85,3 +85,5 @@ data/processed/C2I_lb_v1/errors_200_5.npy
 data/processed/C2I_lb_v1/errors_20_5.npy
 data/processed/C2I_lb_v1/errors_400_5.npy
 data/processed/C2I_lb_v1/errors_50_5.npy
+notebooks/string_analysis_FES-dev-Copy1.ipynb
+notebooks/string_analysis_FES-dev-Copy2_test.ipynb
