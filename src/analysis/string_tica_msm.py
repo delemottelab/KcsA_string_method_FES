@@ -135,11 +135,9 @@ def get_bayesian_msm(clusters, n_samples=100):
     )
 
     msm = estimator.fit(counts).fetch_model()
-    print("here")
     weights = msm.gather_stats(
         "compute_trajectory_weights", dtrajs=clusters.reshape(-1, 1)
     )
-    print("here")
 
     return msm, weights
 
@@ -209,7 +207,55 @@ def get_kde_2d(samples, weights=None, bandwidth=None, nbins=55, extent=None):
     Z = Z.T
     extent = [xmin, xmax, ymin, ymax]
 
-    return Z, extent, kernel
+    return Z, extent
+
+
+def get_kde_2d_custom(
+    samples, weights=None, bandwidth=None, nbins=55, extent=None, density=True
+):
+    """
+    aklsjfa;sldjfas
+    """
+
+    from scipy.stats import multivariate_normal
+    from tqdm.autonotebook import tqdm
+
+    samples = samples.reshape(-1, samples.shape[1])
+    if extent is None:
+        xmin = samples[:, 0].min()
+        xmax = samples[:, 0].max()
+        ymin = samples[:, 1].min()
+        ymax = samples[:, 1].max()
+    else:
+        xmin, xmax, ymin, ymax = extent
+    X, Y = np.mgrid[xmin : xmax : nbins * 1j, ymin : ymax : nbins * 1j]
+    positions = np.dstack((X, Y))
+    Z = np.zeros([nbins, nbins])
+
+    assert np.isscalar(bandwidth) or bandwidth.shape == (
+        2,
+        2,
+    ), "The bandwidth must be a scalr or a 2x2 covariance matrix."
+    if np.isscalar(bandwidth):
+        cov = np.cov(samples.T, aweights=weights, bias=False)
+        cov = cov * bandwidth ** 2
+    else:
+        cov = bandwidth
+
+    for w, sample in tqdm(
+        zip(weights, samples), total=weights.shape[0], desc="Loop over samples"
+    ):
+        rv = multivariate_normal([sample[0], sample[1]], cov)
+        Z += w * rv.pdf(positions)
+
+    extent = [xmin, xmax, ymin, ymax]
+    if density:
+        norm = np.sum(Z)
+        dx = (xmax - xmin) / (nbins - 1)
+        dy = (ymax - ymin) / (nbins - 1)
+        norm = norm * dx * dy
+        Z = Z / norm
+    return Z.T, extent, cov
 
 
 def get_kde_1d(samples, weights=None, bandwidth=None, nbins=55, extent=None):
@@ -234,7 +280,7 @@ def get_kde_1d(samples, weights=None, bandwidth=None, nbins=55, extent=None):
     extent = [xmin, xmax]
     Z = kernel(positions)
 
-    return Z, extent, kernel
+    return Z, extent
 
 
 def _get_bootstrap(n_boot, block_length, clusters, cv_proj, bandwidth, extent, nbin):
@@ -244,7 +290,7 @@ def _get_bootstrap(n_boot, block_length, clusters, cv_proj, bandwidth, extent, n
     for r in random:
         mask += list(range(r * block_length, (r + 1) * block_length))
     _, w = get_msm(clusters[mask])
-    h, _, _ = get_kde(
+    h, _, = get_kde(
         cv_proj[mask, :, :],
         w,
         bandwidth,
@@ -328,7 +374,7 @@ def get_hdi(x, axis, alpha=0.06):
 
 
 def project_property_on_cv_kde(
-    cv_proj, weights, proper, bandwidth=None, density_cut_off=0.00001
+    cv_proj, weights, proper, bandwidth=None, nbins=55, normalize=True, F_cutoff_KT=40
 ):
 
     n_data = cv_proj.shape[0] * cv_proj.shape[1]
@@ -338,18 +384,17 @@ def project_property_on_cv_kde(
         raise Exception(
             "The shape of property should be (ndata,) or (n_iter, n_frames_per_iter, 1)"
         )
-    weights /= np.sum(weights)
-    prop_min = proper.min()
-    proper -= prop_min
-    weights_proper = proper * weights
-    norm = np.sum(weights_proper)
-    weights_proper /= norm
 
-    prop_of_cv, extent, _ = get_kde(cv_proj, weights_proper, bandwidth)
-    count_of_cv, extent, _ = get_kde(cv_proj, weights, bandwidth)
-    prop_of_cv[count_of_cv < density_cut_off] = np.nan
-    prop_of_cv *= norm
-    prop_of_cv += prop_min
-    prop_of_cv = prop_of_cv / count_of_cv
+    weights_proper = proper * weights
+
+    count_of_cv, extent, cov = get_kde_2d_custom(
+        cv_proj, weights, bandwidth, nbins=nbins, density=False
+    )
+    prop_of_cv, extent, cov = get_kde_2d_custom(
+        cv_proj, weights_proper, cov, nbins=nbins, density=False
+    )
+    if normalize:
+        prop_of_cv[count_of_cv < np.exp(-F_cutoff_KT)] = np.nan
+        prop_of_cv = prop_of_cv / count_of_cv
 
     return prop_of_cv, extent
