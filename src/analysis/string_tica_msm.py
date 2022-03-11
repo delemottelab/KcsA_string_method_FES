@@ -238,7 +238,7 @@ def get_kde_2d_custom(
     ), "The bandwidth must be a scalr or a 2x2 covariance matrix."
     if np.isscalar(bandwidth):
         cov = np.cov(samples.T, aweights=weights, bias=False)
-        cov = cov * bandwidth ** 2
+        cov = cov * bandwidth**2
     else:
         cov = bandwidth
 

@@ -238,3 +238,24 @@ def all_rmsd_strings_time_series(strings, ylabel):
     )
     ax.set_xlabel("iteration number", size=15, labelpad=13)
     return fig, ax
+
+
+def plot_FES_1d_vs_t(FES_vs_t, xlabel=None, cmap=None, fig=None, ax=None):
+
+    if ax is None:
+        fig, ax = plt.subplots(1, 1, figsize=(10, 7), sharex=True, sharey=True)
+    if cmap is None:
+        cmap = plt.cm.viridis_r
+    n_fes = FES_vs_t.shape[0] - 2
+    colors = cmap(np.linspace(0, 1, n_fes))  # yellow to blue
+    norm = mpl.colors.Normalize(vmin=0, vmax=n_fes)
+
+    ax.plot(FES_vs_t[0, :], FES_vs_t[-1, :], marker="o", c="red", ms=6, label="full")
+    for i in range(1, n_fes + 1):
+        ax.plot(FES_vs_t[0, :], FES_vs_t[i, :], marker=".", c=colors[i - 1])
+    _ = _colorbar(ax, cmap, norm, "Iteration", 15)
+    ax.set_ylabel("Free Energy (kT)", size=18)
+    ax.set_xlabel(xlabel, size=18)
+    ax.legend()
+
+    return fig, ax
