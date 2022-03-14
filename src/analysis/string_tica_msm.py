@@ -334,30 +334,21 @@ def get_error(
         with mp.Pool(n_jobs) as tp:
             histograms = tp.starmap(get_bootstrap, [() for _ in np.arange(n_boot)])
 
-        # for _ in tqdm(range(n_boot), leave=False, desc="Loop over bootstraps"):
-        #     random = np.random.choice(b, b)
-        #     mask = []
-        #     for r in random:
-        #         mask += list(range(r * block_length, (r + 1) * block_length))
-        #     _, w = get_msm(clusters[mask])
-        #     h, extent = get_kde(
-        #         cv_proj[mask, :, :],
-        #         w,
-        #         bandwidth,
-        #         extent=extent,
-        #         nbins=nbin,
-        #     )
         histograms = np.array(histograms)
+        x_mean = np.mean(histograms, axis=0)
+        std_err = np.std(histograms, axis=0, ddof=1)
+        # Dividing by x_mean propagates the uncertainty from histogram uncertainty to
+        # free energy uncertainty.
+        std_err = std_err / x_mean
+
         x_mean, hdi = get_hdi(histograms, 0, 0.05)
         x_mean = -np.log(x_mean)
         hdi = -np.log(hdi)
         hdi = hdi[[1, 0]]
         minimum = x_mean.min()
         hdi -= minimum
-        x_mean -= minimum
-        # Dividing by x_mean propagates the uncertainty from histogram uncertainty to
-        # free energy uncertainty.
-        errors.append((hdi[1] - hdi[0]) / 2)
+
+        errors.append(std_err)
         hdis.append(hdi)
     errors = np.array(errors)
     hdis = np.array(hdis)
