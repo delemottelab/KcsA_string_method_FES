@@ -67,3 +67,64 @@ def cvs_to_path(vec, path, lam, metric=MSD_metric):
     s = np.sum(np.arange(1, n_beads + 1) * array) / np.sum(array) / (n_beads - 1)
     z = -np.log(np.sum(array)) / lam
     return np.array([s, z])
+
+
+def average_strings_to_cv(cv_coordinates, cv_id_list):
+    cv_id_list0 = []
+    if type(cv_id_list[0]) is not list:
+        cv_id_list0.append(cv_id_list)
+    av = np.concatenate(
+        [
+            np.mean([cv_coordinates[:, :, c : c + 1] for c in cv], axis=0)
+            for cv in cv_id_list0
+        ],
+        axis=2,
+    )
+    return av
+
+
+def distance_atom_groups(
+    u, sel1, sel2, time=False, progressbar=False, center_of_mass=False
+):
+    """
+    Calculate the distance between the centers of geometry (or mass) between two groups (sel1, sel2) as a function of time in the trajectory trj.
+
+    Parameters
+    ----------
+    u: MDA universe to analyz trajectory to analyze.
+    sel1: MDA selection containing at least 1 atom.
+    sel2: MDA selection containing at least 1 atom.
+    center_of_mass: Use the center of mass instead of center of geometry.
+    progressbar: Show progressbar.
+
+    Returns
+    -------
+    d: numpy array.
+    """
+    from MDAnalysis import AtomGroup, Universe
+    from numpy import array
+    from numpy.linalg import norm
+    from tqdm import tqdm
+
+    assert isinstance(u, Universe), "u should be a MDAnlaysis universe."
+    assert isinstance(sel1, AtomGroup), "sel1 should be a MDAnlaysis universe."
+    assert isinstance(sel2, AtomGroup), "sel2 should be a MDAnlaysis universe."
+    assert isinstance(progressbar, bool), "progressbar should be boolean."
+    assert sel1.n_atoms >= 1, "sel1 should have at least 1 atom."
+    assert sel2.n_atoms >= 1, "sel2 should have at least 1 atom."
+
+    d = []
+    for i, ts in tqdm(
+        enumerate(u.trajectory), total=u.trajectory.n_frames, disable=not progressbar
+    ):
+        if center_of_mass:
+            csel1 = sel1.center_of_mass()
+            csel2 = sel2.center_of_mass()
+        else:
+            csel1 = sel1.centroid()
+            csel2 = sel2.centroid()
+        d.append([ts.dt * i, norm(csel1 - csel2)/10])
+    d = array(d)
+    if not time:
+        d = d[:, 1]
+    return array(d)
