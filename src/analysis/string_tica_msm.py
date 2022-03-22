@@ -331,16 +331,28 @@ def get_error(
     ), "You have to choose a bandwidth, otherwise the bandwith will change between bootstrap iterations"
     ndat = cv_proj.shape[0]
     errors = []
-    hdis = []
     for b in tqdm(blocks, desc="Loop over blocks"):
         block_length = ndat // b
         get_bootstrap = partial(
             _get_bootstrap, b, block_length, clusters, cv_proj, bandwidth, extent, nbin
         )
 
+        hist_err = []
         with mp.Pool(n_jobs) as tp:
-            histograms = tp.starmap(get_bootstrap, [() for _ in np.arange(n_boot)])
-
+            hist_err = tp.starmap(
+                get_bootstrap,
+                tqdm([() for _ in np.arange(n_boot)], total=n_boot, desc="bootstraps"),
+            )
+        print("done looping")
+        # hist_err = []
+        # for _ in tqdm(np.arange(n_boot), total=n_boot, desc="bootstraps"):
+        #     hist_err.append(get_bootstrap())
+        err = 0
+        histograms = []
+        for h, e in hist_err:
+            err += e
+            histograms.append(h)
+        print(f"{err/n_boot *100} of MSMs failed")
         histograms = np.array(histograms)
         x_mean = np.mean(histograms, axis=0)
         std_err = np.std(histograms, axis=0, ddof=1)
@@ -348,20 +360,11 @@ def get_error(
         # free energy uncertainty.
         std_err = std_err / x_mean
 
-        x_mean, hdi = get_hdi(histograms, 0, 0.05)
-        x_mean = -np.log(x_mean)
-        hdi = -np.log(hdi)
-        hdi = hdi[[1, 0]]
-        minimum = x_mean.min()
-        hdi -= minimum
-
         errors.append(std_err)
-        hdis.append(hdi)
     errors = np.array(errors)
-    hdis = np.array(hdis)
     errors[errors == np.inf] = np.nan
 
-    return errors, histograms, hdis
+    return errors, histograms
 
 
 def get_hdi(x, axis, alpha=0.06):
