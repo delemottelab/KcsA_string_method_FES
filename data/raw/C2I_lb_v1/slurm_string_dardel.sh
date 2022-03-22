@@ -3,7 +3,7 @@
 # Include your account in your cluster.
 #SBATCH --account=snic2021-3-15
 # The name of the job in the queue
-#SBATCH --job-name=C2I_v1_amber
+#SBATCH --job-name=C2I_lb_v1
 #SBATCH --partition main
 
 # Output file names for stdout and stderr
