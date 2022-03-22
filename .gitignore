@@ -92,3 +92,4 @@ data/interim/C2I_lb_v1/cv_coordinates.npy
 data/interim/C2I_lb_v1/cv_proj.npy
 data/processed/C2I_lb_v1/FES_SF_IG.npy
 data/processed/XRD/XRD.pickle
+data/raw/C2I_v1_amber/topology/show_cv.tcl
