@@ -6,6 +6,7 @@ PROJECT_NAME = string_sims
 BACK_UP_REPO = tcblab:~/my_volumes/KcsA_string_method_swarms/
 
 make_conda:
+	conda deactivate
 	conda env create -f environment.yml
 	conda activate $(PROJECT_NAME)
 	ipython kernel install --user --name=$(PROJECT_NAME)

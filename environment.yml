@@ -5,7 +5,6 @@ channels:
 dependencies:
   - jupyterlab
   - mdanalysis
-  - mdtraj
   - nodejs
   - numpy
   - pandas
@@ -17,9 +16,8 @@ dependencies:
   - ipykernel
   - ipympl
   - mamba
+  - pyright
   - pip:
-    - datreant
-    - gmxapi==0.2.0a1
     - nb_black
     - panedr
     - nglview
