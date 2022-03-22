@@ -289,7 +289,13 @@ def _get_bootstrap(n_boot, block_length, clusters, cv_proj, bandwidth, extent, n
     mask = []
     for r in random:
         mask += list(range(r * block_length, (r + 1) * block_length))
-    _, w = get_msm(clusters[mask])
+    try:
+        _, w = get_msm(clusters[mask])
+    except:
+        h = np.zeros([nbin, nbin])
+        h = np.nan
+        error = 1
+        return h, error
     h, _, = get_kde(
         cv_proj[mask, :, :],
         w,
@@ -297,8 +303,9 @@ def _get_bootstrap(n_boot, block_length, clusters, cv_proj, bandwidth, extent, n
         extent=extent,
         nbins=nbin,
     )
+    error = 0
 
-    return h
+    return h, error
 
 
 def get_error(
