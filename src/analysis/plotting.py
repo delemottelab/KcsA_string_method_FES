@@ -264,3 +264,20 @@ def plot_FES_1d_vs_t(FES_vs_t, xlabel=None, cmap=None, fig=None, ax=None, error=
     ax.legend()
 
     return fig, ax
+
+
+def add_XRD_values(
+    XRD_dictionary, val1, val2, size=8, color="k", ax=None, fig=None, txt_size=None
+):
+    if ax is None:
+        fig, ax = plt.subplots(1, 1, figsize=(10, 7), sharex=True, sharey=True)
+    for key in XRD_dictionary.keys():
+        x = XRD_dictionary[key][val1]
+        y = XRD_dictionary[key][val2]
+        marker = XRD_dictionary[key]["marker"]
+        ax.scatter(x, y, marker=marker, s=size**2, c=color, label=key)
+    if txt_size is None:
+        txt_size = size
+    ax.legend(prop={"size": txt_size})
+
+    return
