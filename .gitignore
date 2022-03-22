@@ -88,3 +88,7 @@ data/processed/C2I_lb_v1/errors_50_5.npy
 notebooks/string_analysis_FES-dev-Copy1.ipynb
 notebooks/string_analysis_FES-dev-Copy2_test.ipynb
 notebooks/string_analysis_FES-dev_test.ipynb
+data/interim/C2I_lb_v1/cv_coordinates.npy
+data/interim/C2I_lb_v1/cv_proj.npy
+data/processed/C2I_lb_v1/FES_SF_IG.npy
+data/processed/XRD/XRD.pickle
