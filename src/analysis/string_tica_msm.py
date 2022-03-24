@@ -323,12 +323,15 @@ def _get_bootstrap(n_boot, block_length, clusters, cv_proj, bandwidth, extent, n
     for r in random:
         mask += list(range(r * block_length, (r + 1) * block_length))
     try:
+        # print("do msm")
         _, w = get_msm(clusters[mask])
     except:
+        # print("failed msm")
         h = np.zeros([nbin, nbin])
         h = np.nan
         error = 1
         return h, error
+    # print("do KDE ")
     h, _, = get_kde(
         cv_proj[mask, :, :],
         w,
@@ -376,7 +379,7 @@ def get_error(
                 get_bootstrap,
                 tqdm([() for _ in np.arange(n_boot)], total=n_boot, desc="bootstraps"),
             )
-        print("done looping")
+        # print("done looping")
         # hist_err = []
         # for _ in tqdm(np.arange(n_boot), total=n_boot, desc="bootstraps"):
         #     hist_err.append(get_bootstrap())
@@ -386,9 +389,10 @@ def get_error(
             err += e
             histograms.append(h)
         print(f"{err/n_boot *100} of MSMs failed")
+        # return histograms
         histograms = np.array(histograms)
-        x_mean = np.mean(histograms, axis=0)
-        std_err = np.std(histograms, axis=0, ddof=1)
+        x_mean = np.nanmean(histograms, axis=0)
+        std_err = np.nanstd(histograms, axis=0, ddof=1)
         # Dividing by x_mean propagates the uncertainty from histogram uncertainty to
         # free energy uncertainty.
         std_err = std_err / x_mean
@@ -397,7 +401,7 @@ def get_error(
     errors = np.array(errors)
     errors[errors == np.inf] = np.nan
 
-    return errors, histograms
+    return errors
 
 
 def get_hdi(x, axis, alpha=0.06):
