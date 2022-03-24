@@ -17,6 +17,9 @@ dependencies:
   - ipympl
   - mamba
   - pyright
+  - isort
+  - flake8
+  - flake8-docstrings
   - pip:
     - nb_black
     - panedr
