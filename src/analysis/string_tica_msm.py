@@ -56,7 +56,7 @@ def k_means_cluster(data, k, stride=1, max_iter=500, n_jobs=1, seed=None):
     return clusters
 
 
-def get_vamp_vs_k(n_clustercenters, data, n_jobs):
+def get_vamp_vs_k(n_clustercenters, data, n_jobs, allow_failed_msms=False):
     import logging
 
     import deeptime.markov as markov
@@ -81,32 +81,65 @@ def get_vamp_vs_k(n_clustercenters, data, n_jobs):
     for n, k in tqdm(
         enumerate(n_clustercenters), total=len(n_clustercenters), desc="Loop over k:"
     ):
-        for m in tqdm(range(n_iter), desc="Loop over iterations:", leave=False):
+        failed_counter = 0
+        for m in tqdm(range(n_iter), desc="Loop over iterations", leave=False):
             _cl = k_means_cluster(data, k, stride=10, max_iter=50, n_jobs=n_jobs)
 
-            estimator = markov.msm.MaximumLikelihoodMSM(
-                reversible=True,
-                stationary_distribution_constraint=None,
-                lagtime=1,
-            )
+            # TODO, refactor
+            if allow_failed_msms:
+                try:
+                    estimator = markov.msm.MaximumLikelihoodMSM(
+                        reversible=True,
+                        stationary_distribution_constraint=None,
+                        lagtime=1,
+                    )
 
-            counts = (
-                markov.TransitionCountEstimator(lagtime=1, count_mode="sample")
-                .fit(_cl, n_jobs=n_jobs)
-                .fetch_model()
-            )
-            _msm = estimator.fit(counts, n_jobs=n_jobs)
-            # return _msm, _cl
-            # exit
+                    counts = (
+                        markov.TransitionCountEstimator(lagtime=1, count_mode="sample")
+                        .fit(_cl, n_jobs=n_jobs)
+                        .fetch_model()
+                    )
+                    _msm = estimator.fit(counts, n_jobs=n_jobs)
+                    # return _msm, _cl
+                    # exit
 
-            scores[n, m] = vamp_score_cv(
-                _msm,
-                trajs=[c for c in _cl],
-                n=1,
-                lagtime=1,
-                dim=min(10, k),
-                n_jobs=n_jobs,
-            )[0]
+                    scores[n, m] = vamp_score_cv(
+                        _msm,
+                        trajs=[c for c in _cl],
+                        n=1,
+                        lagtime=1,
+                        dim=min(10, k),
+                        n_jobs=n_jobs,
+                    )[0]
+                except:
+                    failed_counter += 1
+                    scores[n, m] = np.nan
+            else:
+                estimator = markov.msm.MaximumLikelihoodMSM(
+                    reversible=True,
+                    stationary_distribution_constraint=None,
+                    lagtime=1,
+                )
+
+                counts = (
+                    markov.TransitionCountEstimator(lagtime=1, count_mode="sample")
+                    .fit(_cl, n_jobs=n_jobs)
+                    .fetch_model()
+                )
+                _msm = estimator.fit(counts, n_jobs=n_jobs)
+                # return _msm, _cl
+                # exit
+
+                scores[n, m] = vamp_score_cv(
+                    _msm,
+                    trajs=[c for c in _cl],
+                    n=1,
+                    lagtime=1,
+                    dim=min(10, k),
+                    n_jobs=n_jobs,
+                )[0]
+        if allow_failed_msms:
+            print(f"For k={k}, {failed_counter} iterations failed out of {n_iter}.")
 
         # Plotting
     fig, ax = plt.subplots(1, 1)
