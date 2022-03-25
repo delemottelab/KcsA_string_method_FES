@@ -267,15 +267,38 @@ def plot_FES_1d_vs_t(FES_vs_t, xlabel=None, cmap=None, fig=None, ax=None, error=
 
 
 def add_XRD_values(
-    XRD_dictionary, val1, val2, size=8, color="k", ax=None, fig=None, txt_size=None
+    XRD_dictionary,
+    valx=None,
+    valy=None,
+    size=8,
+    color="k",
+    ax=None,
+    fig=None,
+    txt_size=None,
+    linestyle="-",
 ):
     if ax is None:
         fig, ax = plt.subplots(1, 1, figsize=(10, 7), sharex=True, sharey=True)
     for key in XRD_dictionary.keys():
-        x = XRD_dictionary[key][val1]
-        y = XRD_dictionary[key][val2]
-        marker = XRD_dictionary[key]["marker"]
-        ax.scatter(x, y, marker=marker, s=size**2, c=color, label=key)
+        if "color" in XRD_dictionary[key].keys():
+            color0 = XRD_dictionary[key]["color"]
+        else:
+            color0 = color
+        if valx is not None and valy is not None:
+            x = XRD_dictionary[key][valx]
+            y = XRD_dictionary[key][valy]
+            marker = XRD_dictionary[key]["marker"]
+            ax.scatter(x, y, marker=marker, s=size**2, c=color0, label=key)
+        elif valy is not None:
+            y = XRD_dictionary[key][valy]
+            if "linestyle" in XRD_dictionary[key].keys():
+                linestyle = XRD_dictionary[key]["linestyle"]
+            ax.axhline(y, linestyle=linestyle, c=color0, label=key, lw=size)
+        elif valx is not None:
+            x = XRD_dictionary[key][valx]
+            if "linestyle" in XRD_dictionary[key].keys():
+                linestyle = XRD_dictionary[key]["linestyle"]
+            ax.axvline(x, linestyle=linestyle, c=color0, label=key, lw=size)
     if txt_size is None:
         txt_size = size
     ax.legend(prop={"size": txt_size})
