@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 import MDAnalysis as mda
 import numpy as np
 from MDAnalysis.analysis.base import AnalysisBase
+from MDAnalysis.analysis.distances import dist
 from numpy.linalg import norm
 from tqdm.autonotebook import tqdm
 
@@ -173,6 +174,81 @@ class janin_chi2_av:
         ), "Need to run and postprocess before plotting."
         plt.plot(self.results_pp)
 
+# class distance_pairs_av(AnalysisBase):
+#     from numpy.linalg import norm
+
+#     def __init__(self, u, mda_sel_txt0, mda_sel_txt1, tpr_path, verbose=False):
+#         def wrap_and_prepare(u, trp_path):
+#             import MDAnalysis.transformations as trans
+#             from MDAnalysis.transformations.base import TransformationBase
+
+#             # for reuniting all the subunits
+#             class GroupHug(TransformationBase):
+#                 def __init__(self, center, *others):
+#                     super().__init__(max_threads=1, parallelizable=True)
+#                     self.c = center
+#                     self.o = others
+
+#                 @staticmethod
+#                 def calc_restoring_vec(ag1, ag2):
+#                     box = ag1.dimensions[:3]
+#                     dist = ag1.center_of_mass() - ag2.center_of_mass()
+
+#                     return box * np.rint(dist / box)
+
+#                 def _transform(self, ts):
+#                     # loop over other atomgroups and shunt them into nearest image to center
+#                     for i in self.o:
+#                         rvec = self.calc_restoring_vec(self.c, i)
+#                         i.translate(+rvec)
+#                     return ts
+
+#             u_bond = mda.Universe(tpr_path)
+#             u.add_bonds(u_bond.bonds.to_indices())
+
+#             u_prot = u.select_atoms("protein")
+#             prot_chain_list = []
+#             for chain in u_prot.segments:
+#                 prot_chain_list.append(chain.atoms)
+#             non_prot = u.select_atoms("not protein")
+
+#             unwrap_trans = trans.unwrap(u.atoms)
+
+#             prot_group = GroupHug(*prot_chain_list)
+#             center_in_box = trans.center_in_box(u_prot)
+#             wrap = trans.wrap(non_prot)
+#             #        rot_fit_trans = trans.fit_rot_trans(u.select_atoms('name CA'), u.select_atoms('name CA'))
+#             u.trajectory.add_transformations(
+#                 *[unwrap_trans, center_in_box, wrap]  # prot_group,
+#             )
+#             return u
+
+#         self.u = wrap_and_prepare(u.copy(), tpr_path)
+#         super().__init__(trajectory=self.u.trajectory, verbose=verbose)
+#         self.sel0 = self.u.select_atoms(mda_sel_txt0)
+#         self.sel1 = self.u.select_atoms(mda_sel_txt1)
+#         assert (
+#             self.sel0.n_atoms == self.sel1.n_atoms
+#         ), "Both atom selections should have the same number of atoms."
+#         self.n_atoms = self.sel0.n_atoms
+#         self.n_frames = u.trajectory.n_frames
+
+#     def _prepare(self):
+#         self.results.distances = np.zeros((self.n_frames, self.n_atoms))
+
+#     def _single_frame(self):
+#         def _dis(at0, at1):
+#             return norm(at0.position - at1.position)
+
+#         distances = []
+#         for at0, at1 in zip(self.sel1.atoms, self.sel0.atoms):
+#             distances.append(_dis(at0, at1))
+#         self.results.distances[self._frame_index, :] = np.array(distances)
+
+#     def _conclude(self):
+#         self.results_pp = np.mean(self.results["distances"], axis=1)
+
+
 def _get_swarm(p, path_topology, mda_object, n_swarms, n_beads, **kwargs):
     swarms = []
     for b in range(1, n_beads - 1):
@@ -248,3 +324,29 @@ def loop_over_iter(
     data = np.hstack(data)
     data = data.reshape([data.shape[0], 1])
     return data
+
+
+class distance_pairs_av(AnalysisBase):
+    def __init__(self, u, mda_sel_txt0, mda_sel_txt1, verbose=False):
+
+        self.u = u
+        super().__init__(trajectory=self.u.trajectory, verbose=verbose)
+        self.sel0 = self.u.select_atoms(mda_sel_txt0)
+        self.sel1 = self.u.select_atoms(mda_sel_txt1)
+        assert (
+            self.sel0.n_atoms == self.sel1.n_atoms
+        ), "Both atom selections should have the same number of atoms."
+        self.n_atoms = self.sel0.n_atoms
+        self.n_frames = u.trajectory.n_frames
+
+    def _prepare(self):
+
+        self.results.distances = np.zeros((self.n_frames, self.n_atoms))
+
+    def _single_frame(self):
+
+        distances = dist(self.sel0, self.sel1, box=self._ts.dimensions)[2, :]
+        self.results.distances[self._frame_index, :] = distances
+
+    def _conclude(self):
+        self.results_pp = np.mean(self.results["distances"], axis=1)
