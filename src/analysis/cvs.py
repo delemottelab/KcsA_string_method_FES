@@ -1,6 +1,17 @@
 """This module contains functions to generate cvs."""
 
+import gc
+import multiprocessing as mp
+from glob import glob
+
+import matplotlib.pyplot as plt
+import MDAnalysis as mda
 import numpy as np
+from MDAnalysis.analysis.base import AnalysisBase
+from numpy.linalg import norm
+from tqdm.autonotebook import tqdm
+
+from .utils import natural_sort
 
 
 def strings_to_SF_IG(strings, SF_cv_numbers, IG_cv_numbers):
@@ -45,7 +56,6 @@ def MSD_metric(v1, v2):
 
 
 def get_path_lambda(path, metric=MSD_metric):
-    from numpy.linalg import norm
 
     n_beads = path.shape[1]
     lam = (
@@ -104,7 +114,6 @@ def distance_atom_groups(
     from MDAnalysis import AtomGroup, Universe
     from numpy import array
     from numpy.linalg import norm
-    from tqdm import tqdm
 
     assert isinstance(u, Universe), "u should be a MDAnlaysis universe."
     assert isinstance(sel1, AtomGroup), "sel1 should be a MDAnlaysis universe."
@@ -123,8 +132,103 @@ def distance_atom_groups(
         else:
             csel1 = sel1.centroid()
             csel2 = sel2.centroid()
-        d.append([ts.dt * i, norm(csel1 - csel2)/10])
+        d.append([ts.dt * i, norm(csel1 - csel2) / 10])
     d = array(d)
     if not time:
         d = d[:, 1]
     return array(d)
+
+
+class janin_chi1_av:
+    def __init__(self, u, **kwargs):
+        from MDAnalysis.analysis.dihedrals import Janin
+
+        self.janin_res = u.select_atoms(kwargs["mda_sel_txt"])
+        self.janin = Janin(self.janin_res, **kwargs)
+
+    def run(self):
+        self.janin.run()
+        self.results_pp = np.mean(self.janin.results["angles"][:, :, 0], axis=1)
+
+    def plot(self):
+        assert (
+            self.results_pp is not None
+        ), "Need to run and postprocess before plotting."
+        plt.plot(self.results_pp)
+
+
+def _get_swarm(p, path_topology, mda_object, n_swarms, n_beads, **kwargs):
+    swarms = []
+    for b in range(1, n_beads - 1):
+        for s in range(n_swarms):
+            swarms.append(f"{p}/{b}/s{s}/traj_comp.xtc")
+    # print(swarms)
+    iter_num = p.split("/")[-2]
+    try:
+        u = mda.Universe(path_topology, swarms, verbose=True, refresh_offsets=True)
+        if u.trajectory.n_frames != n_swarms * 2 * (n_beads - 2):
+            print(f"Iteration {p} seems to be missing frames.")
+    except IOError:
+        print(f"Problem with iteration: {iter_num}")
+        return None
+
+    obj = mda_object(u, **kwargs)
+    obj.run()
+    results = obj.results_pp
+    del u
+    gc.collect()
+    return results
+
+
+def loop_over_iter(
+    path,
+    path_topology,
+    mda_object,
+    start=1,
+    stop=None,
+    step=1,
+    n_jobs=1,
+    **kwargs,
+):
+
+    from functools import partial
+
+    paths = natural_sort(glob(f"{path}/md/*/"))
+    if stop is None:
+        stop = len(paths)
+    paths = paths[start:stop:step]
+    # print(paths)
+    get_swarm = partial(
+        _get_swarm,
+        path_topology=path_topology,
+        mda_object=mda_object,
+        n_swarms=32,
+        n_beads=18,
+        **kwargs,
+    )
+
+    if n_jobs > 1:
+        ## PARALLEL
+        with mp.Pool(n_jobs) as tp:
+            data = list(
+                tqdm(
+                    tp.imap(
+                        get_swarm,
+                        paths,
+                    ),
+                    total=len(paths),
+                    desc="Swarms",
+                )
+            )
+        ##
+    else:
+        ## SERIAL
+        data = []
+        for p in tqdm(paths, total=len(paths), desc="Swarms"):
+            data.append(get_swarm(p))
+        ##
+
+    data = [d for d in data if d is not None]
+    data = np.hstack(data)
+    data = data.reshape([data.shape[0], 1])
+    return data
