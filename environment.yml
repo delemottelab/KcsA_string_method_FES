@@ -20,7 +20,8 @@ dependencies:
   - isort
   - flake8
   - flake8-docstrings
+  - nglview
+  - deeptime
   - pip:
     - nb_black
     - panedr
-    - nglview
