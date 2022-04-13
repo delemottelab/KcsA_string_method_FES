@@ -12,8 +12,12 @@ make_conda:
 	ipython kernel install --user --name=$(PROJECT_NAME)
 	pip install -e .
 
+compress_data:
+	cd data/raw/
+	for i in */md/; do cd $$i; cd ..; echo $$i; tar cfz md.tar.gz md/ ; cd ..; done
+
 update_conda:
-	conda env update --file environment.yml
+	conda env update --file environment.yml --prune
 	ipython kernel install --user --name=$(PROJECT_NAME)
 
 remove_conda:
@@ -53,3 +57,4 @@ help:
 	@echo "update_data_dry"
 	@echo "back_up_repo"
 	@echo "back_up_repo_dry"
+	@echo "compress_data"
