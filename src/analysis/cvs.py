@@ -157,6 +157,22 @@ class janin_chi1_av:
         ), "Need to run and postprocess before plotting."
         plt.plot(self.results_pp)
 
+class janin_chi2_av:
+    def __init__(self, u, **kwargs):
+        from MDAnalysis.analysis.dihedrals import Janin
+
+        self.janin_res = u.select_atoms(kwargs["mda_sel_txt"])
+        self.janin = Janin(self.janin_res, **kwargs)
+
+    def run(self):
+        self.janin.run()
+        self.results_pp = np.mean(self.janin.results["angles"][:, :, 1], axis=1)
+
+    def plot(self):
+        assert (
+            self.results_pp is not None
+        ), "Need to run and postprocess before plotting."
+        plt.plot(self.results_pp)
 
 # class distance_pairs_av(AnalysisBase):
 #     from numpy.linalg import norm
