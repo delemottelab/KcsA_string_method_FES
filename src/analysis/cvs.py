@@ -334,3 +334,40 @@ class distance_pairs_av(AnalysisBase):
 
     def _conclude(self):
         self.results_pp = np.mean(self.results["distances"], axis=1)
+
+
+class is_E71_horizontal(AnalysisBase):
+    def __init__(
+        self, u, binary=False, segid="segid PROA PROB PROC PROD", verbose=False
+    ):
+
+        self.u = u
+        super().__init__(trajectory=self.u.trajectory, verbose=verbose)
+        self.sel0 = self.u.select_atoms(f"resid 71 and name CG and {segid}")
+        self.sel1 = self.u.select_atoms(f"resid 71 and name CD and {segid}")
+        assert (
+            self.sel0.n_atoms == self.sel1.n_atoms
+        ), "Both atom selections should have the same number of atoms."
+        self.n_frames = u.trajectory.n_frames
+        self.n_atoms = self.sel0.n_atoms
+        self.binary = binary
+
+    def _prepare(self):
+
+        self.results.angles = np.zeros((self.n_frames, self.n_atoms))
+
+    def _single_frame(self):
+
+        dif = self.sel1.positions - self.sel0.positions
+
+        angles = 180.0 * np.arccos(dif[:, 2] / norm(dif, axis=1)) / np.pi
+        if self.binary:
+            angles[angles < 55] = 0
+            angles[angles > 55] = 1
+        self.results.angles[self._frame_index, :] = angles
+
+    def _conclude(self):
+        if self.binary:
+            self.results_pp = np.sum(self.results["angles"], axis=1)
+        else:
+            self.results_pp = np.mean(self.results["angles"], axis=1)
