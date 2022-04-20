@@ -68,7 +68,6 @@ def get_path_lambda(path, metric=MSD_metric):
 
 
 def cvs_to_path(vec, path, lam, metric=MSD_metric):
-    from numpy.linalg import norm
 
     n_beads = path.shape[1]
 
@@ -157,6 +156,7 @@ class janin_chi1_av:
         ), "Need to run and postprocess before plotting."
         plt.plot(self.results_pp)
 
+
 class janin_chi2_av:
     def __init__(self, u, **kwargs):
         from MDAnalysis.analysis.dihedrals import Janin
@@ -173,6 +173,46 @@ class janin_chi2_av:
             self.results_pp is not None
         ), "Need to run and postprocess before plotting."
         plt.plot(self.results_pp)
+
+
+class ramachandran_av:
+    def __init__(self, u, **kwargs):
+        from MDAnalysis.analysis.dihedrals import Ramachandran
+
+        self.rama_res = u.select_atoms(kwargs["mda_sel_txt"])
+        self.rama = Ramachandran(self.rama_res, **kwargs)
+        self.n_frames = u.trajectory.n_frames
+
+    def run(self):
+        self.rama.run()
+        self.results_pp = np.mean(self.rama.results["angles"], axis=1)
+
+    def plot(self):
+        assert (
+            self.results_pp is not None
+        ), "Need to run and postprocess before plotting."
+        plt.scatter(
+            self.results_pp[:, 0], self.results_pp[:, 1], c=np.arange(self.n_frames)
+        )
+        plt.xlabel(r"$\phi$")
+        plt.ylabel(r"$\psi$")
+
+    def plot_phi_vs_t(self):
+        assert (
+            self.results_pp is not None
+        ), "Need to run and postprocess before plotting."
+        plt.plot(np.arange(self.n_frames), self.results_pp[:, 0])
+        plt.xlabel(r"frame")
+        plt.ylabel(r"$\phi$")
+
+    def plot_psi_vs_t(self):
+        assert (
+            self.results_pp is not None
+        ), "Need to run and postprocess before plotting."
+        plt.plot(np.arange(self.n_frames), self.results_pp[:, 1])
+        plt.xlabel(r"frame")
+        plt.ylabel(r"$\psi$")
+
 
 # class distance_pairs_av(AnalysisBase):
 #     from numpy.linalg import norm
