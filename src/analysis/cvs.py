@@ -371,8 +371,12 @@ class distance_pairs_av(AnalysisBase):
 
         self.u = u
         super().__init__(trajectory=self.u.trajectory, verbose=verbose)
-        self.sel0 = self.u.select_atoms(mda_sel_txt0)
-        self.sel1 = self.u.select_atoms(mda_sel_txt1)
+        if type(mda_sel_txt0) is str:
+            mda_sel_txt0 = [mda_sel_txt0]
+        if type(mda_sel_txt1) is str:
+            mda_sel_txt1 = [mda_sel_txt1]
+        self.sel0 = self.u.select_atoms(*mda_sel_txt0)
+        self.sel1 = self.u.select_atoms(*mda_sel_txt1)
         assert (
             self.sel0.n_atoms == self.sel1.n_atoms
         ), "Both atom selections should have the same number of atoms."
