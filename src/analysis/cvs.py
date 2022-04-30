@@ -431,3 +431,37 @@ class is_E71_horizontal(AnalysisBase):
             self.results_pp = np.sum(self.results["angles"], axis=1)
         else:
             self.results_pp = np.mean(self.results["angles"], axis=1)
+
+
+class water_behind_SF_discrete(AnalysisBase):
+    def __init__(self, u, rcut=3.5, sum=False, verbose=False):
+
+        self.u = u
+        super().__init__(trajectory=self.u.trajectory, verbose=verbose)
+        sel_w0_txt = f"name OH2 and around {rcut} (resid 81 and name O)"
+        self.sel_w0 = self.u.select_atoms(sel_w0_txt, updating=True)
+        sel_w1_txt = f"name OH2 and around {rcut} (resid 71 and name O)"
+        self.sel_w1 = self.u.select_atoms(sel_w1_txt, updating=True)
+        sel_w2_txt = f"name OH2 and ((around {rcut} ({sel_w0_txt})) and (around {rcut} ({sel_w1_txt})) )"
+        self.sel_w2 = self.u.select_atoms(sel_w2_txt, updating=True)
+        self.n_frames = u.trajectory.n_frames
+        self.rcut = rcut
+        self.sum = sum
+
+    def _prepare(self):
+
+        self.results.water_behind_SF = np.zeros((self.n_frames, 3))
+
+    def _single_frame(self):
+
+        self.results.water_behind_SF[self._frame_index, :] = (
+            self.sel_w0.n_atoms,
+            self.sel_w1.n_atoms,
+            self.sel_w2.n_atoms,
+        )
+
+    def _conclude(self):
+        if self.sum:
+            self.results_pp = np.sum(self.results["water_behind_SF"], axis=1)
+        else:
+            self.results_pp = self.results["water_behind_SF"]
