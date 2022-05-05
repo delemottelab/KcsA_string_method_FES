@@ -253,7 +253,7 @@ def get_kde_2d_custom(
     from scipy.stats import multivariate_normal
     from tqdm.autonotebook import tqdm
 
-    samples = samples.reshape(-1, samples.shape[1])
+    samples = samples.reshape(-1, 2)
     if extent is None:
         xmin = samples[:, 0].min()
         xmax = samples[:, 0].max()
