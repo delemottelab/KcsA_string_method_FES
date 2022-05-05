@@ -340,7 +340,7 @@ def loop_over_iter(
     )
 
     if n_jobs > 1:
-        ## PARALLEL
+        # PARALLEL
         with mp.Pool(n_jobs) as tp:
             data = list(
                 tqdm(
@@ -352,17 +352,21 @@ def loop_over_iter(
                     desc="Swarms",
                 )
             )
-        ##
+        #
     else:
-        ## SERIAL
+        # SERIAL
         data = []
         for p in tqdm(paths, total=len(paths), desc="Swarms"):
             data.append(get_swarm(p))
-        ##
+        #
 
     data = [d for d in data if d is not None]
-    data = np.hstack(data)
-    data = data.reshape([data.shape[0], 1])
+    data = np.array(data)
+    if len(data.shape) == 3:
+        data = data.reshape([data.shape[0] * data.shape[1], data.shape[2]])
+    elif len(data.shape) == 2:
+        data = data.reshape([data.shape[0] * data.shape[1], 1])
+
     return data
 
 
