@@ -1,3 +1,5 @@
+import numpy as np
+
 
 def natural_sort(my_list):
     """
@@ -28,3 +30,11 @@ def natural_sort(my_list):
         return [convert(c) for c in split("([0-9]+)", key)]
 
     return sorted(my_list, key=alphanum_key)
+
+
+def find_nearest_point(data, point):
+    data_ = data - point
+    data_ = np.sum(data_ * data_, axis=1)
+    nearest = data_.argmin()
+    distance = np.sqrt(data_.min())
+    return nearest, distance
