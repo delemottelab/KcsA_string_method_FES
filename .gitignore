@@ -101,3 +101,9 @@ notebooks/string_analysis_FES-dev_v1_amber.ipynb
 notebooks/string_analysis_FES-dev_v1_lb_amber_out.ipynb
 notebooks/string_analysis_FES-dev_v1_lb_out.ipynb
 notebooks/string_analysis_FES-Copy1.ipynb
+data/raw/*/restarts/*/index.ndx
+data/raw/*/restarts/*/mdout.mdp
+data/raw/*/restarts/*/slurm.err
+data/raw/*/restarts/*/slurm.out
+data/raw/*/restarts/*/topol.top
+data/raw/*/restarts/*/topol.tpr
