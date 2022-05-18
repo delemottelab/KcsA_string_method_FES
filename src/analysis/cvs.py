@@ -378,7 +378,7 @@ def loop_over_iter(
 
 
 class distance_pairs_av(AnalysisBase):
-    def __init__(self, u, mda_sel_txt0, mda_sel_txt1, verbose=False):
+    def __init__(self, u, mda_sel_txt0, mda_sel_txt1, average=True, verbose=False):
 
         self.u = u
         super().__init__(trajectory=self.u.trajectory, verbose=verbose)
@@ -388,6 +388,7 @@ class distance_pairs_av(AnalysisBase):
             mda_sel_txt1 = [mda_sel_txt1]
         self.sel0 = self.u.select_atoms(*mda_sel_txt0)
         self.sel1 = self.u.select_atoms(*mda_sel_txt1)
+        self.average = average
         assert (
             self.sel0.n_atoms == self.sel1.n_atoms
         ), "Both atom selections should have the same number of atoms."
@@ -404,7 +405,10 @@ class distance_pairs_av(AnalysisBase):
         self.results.distances[self._frame_index, :] = distances
 
     def _conclude(self):
-        self.results_pp = np.mean(self.results["distances"], axis=1)
+        if self.average:
+            self.results_pp = np.mean(self.results["distances"], axis=1)
+        else:
+            self.results_pp = self.results["distances"]
 
 
 class is_E71_horizontal(AnalysisBase):
