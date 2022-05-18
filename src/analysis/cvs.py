@@ -289,20 +289,25 @@ class ramachandran_av:
 #         self.results_pp = np.mean(self.results["distances"], axis=1)
 
 
-def _get_swarm(p, path_topology, mda_object, n_swarms, n_beads, **kwargs):
+def _get_swarm(
+    p, path_topology, mda_object, n_swarms, n_beads, use_universe=False, **kwargs
+):
     swarms = []
     for b in range(1, n_beads - 1):
         for s in range(n_swarms):
             swarms.append(f"{p}/{b}/s{s}/traj_comp.xtc")
     # print(swarms)
     iter_num = p.split("/")[-2]
-    try:
-        u = mda.Universe(path_topology, swarms, verbose=True, refresh_offsets=True)
-        if u.trajectory.n_frames != n_swarms * 2 * (n_beads - 2):
-            print(f"Iteration {p} seems to be missing frames.")
-    except IOError:
-        print(f"Problem with iteration: {iter_num}")
-        return None
+    if use_universe:
+        try:
+            u = mda.Universe(path_topology, swarms, verbose=True, refresh_offsets=True)
+            if u.trajectory.n_frames != n_swarms * 2 * (n_beads - 2):
+                print(f"Iteration {p} seems to be missing frames.")
+        except IOError:
+            print(f"Problem with iteration: {iter_num}")
+            return None
+    else:
+        u = swarms
 
     obj = mda_object(u, **kwargs)
     obj.run()
@@ -320,6 +325,7 @@ def loop_over_iter(
     stop=None,
     step=1,
     n_jobs=1,
+    use_universe=True,
     **kwargs,
 ):
 
@@ -336,6 +342,7 @@ def loop_over_iter(
         mda_object=mda_object,
         n_swarms=32,
         n_beads=18,
+        use_universe=use_universe,
         **kwargs,
     )
 
@@ -469,3 +476,37 @@ class water_behind_SF_discrete(AnalysisBase):
             self.results_pp = np.sum(self.results["water_behind_SF"], axis=1)
         else:
             self.results_pp = self.results["water_behind_SF"]
+
+
+class SF_occupation:
+    def __init__(self, u, gro_path, clean_up=True, path_binary="xtck", verbose=False):
+        self.u = u
+        self.gro_path = gro_path
+        self.path_binary = path_binary
+        self.clean_up = clean_up
+
+    def _call_xtck(self):
+        import subprocess as sp
+
+        output = []
+        for swarm in self.u:
+            proc = sp.run(
+                f"{self.path_binary} {self.gro_path} {swarm}".split(),
+                check=True,
+                shell=False,
+                stdout=sp.PIPE,
+            )
+            tmp = proc.stdout.decode("utf-8").split("\n")
+            # output.append(o[54:60] for o in tmp[23:25]][:])
+            output.append(tmp[23][54:60])
+            output.append(tmp[24][54:60])
+        output = np.array(output).reshape([len(output), 1])
+        if self.clean_up:
+            sp.run(
+                "rm k_in_filter.dat k_in_filter_zrel.dat k_SF_occ.dat  O_filter.dat O_filter_zrel.dat perm_down.dat perm_up.dat perm_water_down.dat perm_water_up.dat wat_around_filter.dat wat_in_filter.dat wat_in_filter_zrel.dat wat_SF_occ.dat",
+                shell=True,
+            )
+        self.results_pp = output
+
+    def run(self):
+        self._call_xtck()

@@ -90,7 +90,7 @@ def get_vamp_vs_k(
             # TODO, refactor
             if allow_failed_msms:
                 try:
-                    estimator = markov.msm.OOMReweightedMSM(
+                    estimator = markov.msm.MaximumLikelihoodMSM(
                         reversible=reversible,
                         stationary_distribution_constraint=None,
                         lagtime=1,
@@ -101,7 +101,6 @@ def get_vamp_vs_k(
                         .fit(_cl, n_jobs=n_jobs)
                         .fetch_model()
                     )
-                    counts = counts.astype(int)
                     _msm = estimator.fit(counts, n_jobs=n_jobs)
                     # return _msm, _cl
                     # exit
@@ -118,7 +117,7 @@ def get_vamp_vs_k(
                     failed_counter += 1
                     scores[n, m] = np.nan
             else:
-                estimator = markov.msm.OOMReweightedMSM(
+                estimator = markov.msm.MaximumLikelihoodMSM(
                     reversible=reversible,
                     stationary_distribution_constraint=None,
                     lagtime=1,
@@ -129,7 +128,6 @@ def get_vamp_vs_k(
                     .fit(_cl, n_jobs=n_jobs)
                     .fetch_model()
                 )
-                counts = counts.astype(int)
                 _msm = estimator.fit(counts, n_jobs=n_jobs)
                 # return _msm, _cl
                 # exit
@@ -188,7 +186,7 @@ def get_msm(clusters, n_jobs=1, reversible=True):
     for logger in loggers:
         logger.setLevel(logging.ERROR)
 
-    estimator = markov.msm.OOMReweightedMSM(
+    estimator = markov.msm.MaximumLikelihoodMSM(
         reversible=reversible,
         # stationary_distribution_constraint=None,
         lagtime=1,
