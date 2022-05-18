@@ -24,16 +24,16 @@ def load_swarm_data(extract, first_iteration=1, last_iteration=None):
     return np.load("postprocessing/cv_coordinates.npy")
 
 
-def cvs_to_tica(cv_coordinates, drop):
-    from deeptime.decomposition import TICA
+def cvs_to_vamp(cv_coordinates, drop=[]):
+    from deeptime.decomposition import VAMP
 
     data = []
     cvs = list([i for i in range(cv_coordinates.shape[2]) if i not in drop])
     for i in range(cv_coordinates.shape[0]):
         data.append(cv_coordinates[i, :, cvs].T)
 
-    tica = TICA(lagtime=1)
-    data = tica.fit(data, lagtime=1, progress=True).fetch_model().transform(data)
+    vamp = VAMP(lagtime=1)
+    data = vamp.fit(data, lagtime=1, progress=True).fetch_model().transform(data)
     return data
 
 
@@ -56,7 +56,9 @@ def k_means_cluster(data, k, stride=1, max_iter=500, n_jobs=1, seed=None):
     return clusters
 
 
-def get_vamp_vs_k(n_clustercenters, data, n_jobs, allow_failed_msms=False):
+def get_vamp_vs_k(
+    n_clustercenters, data, n_jobs, allow_failed_msms=False, reversible=True
+):
     import logging
 
     import deeptime.markov as markov
@@ -88,8 +90,8 @@ def get_vamp_vs_k(n_clustercenters, data, n_jobs, allow_failed_msms=False):
             # TODO, refactor
             if allow_failed_msms:
                 try:
-                    estimator = markov.msm.MaximumLikelihoodMSM(
-                        reversible=True,
+                    estimator = markov.msm.OOMReweightedMSM(
+                        reversible=reversible,
                         stationary_distribution_constraint=None,
                         lagtime=1,
                     )
@@ -99,6 +101,7 @@ def get_vamp_vs_k(n_clustercenters, data, n_jobs, allow_failed_msms=False):
                         .fit(_cl, n_jobs=n_jobs)
                         .fetch_model()
                     )
+                    counts = counts.astype(int)
                     _msm = estimator.fit(counts, n_jobs=n_jobs)
                     # return _msm, _cl
                     # exit
@@ -115,8 +118,8 @@ def get_vamp_vs_k(n_clustercenters, data, n_jobs, allow_failed_msms=False):
                     failed_counter += 1
                     scores[n, m] = np.nan
             else:
-                estimator = markov.msm.MaximumLikelihoodMSM(
-                    reversible=True,
+                estimator = markov.msm.OOMReweightedMSM(
+                    reversible=reversible,
                     stationary_distribution_constraint=None,
                     lagtime=1,
                 )
@@ -126,6 +129,7 @@ def get_vamp_vs_k(n_clustercenters, data, n_jobs, allow_failed_msms=False):
                     .fit(_cl, n_jobs=n_jobs)
                     .fetch_model()
                 )
+                counts = counts.astype(int)
                 _msm = estimator.fit(counts, n_jobs=n_jobs)
                 # return _msm, _cl
                 # exit
@@ -175,7 +179,7 @@ def get_bayesian_msm(clusters, n_samples=100):
     return msm, weights
 
 
-def get_msm(clusters, n_jobs=1):
+def get_msm(clusters, n_jobs=1, reversible=True):
     import logging
 
     import deeptime.markov as markov
@@ -184,15 +188,15 @@ def get_msm(clusters, n_jobs=1):
     for logger in loggers:
         logger.setLevel(logging.ERROR)
 
-    estimator = markov.msm.MaximumLikelihoodMSM(
-        reversible=True,
-        stationary_distribution_constraint=None,
+    estimator = markov.msm.OOMReweightedMSM(
+        reversible=reversible,
+        # stationary_distribution_constraint=None,
         lagtime=1,
     )
     counts = markov.TransitionCountEstimator.count(
         lagtime=1, count_mode="effective", dtrajs=clusters, n_jobs=n_jobs
     )
-
+    counts = counts.astype(int)
     msm = estimator.fit(counts, n_jobs=n_jobs).fetch_model()
     weights = np.array(
         msm.compute_trajectory_weights(np.concatenate(clusters.reshape(-1, 1)))
