@@ -192,7 +192,7 @@ def get_msm(clusters, n_jobs=1, reversible=True):
         lagtime=1,
     )
     counts = markov.TransitionCountEstimator.count(
-        lagtime=1, count_mode="effective", dtrajs=clusters, n_jobs=n_jobs
+        lagtime=1, count_mode="sample", dtrajs=clusters, n_jobs=n_jobs
     )
     counts = counts.astype(int)
     msm = estimator.fit(counts, n_jobs=n_jobs).fetch_model()
