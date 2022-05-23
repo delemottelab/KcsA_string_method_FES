@@ -24,19 +24,6 @@ def load_swarm_data(extract, first_iteration=1, last_iteration=None):
     return np.load("postprocessing/cv_coordinates.npy")
 
 
-def cvs_to_vamp(cv_coordinates, drop=[]):
-    from deeptime.decomposition import VAMP
-
-    data = []
-    cvs = list([i for i in range(cv_coordinates.shape[2]) if i not in drop])
-    for i in range(cv_coordinates.shape[0]):
-        data.append(cv_coordinates[i, :, cvs].T)
-
-    vamp = VAMP(lagtime=1)
-    data = vamp.fit(data, lagtime=1, progress=True).fetch_model().transform(data)
-    return data
-
-
 def k_means_cluster(data, k, stride=1, max_iter=500, n_jobs=1, seed=None):
     from deeptime.clustering import KMeans
 
@@ -57,7 +44,12 @@ def k_means_cluster(data, k, stride=1, max_iter=500, n_jobs=1, seed=None):
 
 
 def get_vamp_vs_k(
-    n_clustercenters, data, n_jobs, allow_failed_msms=False, reversible=True
+    n_clustercenters,
+    data,
+    n_jobs,
+    allow_failed_msms=False,
+    reversible=True,
+    scores=None,
 ):
     import logging
 
