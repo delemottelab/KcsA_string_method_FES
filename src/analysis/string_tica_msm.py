@@ -71,17 +71,49 @@ def get_vamp_vs_k(
         logger.setLevel(logging.ERROR)
 
     n_iter = 5
-    scores = np.zeros((len(n_clustercenters), n_iter))
-    for n, k in tqdm(
-        enumerate(n_clustercenters), total=len(n_clustercenters), desc="Loop over k:"
-    ):
-        failed_counter = 0
-        for m in tqdm(range(n_iter), desc="Loop over iterations", leave=False):
-            _cl = k_means_cluster(data, k, stride=10, max_iter=50, n_jobs=n_jobs)
+    if scores is None:
+        scores = np.zeros((len(n_clustercenters), n_iter))
+        for n, k in tqdm(
+            enumerate(n_clustercenters),
+            total=len(n_clustercenters),
+            desc="Loop over k:",
+        ):
+            failed_counter = 0
+            for m in tqdm(range(n_iter), desc="Loop over iterations", leave=False):
+                _cl = k_means_cluster(data, k, stride=10, max_iter=50, n_jobs=n_jobs)
 
-            # TODO, refactor
-            if allow_failed_msms:
-                try:
+                # TODO, refactor
+                if allow_failed_msms:
+                    try:
+                        estimator = markov.msm.MaximumLikelihoodMSM(
+                            reversible=reversible,
+                            stationary_distribution_constraint=None,
+                            lagtime=1,
+                        )
+
+                        counts = (
+                            markov.TransitionCountEstimator(
+                                lagtime=1, count_mode="sample"
+                            )
+                            .fit(_cl, n_jobs=n_jobs)
+                            .fetch_model()
+                        )
+                        _msm = estimator.fit(counts, n_jobs=n_jobs)
+                        # return _msm, _cl
+                        # exit
+
+                        scores[n, m] = vamp_score_cv(
+                            _msm,
+                            trajs=[c for c in _cl],
+                            n=1,
+                            lagtime=1,
+                            dim=min(10, k),
+                            n_jobs=n_jobs,
+                        )[0]
+                    except:
+                        failed_counter += 1
+                        scores[n, m] = np.nan
+                else:
                     estimator = markov.msm.MaximumLikelihoodMSM(
                         reversible=reversible,
                         stationary_distribution_constraint=None,
@@ -105,41 +137,14 @@ def get_vamp_vs_k(
                         dim=min(10, k),
                         n_jobs=n_jobs,
                     )[0]
-                except:
-                    failed_counter += 1
-                    scores[n, m] = np.nan
-            else:
-                estimator = markov.msm.MaximumLikelihoodMSM(
-                    reversible=reversible,
-                    stationary_distribution_constraint=None,
-                    lagtime=1,
-                )
-
-                counts = (
-                    markov.TransitionCountEstimator(lagtime=1, count_mode="sample")
-                    .fit(_cl, n_jobs=n_jobs)
-                    .fetch_model()
-                )
-                _msm = estimator.fit(counts, n_jobs=n_jobs)
-                # return _msm, _cl
-                # exit
-
-                scores[n, m] = vamp_score_cv(
-                    _msm,
-                    trajs=[c for c in _cl],
-                    n=1,
-                    lagtime=1,
-                    dim=min(10, k),
-                    n_jobs=n_jobs,
-                )[0]
-        if allow_failed_msms:
-            print(f"For k={k}, {failed_counter} iterations failed out of {n_iter}.")
+            if allow_failed_msms:
+                print(f"For k={k}, {failed_counter} iterations failed out of {n_iter}.")
 
         # Plotting
     fig, ax = plt.subplots(1, 1)
     lower, upper = confidence_interval(scores.T.tolist(), conf=0.9)
     ax.fill_between(n_clustercenters, lower, upper, alpha=0.3)
-    ax.plot(n_clustercenters, np.mean(scores, axis=1), "-o")
+    ax.plot(n_clustercenters, np.nanmean(scores, axis=1), "-o")
     ax.semilogx()
     ax.set_xlabel("number of cluster centers")
     ax.set_ylabel("VAMP-2 score")
