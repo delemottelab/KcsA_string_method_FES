@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.ticker import MultipleLocator
 
-from src.analysis.string_tica_msm import get_kde, plot_2D_heatmap
+from src.analysis.string_tica_msm import get_kde
 
 plt.rcParams["axes.facecolor"] = "#f9f9fb"
 plt.rcParams["grid.color"] = "white"
@@ -309,7 +309,15 @@ def add_XRD_values(
 
 
 def plot_path_vs_cv_FES(
-    s_path, other_cv, F, cv_name, cv_fig_label, bandwidth, f_max, save_npy, save_fig
+    s_path,
+    other_cv,
+    weights,
+    cv_name,
+    cv_fig_label,
+    bandwidth,
+    f_max,
+    save_npy,
+    save_fig,
 ):
     cvs = np.concatenate([s_path, other_cv], axis=2)
     bandwidth = 0.05

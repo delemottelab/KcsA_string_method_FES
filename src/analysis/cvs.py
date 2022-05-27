@@ -9,6 +9,7 @@ import MDAnalysis as mda
 import numpy as np
 from MDAnalysis.analysis.base import AnalysisBase
 from MDAnalysis.analysis.distances import dist
+from numpy import vectorize
 from numpy.linalg import norm
 from tqdm.autonotebook import tqdm
 
@@ -535,3 +536,13 @@ class SF_occupation:
 
     def run(self):
         self._call_xtck()
+
+
+def count_occurrances(string, letter, position=None):
+    if position is None:
+        return string.count(letter)
+    else:
+        return string[position].count(letter)
+
+
+count_occurrances = vectorize(count_occurrances)
