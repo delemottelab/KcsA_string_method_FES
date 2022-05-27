@@ -38,3 +38,22 @@ def find_nearest_point(data, point):
     nearest = data_.argmin()
     distance = np.sqrt(data_.min())
     return nearest, distance
+
+
+def jupyter_lab_notification(
+    time_in_seconds=180, sound_path="/usr/share/sounds/gnome/default/alerts/sonar.ogg"
+):
+    from jupyter_helpers.notifications import Notifications
+
+    Notifications(
+        success_audio=sound_path, time_threshold=time_in_seconds, integration="GNOME"
+    )
+    return
+
+
+def jupyter_lab_error(sound_path="/usr/share/sounds/gnome/default/alerts/bark.ogg"):
+    from jupyter_helpers.notifications import Notifications
+
+    Notifications(failure_audio=sound_path, integration="GNOME")
+
+    return
