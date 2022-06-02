@@ -243,7 +243,7 @@ def get_kde_2d(samples, weights=None, bandwidth=None, nbins=55, extent=None):
 
 
 def get_kde_2d_custom(
-    samples, weights=None, bandwidth=None, nbins=55, extent=None, density=True
+    samples, weights=None, bandwidth=None, nbins=55, extent=None, density=True, progressbar=True
 ):
     """
     aklsjfa;sldjfas
@@ -275,7 +275,7 @@ def get_kde_2d_custom(
         cov = bandwidth
 
     for w, sample in tqdm(
-        zip(weights, samples), total=weights.shape[0], desc="Loop over samples"
+        zip(weights, samples), total=weights.shape[0], desc="Loop over samples", disable=not progressbar
     ):
         rv = multivariate_normal([sample[0], sample[1]], cov)
         Z += w * rv.pdf(positions)
@@ -411,7 +411,7 @@ def get_hdi(x, axis, alpha=0.06):
 
 
 def project_property_on_cv_kde(
-    cv_proj, weights, proper, bandwidth=None, nbins=55, normalize=True, F_cutoff_KT=40
+    cv_proj, weights, proper, bandwidth=None, nbins=55, normalize=True, F_cutoff_KT=40, progressbar=True
 ):
 
     n_data = cv_proj.shape[0] * cv_proj.shape[1]
@@ -425,10 +425,10 @@ def project_property_on_cv_kde(
     weights_proper = proper * weights
 
     count_of_cv, extent, cov = get_kde_2d_custom(
-        cv_proj, weights, bandwidth, nbins=nbins, density=False
+        cv_proj, weights, bandwidth, nbins=nbins, density=False, progressbar=progressbar
     )
     prop_of_cv, extent, cov = get_kde_2d_custom(
-        cv_proj, weights_proper, cov, nbins=nbins, density=False
+        cv_proj, weights_proper, cov, nbins=nbins, density=False, progressbar=progressbar
     )
     if normalize:
         prop_of_cv[count_of_cv < np.exp(-F_cutoff_KT)] = np.nan
