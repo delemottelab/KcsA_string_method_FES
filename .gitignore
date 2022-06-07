@@ -108,4 +108,4 @@ data/raw/*/restarts/*/slurm.out
 data/raw/*/restarts/*/topol.top
 data/raw/*/restarts/*/topol.tpr
 
-data/processed/C2I_v1/SF_occupation_data.pkl
+data/processed/*/SF_occupation_data.pkl
