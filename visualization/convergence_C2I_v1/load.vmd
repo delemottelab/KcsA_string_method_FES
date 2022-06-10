@@ -1,0 +1,12 @@
+set sim "C2I_v1"
+
+for {set bead 1} { $bead < 17 } { incr bead } {
+  set iteration 399
+  puts "$bead $iteration"
+mol new ../..//data/raw/$sim/md/$iteration/$bead/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+for {set iteration 499} { $iteration < 1100 } { incr iteration 100 } {
+  puts "$bead $iteration"
+mol addfile ../..//data/raw/$sim/md/$iteration/$bead/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+}
+mol rename top "$sim string$bead"
+}

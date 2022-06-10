@@ -24,19 +24,6 @@ def load_swarm_data(extract, first_iteration=1, last_iteration=None):
     return np.load("postprocessing/cv_coordinates.npy")
 
 
-def cvs_to_vamp(cv_coordinates, drop=[]):
-    from deeptime.decomposition import VAMP
-
-    data = []
-    cvs = list([i for i in range(cv_coordinates.shape[2]) if i not in drop])
-    for i in range(cv_coordinates.shape[0]):
-        data.append(cv_coordinates[i, :, cvs].T)
-
-    vamp = VAMP(lagtime=1)
-    data = vamp.fit(data, lagtime=1, progress=True).fetch_model().transform(data)
-    return data
-
-
 def k_means_cluster(data, k, stride=1, max_iter=500, n_jobs=1, seed=None):
     from deeptime.clustering import KMeans
 
@@ -57,7 +44,12 @@ def k_means_cluster(data, k, stride=1, max_iter=500, n_jobs=1, seed=None):
 
 
 def get_vamp_vs_k(
-    n_clustercenters, data, n_jobs, allow_failed_msms=False, reversible=True
+    n_clustercenters,
+    data,
+    n_jobs,
+    allow_failed_msms=False,
+    reversible=True,
+    scores=None,
 ):
     import logging
 
@@ -79,17 +71,49 @@ def get_vamp_vs_k(
         logger.setLevel(logging.ERROR)
 
     n_iter = 5
-    scores = np.zeros((len(n_clustercenters), n_iter))
-    for n, k in tqdm(
-        enumerate(n_clustercenters), total=len(n_clustercenters), desc="Loop over k:"
-    ):
-        failed_counter = 0
-        for m in tqdm(range(n_iter), desc="Loop over iterations", leave=False):
-            _cl = k_means_cluster(data, k, stride=10, max_iter=50, n_jobs=n_jobs)
+    if scores is None:
+        scores = np.zeros((len(n_clustercenters), n_iter))
+        for n, k in tqdm(
+            enumerate(n_clustercenters),
+            total=len(n_clustercenters),
+            desc="Loop over k:",
+        ):
+            failed_counter = 0
+            for m in tqdm(range(n_iter), desc="Loop over iterations", leave=False):
+                _cl = k_means_cluster(data, k, stride=10, max_iter=50, n_jobs=n_jobs)
 
-            # TODO, refactor
-            if allow_failed_msms:
-                try:
+                # TODO, refactor
+                if allow_failed_msms:
+                    try:
+                        estimator = markov.msm.MaximumLikelihoodMSM(
+                            reversible=reversible,
+                            stationary_distribution_constraint=None,
+                            lagtime=1,
+                        )
+
+                        counts = (
+                            markov.TransitionCountEstimator(
+                                lagtime=1, count_mode="sample"
+                            )
+                            .fit(_cl, n_jobs=n_jobs)
+                            .fetch_model()
+                        )
+                        _msm = estimator.fit(counts, n_jobs=n_jobs)
+                        # return _msm, _cl
+                        # exit
+
+                        scores[n, m] = vamp_score_cv(
+                            _msm,
+                            trajs=[c for c in _cl],
+                            n=1,
+                            lagtime=1,
+                            dim=min(10, k),
+                            n_jobs=n_jobs,
+                        )[0]
+                    except:
+                        failed_counter += 1
+                        scores[n, m] = np.nan
+                else:
                     estimator = markov.msm.MaximumLikelihoodMSM(
                         reversible=reversible,
                         stationary_distribution_constraint=None,
@@ -113,41 +137,14 @@ def get_vamp_vs_k(
                         dim=min(10, k),
                         n_jobs=n_jobs,
                     )[0]
-                except:
-                    failed_counter += 1
-                    scores[n, m] = np.nan
-            else:
-                estimator = markov.msm.MaximumLikelihoodMSM(
-                    reversible=reversible,
-                    stationary_distribution_constraint=None,
-                    lagtime=1,
-                )
-
-                counts = (
-                    markov.TransitionCountEstimator(lagtime=1, count_mode="sample")
-                    .fit(_cl, n_jobs=n_jobs)
-                    .fetch_model()
-                )
-                _msm = estimator.fit(counts, n_jobs=n_jobs)
-                # return _msm, _cl
-                # exit
-
-                scores[n, m] = vamp_score_cv(
-                    _msm,
-                    trajs=[c for c in _cl],
-                    n=1,
-                    lagtime=1,
-                    dim=min(10, k),
-                    n_jobs=n_jobs,
-                )[0]
-        if allow_failed_msms:
-            print(f"For k={k}, {failed_counter} iterations failed out of {n_iter}.")
+            if allow_failed_msms:
+                print(f"For k={k}, {failed_counter} iterations failed out of {n_iter}.")
 
         # Plotting
     fig, ax = plt.subplots(1, 1)
     lower, upper = confidence_interval(scores.T.tolist(), conf=0.9)
     ax.fill_between(n_clustercenters, lower, upper, alpha=0.3)
-    ax.plot(n_clustercenters, np.mean(scores, axis=1), "-o")
+    ax.plot(n_clustercenters, np.nanmean(scores, axis=1), "-o")
     ax.semilogx()
     ax.set_xlabel("number of cluster centers")
     ax.set_ylabel("VAMP-2 score")
@@ -192,7 +189,7 @@ def get_msm(clusters, n_jobs=1, reversible=True):
         lagtime=1,
     )
     counts = markov.TransitionCountEstimator.count(
-        lagtime=1, count_mode="effective", dtrajs=clusters, n_jobs=n_jobs
+        lagtime=1, count_mode="sample", dtrajs=clusters, n_jobs=n_jobs
     )
     counts = counts.astype(int)
     msm = estimator.fit(counts, n_jobs=n_jobs).fetch_model()
@@ -246,7 +243,7 @@ def get_kde_2d(samples, weights=None, bandwidth=None, nbins=55, extent=None):
 
 
 def get_kde_2d_custom(
-    samples, weights=None, bandwidth=None, nbins=55, extent=None, density=True
+    samples, weights=None, bandwidth=None, nbins=55, extent=None, density=True, progressbar=True
 ):
     """
     aklsjfa;sldjfas
@@ -278,7 +275,7 @@ def get_kde_2d_custom(
         cov = bandwidth
 
     for w, sample in tqdm(
-        zip(weights, samples), total=weights.shape[0], desc="Loop over samples"
+        zip(weights, samples), total=weights.shape[0], desc="Loop over samples", disable=not progressbar
     ):
         rv = multivariate_normal([sample[0], sample[1]], cov)
         Z += w * rv.pdf(positions)
@@ -414,7 +411,7 @@ def get_hdi(x, axis, alpha=0.06):
 
 
 def project_property_on_cv_kde(
-    cv_proj, weights, proper, bandwidth=None, nbins=55, normalize=True, F_cutoff_KT=40
+    cv_proj, weights, proper, bandwidth=None, nbins=55, normalize=True, F_cutoff_KT=40, progressbar=True
 ):
 
     n_data = cv_proj.shape[0] * cv_proj.shape[1]
@@ -428,10 +425,10 @@ def project_property_on_cv_kde(
     weights_proper = proper * weights
 
     count_of_cv, extent, cov = get_kde_2d_custom(
-        cv_proj, weights, bandwidth, nbins=nbins, density=False
+        cv_proj, weights, bandwidth, nbins=nbins, density=False, progressbar=progressbar
     )
     prop_of_cv, extent, cov = get_kde_2d_custom(
-        cv_proj, weights_proper, cov, nbins=nbins, density=False
+        cv_proj, weights_proper, cov, nbins=nbins, density=False, progressbar=progressbar
     )
     if normalize:
         prop_of_cv[count_of_cv < np.exp(-F_cutoff_KT)] = np.nan

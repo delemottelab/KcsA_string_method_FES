@@ -9,10 +9,32 @@ import MDAnalysis as mda
 import numpy as np
 from MDAnalysis.analysis.base import AnalysisBase
 from MDAnalysis.analysis.distances import dist
+from numpy import vectorize
 from numpy.linalg import norm
 from tqdm.autonotebook import tqdm
 
 from .utils import natural_sort
+
+
+def cvs_to_tica(cv_coordinates, reversible=False, drop=[]):
+
+    data = []
+    cvs = list([i for i in range(cv_coordinates.shape[2]) if i not in drop])
+    for i in range(cv_coordinates.shape[0]):
+        data.append(cv_coordinates[i, :, cvs].T)
+
+    if reversible:
+        from deeptime.decomposition import TICA
+
+        tica = TICA(lagtime=1)
+        data = tica.fit(data, lagtime=1, progress=True).fetch_model().transform(data)
+    else:
+        from pyemma.coordinates import tica as TICA
+
+        tica = TICA(data=data, lag=1, reversible=reversible, skip=0)
+        data = np.array(tica.get_output())
+
+    return data
 
 
 def strings_to_SF_IG(strings, SF_cv_numbers, IG_cv_numbers):
@@ -514,3 +536,13 @@ class SF_occupation:
 
     def run(self):
         self._call_xtck()
+
+
+def count_occurrances(string, letter, position=None):
+    if position is None:
+        return string.count(letter)
+    else:
+        return string[position].count(letter)
+
+
+count_occurrances = vectorize(count_occurrances)
