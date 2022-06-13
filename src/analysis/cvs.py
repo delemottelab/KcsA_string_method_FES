@@ -162,15 +162,19 @@ def distance_atom_groups(
 
 
 class janin_chi1_av:
-    def __init__(self, u, **kwargs):
+    def __init__(self, u, average, **kwargs):
         from MDAnalysis.analysis.dihedrals import Janin
 
         self.janin_res = u.select_atoms(kwargs["mda_sel_txt"])
         self.janin = Janin(self.janin_res, **kwargs)
+        self.average = average
 
     def run(self):
         self.janin.run()
-        self.results_pp = np.mean(self.janin.results["angles"][:, :, 0], axis=1)
+        if self.average:
+            self.results_pp = np.mean(self.janin.results["angles"][:, :, 0], axis=1)
+        else:
+            self.results_pp = self.janin.results["angles"][:, :, 0]
 
     def plot(self):
         assert (
@@ -180,15 +184,19 @@ class janin_chi1_av:
 
 
 class janin_chi2_av:
-    def __init__(self, u, **kwargs):
+    def __init__(self, u, average, **kwargs):
         from MDAnalysis.analysis.dihedrals import Janin
 
         self.janin_res = u.select_atoms(kwargs["mda_sel_txt"])
         self.janin = Janin(self.janin_res, **kwargs)
+        self.average = average
 
     def run(self):
         self.janin.run()
-        self.results_pp = np.mean(self.janin.results["angles"][:, :, 1], axis=1)
+        if self.average:
+            self.results_pp = np.mean(self.janin.results["angles"][:, :, 1], axis=1)
+        else:
+            self.results_pp = self.janin.results["angles"][:, :, 1]
 
     def plot(self):
         assert (
