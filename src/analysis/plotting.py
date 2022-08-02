@@ -46,6 +46,9 @@ def plot_2D_heatmap(
     c_min=None,
     c_max=None,
     c_color="k",
+    fig_title=None,
+    show_grid=True,
+    show_cbar=True,
 ):
 
     if ax is None:
@@ -62,7 +65,8 @@ def plot_2D_heatmap(
         c_min = np.nanmin(c_density)
     ax.contourf(G, n_colors, cmap=cmap, extent=extent, vmin=f_min, vmax=f_max)
     norm = mpl.colors.Normalize(vmin=f_min, vmax=f_max)
-    _ = _colorbar(ax, cmap, norm, cbar_label, 15)
+    if show_cbar:
+        _ = _colorbar(ax, cmap, norm, cbar_label, 20)
     if c_density is not None:
         ax.contour(
             c_density,
@@ -72,8 +76,12 @@ def plot_2D_heatmap(
             vmax=c_max,
             colors=c_color,
         )
-    ax.set_xlabel(xlabel)
-    ax.set_ylabel(ylabel)
+    ax.set_xlabel(xlabel, size=23, labelpad=15)
+    ax.set_ylabel(ylabel, size=23, labelpad=15)
+    ax.set_title(fig_title, size=27, pad=15)
+    ax.tick_params("x", labelsize=15)
+    ax.tick_params("y", labelsize=15)
+    ax.grid(show_grid)
     fig.tight_layout()
     return fig, ax
 
@@ -272,16 +280,19 @@ def add_XRD_values(
     XRD_dictionary,
     valx=None,
     valy=None,
-    size=8,
+    size=15,
     color="k",
     ax=None,
     fig=None,
     txt_size=None,
     linestyle="-",
+    position="best",
 ):
     if ax is None:
         fig, ax = plt.subplots(1, 1, figsize=(10, 7), sharex=True, sharey=True)
     for key in XRD_dictionary.keys():
+        state = XRD_dictionary[key]["state"]
+        label = f"{key} ({state})"
         if "color" in XRD_dictionary[key].keys():
             color0 = XRD_dictionary[key]["color"]
         else:
@@ -290,20 +301,41 @@ def add_XRD_values(
             x = XRD_dictionary[key][valx]
             y = XRD_dictionary[key][valy]
             marker = XRD_dictionary[key]["marker"]
-            ax.scatter(x, y, marker=marker, s=size**2, c=color0, label=key)
+            ax.scatter(
+                x,
+                y,
+                marker=marker,
+                s=size**2,
+                c=color0,
+                label=label,
+                # linewidth=2,
+                # edgecolors="w",
+            )
         elif valy is not None:
             y = XRD_dictionary[key][valy]
             if "linestyle" in XRD_dictionary[key].keys():
                 linestyle = XRD_dictionary[key]["linestyle"]
-            ax.axhline(y, linestyle=linestyle, c=color0, label=key, lw=size)
+            ax.axhline(
+                y,
+                linestyle=linestyle,
+                c=color0,
+                label=label,
+                lw=size,
+            )
         elif valx is not None:
             x = XRD_dictionary[key][valx]
             if "linestyle" in XRD_dictionary[key].keys():
                 linestyle = XRD_dictionary[key]["linestyle"]
-            ax.axvline(x, linestyle=linestyle, c=color0, label=key, lw=size)
+            ax.axvline(
+                x,
+                linestyle=linestyle,
+                c=color0,
+                label=label,
+                lw=size,
+            )
     if txt_size is None:
         txt_size = size
-    ax.legend(prop={"size": txt_size})
+    ax.legend(loc=position, prop={"size": txt_size})
 
     return
 
@@ -318,6 +350,7 @@ def plot_path_vs_cv_FES(
     f_max,
     save_npy,
     save_fig,
+    save_extent,
 ):
     cvs = np.concatenate([s_path, other_cv], axis=2)
     bandwidth = 0.05
@@ -326,6 +359,7 @@ def plot_path_vs_cv_FES(
     F = F0 - F0.min()
     F[F > f_max] = np.nan
     np.save(save_npy, F)
+    np.save(save_extent, np.array(extent))
     fig, ax = plot_2D_heatmap(
         F,
         extent,
@@ -337,4 +371,106 @@ def plot_path_vs_cv_FES(
     )
     fig.tight_layout()
     fig.savefig(save_fig)
+    return fig, ax
+
+
+def final_FES_IG_SF(
+    name, path_processed, path_report, XRD_dictionary, fig_title, show_cbar=False
+):
+
+    F = np.load(f"{path_processed}/{name}/FES_SF_IG.npy")
+    extent = np.load(f"{path_processed}/{name}/extent.npy")
+
+    f_max = 20
+    fig, ax = plot_2D_heatmap(
+        F,
+        extent,
+        f_max=f_max,
+        f_min=0,
+        cbar_label="Free Energy ($k_BT$)",
+        xlabel="Selectivity Filter (nm)",
+        ylabel="Inner Gate (nm)",
+        fig_title=fig_title,
+        show_grid=False,
+        show_cbar=show_cbar,
+    )
+    ax.set_xlim([0.48, 1.01])
+    ax.set_ylim([1.1, 2.45])
+    add_XRD_values(XRD_dictionary, "SF", "IG", size=15, ax=ax, position="lower left")
+    fig.tight_layout()
+    fig.savefig(f"{path_report}/main_panel/FES_{name}.png")
+    return fig, ax
+
+
+def final_FES_path_CV(
+    name,
+    cv_name,
+    path_processed,
+    path_report,
+    XRD_dictionary,
+    fig_title,
+    ylabel,
+    show_cbar=False,
+):
+
+    F = np.load(f"{path_processed}/{name}/FES_{cv_name}_path.npy")
+    extent = np.load(f"{path_processed}/{name}/extent_{cv_name}_path.npy")
+
+    f_max = 20
+    fig, ax = plot_2D_heatmap(
+        F,
+        extent,
+        f_max=f_max,
+        f_min=0,
+        cbar_label="Free Energy ($k_BT$)",
+        xlabel=r"$s_{path}$",
+        ylabel=ylabel,
+        fig_title=fig_title,
+        show_grid=False,
+        show_cbar=show_cbar,
+    )
+    # ax.set_xlim([0.48, 1.01])
+    # ax.set_ylim([1.1, 2.45])
+    # add_XRD_values(XRD_dictionary, "SF", "IG", size=15, ax=ax, position="lower left")
+    fig.tight_layout()
+    fig.savefig(f"{path_report}/path_vs_CV/FES_{cv_name}_path.png")
+    return fig, ax
+
+
+def final_cv_projection(
+    name,
+    path_processed,
+    path_report,
+    cv_name,
+    cv_data,
+    cv_label,
+    XRD_dictionary,
+    fig_title,
+    f_max=None,
+    f_min=None,
+    show_cbar=False,
+):
+
+    F = np.load(f"{path_processed}/{name}/FES_SF_IG.npy")
+    extent = np.load(f"{path_processed}/{name}/extent.npy")
+
+    fig, ax = plot_2D_heatmap(
+        cv_data,
+        extent,
+        cmap=plt.cm.viridis_r,
+        f_max=f_max,
+        f_min=f_min,
+        cbar_label=cv_label,
+        xlabel="Selectivity Filter (nm)",
+        ylabel="Inner Gate (nm)",
+        fig_title=fig_title,
+        show_grid=False,
+        show_cbar=show_cbar,
+        c_density=F,
+    )
+    add_XRD_values(XRD_dictionary, "SF", "IG", size=15, ax=ax, position="lower left")
+    ax.set_xlim([0.48, 1.01])
+    ax.set_ylim([1.1, 2.45])
+    fig.tight_layout()
+    fig.savefig(f"{path_report}/path_vs_CV/projection_{cv_name}.png")
     return fig, ax
