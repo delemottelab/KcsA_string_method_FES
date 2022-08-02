@@ -546,11 +546,11 @@ class SF_occupation:
         self._call_xtck()
 
 
-def count_occurrances(string, letter, position=None):
+def count_occurrances(string, letter, position=None, start=0, end=-1):
     if position is None:
-        return string.count(letter)
+        return string[start:end].count(letter)
     else:
-        return string[position].count(letter)
+        return np.sum(string[position].count(letter))
 
 
 count_occurrances = vectorize(count_occurrances)
