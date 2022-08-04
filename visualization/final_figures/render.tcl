@@ -1,2 +1,2 @@
 axes location off
-render TachyonInternal inactivated.tga display %s
+render TachyonInternal vmdscene.tga display %s
