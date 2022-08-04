@@ -78,6 +78,7 @@ notebooks/*-dev.ipynb
 
 # Later remove
 *png
+*tga
 *npy
 
 data/processed/C2I_lb_v1/errors_100_5.npy
