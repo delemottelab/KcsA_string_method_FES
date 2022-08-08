@@ -1977,8 +1977,8 @@
      inkscape:document-rotation="0"
      inkscape:current-layer="layer1"
      inkscape:document-units="mm"
-     inkscape:cy="1620.5553"
-     inkscape:cx="1438.2668"
+     inkscape:cy="1797.332"
+     inkscape:cx="1063.7212"
      inkscape:zoom="0.45254834"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
@@ -2312,14 +2312,14 @@
            style="font-size:16.93330002px"
            id="tspan495">(a)</tspan></tspan></text>
     <image
-       sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures/intro_panel/../intro_panel/closed.tga"
-       xlink:href="../intro_panel/closed.tga"
-       width="400"
-       height="280"
-       preserveAspectRatio="none"
-       id="image7420"
+       sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures/inkscape/../vmd/closed.tga"
+       xlink:href="../vmd/closed.tga"
+       y="-283.52939"
        x="-701.6582"
-       y="-283.52939" />
+       id="image7420"
+       preserveAspectRatio="none"
+       height="280"
+       width="400" />
     <text
        xml:space="preserve"
        id="text22084-3"
@@ -2386,24 +2386,24 @@
            y="669.92871"
            style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:21.33333397px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#ffffff" /></flowRegion><flowPara
          id="flowPara5206-5-2-7">S1</flowPara></flowRoot>    <image
-       sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures/intro_panel/../intro_panel/L81-W67.tga"
-       xlink:href="../intro_panel/L81-W67.tga"
-       transform="matrix(0.99984892,0.01738183,-0.0198023,0.99980392,0,0)"
-       width="467.10913"
-       height="293.80304"
-       preserveAspectRatio="none"
-       id="image8068"
+       sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures/inkscape/../vmd/L81-W67.tga"
+       xlink:href="../vmd/L81-W67.tga"
+       y="16.759291"
        x="-348.29129"
-       y="16.759291" />
-    <image
-       sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures/intro_panel/../intro_panel/inactivated.tga"
-       xlink:href="../intro_panel/inactivated.tga"
-       y="14.547662"
-       x="-691.18805"
-       id="image7420-7-5"
+       id="image8068"
        preserveAspectRatio="none"
+       height="293.80304"
+       width="467.10913"
+       transform="matrix(0.99984892,0.01738183,-0.0198023,0.99980392,0,0)" />
+    <image
+       sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures/inkscape/../vmd/inactivated.tga"
+       xlink:href="../vmd/inactivated.tga"
+       width="400"
        height="280"
-       width="400" />
+       preserveAspectRatio="none"
+       id="image7420-7-5"
+       x="-691.18805"
+       y="14.547662" />
     <g
        id="g11770">
       <g
@@ -2488,14 +2488,14 @@
            style="font-size:16.93330002px"
            id="tspan495-0">(a)</tspan></tspan></text>
     <image
-       sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures/intro_panel/../intro_panel/fully_open.tga"
-       xlink:href="../intro_panel/fully_open.tga"
-       y="-292.20364"
-       x="-322.09439"
-       id="image7420-8"
-       preserveAspectRatio="none"
+       sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures/inkscape/../vmd/fully_open.tga"
+       xlink:href="../vmd/fully_open.tga"
+       width="403.30728"
        height="282.31509"
-       width="403.30728" />
+       preserveAspectRatio="none"
+       id="image7420-8"
+       x="-322.09439"
+       y="-292.20364" />
     <text
        xml:space="preserve"
        id="text22084-3-1"

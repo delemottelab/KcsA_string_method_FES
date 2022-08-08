@@ -37,7 +37,7 @@ def final_FES_IG_SF(
     ax.set_ylim([1.1, 2.45])
     add_XRD_values(XRD_dictionary, "SF", "IG", size=15, ax=ax, position="lower left")
     fig.tight_layout()
-    fig.savefig(f"{path_report}/main_panel/FES_{name}.png")
+    fig.savefig(f"{path_report}/FES_{name}.png")
     return fig, ax
 
 
@@ -72,7 +72,7 @@ def final_FES_path_CV(
     # ax.set_ylim([1.1, 2.45])
     # add_XRD_values(XRD_dictionary, "SF", "IG", size=15, ax=ax, position="lower left")
     fig.tight_layout()
-    fig.savefig(f"{path_report}/path_vs_CV/FES_{cv_name}_path.png")
+    fig.savefig(f"{path_report}/FES_{cv_name}_path.png")
     return fig, ax
 
 
@@ -111,5 +111,5 @@ def final_cv_projection(
     ax.set_xlim([0.48, 1.01])
     ax.set_ylim([1.1, 2.45])
     fig.tight_layout()
-    fig.savefig(f"{path_report}/path_vs_CV/projection_{cv_name}.png")
+    fig.savefig(f"{path_report}/projection_{cv_name}.png")
     return fig, ax
