@@ -112,3 +112,5 @@ data/raw/*/restarts/*/topol.tpr
 data/processed/*/SF_occupation_data.pkl
 
 notebooks/calculate_cvs-Copy1.ipynb
+
+data/raw/C2I_v1/save
