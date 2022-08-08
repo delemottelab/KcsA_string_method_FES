@@ -49,6 +49,7 @@ def plot_2D_heatmap(
     fig_title=None,
     show_grid=True,
     show_cbar=True,
+    position="best"
 ):
 
     if ax is None:
@@ -83,6 +84,7 @@ def plot_2D_heatmap(
     ax.tick_params("y", labelsize=15)
     ax.grid(show_grid)
     fig.tight_layout()
+    ax.legend(loc=position, prop={"size": 15})
     return fig, ax
 
 
@@ -171,7 +173,13 @@ def rmsd_strings_time_series(strings, ndx_groups):
 
 
 def two_cv_strings_time_series(
-    strings, strings_labels, start_iteration=0, n_average=1, av_last_n_it=None
+    strings,
+    strings_labels,
+    start_iteration=0,
+    n_average=1,
+    av_last_n_it=None,
+    fig_title=None,
+    position="best",
 ):
 
     n_strings = strings.shape[0]
@@ -213,13 +221,13 @@ def two_cv_strings_time_series(
         )
     ax.set_ylabel(
         strings_labels[1],
-        size=18,
-        labelpad=16,
+        size=23,
+        labelpad=15,
     )
     ax.set_xlabel(
         strings_labels[0],
-        size=18,
-        labelpad=16,
+        size=23,
+        labelpad=15,
     )
 
     ax.xaxis.set_minor_locator(MultipleLocator(0.1))
@@ -227,9 +235,11 @@ def two_cv_strings_time_series(
     ax.yaxis.set_minor_locator(MultipleLocator(0.1))
     ax.yaxis.set_major_locator(MultipleLocator(0.1))
     ax.grid(which="minor")
-    ax.tick_params(axis="y", labelsize=14)
-    ax.tick_params(axis="x", labelsize=11)
+    ax.tick_params("x", labelsize=15)
+    ax.tick_params("y", labelsize=15)
     ax.legend()
+    ax.set_title(fig_title, size=27, pad=15)
+    ax.legend(loc=position, prop={"size": 15})
     _colorbar(ax, cmap, norm, "iteration number", 20)
     return fig, ax
 

@@ -1,9 +1,14 @@
 """This module contains the plotting functions for the article."""
 
+import glob
+
 import matplotlib.pyplot as plt
 import numpy as np
-from src.analysis.plotting import plot_2D_heatmap, add_XRD_values
 
+from src.analysis.cvs import strings_to_SF_IG
+from src.analysis.plotting import (add_XRD_values, plot_2D_heatmap,
+                                   two_cv_strings_time_series)
+from src.analysis.utils import natural_sort
 
 plt.rcParams["axes.facecolor"] = "#f9f9fb"
 plt.rcParams["grid.color"] = "white"
@@ -112,4 +117,27 @@ def final_cv_projection(
     ax.set_ylim([1.1, 2.45])
     fig.tight_layout()
     fig.savefig(f"{path_report}/projection_{cv_name}.png")
+    return fig, ax
+
+
+def final_2D_string_convergence(
+    name,
+    path_report,
+    fig_title,
+):
+    files = natural_sort(glob.glob(f"{name}/strings/string[0-9]*txt"))
+    strings = np.array([np.loadtxt(file).T for file in files])
+    reduced_string = strings_to_SF_IG(strings, [0, 1], [10, 11])
+    reduced_string_labels = ["SF (nm)", "IG (nm)"]
+    fig, ax = two_cv_strings_time_series(
+        reduced_string,
+        reduced_string_labels,
+        start_iteration=0,
+        n_average=50,
+        av_last_n_it=50,
+        fig_title=fig_title,
+        position="lower left"
+    )
+    fig.tight_layout()
+    fig.savefig(f"{path_report}/convergence_2D_{name}.png")
     return fig, ax
