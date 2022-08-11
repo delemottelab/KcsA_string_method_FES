@@ -10,7 +10,7 @@
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    inkscape:export-ydpi="96"
    inkscape:export-xdpi="96"
-   inkscape:export-filename="/Users/sperez/Projects/string_sims/reports/final_figures/intro_panel/intro.png"
+   inkscape:export-filename="/Users/sperez/Projects/string_sims/reports/final_figures/panels/intro.png"
    inkscape:version="0.92.3 (2405546, 2018-03-11)"
    sodipodi:docname="intro.svg"
    id="svg8"
@@ -1977,8 +1977,8 @@
      inkscape:document-rotation="0"
      inkscape:current-layer="layer1"
      inkscape:document-units="mm"
-     inkscape:cy="1797.332"
-     inkscape:cx="1063.7212"
+     inkscape:cy="913.44852"
+     inkscape:cx="689.17558"
      inkscape:zoom="0.45254834"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
@@ -2314,12 +2314,12 @@
     <image
        sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures/inkscape/../vmd/closed.tga"
        xlink:href="../vmd/closed.tga"
-       y="-283.52939"
-       x="-701.6582"
-       id="image7420"
-       preserveAspectRatio="none"
+       width="400"
        height="280"
-       width="400" />
+       preserveAspectRatio="none"
+       id="image7420"
+       x="-701.6582"
+       y="-283.52939" />
     <text
        xml:space="preserve"
        id="text22084-3"
@@ -2388,22 +2388,22 @@
          id="flowPara5206-5-2-7">S1</flowPara></flowRoot>    <image
        sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures/inkscape/../vmd/L81-W67.tga"
        xlink:href="../vmd/L81-W67.tga"
-       y="16.759291"
-       x="-348.29129"
-       id="image8068"
-       preserveAspectRatio="none"
-       height="293.80304"
+       transform="matrix(0.99984892,0.01738183,-0.0198023,0.99980392,0,0)"
        width="467.10913"
-       transform="matrix(0.99984892,0.01738183,-0.0198023,0.99980392,0,0)" />
+       height="293.80304"
+       preserveAspectRatio="none"
+       id="image8068"
+       x="-348.29129"
+       y="16.759291" />
     <image
        sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures/inkscape/../vmd/inactivated.tga"
        xlink:href="../vmd/inactivated.tga"
-       width="400"
-       height="280"
-       preserveAspectRatio="none"
-       id="image7420-7-5"
+       y="14.547662"
        x="-691.18805"
-       y="14.547662" />
+       id="image7420-7-5"
+       preserveAspectRatio="none"
+       height="280"
+       width="400" />
     <g
        id="g11770">
       <g
@@ -2490,12 +2490,12 @@
     <image
        sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures/inkscape/../vmd/fully_open.tga"
        xlink:href="../vmd/fully_open.tga"
-       width="403.30728"
-       height="282.31509"
-       preserveAspectRatio="none"
-       id="image7420-8"
+       y="-292.20364"
        x="-322.09439"
-       y="-292.20364" />
+       id="image7420-8"
+       preserveAspectRatio="none"
+       height="282.31509"
+       width="403.30728" />
     <text
        xml:space="preserve"
        id="text22084-3-1"

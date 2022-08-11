@@ -1508,8 +1508,8 @@
      inkscape:document-rotation="0"
      inkscape:current-layer="layer1"
      inkscape:document-units="mm"
-     inkscape:cy="1505.8232"
-     inkscape:cx="693.45695"
+     inkscape:cy="1192.1334"
+     inkscape:cx="250.37012"
      inkscape:zoom="0.38254353"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
@@ -1828,15 +1828,6 @@
              style="font-size:16.9333px;stroke-width:1"
              id="tspan275">(b)</tspan></tspan></text>
     </g>
-    <image
-       sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures/inkscape/../plots/FES_C2I_lb_v1.png"
-       xlink:href="../plots/FES_C2I_lb_v1.png"
-       width="400"
-       height="280"
-       preserveAspectRatio="none"
-       id="image7318"
-       x="-492.77664"
-       y="720.74487" />
     <flowRoot
        xml:space="preserve"
        id="flowRoot7321"
@@ -1851,21 +1842,21 @@
          id="flowPara7327" /></flowRoot>    <image
        sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures/inkscape/../plots/FES_C2I_lb_v1_amber.png"
        xlink:href="../plots/FES_C2I_lb_v1_amber.png"
-       width="400"
-       height="280"
-       preserveAspectRatio="none"
-       id="image7420"
+       y="370.96622"
        x="-492.77664"
-       y="370.96622" />
-    <image
-       sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures/inkscape/../plots/FES_C2I_v1_amber.png"
-       xlink:href="../plots/FES_C2I_v1_amber.png"
-       width="400"
-       height="280"
+       id="image7420"
        preserveAspectRatio="none"
-       id="image11337"
+       height="280"
+       width="400" />
+    <image
+       sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures/inkscape/../plots/FES_C2I_lb_v1.png"
+       xlink:href="../plots/FES_C2I_lb_v1.png"
+       y="370.96622"
        x="-45.101395"
-       y="370.96622" />
+       id="image11337"
+       preserveAspectRatio="none"
+       height="280"
+       width="400" />
     <flowRoot
        xml:space="preserve"
        id="flowRoot11340"
@@ -1878,14 +1869,14 @@
            x="2970"
            y="2026.9747" /></flowRegion><flowPara
          id="flowPara11346" /></flowRoot>    <image
-       sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures/inkscape/../plots/FES_path_cv.png"
-       xlink:href="../plots/FES_path_cv.png"
-       width="438.02603"
-       height="312.15134"
-       preserveAspectRatio="none"
-       id="image11469"
+       sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures/inkscape/../plots/FES_path_cv_C2I_lb_v1.png"
+       xlink:href="../plots/FES_path_cv_C2I_lb_v1.png"
+       y="699.83832"
        x="-54.798115"
-       y="699.83832" />
+       id="image11469"
+       preserveAspectRatio="none"
+       height="312.15134"
+       width="438.02603" />
     <flowRoot
        xml:space="preserve"
        id="flowRoot11472"
@@ -1928,5 +1919,14 @@
              style="font-size:16.9333px;stroke-width:1"
              id="tspan302">(d)</tspan></tspan></text>
     </g>
+    <image
+       sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures/inkscape/../plots/FES_path_cv_C2I_lb_v1_amber.png"
+       xlink:href="../plots/FES_path_cv_C2I_lb_v1_amber.png"
+       width="438.02603"
+       height="312.15134"
+       preserveAspectRatio="none"
+       id="image11469-3"
+       x="-492.77664"
+       y="699.83832" />
   </g>
 </svg>

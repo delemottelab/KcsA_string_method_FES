@@ -19,7 +19,13 @@ plt.rcParams["lines.solid_capstyle"] = "round"
 
 
 def final_FES_IG_SF(
-    name, path_processed, path_report, XRD_dictionary, fig_title, show_cbar=False
+    name,
+    path_processed,
+    path_report,
+    XRD_dictionary,
+    fig_title,
+    show_cbar=False,
+    version="",
 ):
 
     F = np.load(f"{path_processed}/{name}/FES_SF_IG.npy")
@@ -42,7 +48,7 @@ def final_FES_IG_SF(
     ax.set_ylim([1.1, 2.45])
     add_XRD_values(XRD_dictionary, "SF", "IG", size=15, ax=ax, position="lower left")
     fig.tight_layout()
-    fig.savefig(f"{path_report}/FES_{name}.png")
+    fig.savefig(f"{path_report}/FES_{name}{version}.png")
     return fig, ax
 
 
@@ -136,8 +142,30 @@ def final_2D_string_convergence(
         n_average=50,
         av_last_n_it=50,
         fig_title=fig_title,
-        position="lower left"
+        position="lower left",
     )
     fig.tight_layout()
     fig.savefig(f"{path_report}/convergence_2D_{name}.png")
+    return fig, ax
+
+
+def final_1D_path(path_processed, name, error, label, color, path_report, version=""):
+    fig, ax = plt.subplots(1, 1, figsize=(10, 7), sharex=True, sharey=True)
+    F = np.load(f"{path_processed}{name}/FES_path.npy")
+    ax.plot(F[0], F[1], marker="", label=label, color=color, lw=3)
+    n_boot = error[0]
+    error_block = error[1]
+    e = np.load(f"{path_processed}{name}/path_errors_{n_boot}_5.npy")
+    e = e[error_block, :]
+    ax.fill_between(F[0], F[1] + e, F[1] - e, alpha=0.1, color=color)
+    ax.legend(prop={"size": 18}, loc="best")
+    ax.set_xlabel(r"$s_{path}$", size=25)
+    ax.set_ylabel("Free Energy ($k_BT$)", size=20)
+    ax.set_ylim([-0.5, 20])
+    ax.set_xlim([0.1, 1.01])
+    ax.tick_params("x", labelsize=15)
+    ax.tick_params("y", labelsize=15)
+    ax.grid(False)
+    fig.savefig(path_report + f"FES_path_cv_{name}{version}.png")
+
     return fig, ax
