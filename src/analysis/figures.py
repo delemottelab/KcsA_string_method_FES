@@ -48,6 +48,7 @@ def final_FES_IG_SF(
     ax.set_ylim([1.1, 2.45])
     add_XRD_values(XRD_dictionary, "SF", "IG", size=15, ax=ax, position="lower left")
     fig.tight_layout()
+    ax.set_box_aspect(1)
     fig.savefig(f"{path_report}/FES_{name}{version}.png")
     return fig, ax
 
@@ -83,6 +84,7 @@ def final_FES_path_CV(
     # ax.set_ylim([1.1, 2.45])
     # add_XRD_values(XRD_dictionary, "SF", "IG", size=15, ax=ax, position="lower left")
     fig.tight_layout()
+    ax.set_box_aspect(1)
     fig.savefig(f"{path_report}/FES_{cv_name}_path.png")
     return fig, ax
 
@@ -122,6 +124,7 @@ def final_cv_projection(
     ax.set_xlim([0.48, 1.01])
     ax.set_ylim([1.1, 2.45])
     fig.tight_layout()
+    ax.set_box_aspect(1)
     fig.savefig(f"{path_report}/projection_{cv_name}.png")
     return fig, ax
 
@@ -149,7 +152,9 @@ def final_2D_string_convergence(
     return fig, ax
 
 
-def final_1D_path(path_processed, name, error, label, color, path_report, version=""):
+def final_1D_path(
+    path_processed, name, error, label, color, path_report, version="", annotations=None
+):
     fig, ax = plt.subplots(1, 1, figsize=(10, 7), sharex=True, sharey=True)
     F = np.load(f"{path_processed}{name}/FES_path.npy")
     ax.plot(F[0], F[1], marker="", label=label, color=color, lw=3)
@@ -166,6 +171,19 @@ def final_1D_path(path_processed, name, error, label, color, path_report, versio
     ax.tick_params("x", labelsize=15)
     ax.tick_params("y", labelsize=15)
     ax.grid(False)
+    ax.set_box_aspect(1)
+    if annotations is not None:
+        for position, n in zip(annotations["positions"], annotations["names"]):
+            ax.text(
+                position[0],
+                position[1],
+                n,
+                fontsize=annotations["fontsize"],
+                rotation=0,
+                color=annotations["color"],
+                va="center",
+                ha="center",
+            )
     fig.savefig(path_report + f"FES_path_cv_{name}{version}.png")
 
     return fig, ax

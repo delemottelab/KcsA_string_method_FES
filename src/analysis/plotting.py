@@ -49,7 +49,6 @@ def plot_2D_heatmap(
     fig_title=None,
     show_grid=True,
     show_cbar=True,
-    position="best"
 ):
 
     if ax is None:
@@ -84,7 +83,6 @@ def plot_2D_heatmap(
     ax.tick_params("y", labelsize=15)
     ax.grid(show_grid)
     fig.tight_layout()
-    ax.legend(loc=position, prop={"size": 15})
     return fig, ax
 
 
