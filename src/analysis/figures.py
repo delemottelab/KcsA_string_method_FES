@@ -6,8 +6,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 from src.analysis.cvs import strings_to_SF_IG
-from src.analysis.plotting import (add_XRD_values, plot_2D_heatmap,
-                                   two_cv_strings_time_series)
+from src.analysis.plotting import (add_XRD_values,
+                                   all_rmsd_strings_time_series,
+                                   plot_2D_heatmap, two_cv_strings_time_series)
 from src.analysis.utils import natural_sort
 
 plt.rcParams["axes.facecolor"] = "#f9f9fb"
@@ -186,4 +187,23 @@ def final_1D_path(
             )
     fig.savefig(path_report + f"FES_path_cv_{name}{version}.png")
 
+    return fig, ax
+
+
+def final_rmsd_string(
+    path_data,
+    path_report,
+    sim_name,
+):
+    fig, ax = plt.subplots(1, 1, figsize=(10, 7), sharex=True, sharey=True)
+    for name in sim_name.keys():
+        files = natural_sort(glob.glob(f"{path_data}/{name}/strings/string[0-9]*txt"))
+        strings = np.array([np.loadtxt(file).T for file in files])
+        label = sim_name[name]
+        fig, ax = all_rmsd_strings_time_series(
+            strings, "RMSD[String] (nm)", label=label, fig=fig, ax=ax
+        )
+    ax.tick_params("x", labelsize=15)
+    ax.tick_params("y", labelsize=15)
+    ax.grid(False)
     return fig, ax

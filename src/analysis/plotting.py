@@ -235,25 +235,26 @@ def two_cv_strings_time_series(
     ax.grid(which="minor")
     ax.tick_params("x", labelsize=15)
     ax.tick_params("y", labelsize=15)
-    ax.legend()
     ax.set_title(fig_title, size=27, pad=15)
     ax.legend(loc=position, prop={"size": 15})
     _colorbar(ax, cmap, norm, "iteration number", 20)
     return fig, ax
 
 
-def all_rmsd_strings_time_series(strings, ylabel):
+def all_rmsd_strings_time_series(strings, ylabel, label=None, fig=None, ax=None):
     n_strings = strings.shape[0]
-    fig, ax = plt.subplots(1, 1, figsize=(10, 8))
+    if fig is None:
+        fig, ax = plt.subplots(1, 1, figsize=(10, 8))
     x = np.arange(n_strings)
     y = strings[:, :, :] - strings[0, :, :]
     y = np.sqrt(np.sum(y * y, axis=(1, 2)) / strings.shape[2])
-    ax.plot(x, y)
+    ax.plot(x, y, label=label)
     ax.set_ylabel(
         ylabel,
         size=18,
         labelpad=16,
     )
+    ax.legend(loc="best", prop={"size": 15})
     ax.set_xlabel("iteration number", size=15, labelpad=13)
     return fig, ax
 
