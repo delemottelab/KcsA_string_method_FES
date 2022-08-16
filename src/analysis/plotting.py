@@ -381,3 +381,29 @@ def plot_path_vs_cv_FES(
     fig.tight_layout()
     fig.savefig(save_fig)
     return fig, ax
+
+
+def plot_trajectories_map(ax, trajectories):
+    for i, trajectory in enumerate(trajectories):
+        ax.plot(
+            trajectory[0] / 10,
+            trajectory[1] / 10,
+            ls="",
+            marker="o",
+            c=f"C{i}",
+            ms=8,
+            label=f"Simulation {i}",
+        )
+        ax.plot(
+            trajectory[0][:1] / 10,
+            trajectory[1][:1] / 10,
+            ls="",
+            marker="^",
+            c=f"C{i}",
+            ms=15,
+            markeredgecolor="k",
+            markeredgewidth=2,
+        )
+        ax.legend(prop={"size": 18}, loc="best")
+
+    return ax
