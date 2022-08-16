@@ -170,10 +170,11 @@ def final_cv_projection(
 
 def final_2D_string_convergence(
     name,
+    path_data,
     path_report,
     fig_title,
 ):
-    files = natural_sort(glob.glob(f"{name}/strings/string[0-9]*txt"))
+    files = natural_sort(glob.glob(f"{path_data}/{name}/strings/string[0-9]*txt"))
     strings = np.array([np.loadtxt(file).T for file in files])
     reduced_string = strings_to_SF_IG(strings, [0, 1], [10, 11])
     reduced_string_labels = ["SF (nm)", "IG (nm)"]
