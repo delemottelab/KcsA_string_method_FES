@@ -1,6 +1,7 @@
 """This module contains the plotting functions for the article."""
 
 import glob
+import pickle
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -106,36 +107,64 @@ def final_cv_projection(
     cv_name,
     cv_data,
     cv_label,
-    XRD_dictionary,
-    fig_title,
+    XRD_dictionary=None,
+    fig_title=None,
     f_max=None,
     f_min=None,
     show_cbar=False,
+    fig=None,
+    ax=None,
 ):
 
     F = np.load(f"{path_processed}/{name}/FES_SF_IG.npy")
     extent = np.load(f"{path_processed}/{name}/extent.npy")
 
-    fig, ax = plot_2D_heatmap(
-        cv_data,
-        extent,
-        cmap=plt.cm.viridis_r,
-        f_max=f_max,
-        f_min=f_min,
-        cbar_label=cv_label,
-        xlabel="Selectivity Filter (nm)",
-        ylabel="Inner Gate (nm)",
-        fig_title=fig_title,
-        show_grid=False,
-        show_cbar=show_cbar,
-        c_density=F,
-    )
-    add_XRD_values(XRD_dictionary, "SF", "IG", size=15, ax=ax, position="lower left")
-    ax.set_xlim([0.48, 1.01])
-    ax.set_ylim([1.1, 2.45])
-    fig.tight_layout()
-    ax.set_box_aspect(1)
-    fig.savefig(f"{path_report}/projection_{cv_name}.png")
+    if fig is None:
+        fig, ax = plot_2D_heatmap(
+            cv_data,
+            extent,
+            cmap=plt.cm.viridis_r,
+            f_max=f_max,
+            f_min=f_min,
+            cbar_label=cv_label,
+            xlabel="Selectivity Filter (nm)",
+            ylabel="Inner Gate (nm)",
+            fig_title=fig_title,
+            show_grid=False,
+            show_cbar=show_cbar,
+            c_density=F,
+        )
+        add_XRD_values(
+            XRD_dictionary, "SF", "IG", size=15, ax=ax, position="lower left"
+        )
+        ax.set_xlim([0.48, 1.01])
+        ax.set_ylim([1.1, 2.45])
+        ax.set_box_aspect(1)
+        fig.tight_layout()
+        fig.savefig(f"{path_report}/projection_{cv_name}.png")
+    else:
+        fig, ax = plot_2D_heatmap(
+            cv_data,
+            extent,
+            cmap=plt.cm.viridis_r,
+            f_max=f_max,
+            f_min=f_min,
+            cbar_label=cv_label,
+            xlabel="Selectivity Filter (nm)",
+            ylabel="Inner Gate (nm)",
+            fig_title=fig_title,
+            show_grid=False,
+            show_cbar=show_cbar,
+            c_density=F,
+            fig=fig,
+            ax=ax,
+        )
+        add_XRD_values(
+            XRD_dictionary, "SF", "IG", size=15, ax=ax, position="lower left"
+        )
+        ax.set_xlim([0.48, 1.01])
+        ax.set_ylim([1.1, 2.45])
+        ax.set_box_aspect(1)
     return fig, ax
 
 
@@ -257,4 +286,39 @@ def final_FES_IG_SF_error(
     fig.tight_layout()
     ax.set_box_aspect(1)
     fig.savefig(f"{path_report}/FES_error_{name}{version}.png")
+    return fig, ax
+
+
+def final_SF_content(name, path_processed, path_report, fig_title, version=""):
+    fig, ax = plt.subplots(6, 2, figsize=(10, 5 * 6), sharex=True, sharey=True)
+    color_maps = (plt.cm.Blues, plt.cm.Purples)
+    colors = ("k", "k")
+    F = np.load(f"{path_processed}/{name}/FES_SF_IG.npy")
+    extent = np.load(f"{path_processed}/{name}/extent.npy")
+    with open(f"{path_processed}/{name}/SF_occupation_data.pkl", "rb") as handle:
+        SF_occupation_data = pickle.load(handle)
+    for i, ligand in enumerate(("W", "K")):
+        for j in range(6):
+            _ = plot_2D_heatmap(
+                SF_occupation_data[ligand][j],
+                extent,
+                # cbar_label=f"Number of {ligand} in S{j}",
+                cbar_label=f"Number of {ligand}",
+                xlabel="SF (nm)",
+                ylabel="IG (nm)",
+                f_min=0,
+                f_max=1,
+                ax=ax[j, i],
+                fig=fig,
+                cmap=color_maps[i],
+                n_colors=200,
+                c_density=F,
+                c_min=0,
+                c_max=25,
+                c_color=colors[i],
+            )
+            ax[j, i].grid(None)
+            ax[j, i].set_title(f"Site {j}")
+    fig.tight_layout()
+    fig.savefig(f"{path_report}/SF_content_per_site_{name}{version}.png")
     return fig, ax
