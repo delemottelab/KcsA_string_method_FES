@@ -207,3 +207,45 @@ def final_rmsd_string(
     ax.tick_params("y", labelsize=15)
     ax.grid(False)
     return fig, ax
+
+
+def final_FES_IG_SF_error(
+    name,
+    path_processed,
+    path_report,
+    XRD_dictionary,
+    fig_title,
+    show_cbar=False,
+    version="",
+):
+
+    F = np.load(f"{path_processed}/{name}/FES_SF_IG.npy")
+    extent = np.load(f"{path_processed}/{name}/extent.npy")
+    errors = np.load(f"{path_processed}/{name}/errors_150_5.npy")
+    e = errors[3]
+    e[~np.isfinite(F)] = np.nan
+
+    e_max = 4
+    f_max = 20
+    fig, ax = plot_2D_heatmap(
+        e,
+        extent,
+        cmap=plt.cm.viridis_r,
+        f_max=e_max,
+        f_min=0,
+        c_density=F,
+        c_max=f_max,
+        cbar_label="Error ($k_BT$)",
+        xlabel="Selectivity Filter (nm)",
+        ylabel="Inner Gate (nm)",
+        fig_title=fig_title,
+        show_grid=False,
+        show_cbar=show_cbar,
+    )
+    ax.set_xlim([0.48, 1.01])
+    ax.set_ylim([1.1, 2.45])
+    add_XRD_values(XRD_dictionary, "SF", "IG", size=15, ax=ax, position="lower left")
+    fig.tight_layout()
+    ax.set_box_aspect(1)
+    fig.savefig(f"{path_report}/FES_error_{name}{version}.png")
+    return fig, ax
