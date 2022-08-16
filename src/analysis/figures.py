@@ -8,7 +8,8 @@ import numpy as np
 from src.analysis.cvs import strings_to_SF_IG
 from src.analysis.plotting import (add_XRD_values,
                                    all_rmsd_strings_time_series,
-                                   plot_2D_heatmap, two_cv_strings_time_series)
+                                   plot_2D_heatmap, plot_trajectories_map,
+                                   two_cv_strings_time_series)
 from src.analysis.utils import natural_sort
 
 plt.rcParams["axes.facecolor"] = "#f9f9fb"
@@ -23,10 +24,11 @@ def final_FES_IG_SF(
     name,
     path_processed,
     path_report,
-    XRD_dictionary,
-    fig_title,
+    XRD_dictionary=None,
+    fig_title=None,
     show_cbar=False,
     version="",
+    restarts=True,
 ):
 
     F = np.load(f"{path_processed}/{name}/FES_SF_IG.npy")
@@ -47,9 +49,16 @@ def final_FES_IG_SF(
     )
     ax.set_xlim([0.48, 1.01])
     ax.set_ylim([1.1, 2.45])
-    add_XRD_values(XRD_dictionary, "SF", "IG", size=15, ax=ax, position="lower left")
+    if XRD_dictionary is not None:
+        add_XRD_values(
+            XRD_dictionary, "SF", "IG", size=15, ax=ax, position="lower left"
+        )
     fig.tight_layout()
     ax.set_box_aspect(1)
+    if restarts:
+        trajectories = np.load(f"{path_processed}/{name}/SF_IG_restarts.npy")
+        ax = plot_trajectories_map(ax, trajectories)
+
     fig.savefig(f"{path_report}/FES_{name}{version}.png")
     return fig, ax
 

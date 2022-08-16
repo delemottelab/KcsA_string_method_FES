@@ -389,7 +389,7 @@ def plot_trajectories_map(ax, trajectories):
             trajectory[0] / 10,
             trajectory[1] / 10,
             ls="",
-            marker="o",
+            marker=".",
             c=f"C{i}",
             ms=8,
             label=f"Simulation {i}",
