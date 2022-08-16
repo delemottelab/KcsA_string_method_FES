@@ -10,6 +10,7 @@ from src.analysis.cvs import strings_to_SF_IG
 from src.analysis.plotting import (add_XRD_values,
                                    all_rmsd_strings_time_series,
                                    plot_2D_heatmap, plot_trajectories_map,
+                                   strings_time_series,
                                    two_cv_strings_time_series)
 from src.analysis.utils import natural_sort
 
@@ -322,4 +323,40 @@ def final_SF_content(name, path_processed, path_report, fig_title, version=""):
             ax[j, i].set_title(f"Site {j}")
     fig.tight_layout()
     fig.savefig(f"{path_report}/SF_content_per_site_{name}{version}.png")
+    return fig, ax
+
+
+def final_strings_vs_time_series(name, path_data, path_report, fig_title, version=""):
+
+    with open(f"{path_data}/{name}/cv.pkl", "rb") as file:
+        cvs, ndx_groups = pickle.load(file)
+    select = [
+        "CD1_67_A",
+        "CG_81_A",
+        "CD1_67_B",
+        "CG_81_B",
+        "CD1_67_C",
+        "CG_81_C",
+        "CD1_67_D",
+        "CG_81_D",
+    ]
+    ndx_groups = {x: ndx_groups[x] for x in select}
+    files = natural_sort(glob.glob(f"{path_data}/{name}/strings/string[0-9]*txt"))
+    strings = np.array([np.loadtxt(file).T for file in files])
+    strings = strings[:, -4:, :]
+    fig, ax = strings_time_series(
+        strings,
+        ndx_groups,
+        start_iteration=1,
+        n_average=25,
+        av_last_n_it=None,
+        sharex=True,
+        sharey=True,
+    )
+    for i, a in enumerate(ax.flatten()):
+        a.set_ylabel(f"W67-L81, SU{i} dist. (nm)")
+        a.set_title("")
+    fig.tight_layout()
+    fig.savefig(f"{path_report}/L81-W67_string_time_series_{name}{version}.png")
+
     return fig, ax

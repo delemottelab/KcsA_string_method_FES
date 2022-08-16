@@ -87,12 +87,24 @@ def plot_2D_heatmap(
 
 
 def strings_time_series(
-    strings, ndx_groups, start_iteration=0, n_average=1, av_last_n_it=None
+    strings,
+    ndx_groups,
+    start_iteration=0,
+    n_average=1,
+    av_last_n_it=None,
+    sharey=False,
+    sharex=False,
 ):
 
     n_plots = strings.shape[1]
     n_strings = strings.shape[0]
-    fig, ax = plt.subplots(ceil(n_plots / 2), 2, figsize=(20, 8 * ceil(n_plots / 2)))
+    fig, ax = plt.subplots(
+        ceil(n_plots / 2),
+        2,
+        figsize=(10, 5 * ceil(n_plots / 2)),
+        sharex=sharex,
+        sharey=sharey,
+    )
     ax = ax.flatten()
     cmap = plt.cm.viridis_r
     n_colors = (n_strings - start_iteration) // n_average + 1
@@ -104,8 +116,8 @@ def strings_time_series(
         for jj, j in enumerate(range(start_iteration, n_strings, n_average)):
             string = np.mean(strings[j : j + n_average, i, :], axis=0)
             a.plot(string, ls="-", marker="o", color=colors[jj])
-            av = np.mean(strings[n_strings - av_last_n_it :, i, :], axis=0)
         if av_last_n_it is not None:
+            av = np.mean(strings[n_strings - av_last_n_it :, i, :], axis=0)
             std = np.std(strings[n_strings - av_last_n_it :, i, :], axis=0)
             a.fill_between(
                 np.arange(len(av)),
@@ -407,3 +419,76 @@ def plot_trajectories_map(ax, trajectories):
         ax.legend(prop={"size": 18}, loc="best")
 
     return ax
+
+
+def strings_time_series_lean(
+    strings,
+    ndx_groups,
+    start_iteration=0,
+    n_average=1,
+    av_last_n_it=None,
+    sharey=False,
+    sharex=False,
+):
+
+    n_plots = strings.shape[1]
+    n_strings = strings.shape[0]
+    fig, ax = plt.subplots(
+        ceil(n_plots / 2),
+        2,
+        figsize=(10, 5 * ceil(n_plots / 2)),
+        sharex=sharex,
+        sharey=sharey,
+    )
+    ax = ax.flatten()
+    cmap = plt.cm.viridis_r
+    n_colors = (n_strings - start_iteration) // n_average + 1
+    colors = cmap(np.linspace(0, 1, n_colors))  # yellow to blue
+    norm = mpl.colors.Normalize(vmin=start_iteration, vmax=n_strings - 1)
+
+    for i, a in enumerate(ax[:n_plots]):
+        a.plot(strings[0, i, :], ls=":", marker=".", label="string0", color="r")
+        for jj, j in enumerate(range(start_iteration, n_strings, n_average)):
+            string = np.mean(strings[j : j + n_average, i, :], axis=0)
+            a.plot(string, ls="-", marker="o", color=colors[jj])
+            av = np.mean(strings[n_strings - av_last_n_it :, i, :], axis=0)
+        if av_last_n_it is not None:
+            std = np.std(strings[n_strings - av_last_n_it :, i, :], axis=0)
+            a.fill_between(
+                np.arange(len(av)),
+                av + std,
+                av - std,
+                alpha=0.4,
+                color="mediumorchid",
+                label=f"std(string{start_iteration}-{n_strings})",
+            )
+
+            a.plot(
+                av,
+                ls="-",
+                lw=3,
+                marker=".",
+                color="mediumorchid",
+                label=f"mean(string{start_iteration}-{n_strings})",
+            )
+        a.set_ylabel(
+            f"{list(ndx_groups.keys())[2*i]} - {list(ndx_groups.keys())[2*i+1]} (nm)",
+            size=18,
+            labelpad=16,
+        )
+        a.set_xlabel("bead number", size=15, labelpad=13)
+        a.set_xlim(left=0, right=strings.shape[2] - 1)
+        a.xaxis.set_minor_locator(MultipleLocator(1))
+        a.xaxis.set_major_locator(MultipleLocator(1))
+        a.yaxis.set_minor_locator(MultipleLocator(0.1))
+        a.yaxis.set_major_locator(MultipleLocator(0.1))
+        a.grid(which="minor")
+        a.tick_params(axis="y", labelsize=14)
+        a.tick_params(axis="x", labelsize=11)
+        a.set_title(f"cv{i}")
+        if i % 2 != 0:
+            a.legend()
+            _colorbar(a, cmap, norm, "iteration number", 20)
+    if n_plots % 2:
+        fig.delaxes(ax[-1])
+    return fig, ax
