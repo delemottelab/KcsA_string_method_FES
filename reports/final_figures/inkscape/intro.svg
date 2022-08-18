@@ -10,43 +10,45 @@
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    inkscape:export-ydpi="96"
    inkscape:export-xdpi="96"
-   inkscape:export-filename="/Users/sperez/Projects/string_sims/reports/final_figures/panels/intro.png"
+   inkscape:export-filename="../panels/intro.png"
    inkscape:version="0.92.3 (2405546, 2018-03-11)"
    sodipodi:docname="intro.svg"
    id="svg8"
    version="1.1"
-   viewBox="0 0 1324.3216 633.41566"
-   height="633.41553mm"
-   width="1324.3217mm">
+   viewBox="0 0 830.12619 614.77045"
+   height="614.77032mm"
+   width="830.12622mm">
   <defs
      id="defs2">
     <marker
        inkscape:stockid="Arrow2Sstart"
        orient="auto"
-       refY="0.0"
-       refX="0.0"
+       refY="0"
+       refX="0"
        id="Arrow2Sstart"
        style="overflow:visible"
        inkscape:isstock="true">
       <path
          id="path1971"
-         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round;stroke:#000000;stroke-opacity:1;fill:#000000;fill-opacity:1"
-         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
-         transform="scale(0.3) translate(-2.3,0)" />
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(0.3,0,0,0.3,-0.69,0)"
+         inkscape:connector-curvature="0" />
     </marker>
     <marker
        inkscape:stockid="Arrow2Mstart"
        orient="auto"
-       refY="0.0"
-       refX="0.0"
+       refY="0"
+       refX="0"
        id="Arrow2Mstart"
        style="overflow:visible"
        inkscape:isstock="true">
       <path
          id="path1965"
-         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round;stroke:#000000;stroke-opacity:1;fill:#000000;fill-opacity:1"
-         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
-         transform="scale(0.6) translate(0,0)" />
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="scale(0.6)"
+         inkscape:connector-curvature="0" />
     </marker>
     <marker
        inkscape:stockid="Arrow2Mend"
@@ -1977,9 +1979,9 @@
      inkscape:document-rotation="0"
      inkscape:current-layer="layer1"
      inkscape:document-units="mm"
-     inkscape:cy="913.44852"
-     inkscape:cx="689.17558"
-     inkscape:zoom="0.45254834"
+     inkscape:cy="879.0925"
+     inkscape:cx="905.08494"
+     inkscape:zoom="0.16"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
      borderopacity="1.0"
@@ -1994,7 +1996,7 @@
        type="xygrid"
        id="grid3013"
        originx="118.14406"
-       originy="-452.12708" />
+       originy="-451.63753" />
   </sodipodi:namedview>
   <metadata
      id="metadata5">
@@ -2009,7 +2011,7 @@
     </rdf:RDF>
   </metadata>
   <g
-     transform="translate(706.6582,316.33844)"
+     transform="translate(706.6582,297.20364)"
      id="layer1"
      inkscape:groupmode="layer"
      inkscape:label="Layer 1">
