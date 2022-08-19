@@ -10,14 +10,14 @@
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    inkscape:export-ydpi="96"
    inkscape:export-xdpi="96"
-   inkscape:export-filename="../panels/2D_string_convergence.png"
+   inkscape:export-filename="/data/sperez/Projects/string_sims/reports/final_figures_si/panels/2D_string_convergence.png"
    inkscape:version="0.92.3 (2405546, 2018-03-11)"
    sodipodi:docname="2D_string_converge.svg"
    id="svg8"
    version="1.1"
-   viewBox="0 0 913.96732 597.43946"
+   viewBox="0 0 810.46696 597.43946"
    height="597.43933mm"
-   width="913.96735mm">
+   width="810.46698mm">
   <defs
      id="defs2">
     <marker
@@ -1979,8 +1979,8 @@
      inkscape:document-rotation="0"
      inkscape:current-layer="layer1"
      inkscape:document-units="mm"
-     inkscape:cy="1537.9813"
-     inkscape:cx="786.58238"
+     inkscape:cy="1096.0396"
+     inkscape:cx="-412.76277"
      inkscape:zoom="0.45254834"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
@@ -1995,8 +1995,8 @@
     <inkscape:grid
        type="xygrid"
        id="grid3013"
-       originx="143.91627"
-       originy="-474.91864" />
+       originx="180.1172"
+       originy="-474.9187" />
   </sodipodi:namedview>
   <metadata
      id="metadata5">
@@ -2011,7 +2011,7 @@
     </rdf:RDF>
   </metadata>
   <g
-     transform="translate(732.43041,303.15355)"
+     transform="translate(768.63135,303.15355)"
      id="layer1"
      inkscape:groupmode="layer"
      inkscape:label="Layer 1">
@@ -2317,41 +2317,38 @@
        sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures_si/inkscape/../plots/convergence_2D_C2I_v1_amber.png"
        xlink:href="../plots/convergence_2D_C2I_v1_amber.png"
        y="9.2857933"
-       x="-462.56061"
+       x="-572.09979"
        id="image7420-7-5"
        preserveAspectRatio="none"
        height="280"
        width="400" />
-    <g
-       id="g5558">
-      <image
-         sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures_si/inkscape/../plots/convergence_2D_C2I_lb_v1_amber.png"
-         xlink:href="../plots/convergence_2D_C2I_lb_v1_amber.png"
-         y="-283.52939"
-         x="-701.6582"
-         id="image7420"
-         preserveAspectRatio="none"
-         height="280"
-         width="400" />
-      <image
-         sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures_si/inkscape/../plots/../plots/convergence_2D_C2I_lb_v1.png"
-         xlink:href="../plots/../plots/convergence_2D_C2I_lb_v1.png"
-         width="403.30728"
-         height="282.31509"
-         preserveAspectRatio="none"
-         id="image7420-8"
-         x="-226.77032"
-         y="-285.84448" />
-    </g>
+    <image
+       sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures_si/inkscape/../plots/convergence_2D_C2I_lb_v1_amber.png"
+       xlink:href="../plots/convergence_2D_C2I_lb_v1_amber.png"
+       width="400"
+       height="280"
+       preserveAspectRatio="none"
+       id="image7420"
+       x="-763.63135"
+       y="-286.45264" />
+    <image
+       sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures_si/inkscape/../plots/convergence_2D_C2I_lb_v1.png"
+       xlink:href="../plots/convergence_2D_C2I_lb_v1.png"
+       y="-285.84448"
+       x="-366.47162"
+       id="image7420-8"
+       preserveAspectRatio="none"
+       height="282.31509"
+       width="403.30728" />
     <text
        xml:space="preserve"
        id="text22084-3-1"
        style="font-style:normal;font-weight:normal;font-size:19.75559998px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect22086);fill:#000000;fill-opacity:1;stroke:none;stroke-width:1"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96"
-       x="-114.56863"
+       x="-254.26694"
        y="-529.21472"><tspan
-         x="-269.80914"
+         x="-409.51129"
          y="-285.28821"
          id="tspan715-3"><tspan
            style="font-size:16.93330002px;stroke-width:1"
@@ -2362,9 +2359,9 @@
        style="font-style:normal;font-weight:normal;font-size:19.75559998px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect22086);fill:#000000;fill-opacity:1;stroke:none"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96"
-       x="-773.0708"
+       x="-822.81323"
        y="-202.2386"><tspan
-         x="-508.4718"
+         x="-558.21423"
          y="41.696144"
          id="tspan497-4-9"><tspan
            style="font-size:16.93330002px"

@@ -74,6 +74,7 @@ def final_FES_path_CV(
     fig_title,
     ylabel,
     show_cbar=False,
+    version="",
 ):
 
     F = np.load(f"{path_processed}/{name}/FES_{cv_name}_path.npy")
@@ -97,7 +98,7 @@ def final_FES_path_CV(
     # add_XRD_values(XRD_dictionary, "SF", "IG", size=15, ax=ax, position="lower left")
     fig.tight_layout()
     ax.set_box_aspect(1)
-    fig.savefig(f"{path_report}/FES_{cv_name}_path.png")
+    fig.savefig(f"{path_report}/FES_{cv_name}_path{version}.png")
     return fig, ax
 
 
@@ -291,7 +292,7 @@ def final_FES_IG_SF_error(
 
 
 def final_SF_content(name, path_processed, path_report, fig_title, version=""):
-    fig, ax = plt.subplots(6, 2, figsize=(10, 5 * 6), sharex=True, sharey=True)
+    fig, ax = plt.subplots(4, 2, figsize=(10, 5 * 4), sharex=True, sharey=True)
     color_maps = (plt.cm.Blues, plt.cm.Purples)
     colors = ("k", "k")
     F = np.load(f"{path_processed}/{name}/FES_SF_IG.npy")
@@ -299,9 +300,9 @@ def final_SF_content(name, path_processed, path_report, fig_title, version=""):
     with open(f"{path_processed}/{name}/SF_occupation_data.pkl", "rb") as handle:
         SF_occupation_data = pickle.load(handle)
     for i, ligand in enumerate(("W", "K")):
-        for j in range(6):
+        for j in range(4):
             _ = plot_2D_heatmap(
-                SF_occupation_data[ligand][j],
+                SF_occupation_data[ligand][j + 1],
                 extent,
                 # cbar_label=f"Number of {ligand} in S{j}",
                 cbar_label=f"Number of {ligand}",
@@ -319,7 +320,7 @@ def final_SF_content(name, path_processed, path_report, fig_title, version=""):
                 c_color=colors[i],
             )
             ax[j, i].grid(None)
-            ax[j, i].set_title(f"Site {j}")
+            ax[j, i].set_title(f"Site {j+1}")
     fig.tight_layout()
     fig.savefig(f"{path_report}/SF_content_per_site_{name}{version}.png")
     return fig, ax
