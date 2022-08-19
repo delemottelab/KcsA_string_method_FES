@@ -1,0 +1,653 @@
+PE_TPSL_64_DEFAULT_GENCOMPILERS_CRAY_x86_64=9.0
+PE_TPSL_DEFAULT_GENCOMPILERS_GNU_x86_skylake=8.2 7.1
+CONDA_SHLVL=1
+PE_TPSL_64_DEFAULT_GENCOMPS_CRAY_haswell=90
+CRAYPAT_ALPS_COMPONENT=/opt/cray/pe/perftools/7.1.0/sbin/pat_alps
+LD_LIBRARY_PATH=/pdc/vol/gromacs/2020.5/lib64:/opt/cray/pe/papi/5.7.0.1/lib64:/opt/gcc/8.3.0/snos/lib64
+LS_COLORS=no=00:fi=00:di=01;34:ln=00;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=41;33;01:ex=00;32:*.cmd=00;32:*.exe=01;32:*.com=01;32:*.bat=01;32:*.btm=01;32:*.dll=01;32:*.tar=00;31:*.tbz=00;31:*.tgz=00;31:*.rpm=00;31:*.deb=00;31:*.arj=00;31:*.taz=00;31:*.lzh=00;31:*.lzma=00;31:*.zip=00;31:*.zoo=00;31:*.z=00;31:*.Z=00;31:*.gz=00;31:*.bz2=00;31:*.tb2=00;31:*.tz2=00;31:*.tbz2=00;31:*.xz=00;31:*.avi=01;35:*.bmp=01;35:*.dl=01;35:*.fli=01;35:*.gif=01;35:*.gl=01;35:*.jpg=01;35:*.jpeg=01;35:*.mkv=01;35:*.mng=01;35:*.mov=01;35:*.mp4=01;35:*.mpg=01;35:*.pcx=01;35:*.pbm=01;35:*.pgm=01;35:*.png=01;35:*.ppm=01;35:*.svg=01;35:*.tga=01;35:*.tif=01;35:*.webm=01;35:*.webp=01;35:*.wmv=01;35:*.xbm=01;35:*.xcf=01;35:*.xpm=01;35:*.aiff=00;32:*.ape=00;32:*.au=00;32:*.flac=00;32:*.m4a=00;32:*.mid=00;32:*.mp3=00;32:*.mpc=00;32:*.ogg=00;32:*.voc=00;32:*.wav=00;32:*.wma=00;32:*.wv=00;32:
+PE_ATP_PKGCONFIG_VARIABLES=ATP_CFLAGS_@prgenv@_@language@
+PE_LIBSCI_DEFAULT_VOLATILE_PRGENV=CRAY CRAYCLANG GNU INTEL
+PE_TPSL_64_DEFAULT_GENCOMPILERS_GNU_sandybridge=8.2 7.1
+PE_TPSL_64_DEFAULT_GENCOMPS_CRAYCLANG_x86_64=90
+CONDA_EXE=/cfs/klemming/nobackup/s/sergiopc/anaconda3/bin/conda
+HOSTTYPE=x86_64
+PE_PKGCONFIG_PRODUCTS_modshare=PE_MPICH:2:PE_LIBSCI:1
+ALPS_LLI_STATUS_OFFSET=1
+ATP_IGNORE_SIGTERM=1
+XTPE_NETWORK_TARGET=aries
+PE_TPSL_64_DEFAULT_GENCOMPILERS_GNU_x86_skylake=8.2 7.1
+CRAY_UDREG_POST_LINK_OPTS=-L/opt/cray/udreg/2.3.2-7.0.2.1_2.37__g8175d3d.ari/lib64
+PE_TPSL_DEFAULT_GENCOMPS_CRAYCLANG_haswell=90
+SLURM_NODEID=0
+PE_FFTW_DEFAULT_TARGET_share=share
+PE_FFTW_DEFAULT_TARGET_ivybridge=ivybridge
+PE_TPSL_DEFAULT_GENCOMPILERS_CRAY_x86_skylake=9.0
+SLURM_TASK_PID=46046
+PE_TRILINOS_DEFAULT_GENCOMPS_CRAYCLANG_x86_64=90
+PKG_CONFIG_PATH_DEFAULT=/opt/cray/pe/papi/5.7.0.1/lib64/pkgconfig:/opt/cray/pe/papi/6.0.0.1/lib64/pkgconfig
+PE_TPSL_64_DEFAULT_GENCOMPILERS_INTEL_sandybridge=19.0
+PE_LIBSCI_OMP_REQUIRES=
+PE_TRILINOS_DEFAULT_GENCOMPS_GNU_x86_64=82 71
+SSH_CONNECTION=90.74.104.210 63161 193.11.167.133 22
+PE_MPICH_NV_LIBS_nvidia35=-lcudart
+PE_TPSL_64_DEFAULT_GENCOMPS_CRAY_x86_64=90
+host_alias=x86_64-conda-linux-gnu
+LESSCLOSE=lessclose.sh %s %s
+CRAY_LD_LIBRARY_PATH=/opt/cray/pe/pmi/5.0.14/lib64:/opt/cray/pe/perftools/7.1.0/lib64:/opt/cray/pe/libsci/19.06.1/GNU/8.1/x86_64/lib:/opt/cray/pe/mpt/7.7.8/gni/mpich-gnu/8.1/lib:/opt/cray/rca/2.2.20-7.0.2.1_2.80__g8e3fb5b.ari/lib64:/opt/cray/pe/mpt/7.7.14/gni/mpich-gnu/8.1/lib:/opt/cray/pe/mpt/7.7.14/gni/mpich-cray/9.0/lib:/opt/cray/pe/mpt/7.7.14/gni/mpich-crayclang/9.0/lib:/opt/cray/llm/21.4.629-7.0.2.1_2.57__g8cae6ef.ari/lib64:/opt/cray/xpmem/2.2.20-7.0.2.1_2.62__g87eb960.ari/lib64:/opt/cray/dmapp/7.1.1-7.0.2.1_2.81__g38cf134.ari/lib64:/opt/cray/ugni/6.0.14.0-7.0.2.1_3.62__ge78e5b0.ari/lib64:/opt/cray/udreg/2.3.2-7.0.2.1_2.37__g8175d3d.ari/lib64
+PE_SMA_DEFAULT_DIR_PGI_DEFAULT64=64
+GPROF=/cfs/klemming/nobackup/s/sergiopc/anaconda3/envs/lab_env3/bin/x86_64-conda-linux-gnu-gprof
+PE_MPICH_DEFAULT_DIR_CRAY_DEFAULT64=64
+PE_PETSC_DEFAULT_GENCOMPS_CRAY_haswell=90
+PE_PAPI_DEFAULT_ACCEL_FAMILY_LIBS_nvidia=,-lcupti,-lcudart,-lcuda
+PE_PETSC_DEFAULT_GENCOMPILERS_CRAY_sandybridge=9.0
+SLURM_PRIO_PROCESS=0
+XKEYSYMDB=/usr/X11R6/lib/X11/XKeysymDB
+PE_TRILINOS_DEFAULT_VOLATILE_PKGCONFIG_PATH=/opt/cray/pe/trilinos/12.14.1.0/@PRGENV@/@PE_TRILINOS_DEFAULT_GENCOMPS@/@PE_TRILINOS_DEFAULT_TARGET@/lib/pkgconfig
+PE_ENV=GNU
+PAT_BUILD_OPTIONS=-Dlink-instr=--copy-dt-needed-entries
+PE_TPSL_64_DEFAULT_GENCOMPS_INTEL_x86_skylake=190
+PE_NETCDF_DEFAULT_VOLATILE_PRGENV=GNU
+CRAY_MPICH2_DIR=/opt/cray/pe/mpt/7.7.8/gni/mpich-gnu/8.1
+PE_LIBSCI_DEFAULT_GENCOMPS_GNU_x86_64=81 71
+PE_PETSC_DEFAULT_GENCOMPS_GNU_x86_skylake=82 71
+PE_PETSC_DEFAULT_GENCOMPILERS_CRAYCLANG_haswell=9.0
+CRAYPAT_LD_LIBRARY_PATH=/opt/cray/pe/gcc-libs:/opt/cray/gcc-libs:/opt/cray/pe/perftools/7.1.0/lib64
+PE_FORTRAN_PKGCONFIG_LIBS_modshare=mpichf90:1
+PE_PETSC_DEFAULT_VOLATILE_PRGENV=CRAY CRAY64 CRAYCLANG CRAYCLANG64 GNU GNU64 INTEL INTEL64
+PE_PRODUCT_LIST=CRAY_PMI:CRAYPE:CRAYPE_HASWELL:CRAY_LIBSCI:GNU:GCC:CRAY_RCA:CRAY_XPMEM:CRAY_DMAPP:CRAY_UGNI:CRAY_UDREG:PERFTOOLS:CRAYPAT
+CRAYPAT_ROOT=/opt/cray/pe/perftools/7.1.0
+PE_TPSL_64_DEFAULT_REQUIRED_PRODUCTS=PE_MPICH:PE_LIBSCI
+CRAY_DMAPP_INCLUDE_OPTS=-I/opt/cray/dmapp/7.1.1-7.0.2.1_2.81__g38cf134.ari/include -I/opt/cray/gni-headers/5.0.12.0-7.0.2.1_2.21__g3b1768f.ari/include
+PE_TPSL_DEFAULT_GENCOMPILERS_GNU_x86_64=8.2 7.1
+PE_NETCDF_DEFAULT_GENCOMPILERS_GNU=8.2 7.1
+PE_LIBSCI_MODULE_NAME=cray-libsci/19.06.1
+PE_TPSL_64_DEFAULT_GENCOMPS_GNU_x86_skylake=82 71
+LANG=en_US.UTF-8
+PE_LIBSCI_GENCOMPILERS_CRAY_x86_64=9.0
+PE_MPICH_DEFAULT_DIR_CRAYCLANG_DEFAULT64=64
+SLURM_SUBMIT_DIR=/cfs/klemming/scratch/s/sergiopc/Projects/string_sims/data/raw/LB-AMBER
+PE_TPSL_DEFAULT_GENCOMPS_CRAYCLANG_x86_skylake=90
+PE_MPICH_CXX_PKGCONFIG_LIBS=mpichcxx
+PE_PETSC_DEFAULT_GENCOMPS_CRAY_x86_skylake=90
+HISTCONTROL=ignoreboth
+PE_TPSL_DEFAULT_GENCOMPILERS_INTEL_x86_skylake=19.0
+PE_TPSL_64_DEFAULT_GENCOMPS_GNU_haswell=82 71
+WINDOWMANAGER=xterm
+PE_TPSL_64_DEFAULT_GENCOMPILERS_CRAYCLANG_x86_skylake=9.0
+MODULERCFILE=/opt/cray/pe/cdt/19.06/modulerc
+LESS=-M -I -R
+PE_LIBSCI_DEFAULT_GENCOMPS_CRAYCLANG_x86_64=90
+PE_PETSC_DEFAULT_VOLATILE_PKGCONFIG_PATH=/opt/cray/pe/petsc/3.11.2.0/complex/@PRGENV@/@PE_PETSC_DEFAULT_GENCOMPS@/@PE_PETSC_DEFAULT_TARGET@/lib/pkgconfig
+JAVA_ROOT=/usr/lib64/jvm/jre-11-openjdk
+GXX=/cfs/klemming/nobackup/s/sergiopc/anaconda3/envs/lab_env3/bin/x86_64-conda-linux-gnu-g++
+HOSTNAME=nid00031
+PE_TPSL_DEFAULT_GENCOMPILERS_CRAYCLANG_x86_skylake=9.0
+PE_NETCDF_HDF5PARALLEL_DEFAULT_VOLATILE_PKGCONFIG_PATH=/opt/cray/pe/netcdf-hdf5parallel/4.6.3.0/@PRGENV@/@PE_NETCDF_HDF5PARALLEL_DEFAULT_GENCOMPS@/lib/pkgconfig
+PE_TPSL_DEFAULT_GENCOMPILERS_CRAYCLANG_sandybridge=9.0
+PE_PETSC_DEFAULT_GENCOMPILERS_CRAY_x86_skylake=9.0
+SNIC_RESOURCE=beskow
+PE_TPSL_DEFAULT_GENCOMPS_GNU_haswell=82 71
+LD_GOLD=/cfs/klemming/nobackup/s/sergiopc/anaconda3/envs/lab_env3/bin/x86_64-conda-linux-gnu-ld.gold
+CSHEDIT=emacs
+PE_TPSL_DEFAULT_GENCOMPILERS_GNU_haswell=8.2 7.1
+EDITOR=~/bin/nvim_spc/bin/nvim
+CMAKE_ARGS=-DCMAKE_AR=/cfs/klemming/nobackup/s/sergiopc/anaconda3/envs/lab_env3/bin/x86_64-conda-linux-gnu-ar -DCMAKE_CXX_COMPILER_AR=/cfs/klemming/nobackup/s/sergiopc/anaconda3/envs/lab_env3/bin/x86_64-conda-linux-gnu-gcc-ar -DCMAKE_C_COMPILER_AR=/cfs/klemming/nobackup/s/sergiopc/anaconda3/envs/lab_env3/bin/x86_64-conda-linux-gnu-gcc-ar -DCMAKE_RANLIB=/cfs/klemming/nobackup/s/sergiopc/anaconda3/envs/lab_env3/bin/x86_64-conda-linux-gnu-ranlib -DCMAKE_CXX_COMPILER_RANLIB=/cfs/klemming/nobackup/s/sergiopc/anaconda3/envs/lab_env3/bin/x86_64-conda-linux-gnu-gcc-ranlib -DCMAKE_C_COMPILER_RANLIB=/cfs/klemming/nobackup/s/sergiopc/anaconda3/envs/lab_env3/bin/x86_64-conda-linux-gnu-gcc-ranlib -DCMAKE_LINKER=/cfs/klemming/nobackup/s/sergiopc/anaconda3/envs/lab_env3/bin/x86_64-conda-linux-gnu-ld -DCMAKE_STRIP=/cfs/klemming/nobackup/s/sergiopc/anaconda3/envs/lab_env3/bin/x86_64-conda-linux-gnu-strip
+PAT_BUILD_PAPI_BASEDIR=/opt/cray/pe/papi/5.7.0.1
+CRAY_RCA_INCLUDE_OPTS=-I/opt/cray/rca/2.2.20-7.0.2.1_2.80__g8e3fb5b.ari/include -I/opt/cray/krca/2.2.7-7.0.2.1_2.70__ge897ee1.ari/include -I/opt/cray-hss-devel/9.0.0/include
+ENVIRONMENT=BATCH
+PE_TPSL_DEFAULT_VOLATILE_PKGCONFIG_PATH=/opt/cray/pe/tpsl/19.06.1/@PRGENV@/@PE_TPSL_DEFAULT_GENCOMPS@/@PE_TPSL_DEFAULT_TARGET@/lib/pkgconfig
+GPG_TTY=not a tty
+PATH_modshare=/cfs/klemming/nobackup/s/sergiopc/anaconda3/envs/lab_env3/bin:1:/usr/lib/mit/bin:1:/opt/cray/cfgutils/bin:1:/cfs/klemming/nobackup/s/sergiopc/anaconda3/condabin:1:/afs/pdc.kth.se/pdc/vol/slurm/utils/0.2/bin:1:/usr/bin:1:/opt/cray/nodestat/2.3.89-7.0.2.1_2.66__g8645157.ari/bin:1:/opt/cray/pe/craype/2.6.0/bin:1:/usr/local/bin:1:/opt/cray/rca/2.2.20-7.0.2.1_2.80__g8e3fb5b.ari/bin:1:/opt/cray/llm/21.4.629-7.0.2.1_2.57__g8cae6ef.ari/bin:1:/opt/cray/pe/perftools/7.1.0/bin:1:/opt/cray/pe/bin:1:/opt/cray/pe/modules/4.1.3.1/bin:1:/pdc/vol/gromacs/2020.5/bin:1:/bin:1:/opt/cray/pe/mpt/7.7.8/gni/bin:1:/opt/cray/nodehealth/5.6.27-7.0.2.1_4.52__g20e015c.ari/bin:1:/opt/cray/pe/papi/5.7.0.1/bin:1:/opt/gcc/8.3.0/bin:1:/opt/cray/sdb/3.3.812-7.0.2.1_2.77__gd6c4e58.ari/bin:1:/opt/slurm/19.05.7/bin:1:/afs/pdc.kth.se/home/s/sergiopc/.npm-global/bin:1:/pdc/vol/openafs/1.6.23-4.12.14-197.7_5.0.95-cray_ari_s/bin:1:/afs/pdc.kth.se/home/s/sergiopc/bin:1:/afs/pdc.kth.se/home/s/sergiopc/bin/nvim-linux64/bin:1
+LESS_ADVANCED_PREPROCESSOR=no
+DEBUG_CPPFLAGS=-D_DEBUG -D_FORTIFY_SOURCE=2 -Og -isystem /cfs/klemming/nobackup/s/sergiopc/anaconda3/envs/lab_env3/include
+PE_MPICH_DIR_CRAY_DEFAULT64=64
+PE_MPICH_GENCOMPS_CRAY=90
+LOADEDMODULES_modshare=gromacs/2020.5:1:nodestat/2.3.89-7.0.2.1_2.66__g8645157.ari:1:dmapp/7.1.1-7.0.2.1_2.81__g38cf134.ari:1:pmi/5.0.14:1:gcc/8.3.0:1:Base-opts/2.4.142-7.0.2.1_2.67__g8f27585.ari:1:craype-network-aries:1:pdc-utils/0.2:1:cray-mpich/7.7.8:1:ugni/6.0.14.0-7.0.2.1_3.62__ge78e5b0.ari:1:system-config/3.6.3070-7.0.2.1_7.1__g40f385a9.ari:1:cdt/19.06:1:craype-haswell:1:perftools-base/7.1.0:1:PrgEnv-gnu/6.0.7:1:udreg/2.3.2-7.0.2.1_2.37__g8175d3d.ari:1:slurm/19.05.7-1:1:openafs/1.6.23-4.12.14-197.7_5.0.95-cray_ari_s:1:gni-headers/5.0.12.0-7.0.2.1_2.21__g3b1768f.ari:1:nodehealth/5.6.27-7.0.2.1_4.52__g20e015c.ari:1:xpmem/2.2.20-7.0.2.1_2.62__g87eb960.ari:1:rca/2.2.20-7.0.2.1_2.80__g8e3fb5b.ari:1:sdb/3.3.812-7.0.2.1_2.77__gd6c4e58.ari:1:llm/21.4.629-7.0.2.1_2.57__g8cae6ef.ari:1:cray-libsci/19.06.1:1:atp/2.1.3:1:craype/2.6.0:1:snic-env/1.0.0:1
+DEBUG_CFLAGS=-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -ffunction-sections -pipe -isystem /cfs/klemming/nobackup/s/sergiopc/anaconda3/envs/lab_env3/include
+PE_PETSC_DEFAULT_GENCOMPS_CRAYCLANG_x86_skylake=90
+PE_FFTW_DEFAULT_TARGET_x86_64=x86_64
+PE_PETSC_DEFAULT_GENCOMPILERS_INTEL_x86_64=19.0
+COLORTERM=1
+GCC_NM=/cfs/klemming/nobackup/s/sergiopc/anaconda3/envs/lab_env3/bin/x86_64-conda-linux-gnu-gcc-nm
+PE_PARALLEL_NETCDF_DEFAULT_VOLATILE_PRGENV=GNU
+PE_HDF5_DEFAULT_VOLATILE_PRGENV=GNU
+PE_TPSL_64_DEFAULT_GENCOMPS_CRAYCLANG_x86_skylake=90
+PE_TPSL_64_DEFAULT_VOLATILE_PKGCONFIG_PATH=/opt/cray/pe/tpsl/19.06.1/@PRGENV@64/@PE_TPSL_64_DEFAULT_GENCOMPS@/@PE_TPSL_64_DEFAULT_TARGET@/lib/pkgconfig
+PE_TPSL_64_DEFAULT_GENCOMPILERS_CRAYCLANG_sandybridge=9.0
+PE_PKGCONFIG__PRODUCTS=PE_ATP
+PE_PETSC_DEFAULT_GENCOMPS_GNU_sandybridge=82 71
+PE_NETCDF_HDF5PARALLEL_DEFAULT_REQUIRED_PRODUCTS=PE_HDF5_PARALLEL
+gcc_already_loaded=0
+PE_TPSL_DEFAULT_GENCOMPILERS_CRAY_x86_64=9.0
+SQUEUE_SORT=-t,e,S
+ATP_CFLAGS=
+CONDA_PREFIX=/cfs/klemming/nobackup/s/sergiopc/anaconda3/envs/lab_env3
+JAVA_HOME=/usr/lib64/jvm/jre-11-openjdk
+GCC_RANLIB=/cfs/klemming/nobackup/s/sergiopc/anaconda3/envs/lab_env3/bin/x86_64-conda-linux-gnu-gcc-ranlib
+PE_LIBSCI_GENCOMPILERS_CRAYCLANG_x86_64=9.0
+PE_PETSC_DEFAULT_GENCOMPILERS_INTEL_x86_skylake=19.0
+PE_FFTW_DEFAULT_TARGET_x86_skylake=x86_skylake
+PE_MPICH_FORTRAN_PKGCONFIG_LIBS_modshare=mpichf90:1
+SQUEUE_FORMAT=%.19i %.8u %.15a %.23j %.3t %9r %19S %.10M %.10L %.5D %.4C %N
+APP2_STATE=7.1.0
+SLURM_PROCID=0
+PE_MPICH_DEFAULT_VOLATILE_PKGCONFIG_PATH=/opt/cray/pe/mpt/7.7.8/gni/mpich-@PRGENV@@PE_MPICH_DEFAULT_DIR_DEFAULT64@/@PE_MPICH_DEFAULT_GENCOMPS@/lib/pkgconfig
+SLURM_JOB_GID=3220911
+CFLAGS=-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /cfs/klemming/nobackup/s/sergiopc/anaconda3/envs/lab_env3/include
+MACHTYPE=x86_64-suse-linux
+PE_FFTW_DEFAULT_TARGET_broadwell=broadwell
+GCC_AR=/cfs/klemming/nobackup/s/sergiopc/anaconda3/envs/lab_env3/bin/x86_64-conda-linux-gnu-gcc-ar
+PE_TRILINOS_DEFAULT_GENCOMPILERS_CRAYCLANG_x86_64=9.0
+PE_PAPI_DEFAULT_ACCEL_LIBS=
+GNU_VERSION=8.3.0
+SLURMD_NODENAME=nid00031
+PKG_CONFIG_PATH_modshare=/opt/cray/dmapp/7.1.1-7.0.2.1_2.81__g38cf134.ari/lib64/pkgconfig:1:/opt/cray/gni-headers/5.0.12.0-7.0.2.1_2.21__g3b1768f.ari/lib64/pkgconfig:1:/opt/cray/pe/fftw/2.1.5.9/lib/pkgconfig:2:/opt/cray/pe/iobuf/2.0.8/lib/pkgconfig:2:/opt/cray/xpmem/2.2.20-7.0.2.1_2.62__g87eb960.ari/lib64/pkgconfig:1:/opt/cray/llm/21.4.629-7.0.2.1_2.57__g8cae6ef.ari/lib64/pkgconfig:1:/opt/cray/rca/2.2.20-7.0.2.1_2.80__g8e3fb5b.ari/lib64/pkgconfig:1:/opt/cray/pe/pmi/5.0.14/lib64/pkgconfig:1:/opt/cray/ugni/6.0.14.0-7.0.2.1_3.62__ge78e5b0.ari/lib64/pkgconfig:1:/opt/cray/pe/craype/2.6.0/pkg-config:1:/opt/cray/pe/atp/3.7.5/lib/pkgconfig:2:/opt/cray/udreg/2.3.2-7.0.2.1_2.37__g8175d3d.ari/lib64/pkgconfig:1:/opt/cray/pe/iobuf/2.0.10/lib/pkgconfig:2:/opt/slurm/19.05.7/lib64/pkgconfig:1:/opt/cray/pe/atp/2.1.3/lib/pkgconfig:3
+PE_SMA_DEFAULT_COMPFLAG=
+PE_HDF5_DEFAULT_GENCOMPILERS_GNU=8.2 7.1
+PE_PKGCONFIG_PRODUCTS=PE_MPICH:PE_LIBSCI
+PE_CRAY_DEFAULT_FIXED_PKGCONFIG_PATH=/opt/cray/pe/netcdf/4.6.3.0/CRAY/9.0/lib/pkgconfig:/opt/cray/pe/netcdf-hdf5parallel/4.6.3.0/CRAY/9.0/lib/pkgconfig:/opt/cray/pe/parallel-netcdf/1.11.1.0/CRAY/9.0/lib/pkgconfig:/opt/cray/pe/hdf5/1.10.5.0/CRAY/9.0/lib/pkgconfig:/opt/cray/pe/hdf5-parallel/1.10.5.0/CRAY/9.0/lib/pkgconfig:/opt/cray/pe/ga/5.3.0.10/CRAY/8.6/lib/pkgconfig
+PE_PETSC_DEFAULT_GENCOMPS_CRAYCLANG_x86_64=90
+CRAY_MPICH_BASEDIR=/opt/cray/pe/mpt/7.7.8/gni
+PE_TPSL_64_DEFAULT_GENCOMPS_CRAY_x86_skylake=90
+PE_PETSC_DEFAULT_GENCOMPS_INTEL_sandybridge=190
+PE_TPSL_64_DEFAULT_GENCOMPS_INTEL_sandybridge=190
+PE_LIBSCI_GENCOMPILERS_GNU_x86_64=8.1 7.1
+CONDA_TOOLCHAIN_HOST=x86_64-conda-linux-gnu
+MINICOM=-c on
+SLURM_TASKS_PER_NODE=32(x4)
+PE_NETCDF_HDF5PARALLEL_DEFAULT_GENCOMPS_GNU=
+PE_PETSC_DEFAULT_REQUIRED_PRODUCTS_modshare=PE_MPICH:8:PE_LIBSCI:8:PE_HDF5_PARALLEL:8:PE_TPSL:8
+PE_MPICH_PKGCONFIG_VARIABLES=PE_MPICH_NV_LIBS_@accelerator@:PE_MPICH_ALTERNATE_LIBS_@multithreaded@:PE_MPICH_ALTERNATE_LIBS_@dpm@
+PE_MPICH_PKGCONFIG_LIBS=mpich
+_CE_M=
+PE_PARALLEL_NETCDF_DEFAULT_FIXED_PRGENV=CRAY CRAYCLANG INTEL
+OSTYPE=linux
+ATP_MRNET_COMM_PATH=/opt/cray/pe/atp/2.1.3/libexec/atp_mrnet_commnode_wrapper
+PE_NETCDF_DEFAULT_REQUIRED_PRODUCTS=PE_HDF5
+PE_MPICH_NV_LIBS=
+LD_LIBRARY_PATH_modshare=/opt/gcc/8.3.0/snos/lib64:1:/pdc/vol/gromacs/2020.5/lib64:1:/opt/cray/pe/papi/5.7.0.1/lib64:1
+PE_FFTW2_DEFAULT_REQUIRED_PRODUCTS=PE_MPICH
+CC=/cfs/klemming/nobackup/s/sergiopc/anaconda3/envs/lab_env3/bin/x86_64-conda-linux-gnu-cc
+READELF=/cfs/klemming/nobackup/s/sergiopc/anaconda3/envs/lab_env3/bin/x86_64-conda-linux-gnu-readelf
+PE_CRAYCLANG_DEFAULT_FIXED_PKGCONFIG_PATH_modshare=/opt/cray/pe/netcdf-hdf5parallel/4.6.3.0/CRAYCLANG/9.0/lib/pkgconfig:2:/opt/cray/pe/parallel-netcdf/1.11.1.0/CRAYCLANG/9.0/lib/pkgconfig:2:/opt/cray/pe/hdf5/1.10.5.0/CRAYCLANG/9.0/lib/pkgconfig:2:/opt/cray/pe/netcdf-hdf5parallel/4.7.3.3/CRAYCLANG/9.0/lib/pkgconfig:2:/opt/cray/pe/hdf5-parallel/1.10.6.1/CRAYCLANG/9.0/lib/pkgconfig:2:/opt/cray/pe/parallel-netcdf/1.12.0.1/CRAYCLANG/9.0/lib/pkgconfig:2:/opt/cray/pe/hdf5-parallel/1.10.5.0/CRAYCLANG/9.0/lib/pkgconfig:2:/opt/cray/pe/hdf5/1.10.6.1/CRAYCLANG/9.0/lib/pkgconfig:2:/opt/cray/pe/netcdf/4.6.3.0/CRAYCLANG/9.0/lib/pkgconfig:2:/opt/cray/pe/netcdf/4.7.3.3/CRAYCLANG/9.0/lib/pkgconfig:2
+PE_PETSC_DEFAULT_GENCOMPS_GNU_x86_64=82 71
+MODULES_CMD=/opt/cray/pe/modules/4.1.3.1/libexec/modulecmd.tcl
+PE_TPSL_DEFAULT_REQUIRED_PRODUCTS=PE_MPICH:PE_LIBSCI
+PE_TPSL_DEFAULT_GENCOMPS_GNU_sandybridge=82 71
+SLURM_NNODES=4
+USER=sergiopc
+CONDA_TOOLCHAIN_BUILD=x86_64-conda-linux-gnu
+ENV=/opt/cray/pe/modules/4.1.3.1/init/profile.sh
+CXXFLAGS=-fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /cfs/klemming/nobackup/s/sergiopc/anaconda3/envs/lab_env3/include
+PAGER=less
+PE_NETCDF_DEFAULT_GENCOMPS_GNU=
+MODULE_VERSION=4.1.3.1
+PE_HDF5_DEFAULT_VOLATILE_PKGCONFIG_PATH=/opt/cray/pe/hdf5/1.10.5.0/@PRGENV@/@PE_HDF5_DEFAULT_GENCOMPS@/lib/pkgconfig
+PE_FFTW_DEFAULT_TARGET_abudhabi=abudhabi
+STRIP=/cfs/klemming/nobackup/s/sergiopc/anaconda3/envs/lab_env3/bin/x86_64-conda-linux-gnu-strip
+PE_TPSL_DEFAULT_GENCOMPS_CRAYCLANG_x86_64=90
+SHMEM_ABORT_ON_ERROR=1
+PE_PKG_CONFIG_PATH=/opt/cray/pe/cti/1.0.7/lib/pkgconfig:/opt/cray/pe/valgrind4hpc/2.7.2/lib/pkgconfig:/opt/cray/pe/cti/2.7.4/lib/pkgconfig:/opt/cray/pe/atp/3.7.5/lib/pkgconfig
+PE_CRAYCLANG_DEFAULT_FIXED_PKGCONFIG_PATH=/opt/cray/pe/netcdf/4.6.3.0/CRAYCLANG/9.0/lib/pkgconfig:/opt/cray/pe/netcdf-hdf5parallel/4.6.3.0/CRAYCLANG/9.0/lib/pkgconfig:/opt/cray/pe/parallel-netcdf/1.11.1.0/CRAYCLANG/9.0/lib/pkgconfig:/opt/cray/pe/hdf5/1.10.5.0/CRAYCLANG/9.0/lib/pkgconfig:/opt/cray/pe/hdf5-parallel/1.10.5.0/CRAYCLANG/9.0/lib/pkgconfig:/opt/cray/pe/parallel-netcdf/1.12.0.1/CRAYCLANG/9.0/lib/pkgconfig:/opt/cray/pe/netcdf-hdf5parallel/4.7.3.3/CRAYCLANG/9.0/lib/pkgconfig:/opt/cray/pe/netcdf/4.7.3.3/CRAYCLANG/9.0/lib/pkgconfig:/opt/cray/pe/hdf5-parallel/1.10.6.1/CRAYCLANG/9.0/lib/pkgconfig:/opt/cray/pe/hdf5/1.10.6.1/CRAYCLANG/9.0/lib/pkgconfig
+OBJCOPY=/cfs/klemming/nobackup/s/sergiopc/anaconda3/envs/lab_env3/bin/x86_64-conda-linux-gnu-objcopy
+_CONDA_PYTHON_SYSCONFIGDATA_NAME=_sysconfigdata_x86_64_conda_cos6_linux_gnu
+GMXBIN=/pdc/vol/gromacs/2020.5/bin
+PE_MPICH_DEFAULT_GENCOMPILERS_CRAY=9.0
+PE_LIBSCI_DEFAULT_REQUIRED_PRODUCTS=PE_MPICH
+PE_LIBSCI_GENCOMPILERS_INTEL_x86_64=16.0
+PE_TPSL_64_DEFAULT_GENCOMPILERS_GNU_x86_64=8.2 7.1
+CRAY_CPU_TARGET=haswell
+PE_GA_DEFAULT_GENCOMPS_GNU=82 73
+PE_INTEL_DEFAULT_FIXED_PKGCONFIG_PATH=/opt/cray/pe/netcdf/4.6.3.0/INTEL/19.0/lib/pkgconfig:/opt/cray/pe/netcdf-hdf5parallel/4.6.3.0/INTEL/19.0/lib/pkgconfig:/opt/cray/pe/mpt/7.7.8/gni/mpich-INTEL/16.0/lib/pkgconfig:/opt/cray/pe/parallel-netcdf/1.11.1.0/INTEL/19.0/lib/pkgconfig:/opt/cray/pe/hdf5/1.10.5.0/INTEL/19.0/lib/pkgconfig:/opt/cray/pe/hdf5-parallel/1.10.5.0/INTEL/19.0/lib/pkgconfig:/opt/cray/pe/parallel-netcdf/1.12.0.1/INTEL/19.1/lib/pkgconfig:/opt/cray/pe/netcdf-hdf5parallel/4.7.3.3/INTEL/19.1/lib/pkgconfig:/opt/cray/pe/netcdf/4.7.3.3/INTEL/19.1/lib/pkgconfig:/opt/cray/pe/mpt/7.7.14/gni/mpich-INTEL/16.0/lib/pkgconfig:/opt/cray/pe/hdf5-parallel/1.10.6.1/INTEL/19.1/lib/pkgconfig:/opt/cray/pe/hdf5/1.10.6.1/INTEL/19.1/lib/pkgconfig:/opt/cray/pe/ga/5.3.0.10/INTEL/18.0/lib/pkgconfig
+PE_LIBSCI_VOLATILE_PRGENV=CRAY CRAYCLANG GNU INTEL
+PE_SMA_DEFAULT_PKGCONFIG_VARIABLES=PE_SMA_COMPFLAG_@prgenv@
+PE_INTEL_DEFAULT_FIXED_PKGCONFIG_PATH_modshare=/opt/cray/pe/mpt/7.7.14/gni/mpich-INTEL/16.0/lib/pkgconfig:2:/opt/cray/pe/hdf5/1.10.5.0/INTEL/19.0/lib/pkgconfig:2:/opt/cray/pe/netcdf-hdf5parallel/4.7.3.3/INTEL/19.1/lib/pkgconfig:2:/opt/cray/pe/ga/5.3.0.10/INTEL/18.0/lib/pkgconfig:4:/opt/cray/pe/hdf5-parallel/1.10.5.0/INTEL/19.0/lib/pkgconfig:2:/opt/cray/pe/netcdf/4.6.3.0/INTEL/19.0/lib/pkgconfig:2:/opt/cray/pe/hdf5/1.10.6.1/INTEL/19.1/lib/pkgconfig:2:/opt/cray/pe/parallel-netcdf/1.11.1.0/INTEL/19.0/lib/pkgconfig:2:/opt/cray/pe/hdf5-parallel/1.10.6.1/INTEL/19.1/lib/pkgconfig:2:/opt/cray/pe/netcdf/4.7.3.3/INTEL/19.1/lib/pkgconfig:2:/opt/cray/pe/mpt/7.7.8/gni/mpich-INTEL/16.0/lib/pkgconfig:2:/opt/cray/pe/netcdf-hdf5parallel/4.6.3.0/INTEL/19.0/lib/pkgconfig:2:/opt/cray/pe/parallel-netcdf/1.12.0.1/INTEL/19.1/lib/pkgconfig:2
+PE_TPSL_64_DEFAULT_GENCOMPS_CRAYCLANG_sandybridge=90
+SLURM_NTASKS_PER_NODE=32
+PKGCONFIG_ENABLED=1
+PE_PETSC_DEFAULT_GENCOMPILERS_CRAYCLANG_sandybridge=9.0
+SQUEUE_ALL=yes
+CRAY_UGNI_POST_LINK_OPTS=-L/opt/cray/ugni/6.0.14.0-7.0.2.1_3.62__ge78e5b0.ari/lib64
+MORE=-sl
+PE_MPICH_GENCOMPS_GNU=82 81 71
+PE_PAPI_DEFAULT_ACCEL_LIBS_nvidia35=,-lcupti,-lcudart,-lcuda
+PE_FORTRAN_PKGCONFIG_LIBS=mpichf90
+PE_MPICH_DEFAULT_GENCOMPILERS_CRAYCLANG=9.0
+RCLOCAL_PDC_KTH_SE=true
+PE_TRILINOS_DEFAULT_GENCOMPILERS_INTEL_x86_64=19.0
+PE_TPSL_64_DEFAULT_GENCOMPS_CRAYCLANG_haswell=90
+GCC_VERSION=8.3.0
+PE_MPICH_GENCOMPILERS_CRAY=9.0
+CRAY_LIBSCI_BASE_DIR=/opt/cray/pe/libsci/19.06.1
+PE_NETCDF_HDF5PARALLEL_DEFAULT_FIXED_PRGENV=CRAY CRAYCLANG INTEL
+PE_SMA_DEFAULT_DIR_CRAY_DEFAULT64=64
+PWD=/cfs/klemming/scratch/s/sergiopc/Projects/string_sims/data/raw/LB-AMBER
+PE_MPICH_NV_LIBS_nvidia20=-lcudart
+PE_TPSL_64_DEFAULT_REQUIRED_PRODUCTS_modshare=PE_MPICH:4:PE_LIBSCI:4
+PE_INTEL_FIXED_PKGCONFIG_PATH_modshare=/opt/cray/pe/mpt/7.7.8/gni/mpich-INTEL/16.0/lib/pkgconfig:1
+SLURM_JOB_NODELIST=nid000[31-34]
+HOME=/afs/pdc.kth.se/home/s/sergiopc
+CRAY_PMI_INCLUDE_OPTS=-I/opt/cray/pe/pmi/5.0.14/include
+SLURM_CLUSTER_NAME=beskow
+PE_TPSL_DEFAULT_GENCOMPILERS_CRAY_haswell=9.0
+PE_TPSL_DEFAULT_GENCOMPILERS_INTEL_sandybridge=19.0
+PE_TPSL_64_DEFAULT_GENCOMPILERS_GNU_haswell=8.2 7.1
+CONDA_PYTHON_EXE=/cfs/klemming/nobackup/s/sergiopc/anaconda3/bin/python
+ADDR2LINE=/cfs/klemming/nobackup/s/sergiopc/anaconda3/envs/lab_env3/bin/x86_64-conda-linux-gnu-addr2line
+PE_PETSC_DEFAULT_GENCOMPILERS_CRAYCLANG_x86_skylake=9.0
+PELOCAL_PRGENV=true
+PE_PETSC_DEFAULT_GENCOMPS_CRAYCLANG_haswell=90
+PE_TPSL_DEFAULT_GENCOMPS_CRAYCLANG_sandybridge=90
+PE_TPSL_64_DEFAULT_GENCOMPS_GNU_sandybridge=82 71
+CMAKE_PREFIX_PATH=/cfs/klemming/nobackup/s/sergiopc/anaconda3/envs/lab_env3:/cfs/klemming/nobackup/s/sergiopc/anaconda3/envs/lab_env3/x86_64-conda-linux-gnu/sysroot/usr
+PE_LIBSCI_REQUIRED_PRODUCTS=PE_MPICH
+craype_already_loaded=0
+ATP_HOME=/opt/cray/pe/atp/2.1.3
+SLURM_NODELIST=nid000[31-34]
+HOST=x86_64-conda-linux-gnu
+SSH_CLIENT=90.74.104.210 63161 22
+PE_PETSC_DEFAULT_REQUIRED_PRODUCTS=PE_MPICH:PE_LIBSCI:PE_HDF5_PARALLEL:PE_TPSL
+SINFO_FORMAT=%9P %5a %8s %.10l %.6c %.6z %.7D %10T %N
+PE_TPSL_64_DEFAULT_GENCOMPILERS_INTEL_haswell=19.0
+XNLSPATH=/usr/X11R6/lib/X11/nls
+PE_PETSC_DEFAULT_GENCOMPILERS_CRAY_x86_64=9.0
+PE_MPICH_FORTRAN_PKGCONFIG_LIBS=mpichf90
+CHPL_CG_CPP_LINES=1
+GMXDATA=/pdc/vol/gromacs/2020.5/share
+SLURM_NTASKS=128
+PE_TPSL_64_DEFAULT_GENCOMPILERS_INTEL_x86_64=19.0
+PE_LIBSCI_PKGCONFIG_LIBS=libsci_mpi:libsci
+PE_CRAY_DEFAULT_FIXED_PKGCONFIG_PATH_modshare=/opt/cray/pe/hdf5-parallel/1.10.5.0/CRAY/9.0/lib/pkgconfig:2:/opt/cray/pe/netcdf/4.6.3.0/CRAY/9.0/lib/pkgconfig:2:/opt/cray/pe/netcdf-hdf5parallel/4.6.3.0/CRAY/9.0/lib/pkgconfig:2:/opt/cray/pe/parallel-netcdf/1.11.1.0/CRAY/9.0/lib/pkgconfig:2:/opt/cray/pe/hdf5/1.10.5.0/CRAY/9.0/lib/pkgconfig:2:/opt/cray/pe/ga/5.3.0.10/CRAY/8.6/lib/pkgconfig:4
+PE_PARALLEL_NETCDF_DEFAULT_GENCOMPILERS_GNU=8.2 7.3
+PE_TPSL_64_DEFAULT_GENCOMPS_CRAY_sandybridge=90
+PE_MPICH_DEFAULT_GENCOMPS_CRAY=90
+PE_TPSL_DEFAULT_GENCOMPILERS_INTEL_haswell=19.0
+PE_LIBSCI_OMP_REQUIRES_openmp=_mp
+KRB5CCNAME=FILE:/tmp/krb5cc_3220911_Kk6ZQ50Tm0
+PE_PKGCONFIG_DEFAULT_PRODUCTS_modshare=PE_NETCDF:4:PE_FFTW:4:PE_HDF5:4:PE_MPICH:4:PE_TPSL:4:PE_TRILINOS:4:PE_TPSL_64:4:PE_LIBSCI:4:PE_NETCDF_HDF5PARALLEL:4:PE_PETSC:8:PE_GA:4:PE_PARALLEL_NETCDF:4:PE_FFTW2:2:PE_HDF5_PARALLEL:4
+SLURM_JOB_CPUS_PER_NODE=64(x4)
+GCC_PATH=/opt/gcc/8.3.0
+BASH_ENV=/opt/cray/pe/modules/4.1.3.1/init/bash
+PE_PKGCONFIG__PRODUCTS_modshare=PE_ATP:2
+XDG_DATA_DIRS=/usr/share
+RANLIB=/cfs/klemming/nobackup/s/sergiopc/anaconda3/envs/lab_env3/bin/x86_64-conda-linux-gnu-ranlib
+OBJDUMP=/cfs/klemming/nobackup/s/sergiopc/anaconda3/envs/lab_env3/bin/x86_64-conda-linux-gnu-objdump
+PE_TPSL_DEFAULT_REQUIRED_PRODUCTS_modshare=PE_MPICH:4:PE_LIBSCI:4
+AS=/cfs/klemming/nobackup/s/sergiopc/anaconda3/envs/lab_env3/bin/x86_64-conda-linux-gnu-as
+PE_CXX_PKGCONFIG_LIBS=mpichcxx
+AR=/cfs/klemming/nobackup/s/sergiopc/anaconda3/envs/lab_env3/bin/x86_64-conda-linux-gnu-ar
+SLURM_TOPOLOGY_ADDR=nid00031
+_LMFILES__modshare=/opt/pdc.kth.se/modulefiles/snic-env/1.0.0:1:/opt/cray/ari/modulefiles/ugni/6.0.14.0-7.0.2.1_3.62__ge78e5b0.ari:1:/opt/cray/ari/modulefiles/system-config/3.6.3070-7.0.2.1_7.1__g40f385a9.ari:1:/opt/cray/pe/modulefiles/craype/2.6.0:1:/opt/cray/pe/modulefiles/cdt/19.06:1:/opt/modulefiles/slurm/19.05.7-1:1:/opt/modulefiles/Base-opts/2.4.142-7.0.2.1_2.67__g8f27585.ari:1:/opt/cray/ari/modulefiles/udreg/2.3.2-7.0.2.1_2.37__g8175d3d.ari:1:/opt/cray/pe/craype/2.6.0/modulefiles/craype-network-aries:1:/opt/cray/ari/modulefiles/gni-headers/5.0.12.0-7.0.2.1_2.21__g3b1768f.ari:1:/opt/cray/ari/modulefiles/nodehealth/5.6.27-7.0.2.1_4.52__g20e015c.ari:1:/opt/cray/pe/modulefiles/pmi/5.0.14:1:/opt/cray/ari/modulefiles/xpmem/2.2.20-7.0.2.1_2.62__g87eb960.ari:1:/opt/cray/ari/modulefiles/rca/2.2.20-7.0.2.1_2.80__g8e3fb5b.ari:1:/opt/cray/ari/modulefiles/sdb/3.3.812-7.0.2.1_2.77__gd6c4e58.ari:1:/opt/cray/ari/modulefiles/llm/21.4.629-7.0.2.1_2.57__g8cae6ef.ari:1:/pdc/vol/cle7.0/modulefiles/openafs/1.6.23-4.12.14-197.7_5.0.95-cray_ari_s:1:/opt/cray/pe/modulefiles/cray-mpich/7.7.8:1:/opt/cray/pe/modulefiles/cray-libsci/19.06.1:1:/opt/cray/pe/modulefiles/atp/2.1.3:1:/pdc/vol/cle7.0/modulefiles/pdc-utils/0.2:1:/opt/cray/pe/craype/2.6.0/modulefiles/craype-haswell:1:/opt/cray/pe/modulefiles/perftools-base/7.1.0:1:/opt/modulefiles/gcc/8.3.0:1:/opt/cray/pe/modulefiles/PrgEnv-gnu/6.0.7:1:/opt/cray/ari/modulefiles/nodestat/2.3.89-7.0.2.1_2.66__g8645157.ari:1:/opt/cray/ari/modulefiles/dmapp/7.1.1-7.0.2.1_2.81__g38cf134.ari:1:/pdc/vol/cle7.0/modulefiles/gromacs/2020.5:1
+PE_SMA_DEFAULT_DIR_CRAYCLANG_DEFAULT64=64
+PE_PKGCONFIG_LIBS_modshare=mpich:1:libsci:1:AtpSigHandler:1:cray-rca:1:libsci_mpi:1
+PE_TPSL_64_DEFAULT_GENCOMPS_INTEL_haswell=190
+PE_NETCDF_HDF5PARALLEL_DEFAULT_GENCOMPILERS_GNU=8.2 7.1
+CRAY_RCA_POST_LINK_OPTS=-L/opt/cray/rca/2.2.20-7.0.2.1_2.80__g8e3fb5b.ari/lib64 -lrca
+CONDA_BACKUP_HOST=beskow-login2.pdc.kth.se
+PE_LIBSCI_DEFAULT_REQUIRED_PRODUCTS_modshare=PE_MPICH:4
+PE_MPICH_MODULE_NAME=cray-mpich
+PE_TPSL_DEFAULT_GENCOMPS_CRAY_sandybridge=90
+_CE_CONDA=
+CRAY_LIBSCI_DIR=/opt/cray/pe/libsci/19.06.1
+LIBGL_DEBUG=quiet
+SLURM_WORKING_CLUSTER=beskow:nid01221:6817:8704:108
+PE_HDF5_PARALLEL_DEFAULT_GENCOMPS_GNU=
+PE_LIBSCI_DEFAULT_OMP_REQUIRES=
+CC_FOR_BUILD=/cfs/klemming/nobackup/s/sergiopc/anaconda3/envs/lab_env3/bin/x86_64-conda-linux-gnu-cc
+PE_LIBSCI_VOLATILE_PKGCONFIG_PATH=/opt/cray/pe/libsci/19.06.1/@PRGENV@/@PE_LIBSCI_GENCOMPS@/@PE_LIBSCI_TARGET@/lib/pkgconfig
+PE_MPICH_TARGET_VAR_nvidia35=-lcudart
+PE_HDF5_PARALLEL_DEFAULT_VOLATILE_PRGENV=GNU
+PE_HDF5_DEFAULT_GENCOMPS_GNU=
+PE_GNU_DEFAULT_FIXED_PKGCONFIG_PATH_modshare=/opt/cray/pe/parallel-netcdf/1.12.0.1/GNU/8.2/lib/pkgconfig:2:/opt/cray/pe/hdf5/1.10.6.1/GNU/8.2/lib/pkgconfig:2:/opt/cray/pe/netcdf/4.7.3.3/GNU/8.2/lib/pkgconfig:2:/opt/cray/pe/netcdf-hdf5parallel/4.7.3.3/GNU/8.2/lib/pkgconfig:2:/opt/cray/pe/hdf5-parallel/1.10.6.1/GNU/8.2/lib/pkgconfig:2
+GMXLDLIB=/pdc/vol/gromacs/2020.5/lib64
+build_alias=x86_64-conda-linux-gnu
+PE_TPSL_DEFAULT_GENCOMPILERS_GNU_sandybridge=8.2 7.1
+LIBSCI_VERSION=19.06.1
+CRAY_LD_LIBRARY_PATH_modshare=/opt/cray/udreg/2.3.2-7.0.2.1_2.37__g8175d3d.ari/lib64:1:/opt/cray/pe/mpt/7.7.14/gni/mpich-gnu/8.1/lib:1:/opt/cray/pe/mpt/7.7.14/gni/mpich-crayclang/9.0/lib:1:/opt/cray/pe/mpt/7.7.8/gni/mpich-gnu/8.1/lib:3:/opt/cray/pe/mpt/7.7.14/gni/mpich-cray/9.0/lib:1:/opt/cray/pe/libsci/19.06.1/GNU/8.1/x86_64/lib:1:/opt/cray/dmapp/7.1.1-7.0.2.1_2.81__g38cf134.ari/lib64:1:/opt/cray/xpmem/2.2.20-7.0.2.1_2.62__g87eb960.ari/lib64:1:/opt/cray/pe/perftools/7.1.0/lib64:1:/opt/cray/llm/21.4.629-7.0.2.1_2.57__g8cae6ef.ari/lib64:1:/opt/cray/rca/2.2.20-7.0.2.1_2.80__g8e3fb5b.ari/lib64:1:/opt/cray/pe/pmi/5.0.14/lib64:1:/opt/cray/ugni/6.0.14.0-7.0.2.1_3.62__ge78e5b0.ari/lib64:1
+SLURM_JOB_NAME=steered_v2
+CRAY_UDREG_INCLUDE_OPTS=-I/opt/cray/udreg/2.3.2-7.0.2.1_2.37__g8175d3d.ari/include
+PE_NETCDF_DEFAULT_VOLATILE_PKGCONFIG_PATH=/opt/cray/pe/netcdf/4.6.3.0/@PRGENV@/@PE_NETCDF_DEFAULT_GENCOMPS@/lib/pkgconfig
+PROFILEREAD=true
+TMPDIR=/tmp
+PE_TRILINOS_DEFAULT_VOLATILE_PRGENV=CRAYCLANG GNU INTEL
+PERFTOOLS_VERSION=7.1.0
+PE_MPICH_DEFAULT_GENCOMPILERS_GNU=8.2 8.1 7.1
+PE_LIBSCI_DEFAULT_OMP_REQUIRES_openmp=_mp
+PE_PKGCONFIG_LIBS=mpich:libsci_mpi:libsci:AtpSigHandler:cray-rca
+SLURM_JOBID=7144530
+RCLOCAL_PRGENV=true
+PE_TPSL_DEFAULT_GENCOMPS_GNU_x86_skylake=82 71
+PAT_REPORT_PRUNE_NAME=_cray$mt_execute_,_cray$mt_start_,__cray_hwpc_,f_cray_hwpc_,cstart,__pat_,pat_region_,PAT_,OMP.slave_loop,slave_entry,_new_slave_entry,_thread_pool_slave_entry,THREAD_POOL_join,__libc_start_main,_start,__start,start_thread,__wrap_,UPC_ADIO_,_upc_,upc_,__caf_,__pgas_,syscall,__device_stub
+BUILD=x86_64-conda-linux-gnu
+PE_PETSC_DEFAULT_GENCOMPILERS_GNU_sandybridge=8.2 7.1
+PE_MPICH_VOLATILE_PKGCONFIG_PATH=/opt/cray/pe/mpt/7.7.8/gni/mpich-@PRGENV@@PE_MPICH_DIR_DEFAULT64@/@PE_MPICH_GENCOMPS@/lib/pkgconfig
+LOADEDMODULES=nodestat/2.3.89-7.0.2.1_2.66__g8645157.ari:sdb/3.3.812-7.0.2.1_2.77__gd6c4e58.ari:udreg/2.3.2-7.0.2.1_2.37__g8175d3d.ari:ugni/6.0.14.0-7.0.2.1_3.62__ge78e5b0.ari:gni-headers/5.0.12.0-7.0.2.1_2.21__g3b1768f.ari:dmapp/7.1.1-7.0.2.1_2.81__g38cf134.ari:xpmem/2.2.20-7.0.2.1_2.62__g87eb960.ari:llm/21.4.629-7.0.2.1_2.57__g8cae6ef.ari:nodehealth/5.6.27-7.0.2.1_4.52__g20e015c.ari:system-config/3.6.3070-7.0.2.1_7.1__g40f385a9.ari:slurm/19.05.7-1:Base-opts/2.4.142-7.0.2.1_2.67__g8f27585.ari:snic-env/1.0.0:openafs/1.6.23-4.12.14-197.7_5.0.95-cray_ari_s:pdc-utils/0.2:rca/2.2.20-7.0.2.1_2.80__g8e3fb5b.ari:PrgEnv-gnu/6.0.7:atp/2.1.3:cray-libsci/19.06.1:cray-mpich/7.7.8:craype-haswell:craype-network-aries:craype/2.6.0:gcc/8.3.0:perftools-base/7.1.0:pmi/5.0.14:cdt/19.06:gromacs/2020.5
+PE_TPSL_DEFAULT_GENCOMPILERS_INTEL_x86_64=19.0
+CRAYPE_NETWORK_TARGET=aries
+PE_GA_DEFAULT_FIXED_PRGENV=CRAY INTEL
+CRAY_UGNI_INCLUDE_OPTS=-I/opt/cray/ugni/6.0.14.0-7.0.2.1_3.62__ge78e5b0.ari/include
+PE_TPSL_DEFAULT_GENCOMPS_INTEL_haswell=190
+PE_PKGCONFIG_PRODUCTS_DEFAULT_modshare=PE_PAPI:4
+RCLOCAL_BASEOPTS=true
+SLURM_NODE_ALIASES=(null)
+PE_MPICH_ALTERNATE_LIBS_dpm=_dpm
+SLURM_JOB_QOS=normal
+NM=/cfs/klemming/nobackup/s/sergiopc/anaconda3/envs/lab_env3/bin/x86_64-conda-linux-gnu-nm
+SLURM_TOPOLOGY_ADDR_PATTERN=node
+PE_FFTW_DEFAULT_VOLATILE_PKGCONFIG_PATH=/opt/cray/pe/fftw/3.3.8.3/@PE_FFTW_DEFAULT_TARGET@/lib/pkgconfig
+CONDA_PROMPT_MODIFIER=(lab_env3) 
+PE_TPSL_DEFAULT_GENCOMPS_INTEL_x86_64=190
+SSH_TTY=/dev/pts/76
+PE_TRILINOS_DEFAULT_GENCOMPS_INTEL_x86_64=190
+PE_TPSL_DEFAULT_GENCOMPS_CRAY_x86_64=90
+MPICH_ABORT_ON_ERROR=1
+PE_PAPI_DEFAULT_PKGCONFIG_VARIABLES=PE_PAPI_ACCEL_LIBS_@accelerator@ PE_PAPI_ACCEL_FAMILY_LIBS_@accelerator_family@
+ATP_POST_LINK_OPTS=-Wl,-L/opt/cray/pe/atp/2.1.3/libApp/ 
+PE_LIBSCI_GENCOMPS_INTEL_x86_64=160
+PE_LIBSCI_DEFAULT_GENCOMPILERS_INTEL_x86_64=16.0
+CRAY_MPICH_ROOTDIR=/opt/cray/pe/mpt/7.7.8
+ALPS_APP_PE=0
+CONDA_BUILD_SYSROOT=/cfs/klemming/nobackup/s/sergiopc/anaconda3/envs/lab_env3/x86_64-conda-linux-gnu/sysroot
+MAIL=/var/mail/sergiopc
+PE_HDF5_PARALLEL_DEFAULT_FIXED_PRGENV=CRAY CRAYCLANG INTEL
+DEBUG_CXXFLAGS=-fvisibility-inlines-hidden -std=c++17 -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-all -fno-plt -Og -g -Wall -Wextra -fvar-tracking-assignments -ffunction-sections -pipe -isystem /cfs/klemming/nobackup/s/sergiopc/anaconda3/envs/lab_env3/include
+PE_MPICH_VOLATILE_PRGENV=GNU CRAYCLANG CRAY
+PE_PETSC_DEFAULT_GENCOMPS_CRAYCLANG_sandybridge=90
+PE_INTEL_FIXED_PKGCONFIG_PATH=/opt/cray/pe/mpt/7.7.8/gni/mpich-INTEL/16.0/lib/pkgconfig
+PE_MPICH_CXX_PKGCONFIG_LIBS_modshare=mpichcxx:1
+SLURM_CPUS_ON_NODE=64
+PE_HDF5_DEFAULT_FIXED_PRGENV=CRAY CRAYCLANG INTEL
+CXX=/cfs/klemming/nobackup/s/sergiopc/anaconda3/envs/lab_env3/bin/x86_64-conda-linux-gnu-c++
+PE_MPICH_ALTERNATE_LIBS_multithreaded=_mt
+PE_TPSL_DEFAULT_GENCOMPS_INTEL_sandybridge=190
+PE_CXX_PKGCONFIG_LIBS_modshare=mpichcxx:1
+PE_TPSL_DEFAULT_GENCOMPS_GNU_x86_64=82 71
+PE_PKG_CONFIG_PATH_modshare=/opt/cray/pe/valgrind4hpc/2.7.2/lib/pkgconfig:2:/opt/cray/pe/cti/2.7.4/lib/pkgconfig:2:/opt/cray/pe/cti/1.0.7/lib/pkgconfig:2:/opt/cray/pe/atp/3.7.5/lib/pkgconfig:2
+PE_LIBSCI_GENCOMPS_CRAYCLANG_x86_64=90
+PE_LIBSCI_DEFAULT_GENCOMPILERS_CRAYCLANG_x86_64=9.0
+PE_TPSL_DEFAULT_GENCOMPILERS_CRAY_sandybridge=9.0
+SLURM_JOB_NUM_NODES=4
+PE_PETSC_DEFAULT_GENCOMPILERS_GNU_x86_skylake=8.2 7.1
+SLURM_MEM_PER_NODE=60416
+PE_FFTW_DEFAULT_TARGET_haswell=haswell
+PE_GA_DEFAULT_VOLATILE_PKGCONFIG_PATH=/opt/cray/pe/ga/5.3.0.10/@PRGENV@/@PE_GA_DEFAULT_GENCOMPS@/lib/pkgconfig
+PE_PETSC_DEFAULT_GENCOMPILERS_INTEL_haswell=19.0
+LESSKEY=/etc/lesskey.bin
+PE_PARALLEL_NETCDF_DEFAULT_VOLATILE_PKGCONFIG_PATH=/opt/cray/pe/parallel-netcdf/1.11.1.0/@PRGENV@/@PE_PARALLEL_NETCDF_DEFAULT_GENCOMPS@/lib/pkgconfig
+SHELL=/bin/bash
+TERM=xterm-256color
+PE_TPSL_64_DEFAULT_GENCOMPILERS_CRAYCLANG_haswell=9.0
+GMXMAN=/pdc/vol/gromacs/2020.5/share/man
+PE_MPICH_GENCOMPILERS_CRAYCLANG=9.0
+PE_TPSL_64_DEFAULT_GENCOMPILERS_CRAY_sandybridge=9.0
+PE_MPICH_FIXED_PRGENV=INTEL
+PE_LIBSCI_DEFAULT_GENCOMPS_CRAY_x86_64=90
+PE_FFTW_DEFAULT_REQUIRED_PRODUCTS=PE_MPICH
+PE_TPSL_64_DEFAULT_GENCOMPS_GNU_x86_64=82 71
+PE_PARALLEL_NETCDF_DEFAULT_GENCOMPS_GNU=82 73
+CXXFILT=/cfs/klemming/nobackup/s/sergiopc/anaconda3/envs/lab_env3/bin/x86_64-conda-linux-gnu-c++filt
+PMI_NO_FORK=1
+PKG_CONFIG_PATH_DEFAULT_modshare=/opt/cray/pe/papi/6.0.0.1/lib64/pkgconfig:2:/opt/cray/pe/papi/5.7.0.1/lib64/pkgconfig:2
+SLURM_JOB_UID=3220911
+CRAY_LIBSCI_VERSION=19.06.1
+CRAY_GNI_HEADERS_INCLUDE_OPTS_modshare=-I/opt/cray/gni-headers/5.0.12.0-7.0.2.1_2.21__g3b1768f.ari/include:1
+PE_TPSL_DEFAULT_VOLATILE_PRGENV=CRAY CRAY64 CRAYCLANG CRAYCLANG64 GNU GNU64 INTEL INTEL64
+LS_OPTIONS=-N --color=none -T 0
+MANPATH_modshare=/opt/cray/pe/libsci/19.06.1/man:1:/opt/cray/pe/man/csmlversion:1:/opt/cray/pe/modules/4.1.3.1/share/man:1:/opt/cray/cfgutils/man:1:/pdc/vol/gromacs/2020.5/share/man:1:/usr/man:1:/opt/cray/pe/craype/2.6.0/man:1:/usr/local/man:1:/opt/cray/pe/perftools/7.1.0/man:1:/opt/cray/pe/man:1:/opt/cray/llm/21.4.629-7.0.2.1_2.57__g8cae6ef.ari/man:1:/opt/cray/pe/pmi/5.0.14/man:1:/opt/slurm/19.05.7/share/man:1:/opt/gcc/8.3.0/snos/share/man:1:/opt/cray/pe/atp/2.1.3/man:1:/opt/cray/pe/papi/5.7.0.1/share/pdoc/man:1:/opt/cray/pe/mpt/7.7.8/gni/man/mpich:1:/opt/cray/share/man:1:/usr/share/man:2
+SLURM_JOB_PARTITION=24h4-512
+PE_MPICH_DEFAULT_GENCOMPS_GNU=82 81 71
+PE_LIBSCI_DEFAULT_VOLATILE_PKGCONFIG_PATH=/opt/cray/pe/libsci/19.06.1/@PRGENV@/@PE_LIBSCI_DEFAULT_GENCOMPS@/@PE_LIBSCI_DEFAULT_TARGET@/lib/pkgconfig
+PE_MPICH_PKGCONFIG_LIBS_modshare=mpich:1
+PE_LIBSCI_DEFAULT_PKGCONFIG_VARIABLES=PE_LIBSCI_DEFAULT_OMP_REQUIRES_@openmp@:PE_SCI_EXT_LIBPATH:PE_SCI_EXT_LIBNAME
+PE_SMA_DEFAULT_COMPFLAG_GNU=-fcray-pointer
+PE_TPSL_DEFAULT_GENCOMPS_CRAY_x86_skylake=90
+CRAY_XPMEM_POST_LINK_OPTS=-L/opt/cray/xpmem/2.2.20-7.0.2.1_2.62__g87eb960.ari/lib64
+PE_PETSC_DEFAULT_GENCOMPS_GNU_haswell=82 71
+PERL5LIB_modshare=/opt/slurm/19.05.7//lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi:1
+PERL5LIB=/opt/slurm/19.05.7//lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi
+PE_PRODUCT_LIST_modshare=CRAY_DMAPP:1:CRAY_UGNI:1:CRAY_PMI:1:CRAYPAT:1:CRAY_LIBSCI:1:CRAY_RCA:1:CRAYPE:1:CRAY_UDREG:1:CRAY_XPMEM:1:GCC:1:GNU:1:CRAYPE_HASWELL:1:PERFTOOLS:1
+PE_SMA_DEFAULT_VOLATILE_PKGCONFIG_PATH=/opt/cray/pe/mpt/7.7.8/gni/sma@PE_SMA_DEFAULT_DIR_DEFAULT64@/lib64/pkgconfig
+PE_HDF5_PARALLEL_DEFAULT_GENCOMPILERS_GNU=8.2 7.1
+PE_GNU_DEFAULT_FIXED_PKGCONFIG_PATH=/opt/cray/pe/parallel-netcdf/1.12.0.1/GNU/8.2/lib/pkgconfig:/opt/cray/pe/netcdf-hdf5parallel/4.7.3.3/GNU/8.2/lib/pkgconfig:/opt/cray/pe/netcdf/4.7.3.3/GNU/8.2/lib/pkgconfig:/opt/cray/pe/hdf5-parallel/1.10.6.1/GNU/8.2/lib/pkgconfig:/opt/cray/pe/hdf5/1.10.6.1/GNU/8.2/lib/pkgconfig
+PE_MPICH_GENCOMPILERS_GNU=8.2 8.1 7.1
+PE_TPSL_64_DEFAULT_GENCOMPILERS_CRAY_x86_skylake=9.0
+SLURM_JOB_USER=nobody
+ELFEDIT=/cfs/klemming/nobackup/s/sergiopc/anaconda3/envs/lab_env3/bin/x86_64-conda-linux-gnu-elfedit
+CRAY_DMAPP_POST_LINK_OPTS=-L/opt/cray/dmapp/7.1.1-7.0.2.1_2.81__g38cf134.ari/lib64
+SLURM_NPROCS=128
+PE_LIBSCI_DEFAULT_GENCOMPS_INTEL_x86_64=160
+CRAY_MPICH2_VER=7.7.8
+PE_GA_DEFAULT_GENCOMPILERS_GNU=8.2 7.3
+SHLVL=2
+PE_PETSC_DEFAULT_GENCOMPILERS_CRAYCLANG_x86_64=9.0
+PE_NETCDF_HDF5PARALLEL_DEFAULT_VOLATILE_PRGENV=GNU
+PYTHONPATH_modshare=/opt/cray/llm/21.4.629-7.0.2.1_2.57__g8cae6ef.ari/lib64/python:1
+PE_TRILINOS_DEFAULT_REQUIRED_PRODUCTS_modshare=PE_MPICH:4:PE_LIBSCI:4:PE_HDF5_PARALLEL:4:PE_NETCDF_HDF5PARALLEL:4:PE_TPSL:4
+SLURM_SUBMIT_HOST=beskow-login2.pdc.kth.se
+CRAY_LIBSCI_PREFIX_DIR=/opt/cray/pe/libsci/19.06.1/GNU/8.1/x86_64
+PYTHONPATH=/opt/cray/llm/21.4.629-7.0.2.1_2.57__g8cae6ef.ari/lib64/python:/afs/pdc.kth.se/home/s/sergiopc/Projects/spc_utils/:/afs/pdc.kth.se/home/s/sergiopc/Projects/string-method-gmxapi/
+PE_TRILINOS_DEFAULT_REQUIRED_PRODUCTS=PE_MPICH:PE_HDF5_PARALLEL:PE_NETCDF_HDF5PARALLEL:PE_LIBSCI:PE_TPSL
+SLURM_JOB_ACCOUNT=2020-3-28
+PE_PAPI_DEFAULT_ACCELL_FAMILY_LIBS=
+MANPATH=/pdc/vol/gromacs/2020.5/share/man:/opt/cray/pe/pmi/5.0.14/man:/opt/cray/pe/perftools/7.1.0/man:/opt/cray/pe/papi/5.7.0.1/share/pdoc/man:/opt/gcc/8.3.0/snos/share/man:/opt/cray/pe/craype/2.6.0/man:/opt/cray/pe/mpt/7.7.8/gni/man/mpich:/opt/cray/pe/libsci/19.06.1/man:/opt/cray/pe/man/csmlversion:/opt/cray/pe/atp/2.1.3/man:/opt/slurm/19.05.7/share/man:/opt/cray/cfgutils/man:/opt/cray/llm/21.4.629-7.0.2.1_2.57__g8cae6ef.ari/man:/opt/cray/pe/modules/4.1.3.1/share/man:/usr/local/man:/usr/share/man:/usr/man:/opt/cray/share/man:/opt/cray/pe/man
+PE_FFTW_DEFAULT_TARGET_mic_knl=mic_knl
+PE_MPICH_DEFAULT_GENCOMPS_CRAYCLANG=90
+PE_TPSL_64_DEFAULT_GENCOMPILERS_CRAYCLANG_x86_64=9.0
+PE_PETSC_DEFAULT_GENCOMPS_INTEL_haswell=190
+CPPFLAGS=-DNDEBUG -D_FORTIFY_SOURCE=2 -O2 -isystem /cfs/klemming/nobackup/s/sergiopc/anaconda3/envs/lab_env3/include
+ALPS_APP_ID=18446744065126761554
+MPICH_DIR=/opt/cray/pe/mpt/7.7.8/gni/mpich-gnu/8.1
+PE_PETSC_DEFAULT_GENCOMPILERS_CRAY_haswell=9.0
+CRAY_PRGENVGNU=loaded
+PE_PETSC_DEFAULT_GENCOMPILERS_INTEL_sandybridge=19.0
+ATP_CFLAGS_GNU_FORTRAN=-fno-backtrace
+PE_FFTW_DEFAULT_TARGET_sandybridge=sandybridge
+SNIC_BACKUP=/afs/pdc.kth.se/home/s/sergiopc
+STRINGS=/cfs/klemming/nobackup/s/sergiopc/anaconda3/envs/lab_env3/bin/x86_64-conda-linux-gnu-strings
+PE_TPSL_DEFAULT_GENCOMPS_CRAY_haswell=90
+SNIC_NOBACKUP=/cfs/klemming/nobackup/s/sergiopc
+MODULEPATH=/opt/cray/pe/perftools/7.1.0/modulefiles:/opt/cray/pe/craype/2.6.0/modulefiles:/pdc/vol/cle7.0/modulefiles:/opt/pdc.kth.se/modulefiles:/opt/cray/ari/modulefiles:/opt/cray/pe/craype-targets/default/modulefiles:/opt/cray/pe/modulefiles:/opt/cray/modulefiles:/opt/modulefiles
+CRAY_MPICH_DIR=/opt/cray/pe/mpt/7.7.8/gni/mpich-gnu/8.1
+SNIC_TMP=/cfs/klemming/scratch/s/sergiopc
+PE_PKGCONFIG_PRODUCTS_DEFAULT=PE_PAPI
+SLURM_GTIDS=0
+LOGNAME=sergiopc
+PE_MPICH_DEFAULT_FIXED_PRGENV=INTEL
+PE_MPICH_NV_LIBS_nvidia60=-lcudart
+CRAY_PRE_COMPILE_OPTS=-hnetwork=aries
+XAUTHORITY=/tmp/sergiopc_xauthority
+PE_PETSC_DEFAULT_GENCOMPS_INTEL_x86_64=190
+SNIC_SITE=pdc
+MODULE_VERSION_STACK=4.1.3.1
+PE_TPSL_DEFAULT_GENCOMPS_INTEL_x86_skylake=190
+LDFLAGS=-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections -Wl,-rpath,/cfs/klemming/nobackup/s/sergiopc/anaconda3/envs/lab_env3/lib -Wl,-rpath-link,/cfs/klemming/nobackup/s/sergiopc/anaconda3/envs/lab_env3/lib -L/cfs/klemming/nobackup/s/sergiopc/anaconda3/envs/lab_env3/lib
+MODULEPATH_modshare=/opt/cray/pe/perftools/7.1.0/modulefiles:1:/opt/cray/modulefiles:1:/opt/cray/pe/modulefiles:1:/opt/cray/pe/craype/2.6.0/modulefiles:1:/pdc/vol/cle7.0/modulefiles:1:/opt/cray/pe/craype-targets/default/modulefiles:2:/opt/modulefiles:1:/opt/pdc.kth.se/modulefiles:1:/opt/cray/ari/modulefiles:8
+PE_HDF5_PARALLEL_DEFAULT_VOLATILE_PKGCONFIG_PATH=/opt/cray/pe/hdf5-parallel/1.10.5.0/@PRGENV@/@PE_HDF5_PARALLEL_DEFAULT_GENCOMPS@/lib/pkgconfig
+PE_PETSC_DEFAULT_GENCOMPS_INTEL_x86_skylake=190
+CXX_FOR_BUILD=/cfs/klemming/nobackup/s/sergiopc/anaconda3/envs/lab_env3/bin/x86_64-conda-linux-gnu-c++
+ALLINEA_QUEUE_DLL=/opt/cray/pe/mpt/7.7.8/gni/mpich-gnu/8.1/lib/libtvmpich.so.3.0.1
+JRE_HOME=/usr/lib64/jvm/java-11-openjdk-11
+PE_TPSL_DEFAULT_GENCOMPILERS_CRAYCLANG_x86_64=9.0
+PE_LIBSCI_PKGCONFIG_VARIABLES=PE_LIBSCI_OMP_REQUIRES_@openmp@:PE_SCI_EXT_LIBPATH:PE_SCI_EXT_LIBNAME
+GMXLIB=/afs/pdc.kth.se/home/s/sergiopc/Projects/miniprojects/charmm-gui-gmx-AMBER-SLIPIDS/
+PE_TPSL_64_DEFAULT_GENCOMPILERS_CRAY_haswell=9.0
+PE_LIBSCI_GENCOMPS_CRAY_x86_64=90
+XDG_CONFIG_DIRS=/etc/xdg
+PE_MPICH_DEFAULT_VOLATILE_PRGENV=GNU CRAYCLANG CRAY
+PE_MPICH_TARGET_VAR_nvidia20=-lcudart
+PE_LIBSCI_DEFAULT_GENCOMPILERS_CRAY_x86_64=9.0
+PATH=/pdc/vol/gromacs/2020.5/bin:/opt/cray/pe/perftools/7.1.0/bin:/opt/cray/pe/papi/5.7.0.1/bin:/opt/gcc/8.3.0/bin:/opt/cray/pe/craype/2.6.0/bin:/opt/cray/pe/mpt/7.7.8/gni/bin:/cfs/klemming/nobackup/s/sergiopc/anaconda3/envs/lab_env3/bin:/cfs/klemming/nobackup/s/sergiopc/anaconda3/condabin:/opt/cray/rca/2.2.20-7.0.2.1_2.80__g8e3fb5b.ari/bin:/afs/pdc.kth.se/home/s/sergiopc/bin/nvim-linux64/bin:/opt/slurm/19.05.7/bin:/opt/cray/cfgutils/bin:/opt/cray/nodehealth/5.6.27-7.0.2.1_4.52__g20e015c.ari/bin:/opt/cray/llm/21.4.629-7.0.2.1_2.57__g8cae6ef.ari/bin:/opt/cray/sdb/3.3.812-7.0.2.1_2.77__gd6c4e58.ari/bin:/opt/cray/nodestat/2.3.89-7.0.2.1_2.66__g8645157.ari/bin:/opt/cray/pe/modules/4.1.3.1/bin:/afs/pdc.kth.se/home/s/sergiopc/bin:/usr/local/bin:/usr/bin:/bin:/usr/lib/mit/bin:/pdc/vol/openafs/1.6.23-4.12.14-197.7_5.0.95-cray_ari_s/bin:/afs/pdc.kth.se/pdc/vol/slurm/utils/0.2/bin:/afs/pdc.kth.se/home/s/sergiopc/bin:/afs/pdc.kth.se/home/s/sergiopc/.npm-global/bin:/opt/cray/pe/bin
+SLURM_JOB_ID=7144530
+JAVA_BINDIR=/usr/lib64/jvm/jre-11-openjdk/bin
+PE_TPSL_64_DEFAULT_VOLATILE_PRGENV=CRAY CRAY64 CRAYCLANG CRAYCLANG64 GNU GNU64 INTEL INTEL64
+_LMFILES_=/opt/cray/ari/modulefiles/nodestat/2.3.89-7.0.2.1_2.66__g8645157.ari:/opt/cray/ari/modulefiles/sdb/3.3.812-7.0.2.1_2.77__gd6c4e58.ari:/opt/cray/ari/modulefiles/udreg/2.3.2-7.0.2.1_2.37__g8175d3d.ari:/opt/cray/ari/modulefiles/ugni/6.0.14.0-7.0.2.1_3.62__ge78e5b0.ari:/opt/cray/ari/modulefiles/gni-headers/5.0.12.0-7.0.2.1_2.21__g3b1768f.ari:/opt/cray/ari/modulefiles/dmapp/7.1.1-7.0.2.1_2.81__g38cf134.ari:/opt/cray/ari/modulefiles/xpmem/2.2.20-7.0.2.1_2.62__g87eb960.ari:/opt/cray/ari/modulefiles/llm/21.4.629-7.0.2.1_2.57__g8cae6ef.ari:/opt/cray/ari/modulefiles/nodehealth/5.6.27-7.0.2.1_4.52__g20e015c.ari:/opt/cray/ari/modulefiles/system-config/3.6.3070-7.0.2.1_7.1__g40f385a9.ari:/opt/modulefiles/slurm/19.05.7-1:/opt/modulefiles/Base-opts/2.4.142-7.0.2.1_2.67__g8f27585.ari:/opt/pdc.kth.se/modulefiles/snic-env/1.0.0:/pdc/vol/cle7.0/modulefiles/openafs/1.6.23-4.12.14-197.7_5.0.95-cray_ari_s:/pdc/vol/cle7.0/modulefiles/pdc-utils/0.2:/opt/cray/ari/modulefiles/rca/2.2.20-7.0.2.1_2.80__g8e3fb5b.ari:/opt/cray/pe/modulefiles/PrgEnv-gnu/6.0.7:/opt/cray/pe/modulefiles/atp/2.1.3:/opt/cray/pe/modulefiles/cray-libsci/19.06.1:/opt/cray/pe/modulefiles/cray-mpich/7.7.8:/opt/cray/pe/craype/2.6.0/modulefiles/craype-haswell:/opt/cray/pe/craype/2.6.0/modulefiles/craype-network-aries:/opt/cray/pe/modulefiles/craype/2.6.0:/opt/modulefiles/gcc/8.3.0:/opt/cray/pe/modulefiles/perftools-base/7.1.0:/opt/cray/pe/modulefiles/pmi/5.0.14:/opt/cray/pe/modulefiles/cdt/19.06:/pdc/vol/cle7.0/modulefiles/gromacs/2020.5
+PE_NETCDF_DEFAULT_FIXED_PRGENV=CRAY CRAYCLANG INTEL
+GCC=/cfs/klemming/nobackup/s/sergiopc/anaconda3/envs/lab_env3/bin/x86_64-conda-linux-gnu-gcc
+PE_PETSC_DEFAULT_GENCOMPILERS_GNU_haswell=8.2 7.1
+DMAPP_ABORT_ON_ERROR=1
+MODULESHOME=/opt/cray/pe/modules/4.1.3.1
+PKG_CONFIG_PATH=/opt/cray/pe/pmi/5.0.14/lib64/pkgconfig:/opt/cray/pe/craype/2.6.0/pkg-config:/opt/cray/pe/iobuf/2.0.8/lib/pkgconfig:/opt/cray/pe/iobuf/2.0.10/lib/pkgconfig:/opt/cray/pe/fftw/2.1.5.9/lib/pkgconfig:/opt/cray/rca/2.2.20-7.0.2.1_2.80__g8e3fb5b.ari/lib64/pkgconfig:/opt/slurm/19.05.7/lib64/pkgconfig:/opt/cray/llm/21.4.629-7.0.2.1_2.57__g8cae6ef.ari/lib64/pkgconfig:/opt/cray/xpmem/2.2.20-7.0.2.1_2.62__g87eb960.ari/lib64/pkgconfig:/opt/cray/dmapp/7.1.1-7.0.2.1_2.81__g38cf134.ari/lib64/pkgconfig:/opt/cray/gni-headers/5.0.12.0-7.0.2.1_2.21__g3b1768f.ari/lib64/pkgconfig:/opt/cray/ugni/6.0.14.0-7.0.2.1_3.62__ge78e5b0.ari/lib64/pkgconfig:/opt/cray/udreg/2.3.2-7.0.2.1_2.37__g8175d3d.ari/lib64/pkgconfig:/opt/cray/pe/atp/2.1.3/lib/pkgconfig:/opt/cray/pe/atp/3.7.5/lib/pkgconfig
+CONDA_DEFAULT_ENV=lab_env3
+LIBSCI_BASE_DIR=/opt/cray/pe/libsci/19.06.1
+INFOPATH_modshare=/opt/gcc/8.3.0/snos/share/info:1
+INFOPATH=/opt/gcc/8.3.0/snos/share/info
+G_BROKEN_FILENAMES=1
+PE_LIBSCI_REQUIRED_PRODUCTS_modshare=PE_MPICH:1
+HISTSIZE=
+PE_PETSC_DEFAULT_GENCOMPS_CRAY_sandybridge=90
+CRAYPE_DIR=/opt/cray/pe/craype/2.6.0
+PE_GA_DEFAULT_VOLATILE_PRGENV=GNU
+SIZE=/cfs/klemming/nobackup/s/sergiopc/anaconda3/envs/lab_env3/bin/x86_64-conda-linux-gnu-size
+PE_PETSC_DEFAULT_GENCOMPS_CRAY_x86_64=90
+PE_MPICH_GENCOMPS_CRAYCLANG=90
+HISTFILESIZE=
+PE_TRILINOS_DEFAULT_GENCOMPILERS_GNU_x86_64=8.2 7.1
+PE_FFTW_DEFAULT_TARGET_interlagos=interlagos
+PE_HDF5_PARALLEL_DEFAULT_REQUIRED_PRODUCTS=PE_MPICH
+OFFLOAD_INIT=on_start
+PE_MPICH_DIR_CRAYCLANG_DEFAULT64=64
+PE_PETSC_DEFAULT_GENCOMPILERS_GNU_x86_64=8.2 7.1
+CPP=/cfs/klemming/nobackup/s/sergiopc/anaconda3/envs/lab_env3/bin/x86_64-conda-linux-gnu-cpp
+PE_PKGCONFIG_DEFAULT_PRODUCTS=PE_TRILINOS:PE_TPSL_64:PE_TPSL:PE_PETSC:PE_PARALLEL_NETCDF:PE_NETCDF_HDF5PARALLEL:PE_NETCDF:PE_MPICH:PE_LIBSCI:PE_HDF5_PARALLEL:PE_HDF5:PE_GA:PE_FFTW2:PE_FFTW
+CPU=x86_64
+LD=/cfs/klemming/nobackup/s/sergiopc/anaconda3/envs/lab_env3/bin/x86_64-conda-linux-gnu-ld
+CRAYPE_VERSION=2.6.0
+CRAY_PMI_POST_LINK_OPTS=-L/opt/cray/pe/pmi/5.0.14/lib64
+SLURM_LOCALID=0
+CRAY_GNI_HEADERS_INCLUDE_OPTS=-I/opt/cray/gni-headers/5.0.12.0-7.0.2.1_2.21__g3b1768f.ari/include
+CVS_RSH=ssh
+LESSOPEN=lessopen.sh %s
+CRAYPAT_OPTS_EXECUTABLE=sbin/pat-opts
+PE_TPSL_64_DEFAULT_GENCOMPS_INTEL_x86_64=190
+PE_TPSL_DEFAULT_GENCOMPILERS_CRAYCLANG_haswell=9.0
+PE_FFTW_DEFAULT_TARGET_x86_cascadelake=x86_cascadelake
+CRAY_XPMEM_INCLUDE_OPTS=-I/opt/cray/xpmem/2.2.20-7.0.2.1_2.62__g87eb960.ari/include
+PE_LIBSCI_GENCOMPS_GNU_x86_64=81 71
+PE_LIBSCI_DEFAULT_GENCOMPILERS_GNU_x86_64=8.1 7.1
+PE_TPSL_64_DEFAULT_GENCOMPILERS_INTEL_x86_skylake=19.0
+BASH_FUNC_module%%=() {  unset _mlre _mlIFS _mlshdbg;
+ if [ "${MODULES_SILENT_SHELL_DEBUG:-0}" = '1' ]; then
+ case "$-" in 
+ *v*x*)
+ set +vx;
+ _mlshdbg='vx'
+ ;;
+ *v*)
+ set +v;
+ _mlshdbg='v'
+ ;;
+ *x*)
+ set +x;
+ _mlshdbg='x'
+ ;;
+ *)
+ _mlshdbg=''
+ ;;
+ esac;
+ fi;
+ if [ -n "${IFS+x}" ]; then
+ _mlIFS=$IFS;
+ fi;
+ IFS=' ';
+ for _mlv in ${MODULES_RUN_QUARANTINE:-};
+ do
+ if [ "${_mlv}" = "${_mlv##*[!A-Za-z0-9_]}" -a "${_mlv}" = "${_mlv#[0-9]}" ]; then
+ if [ -n "`eval 'echo ${'$_mlv'+x}'`" ]; then
+ _mlre="${_mlre:-}${_mlv}_modquar='`eval 'echo ${'$_mlv'}'`' ";
+ fi;
+ _mlrv="MODULES_RUNENV_${_mlv}";
+ _mlre="${_mlre:-}${_mlv}='`eval 'echo ${'$_mlrv':-}'`' ";
+ fi;
+ done;
+ if [ -n "${_mlre:-}" ]; then
+ eval `eval ${_mlre}/usr/bin/tclsh /opt/cray/pe/modules/4.1.3.1/libexec/modulecmd.tcl bash '"$@"'`;
+ else
+ eval `/usr/bin/tclsh /opt/cray/pe/modules/4.1.3.1/libexec/modulecmd.tcl bash "$@"`;
+ fi;
+ _mlstatus=$?;
+ if [ -n "${_mlIFS+x}" ]; then
+ IFS=$_mlIFS;
+ else
+ unset IFS;
+ fi;
+ if [ -n "${_mlshdbg:-}" ]; then
+ set -$_mlshdbg;
+ fi;
+ unset _mlre _mlv _mlrv _mlIFS _mlshdbg;
+ return $_mlstatus
+}
+BASH_FUNC_switchml%%=() {  typeset swfound=1;
+ if [ "${MODULES_USE_COMPAT_VERSION:-0}" = '1' ]; then
+ typeset swname='main';
+ if [ -e /opt/cray/pe/modules/4.1.3.1/libexec/modulecmd.tcl ]; then
+ typeset swfound=0;
+ unset MODULES_USE_COMPAT_VERSION;
+ fi;
+ else
+ typeset swname='compatibility';
+ if [ -e /opt/cray/pe/modules/4.1.3.1/libexec/modulecmd-compat ]; then
+ typeset swfound=0;
+ MODULES_USE_COMPAT_VERSION=1;
+ export MODULES_USE_COMPAT_VERSION;
+ fi;
+ fi;
+ if [ $swfound -eq 0 ]; then
+ echo "Switching to Modules $swname version";
+ source /opt/cray/pe/modules/4.1.3.1/init/bash;
+ else
+ echo "Cannot switch to Modules $swname version, command not found";
+ return 1;
+ fi
+}
+BASH_FUNC__moduleraw%%=() {  unset _mlre _mlIFS _mlshdbg;
+ if [ "${MODULES_SILENT_SHELL_DEBUG:-0}" = '1' ]; then
+ case "$-" in 
+ *v*x*)
+ set +vx;
+ _mlshdbg='vx'
+ ;;
+ *v*)
+ set +v;
+ _mlshdbg='v'
+ ;;
+ *x*)
+ set +x;
+ _mlshdbg='x'
+ ;;
+ *)
+ _mlshdbg=''
+ ;;
+ esac;
+ fi;
+ if [ -n "${IFS+x}" ]; then
+ _mlIFS=$IFS;
+ fi;
+ IFS=' ';
+ for _mlv in ${MODULES_RUN_QUARANTINE:-};
+ do
+ if [ "${_mlv}" = "${_mlv##*[!A-Za-z0-9_]}" -a "${_mlv}" = "${_mlv#[0-9]}" ]; then
+ if [ -n "`eval 'echo ${'$_mlv'+x}'`" ]; then
+ _mlre="${_mlre:-}${_mlv}_modquar='`eval 'echo ${'$_mlv'}'`' ";
+ fi;
+ _mlrv="MODULES_RUNENV_${_mlv}";
+ _mlre="${_mlre:-}${_mlv}='`eval 'echo ${'$_mlrv':-}'`' ";
+ fi;
+ done;
+ if [ -n "${_mlre:-}" ]; then
+ eval `eval ${_mlre}/usr/bin/tclsh /opt/cray/pe/modules/4.1.3.1/libexec/modulecmd.tcl bash '"$@"'`;
+ else
+ eval `/usr/bin/tclsh /opt/cray/pe/modules/4.1.3.1/libexec/modulecmd.tcl bash "$@"`;
+ fi;
+ _mlstatus=$?;
+ if [ -n "${_mlIFS+x}" ]; then
+ IFS=$_mlIFS;
+ else
+ unset IFS;
+ fi;
+ if [ -n "${_mlshdbg:-}" ]; then
+ set -$_mlshdbg;
+ fi;
+ unset _mlre _mlv _mlrv _mlIFS _mlshdbg;
+ return $_mlstatus
+}
+_=/usr/bin/env

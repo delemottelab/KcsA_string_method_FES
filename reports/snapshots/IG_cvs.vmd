@@ -335,7 +335,7 @@ display aodirect 0.300000
 display dof off
 display dof_fnumber 64.000000
 display dof_focaldist 0.700000
-mol new /Users/sperez/Projects/string_sims/data/raw/C2I_v1/topology/5VK6.pdb type pdb first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol new /Users/sperez/Projects/string_sims/data/raw/noLB-CHARMM/topology/5VK6.pdb type pdb first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
 mol delrep 0 top
 mol representation NewCartoon 0.300000 50.000000 4.100000 0
 mol color ColorID 6
@@ -480,7 +480,7 @@ molinfo top set active 0
 set viewpoints([molinfo top]) {{{1 0 0 -40.4188} {0 1 0 -40.6125} {0 0 1 -50.91} {0 0 0 1}} {{0.0374173 0.999137 -0.0177717 0} {0.996585 -0.0386195 -0.0729204 0} {-0.0735439 -0.0149824 -0.997172 0} {0 0 0 1}} {{0.0454857 0 0 0} {0 0.0454857 0 0} {0 0 0.0454857 0} {0 0 0 1}} {{1 0 0 0} {0 1 0 0} {0 0 1 0} {0 0 0 1}}}
 lappend viewplist [molinfo top]
 # done with molecule 0
-mol new /Users/sperez/Projects/string_sims/data/raw/C2I_v1/topology/3FB5.pdb type pdb first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol new /Users/sperez/Projects/string_sims/data/raw/noLB-CHARMM/topology/3FB5.pdb type pdb first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
 mol delrep 0 top
 mol representation NewCartoon 0.300000 50.000000 4.100000 0
 mol color ColorID 6

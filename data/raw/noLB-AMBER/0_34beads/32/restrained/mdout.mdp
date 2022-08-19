@@ -1,0 +1,1426 @@
+;
+;	File '/cfs/klemming/scratch/s/sergiopc/Projects/string_sims/data/raw/C2I_v1_amber_test1/md/0/32/restrained//mdout.mdp' was generated
+;	By user: unknown (3220911)
+;	On host: nid001219
+;	At date: Sun Feb 13 15:19:36 2022
+;
+;	Created by:
+;	                     :-) GROMACS - gmx grompp, 2020.5 (-:
+;	
+;	Executable:   /pdc/software/21.09/eb/software/GROMACS/2020.5-cpeCray-21.09/bin/gmx_mpi
+;	Data prefix:  /pdc/software/21.09/eb/software/GROMACS/2020.5-cpeCray-21.09
+;	Working dir:  /cfs/klemming/scratch/s/sergiopc/Projects/string_sims/data/raw/C2I_v1_amber_test1
+;	Command line:
+;	  gmx_mpi grompp -maxwarn 1 -n topology/index.ndx -f /cfs/klemming/scratch/s/sergiopc/Projects/string_sims/data/raw/C2I_v1_amber_test1/md/0/32/restrained//grompp.mdp -p topology/topol.top -c /cfs/klemming/scratch/s/sergiopc/Projects/string_sims/data/raw/C2I_v1_amber_test1/md/0/31/restrained//confout.gro -r /cfs/klemming/scratch/s/sergiopc/Projects/string_sims/data/raw/C2I_v1_amber_test1/md/0/31/restrained//confout.gro -o /cfs/klemming/scratch/s/sergiopc/Projects/string_sims/data/raw/C2I_v1_amber_test1/md/0/32/restrained//topol.tpr -po /cfs/klemming/scratch/s/sergiopc/Projects/string_sims/data/raw/C2I_v1_amber_test1/md/0/32/restrained//mdout.mdp
+
+; VARIOUS PREPROCESSING OPTIONS
+; Preprocessor information: use cpp syntax.
+; e.g.: -I/home/joe/doe -I/home/mary/roe
+include                  = 
+; e.g.: -DPOSRES -DFLEXIBLE (note these variable names are case sensitive)
+define                   = 
+
+; RUN CONTROL PARAMETERS
+integrator               = md
+; Start time and timestep in ps
+tinit                    = 0
+dt                       = 0.002
+nsteps                   = 12500000
+; For exact run continuation or redoing part of a run
+init-step                = 0
+; Part index is updated automatically on checkpointing (keeps files separate)
+simulation-part          = 1
+; mode for center of mass motion removal
+comm_mode                = linear
+; number of steps for center of mass motion removal
+nstcomm                  = 100
+; group(s) for center of mass motion removal
+comm_grps                = protein waters_or_ions lipids
+
+; LANGEVIN DYNAMICS OPTIONS
+; Friction coefficient (amu/ps) and random seed
+bd-fric                  = 0
+ld-seed                  = -1
+
+; ENERGY MINIMIZATION OPTIONS
+; Force tolerance and initial step-size
+emtol                    = 10
+emstep                   = 0.01
+; Max number of iterations in relax-shells
+niter                    = 20
+; Step size (ps^2) for minimization of flexible constraints
+fcstep                   = 0
+; Frequency of steepest descents steps when doing CG
+nstcgsteep               = 1000
+nbfgscorr                = 10
+
+; TEST PARTICLE INSERTION OPTIONS
+rtpi                     = 0.05
+
+; OUTPUT CONTROL OPTIONS
+; Output frequency for coords (x), velocities (v) and forces (f)
+nstxout                  = 0
+nstvout                  = 0
+nstfout                  = 0
+; Output frequency for energies to log file and energy file
+nstlog                   = 0
+nstcalcenergy            = 100
+nstenergy                = 0
+; Output frequency and precision for .xtc file
+nstxout-compressed       = 100000
+compressed-x-precision   = 1000
+; This selects the subset of atoms for the compressed
+; trajectory file. You can select multiple groups. By
+; default, all atoms will be written.
+compressed-x-grps        = 
+; Selection of energy groups
+energygrps               = 
+
+; NEIGHBORSEARCHING PARAMETERS
+; cut-off scheme (Verlet: particle based cut-offs)
+cutoff-scheme            = Verlet
+; nblist update frequency
+nstlist                  = 20
+; Periodic boundary conditions: xyz, no, xy
+pbc                      = xyz
+periodic-molecules       = no
+; Allowed energy error due to the Verlet buffer in kJ/mol/ps per atom,
+; a value of -1 means: use rlist
+verlet-buffer-tolerance  = 0.005
+; nblist cut-off        
+rlist                    = 1.2
+; long-range cut-off for switched potentials
+
+; OPTIONS FOR ELECTROSTATICS AND VDW
+; Method for doing electrostatics
+coulombtype              = pme
+coulomb-modifier         = Potential-shift-Verlet
+rcoulomb-switch          = 0
+rcoulomb                 = 1.5
+; Relative dielectric constant for the medium and the reaction field
+epsilon-r                = 1
+epsilon-rf               = 0
+; Method for doing Van der Waals
+vdwtype                  = Cut-off
+vdw-modifier             = Potential-shift-Verlet
+; cut-off lengths       
+rvdw_switch              = 0
+rvdw                     = 1.5
+; Apply long range dispersion corrections for Energy and Pressure
+DispCorr                 = no
+; Extension of the potential lookup tables beyond the cut-off
+table-extension          = 1
+; Separate tables between energy group pairs
+energygrp-table          = 
+; Spacing for the PME/PPPM FFT grid
+fourierspacing           = 0.12
+; FFT grid size, when a value is 0 fourierspacing will be used
+fourier-nx               = 0
+fourier-ny               = 0
+fourier-nz               = 0
+; EWALD/PME/PPPM parameters
+pme-order                = 4
+ewald-rtol               = 1e-05
+ewald-rtol-lj            = 0.001
+lj-pme-comb-rule         = Geometric
+ewald-geometry           = 3d
+epsilon-surface          = 0
+implicit-solvent         = no
+
+; OPTIONS FOR WEAK COUPLING ALGORITHMS
+; Temperature coupling  
+tcoupl                   = V-rescale
+nsttcouple               = -1
+nh-chain-length          = 10
+print-nose-hoover-chain-variables = no
+; Groups to couple separately
+tc_grps                  = protein waters_or_ions lipids
+; Time constant (ps) and reference temperature (K)
+tau_t                    = 1.0    1.0    1.0
+ref_t                    = 290. 290. 290.
+; pressure coupling     
+pcoupl                   = Parrinello-Rahman
+pcoupltype               = semiisotropic
+nstpcouple               = -1
+; Time constant (ps), compressibility (1/bar) and reference P (bar)
+tau_p                    = 5.0
+compressibility          = 4.5e-5  4.5e-5
+ref_p                    = 1.0     1.0
+; Scaling of reference coordinates, No, All or COM
+refcoord-scaling         = No
+
+; OPTIONS FOR QMMM calculations
+QMMM                     = no
+; Groups treated Quantum Mechanically
+QMMM-grps                = 
+; QM method             
+QMmethod                 = 
+; QMMM scheme           
+QMMMscheme               = normal
+; QM basisset           
+QMbasis                  = 
+; QM charge             
+QMcharge                 = 
+; QM multiplicity       
+QMmult                   = 
+; Surface Hopping       
+SH                       = 
+; CAS space options     
+CASorbitals              = 
+CASelectrons             = 
+SAon                     = 
+SAoff                    = 
+SAsteps                  = 
+; Scale factor for MM charges
+MMChargeScaleFactor      = 1
+
+; SIMULATED ANNEALING  
+; Type of annealing for each temperature group (no/single/periodic)
+annealing                = 
+; Number of time points to use for specifying annealing in each group
+annealing-npoints        = 
+; List of times at the annealing points for each group
+annealing-time           = 
+; Temp. at each annealing point, for each group.
+annealing-temp           = 
+
+; GENERATE VELOCITIES FOR STARTUP RUN
+gen-vel                  = no
+gen-temp                 = 290
+gen-seed                 = -1
+
+; OPTIONS FOR BONDS    
+constraints              = h-bonds
+; Type of constraint algorithm
+constraint_algorithm     = LINCS
+; Do not constrain the start configuration
+continuation             = yes
+; Use successive overrelaxation to reduce the number of shake iterations
+Shake-SOR                = no
+; Relative tolerance of shake
+shake-tol                = 0.0001
+; Highest order in the expansion of the constraint coupling matrix
+lincs-order              = 4
+; Number of iterations in the final step of LINCS. 1 is fine for
+; normal simulations, but use 2 to conserve energy in NVE runs.
+; For energy minimization with constraints it should be 4 to 8.
+lincs-iter               = 1
+; Lincs will write a warning to the stderr if in one step a bond
+; rotates over more degrees than
+lincs-warnangle          = 30
+; Convert harmonic bonds to morse potentials
+morse                    = no
+
+; ENERGY GROUP EXCLUSIONS
+; Pairs of energy groups for which all non-bonded interactions are excluded
+energygrp-excl           = 
+
+; WALLS                
+; Number of walls, type, atom types, densities and box-z scale factor for Ewald
+nwall                    = 0
+wall-type                = 9-3
+wall-r-linpot            = -1
+wall-atomtype            = 
+wall-density             = 
+wall-ewald-zfac          = 3
+
+; COM PULLING          
+pull                     = yes
+; Cylinder radius for dynamic reaction force groups (nm)
+pull-cylinder-r          = 1.5
+pull-constr-tol          = 1e-06
+pull-print-com           = no
+pull-print-ref-value     = no
+pull-print-components    = no
+pull-nstxout             = 50000
+pull-nstfout             = 0
+pull-pbc-ref-prev-step-com = no
+pull-xout-average        = no
+pull-fout-average        = no
+; Number of pull groups 
+pull-ngroups             = 120
+; Number of pull coordinates
+pull-ncoords             = 60
+; Group and coordinate parameters
+pull-group1-name         = CA_77_A
+pull-group1-weights      = 
+pull-group1-pbcatom      = 0
+pull-group2-name         = CA_77_B
+pull-group2-weights      = 
+pull-group2-pbcatom      = 0
+pull-group3-name         = CA_77_C
+pull-group3-weights      = 
+pull-group3-pbcatom      = 0
+pull-group4-name         = CA_77_D
+pull-group4-weights      = 
+pull-group4-pbcatom      = 0
+pull-group5-name         = CA_77_A_2
+pull-group5-weights      = 
+pull-group5-pbcatom      = 0
+pull-group6-name         = CA_77_C_2
+pull-group6-weights      = 
+pull-group6-pbcatom      = 0
+pull-group7-name         = CA_77_D_2
+pull-group7-weights      = 
+pull-group7-pbcatom      = 0
+pull-group8-name         = CA_77_B_2
+pull-group8-weights      = 
+pull-group8-pbcatom      = 0
+pull-group9-name         = CA_77_A_3
+pull-group9-weights      = 
+pull-group9-pbcatom      = 0
+pull-group10-name        = CA_77_D_3
+pull-group10-weights     = 
+pull-group10-pbcatom     = 0
+pull-group11-name        = CA_77_C_3
+pull-group11-weights     = 
+pull-group11-pbcatom     = 0
+pull-group12-name        = CA_77_B_3
+pull-group12-weights     = 
+pull-group12-pbcatom     = 0
+pull-group13-name        = CA_104_A
+pull-group13-weights     = 
+pull-group13-pbcatom     = 0
+pull-group14-name        = CA_104_B
+pull-group14-weights     = 
+pull-group14-pbcatom     = 0
+pull-group15-name        = CA_104_C
+pull-group15-weights     = 
+pull-group15-pbcatom     = 0
+pull-group16-name        = CA_104_D
+pull-group16-weights     = 
+pull-group16-pbcatom     = 0
+pull-group17-name        = CA_108_A
+pull-group17-weights     = 
+pull-group17-pbcatom     = 0
+pull-group18-name        = CA_108_B
+pull-group18-weights     = 
+pull-group18-pbcatom     = 0
+pull-group19-name        = CA_108_C
+pull-group19-weights     = 
+pull-group19-pbcatom     = 0
+pull-group20-name        = CA_108_D
+pull-group20-weights     = 
+pull-group20-pbcatom     = 0
+pull-group21-name        = CA_112_A
+pull-group21-weights     = 
+pull-group21-pbcatom     = 0
+pull-group22-name        = CA_112_B
+pull-group22-weights     = 
+pull-group22-pbcatom     = 0
+pull-group23-name        = CA_112_C
+pull-group23-weights     = 
+pull-group23-pbcatom     = 0
+pull-group24-name        = CA_112_D
+pull-group24-weights     = 
+pull-group24-pbcatom     = 0
+pull-group25-name        = CZ_103_A
+pull-group25-weights     = 
+pull-group25-pbcatom     = 0
+pull-group26-name        = CG2_74_A
+pull-group26-weights     = 
+pull-group26-pbcatom     = 0
+pull-group27-name        = CZ_103_B
+pull-group27-weights     = 
+pull-group27-pbcatom     = 0
+pull-group28-name        = CG2_74_B
+pull-group28-weights     = 
+pull-group28-pbcatom     = 0
+pull-group29-name        = CZ_103_C
+pull-group29-weights     = 
+pull-group29-pbcatom     = 0
+pull-group30-name        = CG2_74_C
+pull-group30-weights     = 
+pull-group30-pbcatom     = 0
+pull-group31-name        = CZ_103_D
+pull-group31-weights     = 
+pull-group31-pbcatom     = 0
+pull-group32-name        = CG2_74_D
+pull-group32-weights     = 
+pull-group32-pbcatom     = 0
+pull-group33-name        = CD_100_A
+pull-group33-weights     = 
+pull-group33-pbcatom     = 0
+pull-group34-name        = CG2_75_A
+pull-group34-weights     = 
+pull-group34-pbcatom     = 0
+pull-group35-name        = CD_100_B
+pull-group35-weights     = 
+pull-group35-pbcatom     = 0
+pull-group36-name        = CG2_75_B
+pull-group36-weights     = 
+pull-group36-pbcatom     = 0
+pull-group37-name        = CD_100_C
+pull-group37-weights     = 
+pull-group37-pbcatom     = 0
+pull-group38-name        = CG2_75_C
+pull-group38-weights     = 
+pull-group38-pbcatom     = 0
+pull-group39-name        = CD_100_D
+pull-group39-weights     = 
+pull-group39-pbcatom     = 0
+pull-group40-name        = CG2_75_D
+pull-group40-weights     = 
+pull-group40-pbcatom     = 0
+pull-group41-name        = CZ_103_A_2
+pull-group41-weights     = 
+pull-group41-pbcatom     = 0
+pull-group42-name        = CD_100_D_2
+pull-group42-weights     = 
+pull-group42-pbcatom     = 0
+pull-group43-name        = CD_100_B_2
+pull-group43-weights     = 
+pull-group43-pbcatom     = 0
+pull-group44-name        = CZ_103_D_2
+pull-group44-weights     = 
+pull-group44-pbcatom     = 0
+pull-group45-name        = CZ_103_B_2
+pull-group45-weights     = 
+pull-group45-pbcatom     = 0
+pull-group46-name        = CD_100_C_2
+pull-group46-weights     = 
+pull-group46-pbcatom     = 0
+pull-group47-name        = CD_100_A_2
+pull-group47-weights     = 
+pull-group47-pbcatom     = 0
+pull-group48-name        = CZ_103_C_2
+pull-group48-weights     = 
+pull-group48-pbcatom     = 0
+pull-group49-name        = CA_114_A
+pull-group49-weights     = 
+pull-group49-pbcatom     = 0
+pull-group50-name        = CA_32_D
+pull-group50-weights     = 
+pull-group50-pbcatom     = 0
+pull-group51-name        = CA_32_B
+pull-group51-weights     = 
+pull-group51-pbcatom     = 0
+pull-group52-name        = CA_114_D
+pull-group52-weights     = 
+pull-group52-pbcatom     = 0
+pull-group53-name        = CA_114_B
+pull-group53-weights     = 
+pull-group53-pbcatom     = 0
+pull-group54-name        = CA_32_C
+pull-group54-weights     = 
+pull-group54-pbcatom     = 0
+pull-group55-name        = CA_32_A
+pull-group55-weights     = 
+pull-group55-pbcatom     = 0
+pull-group56-name        = CA_114_C
+pull-group56-weights     = 
+pull-group56-pbcatom     = 0
+pull-group57-name        = CA_32_A_2
+pull-group57-weights     = 
+pull-group57-pbcatom     = 0
+pull-group58-name        = CA_114_A_2
+pull-group58-weights     = 
+pull-group58-pbcatom     = 0
+pull-group59-name        = CA_32_B_2
+pull-group59-weights     = 
+pull-group59-pbcatom     = 0
+pull-group60-name        = CA_114_B_2
+pull-group60-weights     = 
+pull-group60-pbcatom     = 0
+pull-group61-name        = CA_32_C_2
+pull-group61-weights     = 
+pull-group61-pbcatom     = 0
+pull-group62-name        = CA_114_C_2
+pull-group62-weights     = 
+pull-group62-pbcatom     = 0
+pull-group63-name        = CA_32_D_2
+pull-group63-weights     = 
+pull-group63-pbcatom     = 0
+pull-group64-name        = CA_114_D_2
+pull-group64-weights     = 
+pull-group64-pbcatom     = 0
+pull-group65-name        = CA_118_A
+pull-group65-weights     = 
+pull-group65-pbcatom     = 0
+pull-group66-name        = CA_28_D
+pull-group66-weights     = 
+pull-group66-pbcatom     = 0
+pull-group67-name        = CA_28_B
+pull-group67-weights     = 
+pull-group67-pbcatom     = 0
+pull-group68-name        = CA_118_D
+pull-group68-weights     = 
+pull-group68-pbcatom     = 0
+pull-group69-name        = CA_118_B
+pull-group69-weights     = 
+pull-group69-pbcatom     = 0
+pull-group70-name        = CA_28_C
+pull-group70-weights     = 
+pull-group70-pbcatom     = 0
+pull-group71-name        = CA_28_A
+pull-group71-weights     = 
+pull-group71-pbcatom     = 0
+pull-group72-name        = CA_118_C
+pull-group72-weights     = 
+pull-group72-pbcatom     = 0
+pull-group73-name        = OG1_107_A
+pull-group73-weights     = 
+pull-group73-pbcatom     = 0
+pull-group74-name        = OG1_101_D
+pull-group74-weights     = 
+pull-group74-pbcatom     = 0
+pull-group75-name        = OG1_101_B
+pull-group75-weights     = 
+pull-group75-pbcatom     = 0
+pull-group76-name        = OG1_107_D
+pull-group76-weights     = 
+pull-group76-pbcatom     = 0
+pull-group77-name        = OG1_107_B
+pull-group77-weights     = 
+pull-group77-pbcatom     = 0
+pull-group78-name        = OG1_101_C
+pull-group78-weights     = 
+pull-group78-pbcatom     = 0
+pull-group79-name        = OG1_101_A
+pull-group79-weights     = 
+pull-group79-pbcatom     = 0
+pull-group80-name        = OG1_107_C
+pull-group80-weights     = 
+pull-group80-pbcatom     = 0
+pull-group81-name        = NE1_67_A
+pull-group81-weights     = 
+pull-group81-pbcatom     = 0
+pull-group82-name        = CG_80_A
+pull-group82-weights     = 
+pull-group82-pbcatom     = 0
+pull-group83-name        = NE1_67_B
+pull-group83-weights     = 
+pull-group83-pbcatom     = 0
+pull-group84-name        = CG_80_B
+pull-group84-weights     = 
+pull-group84-pbcatom     = 0
+pull-group85-name        = NE1_67_C
+pull-group85-weights     = 
+pull-group85-pbcatom     = 0
+pull-group86-name        = CG_80_C
+pull-group86-weights     = 
+pull-group86-pbcatom     = 0
+pull-group87-name        = NE1_67_D
+pull-group87-weights     = 
+pull-group87-pbcatom     = 0
+pull-group88-name        = CG_80_D
+pull-group88-weights     = 
+pull-group88-pbcatom     = 0
+pull-group89-name        = OE1_71_A_2
+pull-group89-weights     = 
+pull-group89-pbcatom     = 0
+pull-group90-name        = CA_68_A
+pull-group90-weights     = 
+pull-group90-pbcatom     = 0
+pull-group91-name        = OE1_71_B_2
+pull-group91-weights     = 
+pull-group91-pbcatom     = 0
+pull-group92-name        = CA_68_B
+pull-group92-weights     = 
+pull-group92-pbcatom     = 0
+pull-group93-name        = OE1_71_C_2
+pull-group93-weights     = 
+pull-group93-pbcatom     = 0
+pull-group94-name        = CA_68_C
+pull-group94-weights     = 
+pull-group94-pbcatom     = 0
+pull-group95-name        = OE1_71_D_2
+pull-group95-weights     = 
+pull-group95-pbcatom     = 0
+pull-group96-name        = CA_68_D
+pull-group96-weights     = 
+pull-group96-pbcatom     = 0
+pull-group97-name        = OE1_71_A
+pull-group97-weights     = 
+pull-group97-pbcatom     = 0
+pull-group98-name        = HN_78_A
+pull-group98-weights     = 
+pull-group98-pbcatom     = 0
+pull-group99-name        = OE1_71_B
+pull-group99-weights     = 
+pull-group99-pbcatom     = 0
+pull-group100-name       = HN_78_B
+pull-group100-weights    = 
+pull-group100-pbcatom    = 0
+pull-group101-name       = OE1_71_C
+pull-group101-weights    = 
+pull-group101-pbcatom    = 0
+pull-group102-name       = HN_78_C
+pull-group102-weights    = 
+pull-group102-pbcatom    = 0
+pull-group103-name       = OE1_71_D
+pull-group103-weights    = 
+pull-group103-pbcatom    = 0
+pull-group104-name       = HN_78_D
+pull-group104-weights    = 
+pull-group104-pbcatom    = 0
+pull-group105-name       = CA_74_A
+pull-group105-weights    = 
+pull-group105-pbcatom    = 0
+pull-group106-name       = CA_79_A
+pull-group106-weights    = 
+pull-group106-pbcatom    = 0
+pull-group107-name       = CA_74_B
+pull-group107-weights    = 
+pull-group107-pbcatom    = 0
+pull-group108-name       = CA_79_B
+pull-group108-weights    = 
+pull-group108-pbcatom    = 0
+pull-group109-name       = CA_74_C
+pull-group109-weights    = 
+pull-group109-pbcatom    = 0
+pull-group110-name       = CA_79_C
+pull-group110-weights    = 
+pull-group110-pbcatom    = 0
+pull-group111-name       = CA_74_D
+pull-group111-weights    = 
+pull-group111-pbcatom    = 0
+pull-group112-name       = CA_79_D
+pull-group112-weights    = 
+pull-group112-pbcatom    = 0
+pull-group113-name       = CD1_67_A
+pull-group113-weights    = 
+pull-group113-pbcatom    = 0
+pull-group114-name       = CG_81_A
+pull-group114-weights    = 
+pull-group114-pbcatom    = 0
+pull-group115-name       = CD1_67_B
+pull-group115-weights    = 
+pull-group115-pbcatom    = 0
+pull-group116-name       = CG_81_B
+pull-group116-weights    = 
+pull-group116-pbcatom    = 0
+pull-group117-name       = CD1_67_C
+pull-group117-weights    = 
+pull-group117-pbcatom    = 0
+pull-group118-name       = CG_81_C
+pull-group118-weights    = 
+pull-group118-pbcatom    = 0
+pull-group119-name       = CD1_67_D
+pull-group119-weights    = 
+pull-group119-pbcatom    = 0
+pull-group120-name       = CG_81_D
+pull-group120-weights    = 
+pull-group120-pbcatom    = 0
+pull-coord1-type         = umbrella
+pull-coord1-potential-provider = 
+pull-coord1-geometry     = distance
+pull-coord1-groups       = 1 2
+pull-coord1-dim          = Y Y Y
+pull-coord1-origin       = 0.0 0.0 0.0
+pull-coord1-vec          = 0.0 0.0 0.0
+pull-coord1-start        = no
+pull-coord1-init         = 0.5991815451558052
+pull-coord1-rate         = -9.682132765863827e-07
+pull-coord1-k            = 10000.0
+pull-coord1-kB           = 10000
+pull-coord2-type         = umbrella
+pull-coord2-potential-provider = 
+pull-coord2-geometry     = distance
+pull-coord2-groups       = 3 4
+pull-coord2-dim          = Y Y Y
+pull-coord2-origin       = 0.0 0.0 0.0
+pull-coord2-vec          = 0.0 0.0 0.0
+pull-coord2-start        = no
+pull-coord2-init         = 0.5995081103212068
+pull-coord2-rate         = -9.666641209456994e-07
+pull-coord2-k            = 10000.0
+pull-coord2-kB           = 10000
+pull-coord3-type         = umbrella
+pull-coord3-potential-provider = 
+pull-coord3-geometry     = distance
+pull-coord3-groups       = 5 6
+pull-coord3-dim          = Y Y Y
+pull-coord3-origin       = 0.0 0.0 0.0
+pull-coord3-vec          = 0.0 0.0 0.0
+pull-coord3-start        = no
+pull-coord3-init         = 0.4239580253501378
+pull-coord3-rate         = -6.840321584605924e-07
+pull-coord3-k            = 10000.0
+pull-coord3-kB           = 10000
+pull-coord4-type         = umbrella
+pull-coord4-potential-provider = 
+pull-coord4-geometry     = distance
+pull-coord4-groups       = 7 8
+pull-coord4-dim          = Y Y Y
+pull-coord4-origin       = 0.0 0.0 0.0
+pull-coord4-vec          = 0.0 0.0 0.0
+pull-coord4-start        = no
+pull-coord4-init         = 0.423720027032485
+pull-coord4-rate         = -6.840993231834358e-07
+pull-coord4-k            = 10000.0
+pull-coord4-kB           = 10000
+pull-coord5-type         = umbrella
+pull-coord5-potential-provider = 
+pull-coord5-geometry     = distance
+pull-coord5-groups       = 9 10
+pull-coord5-dim          = Y Y Y
+pull-coord5-origin       = 0.0 0.0 0.0
+pull-coord5-vec          = 0.0 0.0 0.0
+pull-coord5-start        = no
+pull-coord5-init         = 0.4239396008872497
+pull-coord5-rate         = -6.832630942032236e-07
+pull-coord5-k            = 10000.0
+pull-coord5-kB           = 10000
+pull-coord6-type         = umbrella
+pull-coord6-potential-provider = 
+pull-coord6-geometry     = distance
+pull-coord6-groups       = 11 12
+pull-coord6-dim          = Y Y Y
+pull-coord6-origin       = 0.0 0.0 0.0
+pull-coord6-vec          = 0.0 0.0 0.0
+pull-coord6-start        = no
+pull-coord6-init         = 0.4235857303014951
+pull-coord6-rate         = -6.84934440690863e-07
+pull-coord6-k            = 10000.0
+pull-coord6-kB           = 10000
+pull-coord7-type         = umbrella
+pull-coord7-potential-provider = 
+pull-coord7-geometry     = distance
+pull-coord7-groups       = 13 14
+pull-coord7-dim          = Y Y Y
+pull-coord7-origin       = 0.0 0.0 0.0
+pull-coord7-vec          = 0.0 0.0 0.0
+pull-coord7-start        = no
+pull-coord7-init         = 1.4980702802703167
+pull-coord7-rate         = 6.368249113569924e-08
+pull-coord7-k            = 10000.0
+pull-coord7-kB           = 10000
+pull-coord8-type         = umbrella
+pull-coord8-potential-provider = 
+pull-coord8-geometry     = distance
+pull-coord8-groups       = 15 16
+pull-coord8-dim          = Y Y Y
+pull-coord8-origin       = 0.0 0.0 0.0
+pull-coord8-vec          = 0.0 0.0 0.0
+pull-coord8-start        = no
+pull-coord8-init         = 1.498175564117218
+pull-coord8-rate         = 6.689796096818412e-08
+pull-coord8-k            = 10000.0
+pull-coord8-kB           = 10000
+pull-coord9-type         = umbrella
+pull-coord9-potential-provider = 
+pull-coord9-geometry     = distance
+pull-coord9-groups       = 17 18
+pull-coord9-dim          = Y Y Y
+pull-coord9-origin       = 0.0 0.0 0.0
+pull-coord9-vec          = 0.0 0.0 0.0
+pull-coord9-start        = no
+pull-coord9-init         = 1.634121294532021
+pull-coord9-rate         = 3.1470737767946845e-09
+pull-coord9-k            = 10000.0
+pull-coord9-kB           = 10000
+pull-coord10-type        = umbrella
+pull-coord10-potential-provider = 
+pull-coord10-geometry    = distance
+pull-coord10-groups      = 19 20
+pull-coord10-dim         = Y Y Y
+pull-coord10-origin      = 0.0 0.0 0.0
+pull-coord10-vec         = 0.0 0.0 0.0
+pull-coord10-start       = no
+pull-coord10-init        = 1.6326376119362667
+pull-coord10-rate        = 3.833533057715499e-09
+pull-coord10-k           = 10000.0
+pull-coord10-kB          = 10000
+pull-coord11-type        = umbrella
+pull-coord11-potential-provider = 
+pull-coord11-geometry    = distance
+pull-coord11-groups      = 21 22
+pull-coord11-dim         = Y Y Y
+pull-coord11-origin      = 0.0 0.0 0.0
+pull-coord11-vec         = 0.0 0.0 0.0
+pull-coord11-start       = no
+pull-coord11-init        = 2.2086137976359814
+pull-coord11-rate        = -9.738628073689526e-08
+pull-coord11-k           = 10000.0
+pull-coord11-kB          = 10000
+pull-coord12-type        = umbrella
+pull-coord12-potential-provider = 
+pull-coord12-geometry    = distance
+pull-coord12-groups      = 23 24
+pull-coord12-dim         = Y Y Y
+pull-coord12-origin      = 0.0 0.0 0.0
+pull-coord12-vec         = 0.0 0.0 0.0
+pull-coord12-start       = no
+pull-coord12-init        = 2.209579077238515
+pull-coord12-rate        = -9.423721124964146e-08
+pull-coord12-k           = 10000.0
+pull-coord12-kB          = 10000
+pull-coord13-type        = umbrella
+pull-coord13-potential-provider = 
+pull-coord13-geometry    = distance
+pull-coord13-groups      = 25 26
+pull-coord13-dim         = Y Y Y
+pull-coord13-origin      = 0.0 0.0 0.0
+pull-coord13-vec         = 0.0 0.0 0.0
+pull-coord13-start       = no
+pull-coord13-init        = 0.3799157660532141
+pull-coord13-rate        = -4.3035443725456535e-08
+pull-coord13-k           = 10000.0
+pull-coord13-kB          = 10000
+pull-coord14-type        = umbrella
+pull-coord14-potential-provider = 
+pull-coord14-geometry    = distance
+pull-coord14-groups      = 27 28
+pull-coord14-dim         = Y Y Y
+pull-coord14-origin      = 0.0 0.0 0.0
+pull-coord14-vec         = 0.0 0.0 0.0
+pull-coord14-start       = no
+pull-coord14-init        = 0.38008039014244505
+pull-coord14-rate        = -4.353743952563605e-08
+pull-coord14-k           = 10000.0
+pull-coord14-kB          = 10000
+pull-coord15-type        = umbrella
+pull-coord15-potential-provider = 
+pull-coord15-geometry    = distance
+pull-coord15-groups      = 29 30
+pull-coord15-dim         = Y Y Y
+pull-coord15-origin      = 0.0 0.0 0.0
+pull-coord15-vec         = 0.0 0.0 0.0
+pull-coord15-start       = no
+pull-coord15-init        = 0.38007911943989114
+pull-coord15-rate        = -4.243260946553251e-08
+pull-coord15-k           = 10000.0
+pull-coord15-kB          = 10000
+pull-coord16-type        = umbrella
+pull-coord16-potential-provider = 
+pull-coord16-geometry    = distance
+pull-coord16-groups      = 31 32
+pull-coord16-dim         = Y Y Y
+pull-coord16-origin      = 0.0 0.0 0.0
+pull-coord16-vec         = 0.0 0.0 0.0
+pull-coord16-start       = no
+pull-coord16-init        = 0.38003747440725116
+pull-coord16-rate        = -4.277251332250653e-08
+pull-coord16-k           = 10000.0
+pull-coord16-kB          = 10000
+pull-coord17-type        = umbrella
+pull-coord17-potential-provider = 
+pull-coord17-geometry    = distance
+pull-coord17-groups      = 33 34
+pull-coord17-dim         = Y Y Y
+pull-coord17-origin      = 0.0 0.0 0.0
+pull-coord17-vec         = 0.0 0.0 0.0
+pull-coord17-start       = no
+pull-coord17-init        = 0.3576493389231211
+pull-coord17-rate        = -9.32369696560853e-09
+pull-coord17-k           = 10000.0
+pull-coord17-kB          = 10000
+pull-coord18-type        = umbrella
+pull-coord18-potential-provider = 
+pull-coord18-geometry    = distance
+pull-coord18-groups      = 35 36
+pull-coord18-dim         = Y Y Y
+pull-coord18-origin      = 0.0 0.0 0.0
+pull-coord18-vec         = 0.0 0.0 0.0
+pull-coord18-start       = no
+pull-coord18-init        = 0.357457014464383
+pull-coord18-rate        = -1.0794702539784762e-08
+pull-coord18-k           = 10000.0
+pull-coord18-kB          = 10000
+pull-coord19-type        = umbrella
+pull-coord19-potential-provider = 
+pull-coord19-geometry    = distance
+pull-coord19-groups      = 37 38
+pull-coord19-dim         = Y Y Y
+pull-coord19-origin      = 0.0 0.0 0.0
+pull-coord19-vec         = 0.0 0.0 0.0
+pull-coord19-start       = no
+pull-coord19-init        = 0.35756815376107337
+pull-coord19-rate        = -1.0610917726650016e-08
+pull-coord19-k           = 10000.0
+pull-coord19-kB          = 10000
+pull-coord20-type        = umbrella
+pull-coord20-potential-provider = 
+pull-coord20-geometry    = distance
+pull-coord20-groups      = 39 40
+pull-coord20-dim         = Y Y Y
+pull-coord20-origin      = 0.0 0.0 0.0
+pull-coord20-vec         = 0.0 0.0 0.0
+pull-coord20-start       = no
+pull-coord20-init        = 0.3578458649340107
+pull-coord20-rate        = -9.06928487099723e-09
+pull-coord20-k           = 10000.0
+pull-coord20-kB          = 10000
+pull-coord21-type        = umbrella
+pull-coord21-potential-provider = 
+pull-coord21-geometry    = distance
+pull-coord21-groups      = 41 42
+pull-coord21-dim         = Y Y Y
+pull-coord21-origin      = 0.0 0.0 0.0
+pull-coord21-vec         = 0.0 0.0 0.0
+pull-coord21-start       = no
+pull-coord21-init        = 0.40961066724756423
+pull-coord21-rate        = 3.452730330148368e-08
+pull-coord21-k           = 10000.0
+pull-coord21-kB          = 10000
+pull-coord22-type        = umbrella
+pull-coord22-potential-provider = 
+pull-coord22-geometry    = distance
+pull-coord22-groups      = 43 44
+pull-coord22-dim         = Y Y Y
+pull-coord22-origin      = 0.0 0.0 0.0
+pull-coord22-vec         = 0.0 0.0 0.0
+pull-coord22-start       = no
+pull-coord22-init        = 0.4094580571099152
+pull-coord22-rate        = 3.412018015607199e-08
+pull-coord22-k           = 10000.0
+pull-coord22-kB          = 10000
+pull-coord23-type        = umbrella
+pull-coord23-potential-provider = 
+pull-coord23-geometry    = distance
+pull-coord23-groups      = 45 46
+pull-coord23-dim         = Y Y Y
+pull-coord23-origin      = 0.0 0.0 0.0
+pull-coord23-vec         = 0.0 0.0 0.0
+pull-coord23-start       = no
+pull-coord23-init        = 0.4093949878522408
+pull-coord23-rate        = 3.393272906792255e-08
+pull-coord23-k           = 10000.0
+pull-coord23-kB          = 10000
+pull-coord24-type        = umbrella
+pull-coord24-potential-provider = 
+pull-coord24-geometry    = distance
+pull-coord24-groups      = 47 48
+pull-coord24-dim         = Y Y Y
+pull-coord24-origin      = 0.0 0.0 0.0
+pull-coord24-vec         = 0.0 0.0 0.0
+pull-coord24-start       = no
+pull-coord24-init        = 0.40942077453787906
+pull-coord24-rate        = 3.457527415289929e-08
+pull-coord24-k           = 10000.0
+pull-coord24-kB          = 10000
+pull-coord25-type        = umbrella
+pull-coord25-potential-provider = 
+pull-coord25-geometry    = distance
+pull-coord25-groups      = 49 50
+pull-coord25-dim         = Y Y Y
+pull-coord25-origin      = 0.0 0.0 0.0
+pull-coord25-vec         = 0.0 0.0 0.0
+pull-coord25-start       = no
+pull-coord25-init        = 0.822672417985394
+pull-coord25-rate        = -1.0204264850366407e-08
+pull-coord25-k           = 10000.0
+pull-coord25-kB          = 10000
+pull-coord26-type        = umbrella
+pull-coord26-potential-provider = 
+pull-coord26-geometry    = distance
+pull-coord26-groups      = 51 52
+pull-coord26-dim         = Y Y Y
+pull-coord26-origin      = 0.0 0.0 0.0
+pull-coord26-vec         = 0.0 0.0 0.0
+pull-coord26-start       = no
+pull-coord26-init        = 0.8233929764212855
+pull-coord26-rate        = -5.346088613040756e-09
+pull-coord26-k           = 10000.0
+pull-coord26-kB          = 10000
+pull-coord27-type        = umbrella
+pull-coord27-potential-provider = 
+pull-coord27-geometry    = distance
+pull-coord27-groups      = 53 54
+pull-coord27-dim         = Y Y Y
+pull-coord27-origin      = 0.0 0.0 0.0
+pull-coord27-vec         = 0.0 0.0 0.0
+pull-coord27-start       = no
+pull-coord27-init        = 0.8237917654552707
+pull-coord27-rate        = -4.7175756964978885e-09
+pull-coord27-k           = 10000.0
+pull-coord27-kB          = 10000
+pull-coord28-type        = umbrella
+pull-coord28-potential-provider = 
+pull-coord28-geometry    = distance
+pull-coord28-groups      = 55 56
+pull-coord28-dim         = Y Y Y
+pull-coord28-origin      = 0.0 0.0 0.0
+pull-coord28-vec         = 0.0 0.0 0.0
+pull-coord28-start       = no
+pull-coord28-init        = 0.8237228219744775
+pull-coord28-rate        = -2.82018831019748e-09
+pull-coord28-k           = 10000.0
+pull-coord28-kB          = 10000
+pull-coord29-type        = umbrella
+pull-coord29-potential-provider = 
+pull-coord29-geometry    = distance
+pull-coord29-groups      = 57 58
+pull-coord29-dim         = Y Y Y
+pull-coord29-origin      = 0.0 0.0 0.0
+pull-coord29-vec         = 0.0 0.0 0.0
+pull-coord29-start       = no
+pull-coord29-init        = 1.7696176834934267
+pull-coord29-rate        = 1.615707609595063e-08
+pull-coord29-k           = 10000.0
+pull-coord29-kB          = 10000
+pull-coord30-type        = umbrella
+pull-coord30-potential-provider = 
+pull-coord30-geometry    = distance
+pull-coord30-groups      = 59 60
+pull-coord30-dim         = Y Y Y
+pull-coord30-origin      = 0.0 0.0 0.0
+pull-coord30-vec         = 0.0 0.0 0.0
+pull-coord30-start       = no
+pull-coord30-init        = 1.7687547436958408
+pull-coord30-rate        = 1.4698518677498385e-08
+pull-coord30-k           = 10000.0
+pull-coord30-kB          = 10000
+pull-coord31-type        = umbrella
+pull-coord31-potential-provider = 
+pull-coord31-geometry    = distance
+pull-coord31-groups      = 61 62
+pull-coord31-dim         = Y Y Y
+pull-coord31-origin      = 0.0 0.0 0.0
+pull-coord31-vec         = 0.0 0.0 0.0
+pull-coord31-start       = no
+pull-coord31-init        = 1.7685362470281265
+pull-coord31-rate        = 1.3796262754155464e-08
+pull-coord31-k           = 10000.0
+pull-coord31-kB          = 10000
+pull-coord32-type        = umbrella
+pull-coord32-potential-provider = 
+pull-coord32-geometry    = distance
+pull-coord32-groups      = 63 64
+pull-coord32-dim         = Y Y Y
+pull-coord32-origin      = 0.0 0.0 0.0
+pull-coord32-vec         = 0.0 0.0 0.0
+pull-coord32-start       = no
+pull-coord32-init        = 1.768313554431634
+pull-coord32-rate        = 1.1508458399118737e-08
+pull-coord32-k           = 10000.0
+pull-coord32-kB          = 10000
+pull-coord33-type        = umbrella
+pull-coord33-potential-provider = 
+pull-coord33-geometry    = distance
+pull-coord33-groups      = 65 66
+pull-coord33-dim         = Y Y Y
+pull-coord33-origin      = 0.0 0.0 0.0
+pull-coord33-vec         = 0.0 0.0 0.0
+pull-coord33-start       = no
+pull-coord33-init        = 0.5891279677436293
+pull-coord33-rate        = 2.240857923859574e-07
+pull-coord33-k           = 10000.0
+pull-coord33-kB          = 10000
+pull-coord34-type        = umbrella
+pull-coord34-potential-provider = 
+pull-coord34-geometry    = distance
+pull-coord34-groups      = 67 68
+pull-coord34-dim         = Y Y Y
+pull-coord34-origin      = 0.0 0.0 0.0
+pull-coord34-vec         = 0.0 0.0 0.0
+pull-coord34-start       = no
+pull-coord34-init        = 0.5856428205501579
+pull-coord34-rate        = 2.1069792880581418e-07
+pull-coord34-k           = 10000.0
+pull-coord34-kB          = 10000
+pull-coord35-type        = umbrella
+pull-coord35-potential-provider = 
+pull-coord35-geometry    = distance
+pull-coord35-groups      = 69 70
+pull-coord35-dim         = Y Y Y
+pull-coord35-origin      = 0.0 0.0 0.0
+pull-coord35-vec         = 0.0 0.0 0.0
+pull-coord35-start       = no
+pull-coord35-init        = 0.5883090457087891
+pull-coord35-rate        = 2.2385683058865347e-07
+pull-coord35-k           = 10000.0
+pull-coord35-kB          = 10000
+pull-coord36-type        = umbrella
+pull-coord36-potential-provider = 
+pull-coord36-geometry    = distance
+pull-coord36-groups      = 71 72
+pull-coord36-dim         = Y Y Y
+pull-coord36-origin      = 0.0 0.0 0.0
+pull-coord36-vec         = 0.0 0.0 0.0
+pull-coord36-start       = no
+pull-coord36-init        = 0.5880054102277648
+pull-coord36-rate        = 2.2143624682671614e-07
+pull-coord36-k           = 10000.0
+pull-coord36-kB          = 10000
+pull-coord37-type        = umbrella
+pull-coord37-potential-provider = 
+pull-coord37-geometry    = distance
+pull-coord37-groups      = 73 74
+pull-coord37-dim         = Y Y Y
+pull-coord37-origin      = 0.0 0.0 0.0
+pull-coord37-vec         = 0.0 0.0 0.0
+pull-coord37-start       = no
+pull-coord37-init        = 0.3653473935141545
+pull-coord37-rate        = -1.0088972281466324e-07
+pull-coord37-k           = 10000.0
+pull-coord37-kB          = 10000
+pull-coord38-type        = umbrella
+pull-coord38-potential-provider = 
+pull-coord38-geometry    = distance
+pull-coord38-groups      = 75 76
+pull-coord38-dim         = Y Y Y
+pull-coord38-origin      = 0.0 0.0 0.0
+pull-coord38-vec         = 0.0 0.0 0.0
+pull-coord38-start       = no
+pull-coord38-init        = 0.3656396975533362
+pull-coord38-rate        = -9.953005297432372e-08
+pull-coord38-k           = 10000.0
+pull-coord38-kB          = 10000
+pull-coord39-type        = umbrella
+pull-coord39-potential-provider = 
+pull-coord39-geometry    = distance
+pull-coord39-groups      = 77 78
+pull-coord39-dim         = Y Y Y
+pull-coord39-origin      = 0.0 0.0 0.0
+pull-coord39-vec         = 0.0 0.0 0.0
+pull-coord39-start       = no
+pull-coord39-init        = 0.36530571541996426
+pull-coord39-rate        = -9.910014852497762e-08
+pull-coord39-k           = 10000.0
+pull-coord39-kB          = 10000
+pull-coord40-type        = umbrella
+pull-coord40-potential-provider = 
+pull-coord40-geometry    = distance
+pull-coord40-groups      = 79 80
+pull-coord40-dim         = Y Y Y
+pull-coord40-origin      = 0.0 0.0 0.0
+pull-coord40-vec         = 0.0 0.0 0.0
+pull-coord40-start       = no
+pull-coord40-init        = 0.3668528667953835
+pull-coord40-rate        = -9.419662557342167e-08
+pull-coord40-k           = 10000.0
+pull-coord40-kB          = 10000
+pull-coord41-type        = umbrella
+pull-coord41-potential-provider = 
+pull-coord41-geometry    = distance
+pull-coord41-groups      = 81 82
+pull-coord41-dim         = Y Y Y
+pull-coord41-origin      = 0.0 0.0 0.0
+pull-coord41-vec         = 0.0 0.0 0.0
+pull-coord41-start       = no
+pull-coord41-init        = 0.4707833153600622
+pull-coord41-rate        = 3.645074662213732e-07
+pull-coord41-k           = 10000.0
+pull-coord41-kB          = 10000
+pull-coord42-type        = umbrella
+pull-coord42-potential-provider = 
+pull-coord42-geometry    = distance
+pull-coord42-groups      = 83 84
+pull-coord42-dim         = Y Y Y
+pull-coord42-origin      = 0.0 0.0 0.0
+pull-coord42-vec         = 0.0 0.0 0.0
+pull-coord42-start       = no
+pull-coord42-init        = 0.47123171074155473
+pull-coord42-rate        = 3.662908491958405e-07
+pull-coord42-k           = 10000.0
+pull-coord42-kB          = 10000
+pull-coord43-type        = umbrella
+pull-coord43-potential-provider = 
+pull-coord43-geometry    = distance
+pull-coord43-groups      = 85 86
+pull-coord43-dim         = Y Y Y
+pull-coord43-origin      = 0.0 0.0 0.0
+pull-coord43-vec         = 0.0 0.0 0.0
+pull-coord43-start       = no
+pull-coord43-init        = 0.47065957713677803
+pull-coord43-rate        = 3.6413727468509903e-07
+pull-coord43-k           = 10000.0
+pull-coord43-kB          = 10000
+pull-coord44-type        = umbrella
+pull-coord44-potential-provider = 
+pull-coord44-geometry    = distance
+pull-coord44-groups      = 87 88
+pull-coord44-dim         = Y Y Y
+pull-coord44-origin      = 0.0 0.0 0.0
+pull-coord44-vec         = 0.0 0.0 0.0
+pull-coord44-start       = no
+pull-coord44-init        = 0.47153599917703215
+pull-coord44-rate        = 3.660463122329305e-07
+pull-coord44-k           = 10000.0
+pull-coord44-kB          = 10000
+pull-coord45-type        = umbrella
+pull-coord45-potential-provider = 
+pull-coord45-geometry    = distance
+pull-coord45-groups      = 89 90
+pull-coord45-dim         = Y Y Y
+pull-coord45-origin      = 0.0 0.0 0.0
+pull-coord45-vec         = 0.0 0.0 0.0
+pull-coord45-start       = no
+pull-coord45-init        = 0.377141068230063
+pull-coord45-rate        = -8.56778388229047e-07
+pull-coord45-k           = 0.0
+pull-coord45-kB          = 0
+pull-coord46-type        = umbrella
+pull-coord46-potential-provider = 
+pull-coord46-geometry    = distance
+pull-coord46-groups      = 91 92
+pull-coord46-dim         = Y Y Y
+pull-coord46-origin      = 0.0 0.0 0.0
+pull-coord46-vec         = 0.0 0.0 0.0
+pull-coord46-start       = no
+pull-coord46-init        = 0.3733043399389059
+pull-coord46-rate        = -7.839206842634305e-07
+pull-coord46-k           = 0.0
+pull-coord46-kB          = 0
+pull-coord47-type        = umbrella
+pull-coord47-potential-provider = 
+pull-coord47-geometry    = distance
+pull-coord47-groups      = 93 94
+pull-coord47-dim         = Y Y Y
+pull-coord47-origin      = 0.0 0.0 0.0
+pull-coord47-vec         = 0.0 0.0 0.0
+pull-coord47-start       = no
+pull-coord47-init        = 0.37570829394972616
+pull-coord47-rate        = -8.319184268998825e-07
+pull-coord47-k           = 0.0
+pull-coord47-kB          = 0
+pull-coord48-type        = umbrella
+pull-coord48-potential-provider = 
+pull-coord48-geometry    = distance
+pull-coord48-groups      = 95 96
+pull-coord48-dim         = Y Y Y
+pull-coord48-origin      = 0.0 0.0 0.0
+pull-coord48-vec         = 0.0 0.0 0.0
+pull-coord48-start       = no
+pull-coord48-init        = 0.3741136986811388
+pull-coord48-rate        = -7.923049238997803e-07
+pull-coord48-k           = 0.0
+pull-coord48-kB          = 0
+pull-coord49-type        = umbrella
+pull-coord49-potential-provider = 
+pull-coord49-geometry    = distance
+pull-coord49-groups      = 97 98
+pull-coord49-dim         = Y Y Y
+pull-coord49-origin      = 0.0 0.0 0.0
+pull-coord49-vec         = 0.0 0.0 0.0
+pull-coord49-start       = no
+pull-coord49-init        = 0.46560919238187
+pull-coord49-rate        = 1.2478537201515327e-06
+pull-coord49-k           = 0.0
+pull-coord49-kB          = 0
+pull-coord50-type        = umbrella
+pull-coord50-potential-provider = 
+pull-coord50-geometry    = distance
+pull-coord50-groups      = 99 100
+pull-coord50-dim         = Y Y Y
+pull-coord50-origin      = 0.0 0.0 0.0
+pull-coord50-vec         = 0.0 0.0 0.0
+pull-coord50-start       = no
+pull-coord50-init        = 0.47576217532810683
+pull-coord50-rate        = 1.0681138326332863e-06
+pull-coord50-k           = 0.0
+pull-coord50-kB          = 0
+pull-coord51-type        = umbrella
+pull-coord51-potential-provider = 
+pull-coord51-geometry    = distance
+pull-coord51-groups      = 101 102
+pull-coord51-dim         = Y Y Y
+pull-coord51-origin      = 0.0 0.0 0.0
+pull-coord51-vec         = 0.0 0.0 0.0
+pull-coord51-start       = no
+pull-coord51-init        = 0.47155204512773174
+pull-coord51-rate        = 1.1346757286620356e-06
+pull-coord51-k           = 0.0
+pull-coord51-kB          = 0
+pull-coord52-type        = umbrella
+pull-coord52-potential-provider = 
+pull-coord52-geometry    = distance
+pull-coord52-groups      = 103 104
+pull-coord52-dim         = Y Y Y
+pull-coord52-origin      = 0.0 0.0 0.0
+pull-coord52-vec         = 0.0 0.0 0.0
+pull-coord52-start       = no
+pull-coord52-init        = 0.4705811304013068
+pull-coord52-rate        = 1.1571912421170906e-06
+pull-coord52-k           = 0.0
+pull-coord52-kB          = 0
+pull-coord53-type        = umbrella
+pull-coord53-potential-provider = 
+pull-coord53-geometry    = distance
+pull-coord53-groups      = 105 106
+pull-coord53-dim         = Y Y Y
+pull-coord53-origin      = 0.0 0.0 0.0
+pull-coord53-vec         = 0.0 0.0 0.0
+pull-coord53-start       = no
+pull-coord53-init        = 1.2449336049991533
+pull-coord53-rate        = -1.429479308990711e-07
+pull-coord53-k           = 10000.0
+pull-coord53-kB          = 10000
+pull-coord54-type        = umbrella
+pull-coord54-potential-provider = 
+pull-coord54-geometry    = distance
+pull-coord54-groups      = 107 108
+pull-coord54-dim         = Y Y Y
+pull-coord54-origin      = 0.0 0.0 0.0
+pull-coord54-vec         = 0.0 0.0 0.0
+pull-coord54-start       = no
+pull-coord54-init        = 1.2448877307981008
+pull-coord54-rate        = -1.431272936957484e-07
+pull-coord54-k           = 10000.0
+pull-coord54-kB          = 10000
+pull-coord55-type        = umbrella
+pull-coord55-potential-provider = 
+pull-coord55-geometry    = distance
+pull-coord55-groups      = 109 110
+pull-coord55-dim         = Y Y Y
+pull-coord55-origin      = 0.0 0.0 0.0
+pull-coord55-vec         = 0.0 0.0 0.0
+pull-coord55-start       = no
+pull-coord55-init        = 1.2442477703347994
+pull-coord55-rate        = -1.46460374444759e-07
+pull-coord55-k           = 10000.0
+pull-coord55-kB          = 10000
+pull-coord56-type        = umbrella
+pull-coord56-potential-provider = 
+pull-coord56-geometry    = distance
+pull-coord56-groups      = 111 112
+pull-coord56-dim         = Y Y Y
+pull-coord56-origin      = 0.0 0.0 0.0
+pull-coord56-vec         = 0.0 0.0 0.0
+pull-coord56-start       = no
+pull-coord56-init        = 1.244456199975269
+pull-coord56-rate        = -1.4448389123788096e-07
+pull-coord56-k           = 10000.0
+pull-coord56-kB          = 10000
+pull-coord57-type        = umbrella
+pull-coord57-potential-provider = 
+pull-coord57-geometry    = distance
+pull-coord57-groups      = 113 114
+pull-coord57-dim         = Y Y Y
+pull-coord57-origin      = 0.0 0.0 0.0
+pull-coord57-vec         = 0.0 0.0 0.0
+pull-coord57-start       = no
+pull-coord57-init        = 0.7
+pull-coord57-rate        = -3.5999999999999986e-06
+pull-coord57-k           = 10000.0
+pull-coord57-kB          = 10000
+pull-coord58-type        = umbrella
+pull-coord58-potential-provider = 
+pull-coord58-geometry    = distance
+pull-coord58-groups      = 115 116
+pull-coord58-dim         = Y Y Y
+pull-coord58-origin      = 0.0 0.0 0.0
+pull-coord58-vec         = 0.0 0.0 0.0
+pull-coord58-start       = no
+pull-coord58-init        = 0.7
+pull-coord58-rate        = -3.5999999999999986e-06
+pull-coord58-k           = 10000.0
+pull-coord58-kB          = 10000
+pull-coord59-type        = umbrella
+pull-coord59-potential-provider = 
+pull-coord59-geometry    = distance
+pull-coord59-groups      = 117 118
+pull-coord59-dim         = Y Y Y
+pull-coord59-origin      = 0.0 0.0 0.0
+pull-coord59-vec         = 0.0 0.0 0.0
+pull-coord59-start       = no
+pull-coord59-init        = 0.7
+pull-coord59-rate        = -3.5999999999999986e-06
+pull-coord59-k           = 10000.0
+pull-coord59-kB          = 10000
+pull-coord60-type        = umbrella
+pull-coord60-potential-provider = 
+pull-coord60-geometry    = distance
+pull-coord60-groups      = 119 120
+pull-coord60-dim         = Y Y Y
+pull-coord60-origin      = 0.0 0.0 0.0
+pull-coord60-vec         = 0.0 0.0 0.0
+pull-coord60-start       = no
+pull-coord60-init        = 0.7
+pull-coord60-rate        = -3.5999999999999986e-06
+pull-coord60-k           = 10000.0
+pull-coord60-kB          = 10000
+
+; AWH biasing          
+awh                      = no
+
+; ENFORCED ROTATION    
+; Enforced rotation: No or Yes
+rotation                 = no
+
+; Group to display and/or manipulate in interactive MD session
+IMD-group                = 
+
+; NMR refinement stuff 
+; Distance restraints type: No, Simple or Ensemble
+disre                    = No
+; Force weighting of pairs in one distance restraint: Conservative or Equal
+disre-weighting          = Conservative
+; Use sqrt of the time averaged times the instantaneous violation
+disre-mixed              = no
+disre-fc                 = 1000
+disre-tau                = 0
+; Output frequency for pair distances to energy file
+nstdisreout              = 0
+; Orientation restraints: No or Yes
+orire                    = no
+; Orientation restraints force constant and tau for time averaging
+orire-fc                 = 0
+orire-tau                = 0
+orire-fitgrp             = 
+; Output frequency for trace(SD) and S to energy file
+nstorireout              = 100
+
+; Free energy variables
+free-energy              = no
+couple-moltype           = 
+couple-lambda0           = vdw-q
+couple-lambda1           = vdw-q
+couple-intramol          = no
+init-lambda              = -1
+init-lambda-state        = -1
+delta-lambda             = 0
+nstdhdl                  = 50
+fep-lambdas              = 
+mass-lambdas             = 
+coul-lambdas             = 
+vdw-lambdas              = 
+bonded-lambdas           = 
+restraint-lambdas        = 
+temperature-lambdas      = 
+calc-lambda-neighbors    = 1
+init-lambda-weights      = 
+dhdl-print-energy        = no
+sc-alpha                 = 0
+sc-power                 = 1
+sc-r-power               = 6
+sc-sigma                 = 0.3
+sc-coul                  = no
+separate-dhdl-file       = yes
+dhdl-derivatives         = yes
+dh_hist_size             = 0
+dh_hist_spacing          = 0.1
+
+; Non-equilibrium MD stuff
+acc-grps                 = 
+accelerate               = 
+freezegrps               = 
+freezedim                = 
+cos-acceleration         = 0
+deform                   = 
+
+; simulated tempering variables
+simulated-tempering      = no
+simulated-tempering-scaling = geometric
+sim-temp-low             = 300
+sim-temp-high            = 300
+
+; Ion/water position swapping for computational electrophysiology setups
+; Swap positions along direction: no, X, Y, Z
+swapcoords               = no
+adress                   = no
+
+; User defined thingies
+user1-grps               = 
+user2-grps               = 
+userint1                 = 0
+userint2                 = 0
+userint3                 = 0
+userint4                 = 0
+userreal1                = 0
+userreal2                = 0
+userreal3                = 0
+userreal4                = 0
+; Electric fields
+; Format for electric-field-x, etc. is: four real variables:
+; amplitude (V/nm), frequency omega (1/ps), time for the pulse peak (ps),
+; and sigma (ps) width of the pulse. Omega = 0 means static field,
+; sigma = 0 means no pulse, leaving the field to be a cosine function.
+electric-field-x         = 0 0 0 0
+electric-field-y         = 0 0 0 0
+electric-field-z         = 0 0 0 0
+
+; Density guided simulation
+density-guided-simulation-active = false

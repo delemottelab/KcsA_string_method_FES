@@ -3,7 +3,7 @@
 # VMD version: 1.9.4a51
 set viewplist {}
 set fixedlist {}
-set directory "C2I_v1_amber/md/1/"
+set directory "noLB-AMBER/md/1/"
 proc vmdrestoremymaterials {} {
     set mlist { Opaque Transparent BrushedMetal Diffuse Ghost Glass1 Glass2\
       Glass3 Glossy HardPlastic MetallicPastel Steel Translucent Edgy\

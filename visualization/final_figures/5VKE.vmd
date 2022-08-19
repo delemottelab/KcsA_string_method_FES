@@ -387,7 +387,7 @@ display aodirect 0.300000
 display dof off
 display dof_fnumber 64.000000
 display dof_focaldist 0.700000
-mol new ../../data/raw/C2I_lb_v1/topology/5VKH.pdb type pdb first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol new ../../data/raw/LB-CHARMM/topology/5VKH.pdb type pdb first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
 mol delrep 0 top
 mol representation NewCartoon 0.300000 10.000000 4.100000 0
 mol color Name
@@ -638,7 +638,7 @@ molinfo top set drawn 0
 set viewpoints([molinfo top]) {{{1 0 0 -40.5675} {0 1 0 -40.2547} {0 0 1 -406.758} {0 0 0 1}} {{0.19797 0.979855 -0.0262727 0} {-0.0621946 0.0393055 0.997288 0} {0.97823 -0.1958 0.0687236 0} {0 0 0 1}} {{0.047463 0 0 0} {0 0.047463 0 0} {0 0 0.047463 0} {0 0 0 1}} {{1 0 0 0} {0 1 0 0} {0 0 1 0} {0 0 0 1}}}
 lappend viewplist [molinfo top]
 # done with molecule 0
-mol new ../../data/raw/C2I_lb_v1/topology/3FB5.pdb type pdb first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol new ../../data/raw/LB-CHARMM/topology/3FB5.pdb type pdb first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
 mol delrep 0 top
 mol representation NewCartoon 0.300000 10.000000 4.100000 0
 mol color Name
@@ -1098,7 +1098,7 @@ molinfo top set drawn 0
 set viewpoints([molinfo top]) {{{1 0 0 -40.5675} {0 1 0 -40.2547} {0 0 1 -406.758} {0 0 0 1}} {{0.19797 0.979855 -0.0262727 0} {-0.0621946 0.0393055 0.997288 0} {0.97823 -0.1958 0.0687236 0} {0 0 0 1}} {{0.047463 0 0 0} {0 0.047463 0 0} {0 0 0.047463 0} {0 0 0 1}} {{1 0 0 0} {0 1 0 0} {0 0 1 0} {0 0 0 1}}}
 lappend viewplist [molinfo top]
 # done with molecule 2
-mol new ../../data/raw/C2I_lb_v1/topology/5VKE.pdb type pdb first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol new ../../data/raw/LB-CHARMM/topology/5VKE.pdb type pdb first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
 mol delrep 0 top
 mol representation NewCartoon 0.300000 10.000000 4.100000 0
 mol color Name

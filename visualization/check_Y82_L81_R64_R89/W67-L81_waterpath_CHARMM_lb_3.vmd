@@ -387,22 +387,22 @@ display aodirect 0.300000
 display dof off
 display dof_fnumber 64.000000
 display dof_focaldist 0.700000
-mol new ../..//data/raw/C2I_lb_v1/md/800/1/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../..//data/raw/C2I_lb_v1/md/800/2/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../..//data/raw/C2I_lb_v1/md/800/3/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../..//data/raw/C2I_lb_v1/md/800/4/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../..//data/raw/C2I_lb_v1/md/800/5/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../..//data/raw/C2I_lb_v1/md/800/6/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../..//data/raw/C2I_lb_v1/md/800/7/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../..//data/raw/C2I_lb_v1/md/800/8/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../..//data/raw/C2I_lb_v1/md/800/9/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../..//data/raw/C2I_lb_v1/md/800/10/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../..//data/raw/C2I_lb_v1/md/800/11/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../..//data/raw/C2I_lb_v1/md/800/12/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../..//data/raw/C2I_lb_v1/md/800/13/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../..//data/raw/C2I_lb_v1/md/800/14/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../..//data/raw/C2I_lb_v1/md/800/15/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../..//data/raw/C2I_lb_v1/md/800/16/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol new ../..//data/raw/LB-CHARMM/md/800/1/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../..//data/raw/LB-CHARMM/md/800/2/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../..//data/raw/LB-CHARMM/md/800/3/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../..//data/raw/LB-CHARMM/md/800/4/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../..//data/raw/LB-CHARMM/md/800/5/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../..//data/raw/LB-CHARMM/md/800/6/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../..//data/raw/LB-CHARMM/md/800/7/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../..//data/raw/LB-CHARMM/md/800/8/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../..//data/raw/LB-CHARMM/md/800/9/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../..//data/raw/LB-CHARMM/md/800/10/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../..//data/raw/LB-CHARMM/md/800/11/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../..//data/raw/LB-CHARMM/md/800/12/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../..//data/raw/LB-CHARMM/md/800/13/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../..//data/raw/LB-CHARMM/md/800/14/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../..//data/raw/LB-CHARMM/md/800/15/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../..//data/raw/LB-CHARMM/md/800/16/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
 mol delrep 0 top
 mol representation NewCartoon 0.300000 10.000000 4.100000 0
 mol color Name
@@ -575,7 +575,7 @@ mol clipplane color  5 4 top {0.5 0.5 0.5 }
 mol clipplane normal 5 4 top {0.0 0.0 1.0}
 mol clipplane status 5 4 top {0}
 mol showrep top 4 0
-mol rename top {C2I_lb_v1 string800}
+mol rename top {LB-CHARMM string800}
 set viewpoints([molinfo top]) {{{1 0 0 -30.2058} {0 1 0 -33.9768} {0 0 1 -59.5408} {0 0 0 1}} {{-0.958859 0.170257 -0.227144 0} {-0.258296 -0.191397 0.946918 0} {0.117739 0.966631 0.227505 0} {0 0 0 1}} {{0.116509 0 0 0} {0 0.116509 0 0} {0 0 0.116509 0} {0 0 0 1}} {{1 0 0 -0.23} {0 1 0 -1.05} {0 0 1 0} {0 0 0 1}}}
 lappend viewplist [molinfo top]
 set topmol [molinfo top]
@@ -741,7 +741,7 @@ color scale colors WBlk {1.0 1.0 1.0} {0.5 0.5 0.5} {0.0 0.0 0.0}
     {color Segname {} blue}
     {color Conformation {all} blue}
     {color Molecule {0} blue}
-    {color Molecule {C2I_lb_v1 string800} blue}
+    {color Molecule {LB-CHARMM string800} blue}
     {color Structure {3_10_Helix} blue}
     {color Surface {Grasp} gray}
     {color Labels {Springs} orange}

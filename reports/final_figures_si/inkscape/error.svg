@@ -2314,8 +2314,8 @@
            style="font-size:16.93330002px;stroke-width:1"
            id="tspan713">(a)</tspan></tspan></text>
     <image
-       sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures_si/inkscape/../plots/FES_error_C2I_v1_amber.png"
-       xlink:href="../plots/FES_error_C2I_v1_amber.png"
+       sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures_si/inkscape/../plots/FES_error_noLB-AMBER.png"
+       xlink:href="../plots/FES_error_noLB-AMBER.png"
        width="400"
        height="280"
        preserveAspectRatio="none"
@@ -2323,8 +2323,8 @@
        x="-572.09979"
        y="9.2857933" />
     <image
-       sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures_si/inkscape/../plots/FES_error_C2I_lb_v1_amber.png"
-       xlink:href="../plots/FES_error_C2I_lb_v1_amber.png"
+       sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures_si/inkscape/../plots/FES_error_LB-AMBER.png"
+       xlink:href="../plots/FES_error_LB-AMBER.png"
        y="-286.45264"
        x="-763.63135"
        id="image7420"
@@ -2332,8 +2332,8 @@
        height="280"
        width="400" />
     <image
-       sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures_si/inkscape/../plots/FES_error_C2I_lb_v1.png"
-       xlink:href="../plots/FES_error_C2I_lb_v1.png"
+       sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures_si/inkscape/../plots/FES_error_LB-CHARMM.png"
+       xlink:href="../plots/FES_error_LB-CHARMM.png"
        width="403.30728"
        height="282.31509"
        preserveAspectRatio="none"

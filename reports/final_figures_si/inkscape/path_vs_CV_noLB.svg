@@ -1604,8 +1604,8 @@
            style="font-size:16.93330002px;stroke-width:1"
            id="tspan241">(f)</tspan></tspan></text>
     <image
-       sodipodi:absref="/home/sperez/Projects/string_sims/reports/final_figures_si/inkscape/../plots/projection_H2O_in_SF_C2I_v1_amber.png"
-       xlink:href="../plots/projection_H2O_in_SF_C2I_v1_amber.png"
+       sodipodi:absref="/home/sperez/Projects/string_sims/reports/final_figures_si/inkscape/../plots/projection_H2O_in_SF_noLB-AMBER.png"
+       xlink:href="../plots/projection_H2O_in_SF_noLB-AMBER.png"
        width="400"
        height="280"
        preserveAspectRatio="none"

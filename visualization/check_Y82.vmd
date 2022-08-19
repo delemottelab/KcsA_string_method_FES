@@ -3,7 +3,7 @@
 # VMD version: 1.9.3
 set viewplist {}
 set fixedlist {}
-set sim C2I_lb_v1
+set sim LB-CHARMM
 proc vmdrestoremymaterials {} {
   set mlist { Opaque Transparent BrushedMetal Diffuse Ghost Glass1 Glass2 Glass3 Glossy HardPlastic MetallicPastel Steel Translucent Edgy EdgyShiny EdgyGlass Goodsell AOShiny AOChalky AOEdgy BlownGlass GlassBubble RTChrome AOTransparent AOBright WaterBox }
   set mymlist [material list]

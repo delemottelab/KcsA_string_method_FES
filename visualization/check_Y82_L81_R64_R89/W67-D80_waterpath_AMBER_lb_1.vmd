@@ -387,22 +387,22 @@ display aodirect 0.300000
 display dof off
 display dof_fnumber 64.000000
 display dof_focaldist 0.700000
-mol new ../..//data/raw/C2I_lb_v1_amber/md/799/1/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../..//data/raw/C2I_lb_v1_amber/md/799/2/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../..//data/raw/C2I_lb_v1_amber/md/799/3/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../..//data/raw/C2I_lb_v1_amber/md/799/4/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../..//data/raw/C2I_lb_v1_amber/md/799/5/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../..//data/raw/C2I_lb_v1_amber/md/799/6/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../..//data/raw/C2I_lb_v1_amber/md/799/7/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../..//data/raw/C2I_lb_v1_amber/md/799/8/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../..//data/raw/C2I_lb_v1_amber/md/799/9/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../..//data/raw/C2I_lb_v1_amber/md/799/10/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../..//data/raw/C2I_lb_v1_amber/md/799/11/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../..//data/raw/C2I_lb_v1_amber/md/799/12/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../..//data/raw/C2I_lb_v1_amber/md/799/13/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../..//data/raw/C2I_lb_v1_amber/md/799/14/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../..//data/raw/C2I_lb_v1_amber/md/799/15/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile ../..//data/raw/C2I_lb_v1_amber/md/799/16/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol new ../..//data/raw/LB-AMBER/md/799/1/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../..//data/raw/LB-AMBER/md/799/2/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../..//data/raw/LB-AMBER/md/799/3/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../..//data/raw/LB-AMBER/md/799/4/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../..//data/raw/LB-AMBER/md/799/5/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../..//data/raw/LB-AMBER/md/799/6/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../..//data/raw/LB-AMBER/md/799/7/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../..//data/raw/LB-AMBER/md/799/8/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../..//data/raw/LB-AMBER/md/799/9/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../..//data/raw/LB-AMBER/md/799/10/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../..//data/raw/LB-AMBER/md/799/11/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../..//data/raw/LB-AMBER/md/799/12/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../..//data/raw/LB-AMBER/md/799/13/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../..//data/raw/LB-AMBER/md/799/14/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../..//data/raw/LB-AMBER/md/799/15/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile ../..//data/raw/LB-AMBER/md/799/16/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
 mol delrep 0 top
 mol representation NewCartoon 0.300000 10.000000 4.100000 0
 mol color Name
@@ -506,7 +506,7 @@ mol clipplane center 5 2 top {0.0 0.0 0.0}
 mol clipplane color  5 2 top {0.5 0.5 0.5 }
 mol clipplane normal 5 2 top {0.0 0.0 1.0}
 mol clipplane status 5 2 top {0}
-mol rename top {C2I_lb_v1_amber string800}
+mol rename top {LB-AMBER string800}
 set viewpoints([molinfo top]) {{{1 0 0 -38.6015} {0 1 0 -45.5416} {0 0 1 -58.1451} {0 0 0 1}} {{-0.981101 0.180813 -0.0688235 0} {-0.0812591 -0.0623299 0.994753 0} {0.175574 0.981535 0.0758519 0} {0 0 0 1}} {{0.146866 0 0 0} {0 0.146866 0 0} {0 0 0.146866 0} {0 0 0 1}} {{1 0 0 0.05} {0 1 0 -0.89} {0 0 1 0} {0 0 0 1}}}
 lappend viewplist [molinfo top]
 set topmol [molinfo top]
@@ -675,7 +675,7 @@ color scale colors WBlk {1.0 1.0 1.0} {0.5 0.5 0.5} {0.0 0.0 0.0}
     {color Segname {} blue}
     {color Conformation {all} blue}
     {color Molecule {0} blue}
-    {color Molecule {C2I_lb_v1_amber string800} blue}
+    {color Molecule {LB-AMBER string800} blue}
     {color Structure {3_10_Helix} blue}
     {color Surface {Grasp} gray}
     {color Labels {Springs} orange}

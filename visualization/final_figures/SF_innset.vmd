@@ -387,9 +387,9 @@ display aodirect 0.300000
 display dof off
 display dof_fnumber 64.000000
 display dof_focaldist 0.700000
-mol new ../../data/raw/C2I_lb_v1/topology/5VKH.pdb type pdb first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile /data/sperez/Projects/string_sims/data/raw/C2I_lb_v1/md/800/1/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
-mol addfile /data/sperez/Projects/string_sims/data/raw/C2I_lb_v1/md/800/16/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol new ../../data/raw/LB-CHARMM/topology/5VKH.pdb type pdb first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile /data/sperez/Projects/string_sims/data/raw/LB-CHARMM/md/800/1/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
+mol addfile /data/sperez/Projects/string_sims/data/raw/LB-CHARMM/md/800/16/restrained/confout.gro type gro first 0 last -1 step 1 filebonds 1 autobonds 1 waitfor all
 mol delrep 0 top
 mol representation NewRibbons 0.300000 12.000000 3.000000 0
 mol color Name
