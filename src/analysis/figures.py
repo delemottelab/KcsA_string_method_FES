@@ -30,7 +30,7 @@ def final_FES_IG_SF(
     fig_title=None,
     show_cbar=False,
     version="",
-    restarts=True,
+    restarts=False,
 ):
 
     F = np.load(f"{path_processed}/{name}/FES_SF_IG.npy")
@@ -188,6 +188,7 @@ def final_2D_string_convergence(
         fig_title=fig_title,
         position="lower left",
     )
+    ax.set_box_aspect(1)
     fig.tight_layout()
     fig.savefig(f"{path_report}/convergence_2D_{name}.png")
     return fig, ax
@@ -230,22 +231,20 @@ def final_1D_path(
     return fig, ax
 
 
-def final_rmsd_string(
-    path_data,
-    path_report,
-    sim_name,
-):
+def final_rmsd_string(path_data, path_report, sim_name, version=""):
     fig, ax = plt.subplots(1, 1, figsize=(10, 7), sharex=True, sharey=True)
-    for name in sim_name.keys():
+    colors = ["C0", "C1", "C3"]
+    for name, c in zip(sim_name.keys(), colors):
         files = natural_sort(glob.glob(f"{path_data}/{name}/strings/string[0-9]*txt"))
         strings = np.array([np.loadtxt(file).T for file in files])
         label = sim_name[name]
         fig, ax = all_rmsd_strings_time_series(
-            strings, "RMSD[String] (nm)", label=label, fig=fig, ax=ax
+            strings, "RMSD[String] (nm)", label=label, fig=fig, ax=ax, color=c
         )
     ax.tick_params("x", labelsize=15)
     ax.tick_params("y", labelsize=15)
     ax.grid(False)
+    fig.savefig(path_report + f"RMSD_string{version}.png")
     return fig, ax
 
 

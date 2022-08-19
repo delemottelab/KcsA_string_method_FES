@@ -253,14 +253,16 @@ def two_cv_strings_time_series(
     return fig, ax
 
 
-def all_rmsd_strings_time_series(strings, ylabel, label=None, fig=None, ax=None):
+def all_rmsd_strings_time_series(
+    strings, ylabel, label=None, fig=None, ax=None, color="C1"
+):
     n_strings = strings.shape[0]
     if fig is None:
         fig, ax = plt.subplots(1, 1, figsize=(10, 8))
     x = np.arange(n_strings)
     y = strings[:, :, :] - strings[0, :, :]
     y = np.sqrt(np.sum(y * y, axis=(1, 2)) / strings.shape[2])
-    ax.plot(x, y, label=label)
+    ax.plot(x, y, label=label, color=color)
     ax.set_ylabel(
         ylabel,
         size=18,
