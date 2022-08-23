@@ -57,13 +57,13 @@ string[1-9]*.txt
 cv_iter*npy
 postprocessing
 core
-data/raw/C2I_v1_amber/0_34beads/*/restrained/*tpr
-data/raw/C2I_v1_amber/0_34beads/*/restrained/*log
-data/raw/C2I_v1_amber/0_34beads/*/restrained/mdout.mdp
-data/raw/C2I_v1_amber/0_save/
+data/raw/noLB-AMBER/0_34beads/*/restrained/*tpr
+data/raw/noLB-AMBER/0_34beads/*/restrained/*log
+data/raw/noLB-AMBER/0_34beads/*/restrained/mdout.mdp
+data/raw/noLB-AMBER/0_save/
 slurm_out/
 
-data/raw/C2I_v1_amber_old/
+data/raw/noLB-AMBER_old/
 
 build/
 
@@ -72,7 +72,7 @@ dist/
 src.egg-info/
 md.tar.gz
 
-data/raw/C2I_v1_amber/0_34beads/9/restrained/grompp.mdp
+data/raw/noLB-AMBER/0_34beads/9/restrained/grompp.mdp
 
 notebooks/*-dev.ipynb
 
@@ -81,22 +81,22 @@ notebooks/*-dev.ipynb
 *tga
 *npy
 
-data/processed/C2I_lb_v1/errors_100_5.npy
-data/processed/C2I_lb_v1/errors_200_5.npy
-data/processed/C2I_lb_v1/errors_20_5.npy
-data/processed/C2I_lb_v1/errors_400_5.npy
-data/processed/C2I_lb_v1/errors_50_5.npy
+data/processed/LB-CHARMM/errors_100_5.npy
+data/processed/LB-CHARMM/errors_200_5.npy
+data/processed/LB-CHARMM/errors_20_5.npy
+data/processed/LB-CHARMM/errors_400_5.npy
+data/processed/LB-CHARMM/errors_50_5.npy
 notebooks/string_analysis_FES-dev-Copy1.ipynb
 notebooks/string_analysis_FES-dev-Copy2_test.ipynb
 notebooks/string_analysis_FES-dev_test.ipynb
-data/interim/C2I_lb_v1/cv_coordinates.npy
-data/interim/C2I_lb_v1/cv_proj.npy
-data/processed/C2I_lb_v1/FES_SF_IG.npy
+data/interim/LB-CHARMM/cv_coordinates.npy
+data/interim/LB-CHARMM/cv_proj.npy
+data/processed/LB-CHARMM/FES_SF_IG.npy
 data/processed/XRD/XRD.pickle
-data/raw/C2I_v1_amber/topology/show_cv.tcl
+data/raw/noLB-AMBER/topology/show_cv.tcl
 
-data/raw/C2I_lb_v1/save/108
-data/raw/C2I_lb_v1/save/400
+data/raw/LB-CHARMM/save/108
+data/raw/LB-CHARMM/save/400
 notebooks/string_analysis_FES-dev_v1.ipynb
 notebooks/string_analysis_FES-dev_v1_amber.ipynb
 notebooks/string_analysis_FES-dev_v1_lb_amber_out.ipynb
@@ -113,7 +113,6 @@ data/processed/*/SF_occupation_data.pkl
 
 notebooks/calculate_cvs-Copy1.ipynb
 
-data/raw/C2I_v1/save
-data/raw/C2I_v1/save
+data/raw/noLB-CHARMM/save
 data/5VKH_25-122
 data/5VKE*
