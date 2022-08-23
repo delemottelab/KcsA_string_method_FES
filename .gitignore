@@ -116,3 +116,6 @@ notebooks/calculate_cvs-Copy1.ipynb
 data/raw/noLB-CHARMM/save
 data/5VKH_25-122
 data/5VKE*
+
+tutorial/
+*noLB-CHARMM*
