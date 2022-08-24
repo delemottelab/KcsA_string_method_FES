@@ -116,6 +116,7 @@ def final_cv_projection(
     show_cbar=False,
     fig=None,
     ax=None,
+    cmap=plt.cm.viridis_r,
 ):
 
     F = np.load(f"{path_processed}/{name}/FES_SF_IG.npy")
@@ -125,7 +126,7 @@ def final_cv_projection(
         fig, ax = plot_2D_heatmap(
             cv_data,
             extent,
-            cmap=plt.cm.viridis_r,
+            cmap=cmap,
             f_max=f_max,
             f_min=f_min,
             cbar_label=cv_label,
