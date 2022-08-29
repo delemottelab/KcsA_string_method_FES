@@ -319,9 +319,10 @@ def final_SF_content(name, path_processed, path_report, fig_title, version=""):
                 c_min=0,
                 c_max=25,
                 c_color=colors[i],
+                labelsize=13,
             )
             ax[j, i].grid(None)
-            ax[j, i].set_title(f"Site {j+1}")
+            ax[j, i].set_title(f"Site {j+1}", pad=15, size=15)
     fig.tight_layout()
     fig.savefig(f"{path_report}/SF_content_per_site_{name}{version}.png")
     return fig, ax

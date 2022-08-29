@@ -49,6 +49,7 @@ def plot_2D_heatmap(
     fig_title=None,
     show_grid=True,
     show_cbar=True,
+    labelsize=15,
 ):
 
     if ax is None:
@@ -76,8 +77,8 @@ def plot_2D_heatmap(
             vmax=c_max,
             colors=c_color,
         )
-    ax.set_xlabel(xlabel, size=23, labelpad=15)
-    ax.set_ylabel(ylabel, size=23, labelpad=15)
+    ax.set_xlabel(xlabel, size=labelsize, labelpad=15)
+    ax.set_ylabel(ylabel, size=labelsize, labelpad=15)
     ax.set_title(fig_title, size=27, pad=15)
     ax.tick_params("x", labelsize=15)
     ax.tick_params("y", labelsize=15)
