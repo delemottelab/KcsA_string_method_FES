@@ -172,16 +172,13 @@ def final_cv_projection(
 
 
 def final_2D_string_convergence(
-    name,
-    path_data,
-    path_report,
-    fig_title,
+    name, path_data, path_report, fig_title, inset_pos=None
 ):
     files = natural_sort(glob.glob(f"{path_data}/{name}/strings/string[0-9]*txt"))
     strings = np.array([np.loadtxt(file).T for file in files])
     reduced_string = strings_to_SF_IG(strings, [0, 1], [10, 11])
     reduced_string_labels = ["SF (nm)", "IG (nm)"]
-    fig, ax = two_cv_strings_time_series(
+    fig, aa = two_cv_strings_time_series(
         reduced_string,
         reduced_string_labels,
         start_iteration=0,
@@ -190,10 +187,23 @@ def final_2D_string_convergence(
         fig_title=fig_title,
         position="lower left",
     )
-    ax.set_box_aspect(1)
+    ax2 = fig.add_axes(inset_pos)
+    two_cv_strings_time_series(
+        reduced_string[:10, :, :],
+        [None, None],
+        start_iteration=0,
+        n_average=1,
+        av_last_n_it=1,
+        fig_title=None,
+        position="lower left",
+        ax=ax2,
+        fig=fig,
+        inset=True,
+    )
+    aa.set_box_aspect(1)
+    ax2.set_box_aspect(1)
     fig.tight_layout()
     fig.savefig(f"{path_report}/convergence_2D_{name}.png")
-    return fig, ax
 
 
 def final_1D_path(

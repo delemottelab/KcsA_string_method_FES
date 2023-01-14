@@ -172,7 +172,8 @@ def rmsd_strings_time_series(strings, ndx_groups):
         a.plot(x, y)
 
         a.set_ylabel(
-            f"RMSD[{list(ndx_groups.keys())[2*i]} - {list(ndx_groups.keys())[2*i+1]} (nm)]",
+            f"RMSD[{list(ndx_groups.keys())[2*i]} -"
+            f" {list(ndx_groups.keys())[2*i+1]} (nm)]",
             size=18,
             labelpad=16,
         )
@@ -191,10 +192,14 @@ def two_cv_strings_time_series(
     av_last_n_it=None,
     fig_title=None,
     position="best",
+    ax=None,
+    fig=None,
+    inset=False,
 ):
 
     n_strings = strings.shape[0]
-    fig, ax = plt.subplots(1, 1, figsize=(10, 7))
+    if fig is None and ax is None:
+        fig, ax = plt.subplots(1, 1, figsize=(10, 7))
     cmap = plt.cm.viridis_r
     n_colors = (n_strings - start_iteration) // n_average + 1
     colors = cmap(np.linspace(0, 1, n_colors))  # yellow to blue
@@ -246,11 +251,14 @@ def two_cv_strings_time_series(
     ax.yaxis.set_minor_locator(MultipleLocator(0.1))
     ax.yaxis.set_major_locator(MultipleLocator(0.1))
     ax.grid(which="minor")
-    ax.tick_params("x", labelsize=15)
-    ax.tick_params("y", labelsize=15)
-    ax.set_title(fig_title, size=27, pad=15)
-    ax.legend(loc=position, prop={"size": 15})
-    _colorbar(ax, cmap, norm, "iteration number", 20)
+    ax.tick_params("x", labelsize=7)
+    ax.tick_params("y", labelsize=7)
+    if not inset:
+        ax.tick_params("x", labelsize=15)
+        ax.tick_params("y", labelsize=15)
+        ax.set_title(fig_title, size=27, pad=15)
+        ax.legend(loc=position, prop={"size": 15})
+        _colorbar(ax, cmap, norm, "iteration number", 20)
     return fig, ax
 
 
