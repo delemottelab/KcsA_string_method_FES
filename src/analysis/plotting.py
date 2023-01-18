@@ -257,7 +257,7 @@ def two_cv_strings_time_series(
         ax.tick_params("x", labelsize=15)
         ax.tick_params("y", labelsize=15)
         ax.set_title(fig_title, size=27, pad=15)
-        ax.legend(loc=position, prop={"size": 15})
+        # ax.legend(loc=position, prop={"size": 15})
         _colorbar(ax, cmap, norm, "iteration number", 20)
     return fig, ax
 
