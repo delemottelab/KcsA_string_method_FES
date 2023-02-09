@@ -51,7 +51,6 @@ def plot_2D_heatmap(
     show_cbar=True,
     labelsize=15,
 ):
-
     if ax is None:
         fig, ax = plt.subplots(1, 1, figsize=(10, 7), sharex=True, sharey=True)
     if cmap is None:
@@ -96,7 +95,6 @@ def strings_time_series(
     sharey=False,
     sharex=False,
 ):
-
     n_plots = strings.shape[1]
     n_strings = strings.shape[0]
     fig, ax = plt.subplots(
@@ -196,7 +194,6 @@ def two_cv_strings_time_series(
     fig=None,
     inset=False,
 ):
-
     n_strings = strings.shape[0]
     if fig is None and ax is None:
         fig, ax = plt.subplots(1, 1, figsize=(10, 7))
@@ -228,10 +225,10 @@ def two_cv_strings_time_series(
         )
 
     for jj, j in enumerate(range(start_iteration, n_strings, n_average)):
-        av_0 = np.mean(strings[j:, 0, :], axis=0)
-        std_0 = np.std(strings[j:, 0, :], axis=0)
-        av_1 = np.mean(strings[j:, 1, :], axis=0)
-        std_1 = np.std(strings[j:, 1, :], axis=0)
+        av_0 = np.mean(strings[j : j + n_average, 0, :], axis=0)
+        std_0 = np.std(strings[j : j + n_average, 0, :], axis=0)
+        av_1 = np.mean(strings[j : j + n_average, 1, :], axis=0)
+        std_1 = np.std(strings[j : j + n_average, 1, :], axis=0)
         ax.errorbar(
             av_0, av_1, fmt="--", xerr=std_0, yerr=std_1, color=colors[jj], alpha=0.9
         )
@@ -283,7 +280,6 @@ def all_rmsd_strings_time_series(
 
 
 def plot_FES_1d_vs_t(FES_vs_t, xlabel=None, cmap=None, fig=None, ax=None, error=None):
-
     if ax is None:
         fig, ax = plt.subplots(1, 1, figsize=(10, 7), sharex=True, sharey=True)
     if cmap is None:
@@ -441,7 +437,6 @@ def strings_time_series_lean(
     sharey=False,
     sharex=False,
 ):
-
     n_plots = strings.shape[1]
     n_strings = strings.shape[0]
     fig, ax = plt.subplots(
