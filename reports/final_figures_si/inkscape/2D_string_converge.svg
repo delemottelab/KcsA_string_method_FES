@@ -11,7 +11,7 @@
    inkscape:export-ydpi="96"
    inkscape:export-xdpi="96"
    inkscape:export-filename="/data/sperez/Projects/string_sims/reports/final_figures_si/panels/2D_string_convergence.png"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
    sodipodi:docname="2D_string_converge.svg"
    id="svg8"
    version="1.1"
@@ -1967,10 +1967,10 @@
   <sodipodi:namedview
      showguides="false"
      inkscape:window-maximized="1"
-     inkscape:window-y="0"
+     inkscape:window-y="1"
      inkscape:window-x="0"
-     inkscape:window-height="1011"
-     inkscape:window-width="2560"
+     inkscape:window-height="853"
+     inkscape:window-width="1440"
      fit-margin-bottom="5"
      fit-margin-right="5"
      fit-margin-left="5"
@@ -1979,8 +1979,8 @@
      inkscape:document-rotation="0"
      inkscape:current-layer="layer1"
      inkscape:document-units="mm"
-     inkscape:cy="1096.0396"
-     inkscape:cx="-412.76277"
+     inkscape:cy="1979.9231"
+     inkscape:cx="-455.85209"
      inkscape:zoom="0.45254834"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
@@ -2300,7 +2300,16 @@
            height="165"
            x="2965"
            y="588.06299" /></flowRegion><flowPara
-         id="flowPara11478" /></flowRoot>    <text
+         id="flowPara11478" /></flowRoot>    <image
+       sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures_si/inkscape/../plots/convergence_2D_LB-AMBER.png"
+       xlink:href="../plots/convergence_2D_LB-AMBER.png"
+       y="-286.45264"
+       x="-763.63135"
+       id="image7420"
+       preserveAspectRatio="none"
+       height="280"
+       width="400" />
+    <text
        xml:space="preserve"
        id="text22084-3"
        style="font-style:normal;font-weight:normal;font-size:19.75559998px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect22086);fill:#000000;fill-opacity:1;stroke:none;stroke-width:1"
@@ -2316,30 +2325,21 @@
     <image
        sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures_si/inkscape/../plots/convergence_2D_noLB-AMBER.png"
        xlink:href="../plots/convergence_2D_noLB-AMBER.png"
-       y="9.2857933"
-       x="-572.09979"
-       id="image7420-7-5"
-       preserveAspectRatio="none"
-       height="280"
-       width="400" />
-    <image
-       sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures_si/inkscape/../plots/convergence_2D_LB-AMBER.png"
-       xlink:href="../plots/convergence_2D_LB-AMBER.png"
        width="400"
        height="280"
        preserveAspectRatio="none"
-       id="image7420"
-       x="-763.63135"
-       y="-286.45264" />
+       id="image7420-7-5"
+       x="-572.09979"
+       y="9.2857933" />
     <image
        sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures_si/inkscape/../plots/convergence_2D_LB-CHARMM.png"
        xlink:href="../plots/convergence_2D_LB-CHARMM.png"
-       y="-285.84448"
-       x="-366.47162"
-       id="image7420-8"
-       preserveAspectRatio="none"
+       width="403.30728"
        height="282.31509"
-       width="403.30728" />
+       preserveAspectRatio="none"
+       id="image7420-8"
+       x="-366.47162"
+       y="-285.84448" />
     <text
        xml:space="preserve"
        id="text22084-3-1"

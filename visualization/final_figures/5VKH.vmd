@@ -526,7 +526,7 @@ mol clipplane color  5 3 top {0.5 0.5 0.5 }
 mol clipplane normal 5 3 top {0.0 0.0 1.0}
 mol clipplane status 5 3 top {0}
 mol representation Surf 1.400000 0.000000
-mol color Name
+mol color ColorID 1
 mol selection {resid 132 129 and nohp}
 mol material AOChalky
 mol addrep top
@@ -1260,7 +1260,7 @@ mol clipplane color  5 3 top {0.5 0.5 0.5 }
 mol clipplane normal 5 3 top {0.0 0.0 1.0}
 mol clipplane status 5 3 top {0}
 mol representation Surf 1.400000 0.000000
-mol color Name
+mol color ColorID 8
 mol selection {resid 132 129 and nohp}
 mol material AOChalky
 mol addrep top

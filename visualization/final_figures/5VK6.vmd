@@ -7,7 +7,7 @@ proc vmdrestoremymaterials {} {
   set mlist { Opaque Transparent BrushedMetal Diffuse Ghost Glass1 Glass2 Glass3 Glossy HardPlastic MetallicPastel Steel Translucent Edgy EdgyShiny EdgyGlass Goodsell AOShiny AOChalky AOEdgy BlownGlass GlassBubble RTChrome AOTransparent AOBright WaterBox }
   set mymlist [material list]
   foreach mat $mlist {
-    if { [lsearch $mymlist $mat] == -1 } {
+    if { [lsearch $mymlist $mat] == -1 } { 
       material add $mat
     }
   }
@@ -777,7 +777,7 @@ mol clipplane color  5 3 top {0.5 0.5 0.5 }
 mol clipplane normal 5 3 top {0.0 0.0 1.0}
 mol clipplane status 5 3 top {0}
 mol representation Surf 1.400000 0.000000
-mol color Name
+mol color ColorID 1
 mol selection {resid 130 129 and nohp}
 mol material AOChalky
 mol addrep top
@@ -845,7 +845,6 @@ mol clipplane color  5 5 top {0.5 0.5 0.5 }
 mol clipplane normal 5 5 top {0.0 0.0 1.0}
 mol clipplane status 5 5 top {0}
 mol rename top 3FB5.pdb
-molinfo top set drawn 0
 set viewpoints([molinfo top]) {{{1 0 0 -40.5675} {0 1 0 -40.2547} {0 0 1 -406.758} {0 0 0 1}} {{0.214424 0.976737 0.00217233 0} {-0.200419 0.0418214 0.978816 0} {0.955954 -0.210318 0.204725 0} {0 0 0 1}} {{0.0395683 0 0 0} {0 0.0395683 0 0} {0 0 0.0395683 0} {0 0 0 1}} {{1 0 0 0} {0 1 0 0} {0 0 1 0} {0 0 0 1}}}
 lappend viewplist [molinfo top]
 # done with molecule 1
@@ -1124,6 +1123,7 @@ mol clipplane color  5 7 top {0.5 0.5 0.5 }
 mol clipplane normal 5 7 top {0.0 0.0 1.0}
 mol clipplane status 5 7 top {0}
 mol rename top 5VK6.pdb
+molinfo top set drawn 0
 set viewpoints([molinfo top]) {{{1 0 0 -40.5675} {0 1 0 -40.2547} {0 0 1 -406.758} {0 0 0 1}} {{0.214424 0.976737 0.00217233 0} {-0.200419 0.0418214 0.978816 0} {0.955954 -0.210318 0.204725 0} {0 0 0 1}} {{0.0395683 0 0 0} {0 0.0395683 0 0} {0 0 0.0395683 0} {0 0 0 1}} {{1 0 0 0} {0 1 0 0} {0 0 1 0} {0 0 0 1}}}
 lappend viewplist [molinfo top]
 # done with molecule 2

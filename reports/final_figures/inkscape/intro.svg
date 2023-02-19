@@ -11,7 +11,7 @@
    inkscape:export-ydpi="96"
    inkscape:export-xdpi="96"
    inkscape:export-filename="../panels/intro.png"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
    sodipodi:docname="intro.svg"
    id="svg8"
    version="1.1"
@@ -1967,10 +1967,10 @@
   <sodipodi:namedview
      showguides="false"
      inkscape:window-maximized="1"
-     inkscape:window-y="0"
+     inkscape:window-y="1"
      inkscape:window-x="0"
-     inkscape:window-height="1011"
-     inkscape:window-width="2560"
+     inkscape:window-height="853"
+     inkscape:window-width="1440"
      fit-margin-bottom="5"
      fit-margin-right="5"
      fit-margin-left="5"
@@ -1979,9 +1979,9 @@
      inkscape:document-rotation="0"
      inkscape:current-layer="layer1"
      inkscape:document-units="mm"
-     inkscape:cy="1138.4516"
-     inkscape:cx="1363.8341"
-     inkscape:zoom="0.32"
+     inkscape:cy="2055.1182"
+     inkscape:cx="-154.3951"
+     inkscape:zoom="0.48"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
      borderopacity="1.0"
@@ -2315,13 +2315,13 @@
            id="tspan495">(a)</tspan></tspan></text>
     <image
        sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures/inkscape/../vmd/closed.tga"
-       xlink:href="file:///data/sperez/Projects/string_sims/reports/final_figures/inkscape/../vmd/closed.tga"
+       xlink:href="../vmd/closed.tga"
        width="400"
        height="280"
        preserveAspectRatio="none"
        id="image7420"
-       x="-701.6582"
-       y="-283.52939" />
+       x="-702.18738"
+       y="-297.81686" />
     <text
        xml:space="preserve"
        id="text22084-3"
@@ -2378,7 +2378,7 @@
        xml:space="preserve"
        id="flowRoot5200-3-3-9"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:21.33333397px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none"
-       transform="matrix(0.26458333,0,0,0.26458333,-696.14102,-377.58025)"><flowRegion
+       transform="matrix(0.26458333,0,0,0.26458333,-695.61185,-377.05108)"><flowRegion
          id="flowRegion5202-6-5-1"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:21.33333397px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#ffffff"><rect
            id="rect5204-7-6-2"
@@ -2388,7 +2388,7 @@
            y="669.92871"
            style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:21.33333397px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#ffffff" /></flowRegion><flowPara
          id="flowPara5206-5-2-7">S1</flowPara></flowRoot>    <image
-       sodipodi:absref="/home/sperez/Projects/string_sims/reports/final_figures/inkscape/../vmd/L81-W67.png"
+       sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures/inkscape/../vmd/L81-W67.png"
        xlink:href="../vmd/L81-W67.png"
        inkscape:export-ydpi="96"
        inkscape:export-xdpi="96"
@@ -2401,7 +2401,7 @@
        width="467.10913"
        transform="matrix(0.99984892,0.01738183,-0.0198023,0.99980392,0,0)" />
     <image
-       sodipodi:absref="/home/sperez/Projects/string_sims/reports/final_figures/inkscape/../vmd/inactivated.png"
+       sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures/inkscape/../vmd/inactivated.png"
        xlink:href="../vmd/inactivated.png"
        width="400"
        height="280"
@@ -2480,7 +2480,7 @@
              id="rect6335-0" /></flowRegion><flowPara
            id="flowPara6337-6">1.2 nm</flowPara></flowRoot>    </g>
     <image
-       sodipodi:absref="/home/sperez/Projects/string_sims/reports/final_figures/inkscape/../vmd/fully_open.png"
+       sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures/inkscape/../vmd/fully_open.png"
        xlink:href="../vmd/fully_open.png"
        width="403.30728"
        height="282.31509"
@@ -2505,7 +2505,7 @@
        xml:space="preserve"
        id="flowRoot5200-1"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:21.33333397px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none"
-       transform="matrix(0.26458333,0,0,0.26458333,-313.93136,-330.81688)"><flowRegion
+       transform="matrix(0.26458333,0,0,0.26458333,-313.40219,-331.87521)"><flowRegion
          id="flowRegion5202-0"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:21.33333397px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#ffffff"><rect
            id="rect5204-3"
@@ -2518,7 +2518,7 @@
        xml:space="preserve"
        id="flowRoot5200-3-0"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:21.33333397px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none"
-       transform="matrix(0.26458333,0,0,0.26458333,-314.46053,-343.80531)"><flowRegion
+       transform="matrix(0.26458333,0,0,0.26458333,-313.40219,-344.86365)"><flowRegion
          id="flowRegion5202-6-3"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:21.33333397px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#ffffff"><rect
            id="rect5204-7-9"
@@ -2531,7 +2531,7 @@
        xml:space="preserve"
        id="flowRoot5200-3-3-96"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:21.33333397px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none"
-       transform="matrix(0.26458333,0,0,0.26458333,-314.9897,-354.85166)"><flowRegion
+       transform="matrix(0.26458333,0,0,0.26458333,-313.40219,-356.96834)"><flowRegion
          id="flowRegion5202-6-5-9"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:21.33333397px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#ffffff"><rect
            id="rect5204-7-6-3"
@@ -2544,7 +2544,7 @@
        xml:space="preserve"
        id="flowRoot5200-3-3-9-8"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:21.33333397px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none"
-       transform="matrix(0.26458333,0,0,0.26458333,-315.51887,-367.73355)"><flowRegion
+       transform="matrix(0.26458333,0,0,0.26458333,-312.87302,-369.85023)"><flowRegion
          id="flowRegion5202-6-5-1-0"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:21.33333397px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#ffffff"><rect
            id="rect5204-7-6-2-5"
