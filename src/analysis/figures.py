@@ -7,11 +7,14 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 from src.analysis.cvs import strings_to_SF_IG
-from src.analysis.plotting import (add_XRD_values,
-                                   all_rmsd_strings_time_series,
-                                   plot_2D_heatmap, plot_trajectories_map,
-                                   strings_time_series,
-                                   two_cv_strings_time_series)
+from src.analysis.plotting import (
+    add_XRD_values,
+    all_rmsd_strings_time_series,
+    plot_2D_heatmap,
+    plot_trajectories_map,
+    strings_time_series,
+    two_cv_strings_time_series,
+)
 from src.analysis.utils import natural_sort
 
 plt.rcParams["axes.facecolor"] = "#f9f9fb"
@@ -32,7 +35,6 @@ def final_FES_IG_SF(
     version="",
     restarts=False,
 ):
-
     F = np.load(f"{path_processed}/{name}/FES_SF_IG.npy")
     extent = np.load(f"{path_processed}/{name}/extent.npy")
 
@@ -76,7 +78,6 @@ def final_FES_path_CV(
     show_cbar=False,
     version="",
 ):
-
     F = np.load(f"{path_processed}/{name}/FES_{cv_name}_path.npy")
     extent = np.load(f"{path_processed}/{name}/extent_{cv_name}_path.npy")
 
@@ -118,7 +119,6 @@ def final_cv_projection(
     ax=None,
     cmap=plt.cm.viridis_r,
 ):
-
     F = np.load(f"{path_processed}/{name}/FES_SF_IG.npy")
     extent = np.load(f"{path_processed}/{name}/extent.npy")
 
@@ -269,7 +269,6 @@ def final_FES_IG_SF_error(
     show_cbar=False,
     version="",
 ):
-
     F = np.load(f"{path_processed}/{name}/FES_SF_IG.npy")
     extent = np.load(f"{path_processed}/{name}/extent.npy")
     errors = np.load(f"{path_processed}/{name}/errors_150_5.npy")
@@ -338,20 +337,11 @@ def final_SF_content(name, path_processed, path_report, fig_title, version=""):
     return fig, ax
 
 
-def final_strings_vs_time_series(name, path_data, path_report, fig_title, version=""):
-
+def final_strings_vs_time_series(
+    name, path_data, path_report, fig_title, select, ylabels, version=""
+):
     with open(f"{path_data}/{name}/cv.pkl", "rb") as file:
         cvs, ndx_groups = pickle.load(file)
-    select = [
-        "CD1_67_A",
-        "CG_81_A",
-        "CD1_67_B",
-        "CG_81_B",
-        "CD1_67_C",
-        "CG_81_C",
-        "CD1_67_D",
-        "CG_81_D",
-    ]
     ndx_groups = {x: ndx_groups[x] for x in select}
     files = natural_sort(glob.glob(f"{path_data}/{name}/strings/string[0-9]*txt"))
     strings = np.array([np.loadtxt(file).T for file in files])
@@ -366,9 +356,47 @@ def final_strings_vs_time_series(name, path_data, path_report, fig_title, versio
         sharey=True,
     )
     for i, a in enumerate(ax.flatten()):
-        a.set_ylabel(f"W67-L81, SU{i} dist. (nm)")
+        a.set_ylabel(ylabels[i])
         a.set_title("")
     fig.tight_layout()
     fig.savefig(f"{path_report}/L81-W67_string_time_series_{name}{version}.png")
+
+    return fig, ax
+
+
+def final_cv_vs_time_series(
+    name,
+    path_data,
+    system_name,
+    path_report,
+    fig_title,
+    select,
+    ylabels,
+    starts,
+    ends,
+    version="",
+):
+    n_beads = 16
+    strings = np.load(f"{path_data}/{system_name}/{name}.npy")[::64, :]
+    it = int(strings.shape[0] / n_beads)
+    strings = np.reshape(strings, [it, n_beads, 4], order="C")
+    strings = np.hstack([strings, ends * np.ones([it, 1, 4])])
+    strings = np.hstack([starts * np.ones([it, 1, 4]), strings])
+    strings = np.swapaxes(strings, 1, 2)
+    fig, ax = strings_time_series(
+        strings,
+        None,
+        start_iteration=1,
+        n_average=25,
+        av_last_n_it=None,
+        sharex=True,
+        sharey=True,
+        y_axis_tic=0.2,
+    )
+    for i, a in enumerate(ax.flatten()):
+        a.set_ylabel(ylabels[i])
+        a.set_title("")
+    fig.tight_layout()
+    fig.savefig(f"{path_report}/{name}_string_time_series_{system_name}{version}.png")
 
     return fig, ax

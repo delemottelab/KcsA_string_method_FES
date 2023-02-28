@@ -94,6 +94,7 @@ def strings_time_series(
     av_last_n_it=None,
     sharey=False,
     sharex=False,
+    y_axis_tic=0.1,
 ):
     n_plots = strings.shape[1]
     n_strings = strings.shape[0]
@@ -135,17 +136,19 @@ def strings_time_series(
                 color="mediumorchid",
                 label=f"mean(string{start_iteration}-{n_strings})",
             )
-        a.set_ylabel(
-            f"{list(ndx_groups.keys())[2*i]} - {list(ndx_groups.keys())[2*i+1]} (nm)",
-            size=18,
-            labelpad=16,
-        )
+            if ndx_groups is None:
+                a.set_ylabel(
+                    f"{list(ndx_groups.keys())[2*i]} -"
+                    f" {list(ndx_groups.keys())[2*i+1]} (nm)",
+                    size=18,
+                    labelpad=16,
+                )
         a.set_xlabel("bead number", size=15, labelpad=13)
         a.set_xlim(left=0, right=strings.shape[2] - 1)
         a.xaxis.set_minor_locator(MultipleLocator(1))
         a.xaxis.set_major_locator(MultipleLocator(1))
-        a.yaxis.set_minor_locator(MultipleLocator(0.1))
-        a.yaxis.set_major_locator(MultipleLocator(0.1))
+        a.yaxis.set_minor_locator(MultipleLocator(y_axis_tic))
+        a.yaxis.set_major_locator(MultipleLocator(y_axis_tic))
         a.grid(which="minor")
         a.tick_params(axis="y", labelsize=14)
         a.tick_params(axis="x", labelsize=11)
