@@ -11,7 +11,7 @@
    inkscape:export-ydpi="96"
    inkscape:export-xdpi="96"
    inkscape:export-filename="/Users/sperez/Projects/string_sims/reports/final_figures/panels/path_vs_CV.png"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
    sodipodi:docname="path_vs_CV.svg"
    id="svg8"
    version="1.1"
@@ -1519,11 +1519,11 @@
   </defs>
   <sodipodi:namedview
      showguides="false"
-     inkscape:window-maximized="0"
-     inkscape:window-y="0"
-     inkscape:window-x="0"
-     inkscape:window-height="1007"
-     inkscape:window-width="2552"
+     inkscape:window-maximized="1"
+     inkscape:window-y="24"
+     inkscape:window-x="65"
+     inkscape:window-height="1305"
+     inkscape:window-width="2495"
      fit-margin-bottom="5"
      fit-margin-right="5"
      fit-margin-left="5"
@@ -1532,9 +1532,9 @@
      inkscape:document-rotation="0"
      inkscape:current-layer="layer1"
      inkscape:document-units="mm"
-     inkscape:cy="2007.5813"
-     inkscape:cx="1481.1926"
-     inkscape:zoom="0.23751143"
+     inkscape:cy="1402.0822"
+     inkscape:cx="728.48435"
+     inkscape:zoom="0.40120419"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
      borderopacity="1.0"
@@ -1568,6 +1568,39 @@
      id="layer1"
      inkscape:groupmode="layer"
      inkscape:label="Layer 1">
+    <g
+       id="g1568"
+       transform="translate(87.312549,66.675036)">
+      <image
+         sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures/inkscape/../plots/FES_IG_path.png"
+         xlink:href="../plots/FES_IG_path.png"
+         y="323.117"
+         x="-581.12054"
+         id="image7420"
+         preserveAspectRatio="none"
+         height="280"
+         width="400" />
+      <image
+         transform="scale(-1)"
+         width="187.88176"
+         height="127.56757"
+         preserveAspectRatio="none"
+         xlink:href="file:///data/sperez/Projects/string_sims/reports/final_figures/vmd/IG_C_innset.tga"
+         id="image1500"
+         x="345.58191"
+         y="-684.95886"
+         sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures/vmd/IG_C_innset.tga" />
+      <image
+         transform="scale(1,-1)"
+         width="187.94321"
+         height="112.16988"
+         preserveAspectRatio="none"
+         xlink:href="file:///data/sperez/Projects/string_sims/reports/final_figures/vmd/IG_I_innset.tga"
+         id="image1562"
+         x="-393.13565"
+         y="-494.15033"
+         sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures/vmd/IG_I_innset.tga" />
+    </g>
     <image
        sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures/inkscape/../plots/FES_dis_R64-D80_path.png"
        xlink:href="../plots/FES_dis_R64-D80_path.png"
@@ -1911,15 +1944,6 @@
              id="tspan295">(b)</tspan></tspan></text>
     </g>
     <image
-       sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures/inkscape/../plots/FES_IG_path.png"
-       xlink:href="../plots/FES_IG_path.png"
-       width="400"
-       height="280"
-       preserveAspectRatio="none"
-       id="image7420"
-       x="-492.77664"
-       y="389.48706" />
-    <image
        sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures/inkscape/../plots/FES_dis_T74-F103_path.png"
        xlink:href="../plots/FES_dis_T74-F103_path.png"
        width="400"
@@ -1999,5 +2023,83 @@
        preserveAspectRatio="none"
        height="280"
        width="400" />
+    <image
+       sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures/vmd/T74-103_C_innset.tga"
+       y="-629.19226"
+       x="-142.18944"
+       id="image5332"
+       xlink:href="file:///data/sperez/Projects/string_sims/reports/final_figures/vmd/T74-103_C_innset.tga"
+       preserveAspectRatio="none"
+       height="82.045258"
+       width="122.2124"
+       transform="scale(-1)" />
+    <image
+       sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures/vmd/T74-103_I_innset.tga"
+       y="-515.84955"
+       x="-269.88846"
+       id="image5426"
+       xlink:href="file:///data/sperez/Projects/string_sims/reports/final_figures/vmd/T74-103_I_innset.tga"
+       preserveAspectRatio="none"
+       height="89.368111"
+       width="133.12033"
+       transform="scale(-1)" />
+    <image
+       sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures/vmd/F103_C_innset.tga"
+       y="-974.38165"
+       x="-167.22252"
+       id="image5520"
+       xlink:href="file:///data/sperez/Projects/string_sims/reports/final_figures/vmd/F103_C_innset.tga"
+       preserveAspectRatio="none"
+       height="68.261147"
+       width="101.67996"
+       transform="scale(-1)" />
+    <image
+       sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures/vmd/F103_I_innset.tga"
+       y="-913.57281"
+       x="-310.05142"
+       id="image5614"
+       xlink:href="file:///data/sperez/Projects/string_sims/reports/final_figures/vmd/F103_I_innset.tga"
+       preserveAspectRatio="none"
+       height="66.723846"
+       width="99.390045"
+       transform="scale(-1)" />
+    <image
+       sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures/vmd/R64-D80_C_innset.tga"
+       y="-1326.8961"
+       x="267.05847"
+       id="image5676"
+       xlink:href="file:///data/sperez/Projects/string_sims/reports/final_figures/vmd/R64-D80_C_innset.tga"
+       preserveAspectRatio="none"
+       height="90.541771"
+       width="134.86859"
+       transform="scale(-1)" />
+    <image
+       sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures/vmd/R64-D80_I_innset.tga"
+       y="-1317.464"
+       x="34.755798"
+       id="image5818"
+       xlink:href="file:///data/sperez/Projects/string_sims/reports/final_figures/vmd/R64-D80_I_innset.tga"
+       preserveAspectRatio="none"
+       height="101.10883"
+       width="150.60898"
+       transform="scale(-1)" />
+    <image
+       sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures/vmd/E71_innset_v2_I.png"
+       y="755.26086"
+       x="-198.3721"
+       id="image1991"
+       xlink:href="file:///data/sperez/Projects/string_sims/reports/final_figures/vmd/E71_innset_v2_I.png"
+       preserveAspectRatio="none"
+       height="90.823814"
+       width="187.2933" />
+    <image
+       sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures/vmd/E71_innset_v2_C.png"
+       y="836.69983"
+       x="-421.81912"
+       id="image2085"
+       xlink:href="file:///data/sperez/Projects/string_sims/reports/final_figures/vmd/E71_innset_v2_C.png"
+       preserveAspectRatio="none"
+       height="87.614967"
+       width="167.50909" />
   </g>
 </svg>
