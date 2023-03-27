@@ -15,8 +15,8 @@
    sodipodi:docname="path_vs_CV_AMBER.svg"
    id="svg8"
    version="1.1"
-   viewBox="0 0 878.48675 319.93833"
-   height="319.93826mm"
+   viewBox="0 0 878.48674 671.21439"
+   height="671.21423mm"
    width="878.48682mm">
   <defs
      id="defs2">
@@ -1520,10 +1520,10 @@
   <sodipodi:namedview
      showguides="false"
      inkscape:window-maximized="0"
-     inkscape:window-y="0"
-     inkscape:window-x="0"
+     inkscape:window-y="24"
+     inkscape:window-x="65"
      inkscape:window-height="1007"
-     inkscape:window-width="2552"
+     inkscape:window-width="2495"
      fit-margin-bottom="5"
      fit-margin-right="5"
      fit-margin-left="5"
@@ -1532,8 +1532,8 @@
      inkscape:document-rotation="0"
      inkscape:current-layer="layer1"
      inkscape:document-units="mm"
-     inkscape:cy="1338.6869"
-     inkscape:cx="3255.8478"
+     inkscape:cy="1668.5636"
+     inkscape:cx="2538.8032"
      inkscape:zoom="0.24756253"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
@@ -1548,8 +1548,8 @@
     <inkscape:grid
        type="xygrid"
        id="grid3013"
-       originx="-90.737434"
-       originy="263.24551" />
+       originx="-100.37048"
+       originy="614.52186" />
   </sodipodi:namedview>
   <metadata
      id="metadata5">
@@ -1564,7 +1564,7 @@
     </rdf:RDF>
   </metadata>
   <g
-     transform="translate(497.77664,-1392.4297)"
+     transform="translate(488.14355,-1392.4297)"
      id="layer1"
      inkscape:groupmode="layer"
      inkscape:label="Layer 1">
@@ -1872,47 +1872,93 @@
       </flowRegion>
       <flowPara
    id="flowPara11478" />
-    </flowRoot>    <image
-       sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures_si/inkscape/../plots/FES_dis_T74-I100_path_AMBER.png"
-       xlink:href="../plots/FES_dis_T74-I100_path_AMBER.png"
+    </flowRoot>    <g
+       id="g1435"
+       transform="translate(9.6330969)">
+      <image
+         sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures_si/inkscape/../plots/FES_dis_T74-I100_path_AMBER.png"
+         xlink:href="../plots/FES_dis_T74-I100_path_AMBER.png"
+         width="400"
+         height="280"
+         preserveAspectRatio="none"
+         id="image7318-3"
+         x="-492.77664"
+         y="1427.3679" />
+      <image
+         sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures_si/inkscape/../plots/FES_dis_R89-D80_path_AMBER.png"
+         xlink:href="../plots/FES_dis_R89-D80_path_AMBER.png"
+         y="1427.3679"
+         x="-24.289839"
+         id="image11337-3-9"
+         preserveAspectRatio="none"
+         height="280"
+         width="400" />
+      <flowRoot
+         transform="matrix(0.26458333,0,0,0.26458333,-524.23497,1378.9461)"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+         id="flowRoot1446"
+         xml:space="preserve"><flowRegion
+           id="flowRegion1448"><rect
+             y="54.828823"
+             x="168.52025"
+             height="114.25101"
+             width="202.79555"
+             id="rect1450" /></flowRegion><flowPara
+           style="font-size:85.33333588px"
+           id="flowPara1452">(a)</flowPara></flowRoot>      <flowRoot
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+         id="flowRoot1446-3"
+         xml:space="preserve"
+         transform="matrix(0.26458333,0,0,0.26458333,-53.914564,1378.9461)"><flowRegion
+           id="flowRegion1448-6"><rect
+             y="54.828823"
+             x="168.52025"
+             height="114.25101"
+             width="202.79555"
+             id="rect1450-7" /></flowRegion><flowPara
+           style="font-size:85.33333588px"
+           id="flowPara1452-5">(b)</flowPara></flowRoot>    </g>
+    <image
+       sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures_si/inkscape/../plots/FES_dis_P-R64_path_AMBER.png"
+       xlink:href="../plots/FES_dis_P-R64_path_AMBER.png"
        width="400"
        height="280"
        preserveAspectRatio="none"
-       id="image7318-3"
-       x="-492.77664"
-       y="1427.3679" />
+       id="image7318-3-6"
+       x="-483.14355"
+       y="1778.6439" />
     <image
-       sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures_si/inkscape/../plots/FES_dis_R89-D80_path_AMBER.png"
-       xlink:href="../plots/FES_dis_R89-D80_path_AMBER.png"
-       y="1427.3679"
-       x="-24.289839"
-       id="image11337-3-9"
+       sodipodi:absref="/data/sperez/Projects/string_sims/reports/final_figures_si/inkscape/../plots/FES_dis_P-R89_path_AMBER.png"
+       xlink:href="../plots/FES_dis_P-R89_path_AMBER.png"
+       y="1778.6439"
+       x="-14.656742"
+       id="image11337-3-9-7"
        preserveAspectRatio="none"
        height="280"
        width="400" />
     <flowRoot
        xml:space="preserve"
-       id="flowRoot1446"
+       id="flowRoot1446-5"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
-       transform="matrix(0.26458333,0,0,0.26458333,-524.23497,1378.9461)"><flowRegion
-         id="flowRegion1448"><rect
-           id="rect1450"
+       transform="matrix(0.26458333,0,0,0.26458333,-514.60187,1730.2221)"><flowRegion
+         id="flowRegion1448-3"><rect
+           id="rect1450-5"
            width="202.79555"
            height="114.25101"
            x="168.52025"
            y="54.828823" /></flowRegion><flowPara
-         id="flowPara1452"
-         style="font-size:85.33333588px">(a)</flowPara></flowRoot>    <flowRoot
-       transform="matrix(0.26458333,0,0,0.26458333,-53.914564,1378.9461)"
+         id="flowPara1452-6"
+         style="font-size:85.33333588px">(c)</flowPara></flowRoot>    <flowRoot
+       transform="matrix(0.26458333,0,0,0.26458333,-44.281467,1730.2221)"
        xml:space="preserve"
-       id="flowRoot1446-3"
+       id="flowRoot1446-3-2"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"><flowRegion
-         id="flowRegion1448-6"><rect
-           id="rect1450-7"
+         id="flowRegion1448-6-9"><rect
+           id="rect1450-7-1"
            width="202.79555"
            height="114.25101"
            x="168.52025"
            y="54.828823" /></flowRegion><flowPara
-         id="flowPara1452-5"
-         style="font-size:85.33333588px">(b)</flowPara></flowRoot>  </g>
+         id="flowPara1452-5-2"
+         style="font-size:85.33333588px">(d)</flowPara></flowRoot>  </g>
 </svg>
