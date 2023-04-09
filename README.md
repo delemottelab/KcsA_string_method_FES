@@ -1,5 +1,5 @@
-# Dissecting the inactivation mechanism of KcsA with free energy molecular dynamics simulations
-
+# Free energy landscapes of KcsA
+2 inactivation
 **Authors: Sergio Pérez-Conesa and Lucie Delemotte**
 
 ------------
@@ -28,7 +28,7 @@
   <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="MIT license">
 </a>
 <a href="">
-  <img src="http://img.shields.io/badge/DOI-XXXXX-B31B1B.svg" alt="DOI:XXXXX">
+  <img src="http://img.shields.io/badge/DOI-10.1101/2023.04.05.535698-B31B1B.svg" alt="DOI:10.1101/2023.04.05.535698">
 </a>
 <a href="https://twitter.com/intent/follow?screen_name=sperezconesa">
   <img src="https://img.shields.io/twitter/follow/sperezconesa?style=social&logo=twitter" alt="follow on Twitter">
@@ -46,8 +46,16 @@
 
 ------------
 ![](./reports/final_figures/plots/FES_LB-CHARMM.png)
+ The bacterial ion channel KcsA has become a useful model of complex K+-ion channels thanks to its single pore domain structure whose sequence shares many similarities with eukaryotic channels. Like many physiologically-relevant ion channels, KcsA inacti
+vates after prolonged exposure to stimuli (in this case, a lowered pH). The inactivation mechanism has been heavily investigated, using structural, functional and simulations methods, but the molecular basis underlying the energetics of the process remain
+s actively debated. In this work, we use the ``string method with swarms of trajectories'' enhanced sampling technique to characterize the free energy landscape lining the KcsA inactivation process. After channel opening following a pH drop, KcsA presents
+ metastable open states leading to an inactivated state. The final inactivation step consists of a constriction of the selectivty filter and entry of three water molecules into binding sites behind each selectivity filter subunit. Based our simulations, w
+e propose a key role for residue L81 in opening a gateway for water molecules to enter their buried sites, rather than for Y82 which has previously been suggested to act as a lid. In addition, since we found the energetically favored inactivation mechanis
+m to be dependent on the force field, our results also address the importance of parameter choice for this type of mechanism. In particular, inactivation involves passing through the fully-open state only when using the AMBER force field. In contrast, usi
+ng CHARMM, selectivity filter constriction proceeds directly from the partially open state. Finally, our simulations suggest that removing the co-purifying lipids stabilizes the partially open states, rationalizing their importance for the proper inactiva
+tion of the channel.
 
-This project has a description given here by [Sergio Pérez-Conesa](https://www.linkedin.com/in/sperezconesa/). We are  members of the [Delemottelab](https://github.com/delemottelab) led by [prof. Lucie Delemotte](https://www.biophysics.se/index.php/members/lucie-delemotte/). All the explanations can be found in the article and the rest of code and data [here](https://osf.io/snwbc/?view_only=1338fd9e92f941deb7452525c1e9fdfa)
+This code was developed by [Sergio Pérez-Conesa](https://www.linkedin.com/in/sperezconesa/). I am a member of the [Delemottelab](https://github.com/delemottelab) led by [prof. Lucie Delemotte](https://www.biophysics.se/index.php/members/lucie-delemotte/). All the explanations can be found in the article and the rest of code and data [here](https://osf.io/snwbc/?view_only=1338fd9e92f941deb7452525c1e9fdfa)
 
 I am happy to connect and discuss this and other projects through [github](https://github.com/sperezconesa), [linkedin](https://www.linkedin.com/in/sperezconesa), [twitter](https://twitter.com/sperezconesa), [email](sperezconesa@gmail.com) etc.
 Feel free to suggest ways we could have improved this code.
@@ -56,7 +64,7 @@ You can find more updates on the Delemottelab on [twitter](https://twitter.com/d
 
 If you want to cite this code, please use CITE.bib, thank you!
 
-Published Preprint: Coming soon :wink: []()
+[Published Preprint](https://www.biorxiv.org/content/10.1101/2023.04.05.535698v1)
 
 Published Article: Coming soon :wink: []()
 
@@ -126,15 +134,3 @@ Project based on the [cookiecutter for Molecular Dynamics](https://github.com/sp
 
 ------------
 
-## To Do
-
-- [x] Clean-up the repository of unused or WIP files.
-- [x] Make a version specific `environment_exact.yml`.
-- [ ] Rewrite `README.md`.
-- [ ] Save notebooks with images.
-- [x] Add github badges.
-- [ ] Update github and go public.
-- [ ] Update arxiv link.
-- [ ] Update `CITE.bib` and doi badge.
-- [x] Make repo for big files and link it in `README.md`.
-- [ ] Update article link and doi badge.
