@@ -1,5 +1,4 @@
-# Free energy landscapes of KcsA
-2 inactivation
+# Free energy landscapes of KcsA inactivation
 **Authors: Sergio Pérez-Conesa and Lucie Delemotte**
 
 ------------
@@ -28,7 +27,7 @@
   <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="MIT license">
 </a>
 <a href="">
-  <img src="http://img.shields.io/badge/DOI-10.1101/2023.04.05.535698-B31B1B.svg" alt="DOI:10.1101/2023.04.05.535698">
+  <img src="http://img.shields.io/badge/DOI-535698-B31B1B.svg" alt="DOI:535698">
 </a>
 <a href="https://twitter.com/intent/follow?screen_name=sperezconesa">
   <img src="https://img.shields.io/twitter/follow/sperezconesa?style=social&logo=twitter" alt="follow on Twitter">
